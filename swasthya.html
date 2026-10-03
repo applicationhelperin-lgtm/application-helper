@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>स्वास्थ्य एवं चिकित्सा (Health & Hospital) आवेदन पत्र जनरेटर</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;600;700&family=Inter:wght@400;600;700&family=Mukta:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#eef1f5;--panel:#fff;--ink:#1b2430;--muted:#5a6675;--line:#cfd6df;--accent:#1f4e8c;--accent-ink:#fff;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#12161c;--panel:#1c222b;--ink:#e8edf3;--muted:#9aa6b4;--line:#333c48;--accent:#6ea3e6;--accent-ink:#0d1622}}
+:root[data-theme="dark"]{--bg:#12161c;--panel:#1c222b;--ink:#e8edf3;--muted:#9aa6b4;--line:#333c48;--accent:#6ea3e6;--accent-ink:#0d1622}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--ink);
+  font-family:"Noto Sans Devanagari","Inter","Mukta",system-ui,sans-serif;
+  line-height:1.5;
+  -webkit-text-size-adjust:100%;
+}
+
+/* शीर्ष नेविगेशन बार */
+.top-nav{background:var(--panel);border-bottom:1px solid var(--line);padding:10px 16px;display:flex;align-items:center;justify-content:space-between;max-width:1200px;margin:0 auto;gap:10px;flex-wrap:wrap}
+.top-nav a{color:var(--accent);text-decoration:none;font-weight:600;display:inline-flex;align-items:center;gap:6px;font-size:.9rem}
+.top-nav a:hover{text-decoration:underline}
+.top-nav .portal-title{font-size:.95rem;font-weight:600;color:var(--muted)}
+.theme-btn{background:var(--bg);border:1px solid var(--line);color:var(--ink);border-radius:20px;padding:6px 14px;font-size:.85rem;font-weight:600;cursor:pointer;display:inline-flex;align-items:center;gap:6px;font-family:inherit}
+.theme-btn:hover{border-color:var(--accent);color:var(--accent)}
+
+.app{display:grid;gap:16px;padding:16px;max-width:1200px;margin:0 auto}
+@media(min-width:900px){.app{grid-template-columns:370px 1fr;align-items:start}.form{position:sticky;top:16px;max-height:calc(100vh - 32px);overflow:auto}}
+
+.security-banner{
+  grid-column:1/-1;
+  background:#13294b;
+  color:#e8edf3;
+  border:1px solid #244673;
+  border-left:5px solid #3b82f6;
+  padding:12px 16px;
+  border-radius:8px;
+  font-size:.88rem;
+  line-height:1.55;
+  box-shadow:0 1px 4px rgba(0,0,0,.08);
+}
+@media (prefers-color-scheme:light){
+  :root:not([data-theme="dark"]) .security-banner{
+    background:#e9f2fd;
+    color:#14325a;
+    border-color:#bed8f9;
+    border-left-color:#1f4e8c;
+  }
+}
+
+.form{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:16px}
+h1{font-size:1.15rem;margin:0 0 12px;font-weight:600}
+label{display:block;font-size:.85rem;margin:10px 0 3px;font-weight:600}
+input[type=text],input[type=tel],input[type=date],select,textarea{width:100%;padding:9px 10px;font:inherit;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:6px}
+textarea{resize:vertical;min-height:55px}
+input:focus-visible,select:focus-visible,textarea:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:1px}
+.seg{display:flex;gap:8px;margin-top:8px}
+.seg label{flex:1;margin:0;font-weight:400}
+.seg input{position:absolute;opacity:0}
+.seg span{display:block;text-align:center;padding:8px 6px;border:1px solid var(--line);border-radius:6px;cursor:pointer;background:var(--bg);font-size:.88rem}
+.seg input:checked+span{background:var(--accent);color:var(--accent-ink);border-color:var(--accent);font-weight:600}
+.seg input:focus-visible+span{outline:2px solid var(--accent);outline-offset:1px}
+.female-rel-wrap{margin-top:8px;padding:8px;border:1px dashed var(--line);border-radius:6px;background:var(--bg)}
+.female-rel-wrap span{font-size:.82rem}
+
+.btns{display:flex;gap:8px;margin-top:16px}
+button{font:inherit;padding:10px 14px;border-radius:6px;border:1px solid var(--accent);cursor:pointer}
+.primary{flex:1;background:var(--accent);color:var(--accent-ink);font-weight:600}
+.ghost{background:transparent;color:var(--accent)}
+.hint{color:var(--muted);font-size:.78rem;margin:10px 0 0;line-height:1.5}
+
+/* A4 शीट प्रिव्यू */
+.sheetwrap{container-type:inline-size;width:100%}
+.paper{
+  background:#fff;
+  color:#000;
+  width:100%;
+  max-width:210mm;
+  margin:0 auto;
+  aspect-ratio:210/297;
+  padding:6.2cqw 7.5cqw;
+  font-size:min(12.5pt,2.2cqw);
+  line-height:1.72;
+  box-shadow:0 2px 12px rgba(0,0,0,.18);
+  font-family:"Noto Sans Devanagari","Inter","Mukta",sans-serif;
+  overflow:hidden;
+}
+.paper h2{
+  font-size:1.26em;
+  text-align:center;
+  margin:0 0 1.05em;
+  text-decoration:underline;
+  text-underline-offset:.25em;
+  font-weight:700;
+  color:#102A43; /* डार्क मोड में भी हमेशा साफ़ और पठनीय */
+}
+.paper p{margin:0 0 .82em;text-align:justify}
+.paper[contenteditable="true"]:focus-visible{outline:2px dashed var(--accent);outline-offset:3px}
+.paper .to{margin-bottom:.9em;line-height:1.62}
+
+/* विवरण बॉक्स */
+.paper .info-box{
+  background:#f9fafb;
+  border:1.2px solid #cbd5e1;
+  border-radius:4px;
+  padding:8px 14px;
+  margin:8px 0 12px;
+  font-size:0.96em;
+  line-height:1.62;
+}
+.paper .info-grid{display:grid;grid-template-columns:1fr 1fr;gap:4px 14px}
+.paper .enclosure-box{margin-top:1.1em;padding-top:.65em;border-top:1px dashed #aaa;font-size:0.92em;line-height:1.58}
+.paper .enclosure-box b{display:block;margin-bottom:3px}
+.paper .enclosure-list{margin:0;padding-left:18px}
+.paper .enclosure-list li{margin-bottom:3px}
+
+.paper .sig{display:flex;justify-content:space-between;align-items:flex-end;margin-top:2.1em;line-height:1.68}
+.paper .sig .left{width:46%;text-align:left}
+.paper .sig .right{width:50%;text-align:left;margin-left:auto}
+.blank{display:inline-block;border-bottom:1px dotted #000;height:1em;vertical-align:baseline}
+
+/* 90% बड़ा फैलाव मोड */
+.paper.fit-90{padding:5.2cqw 6.8cqw;font-size:min(13.4pt,2.38cqw);line-height:1.82}
+.paper.fit-90 p{margin:0 0 .95em}
+.paper.fit-90 .to{margin-bottom:1.05em;line-height:1.7}
+.paper.fit-90 .sig{margin-top:2.6em;line-height:1.75}
+
+/* कॉम्पैक्ट मोड */
+.paper.compact{padding:4.5cqw 6cqw;font-size:min(11pt,1.9cqw);line-height:1.48}
+.paper.compact p{margin:0 0 .42em}
+.paper.compact .to{margin-bottom:.5em;line-height:1.4}
+.paper.compact .sig{margin-top:1.2em;line-height:1.45}
+.paper.compact .info-box{padding:4px 8px;margin:4px 0 6px}
+
+@media print{
+  @page{
+    size:A4;
+    margin:0;
+  }
+  html,body{
+    background:#fff !important;
+    margin:0 !important;
+    padding:0 !important;
+  }
+  .top-nav,.security-banner,.form{
+    display:none !important;
+  }
+  .app{
+    display:block !important;
+    padding:0 !important;
+    max-width:none !important;
+  }
+  .sheetwrap{
+    container-type:normal !important;
+  }
+  .paper{
+    background:#fff !important;
+    color:#000 !important;
+    width:210mm !important;
+    height:297mm !important;
+    max-height:297mm !important;
+    box-sizing:border-box !important;
+    aspect-ratio:auto !important;
+    padding:16mm 20mm 14mm 20mm !important;
+    font-size:12.5pt !important;
+    line-height:1.72 !important;
+    box-shadow:none !important;
+    page-break-after:avoid !important;
+    page-break-inside:avoid !important;
+    overflow:hidden !important;
+  }
+  .paper h2{
+    font-size:1.28em !important;
+    margin:0 0 1.05em !important;
+    letter-spacing:0.02em !important;
+    color:#000 !important;
+  }
+  .paper p{
+    margin:0 0 0.82em !important;
+    text-align:justify !important;
+  }
+  .paper .to{
+    margin-bottom:0.9em !important;
+    line-height:1.62 !important;
+  }
+  .paper .info-box{
+    background:#fff !important;
+    border:1.2px solid #000 !important;
+    padding:8px 14px !important;
+    margin:8px 0 12px !important;
+    font-size:0.96em !important;
+    line-height:1.62 !important;
+  }
+  .paper .sig{
+    margin-top:2.1em !important;
+    line-height:1.68 !important;
+  }
+  .paper .enclosure-box{
+    margin-top:1.1em !important;
+    padding-top:0.65em !important;
+    border-top:1px dashed #555 !important;
+    font-size:0.92em !important;
+    line-height:1.58 !important;
+  }
+  .paper .enclosure-list li{
+    margin-bottom:3px !important;
+  }
+  .paper.fit-90{
+    padding:13mm 18mm 11mm 18mm !important;
+    font-size:13.4pt !important;
+    line-height:1.82 !important;
+  }
+  .paper.fit-90 p{
+    margin:0 0 0.95em !important;
+  }
+  .paper.fit-90 .sig{
+    margin-top:2.6em !important;
+  }
+  .paper.compact{
+    padding:10mm 16mm 8mm 16mm !important;
+    font-size:11pt !important;
+    line-height:1.48 !important;
+  }
+  .paper.compact p{
+    margin:0 0 0.42em !important;
+  }
+  .paper.compact .sig{
+    margin-top:1.2em !important;
+  }
+}
+</style>
+</head>
+<body>
+
+<div class="top-nav">
+  <a href="index.html" id="backLink">← मुख्य पोर्टल (Home Portal)</a>
+  <span class="portal-title" id="portalTitle">स्वास्थ्य एवं चिकित्सा प्रभाग (Health & Hospital Services)</span>
+  <button id="themeToggleBtn" type="button" class="theme-btn">
+    <span id="thIcon">🌙</span> <span id="thText">नाइट मोड</span>
+  </button>
+</div>
+
+<div class="app">
+  <aside class="security-banner">
+    <span id="uiBanner">🔒 <strong>100% सुरक्षित एवं निजी:</strong> यह टूल पूरी तरह आपके डिवाइस पर स्थानीय रूप से चलता है। आपकी कोई भी व्यक्तिगत या मेडिकल जानकारी सर्वर पर नहीं भेजी जाती। जो जानकारी नहीं भरेंगे, प्रिंट में वहाँ रिक्त रेखा रहेगी जिसे पेन से भरा जा सकता है।</span>
+  </aside>
+
+  <section class="form" aria-label="आवेदन पत्र सेटिंग्स">
+    <h1 id="uiHeading">स्वास्थ्य एवं चिकित्सा (Health & Hospital) आवेदन पत्र</h1>
+
+    <label id="lblLang">भाषा चुनें / Choose Language</label>
+    <div class="seg" role="radiogroup" aria-label="Language">
+      <label><input type="radio" name="lang" value="hi" checked><span id="optLangHi">हिंदी (Hindi)</span></label>
+      <label><input type="radio" name="lang" value="en"><span id="optLangEn">English</span></label>
+    </div>
+
+    <label for="tpl" id="lblTpl">आवेदन पत्र का प्रकार</label>
+    <select id="tpl"></select>
+
+    <label id="lblPageFit">पेज भराव / प्रिंट फैलाव (Page Coverage)</label>
+    <div class="seg" role="radiogroup" aria-label="Page Coverage" id="fitWrap">
+      <label><input type="radio" name="page_fit" value="fit80" checked><span id="optFit80">80% संतुलित (Default)</span></label>
+      <label><input type="radio" name="page_fit" value="fit90"><span id="optFit90">90% बड़ा (Full)</span></label>
+      <label><input type="radio" name="page_fit" value="compact"><span id="optFitCompact">कॉम्पैक्ट (छोटा)</span></label>
+    </div>
+
+    <label id="lblGender">आवेदक / प्रार्थी</label>
+    <div class="seg" role="radiogroup" aria-label="आवेदक" id="genderWrap">
+      <label><input type="radio" name="g" value="m" checked><span id="gMale">पुरुष (Male)</span></label>
+      <label><input type="radio" name="g" value="f"><span id="gFemale">महिला (Female)</span></label>
+    </div>
+
+    <div id="fields"></div>
+
+    <div class="btns">
+      <button class="primary" id="print" type="button">प्रिंट करें</button>
+      <button class="ghost" id="clear" type="button">साफ़ करें</button>
+    </div>
+    <p class="hint" id="uiHint">जो जानकारी नहीं भरेंगे, प्रिंट में वहाँ खाली जगह छूट जाएगी। प्रिंट करने से पहले आप सीधे दाईं ओर पत्र पर क्लिक करके भी कोई बदलाव (एडिट) कर सकते हैं।</p>
+  </section>
+
+  <div class="sheetwrap"><article class="paper" id="paper" contenteditable="true" spellcheck="false" aria-label="आवेदन पत्र पूर्वावलोकन"></article></div>
+</div>
+
+<script>
+(function(){
+  var curLang = "hi";
+  try {
+    var savedLang = localStorage.getItem("app_lang");
+    if(savedLang === "en" || savedLang === "hi") curLang = savedLang;
+  } catch(e){}
+
+  var cur = 0;
+  var V = {};
+
+  function $(id){ return document.getElementById(id); }
+  function esc(s){ return (s||"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;"); }
+
+  // 1. पहले से सेव थीम को लोड करें
+  var dark = false;
+  try {
+    dark = localStorage.getItem("app_theme") === "dark";
+  } catch(e){}
+  document.documentElement.setAttribute("data-theme", dark ? "dark" : "light");
+
+  // 2. बटन का आइकन और टेक्स्ट बदलने का फंक्शन
+  function updateThemeUI(){
+    var icon = $("thIcon");
+    var txt = $("thText");
+    if(!icon || !txt) return;
+    icon.textContent = dark ? "☀️" : "🌙";
+    txt.textContent = dark ? 
+      (curLang === "en" ? "Light Mode" : "लाइट मोड") : 
+      (curLang === "en" ? "Night Mode" : "नाइट मोड");
+  }
+
+  // 3. बटन पर क्लिक करने पर नाइट मोड टॉगल
+  var thBtn = $("themeToggleBtn");
+  if(thBtn){
+    thBtn.addEventListener("click", function(){
+      dark = !dark;
+      document.documentElement.setAttribute("data-theme", dark ? "dark" : "light");
+      try { localStorage.setItem("app_theme", dark ? "dark" : "light"); } catch(e){}
+      updateThemeUI();
+    });
+  }
+
+  function getTodayDate(){
+    var d = new Date();
+    var dd = String(d.getDate()).padStart(2, '0');
+    var mm = String(d.getMonth() + 1).padStart(2, '0');
+    return dd + '/' + mm + '/' + d.getFullYear();
+  }
+  V.date = getTodayDate();
+
+  var F = {
+    "office_name": ["अस्पताल / स्वास्थ्य केंद्र / कार्यालय का नाम", "t", 28, 0, "Hospital / Health Centre / Office Name"],
+    "district_state": ["जिला एवं राज्य", "t", 22, 0, "District & State"],
+    "applicant_name": ["आवेदक / रोगी का पूरा नाम", "t", 22, 0, "Applicant / Patient Full Name"],
+    "guardian_name": ["पिता / माता / अभिभावक का नाम", "t", 22, 0, "Father / Mother / Guardian Name"],
+    "father_husband_name": ["पिता / पति का नाम", "t", 22, 0, "Father / Husband Name"],
+    "applicant_address": ["पूरा पता (Full Address)", "t", 28, 0, "Full Residential Address"],
+    "mobile": ["मोबाइल नंबर", "n", 12, 10, "Mobile Number"],
+    "aadhar_no": ["आधार संख्या (Aadhaar No.)", "n", 14, 12, "Aadhaar Number"],
+    "place": ["स्थान", "t", 14, 0, "Place"],
+    "date": ["आवेदन की तिथि (DD/MM/YYYY)", "d", 11, 0, "Application Date (DD/MM/YYYY)"],
+    "disability_type": ["दिव्यांगता का प्रकार / शारीरिक समस्या", "t", 26, 0, "Type of Disability / Condition"],
+    "difficulty_desc": ["दैनिक कार्य में कठिनाई (उदा: चलने/देखने/सुनने में)", "t", 28, 0, "Functional Difficulty Description"],
+    "ration_card_no": ["पात्रता राशन कार्ड संख्या", "t", 20, 0, "Eligible Ration Card Number"],
+    "new_member_name": ["जोड़े जाने वाले सदस्य का नाम", "t", 22, 0, "New Family Member Name"],
+    "member_relation": ["मुखिया से संबंध", "t", 16, 0, "Relation with Family Head"],
+    "member_dob": ["सदस्य की जन्मतिथि (DD/MM/YYYY)", "d", 11, 0, "Member Date of Birth"],
+    "member_aadhar": ["सदस्य का आधार नंबर", "n", 14, 12, "Member Aadhaar Number"],
+    "beneficiary_id": ["आयुष्मान / लाभार्थी आईडी (PMJAY ID)", "t", 20, 0, "Ayushman / PMJAY Beneficiary ID"],
+    "detail_type": ["सुधार का विषय (उदा: नाम/जन्मतिथि/संबंध)", "t", 22, 0, "Detail to Correct (Name/DOB/Relation)"],
+    "wrong_detail": ["वर्तमान में दर्ज गलत विवरण", "t", 24, 0, "Incorrect Detail in Ayushman Card"],
+    "correct_detail": ["सही विवरण (वैध प्रमाण अनुसार)", "t", 24, 0, "Correct Detail as per Proof"],
+    "employer_name": ["कार्यालय / विभाग / संस्था का नाम", "t", 26, 0, "Employer / Department / Office Name"],
+    "designation": ["पद / पदनाम (Designation)", "t", 18, 0, "Employee Designation"],
+    "illness_desc": ["बीमारी / स्वास्थ्य समस्या का संक्षिप्त विवरण", "t", 26, 0, "Illness / Medical Reason"],
+    "leave_from_date": ["अवकाश प्रारंभ की तिथि (DD/MM/YYYY)", "d", 11, 0, "Leave / Illness From Date"],
+    "leave_to_date": ["अवकाश समाप्ति / कार्यभार तिथि", "d", 11, 0, "Leave / Resumption Date"],
+    "student_name": ["विद्यार्थी का पूरा नाम", "t", 22, 0, "Student Full Name"],
+    "school_name": ["विद्यालय / कॉलेज का नाम", "t", 26, 0, "School / College Name"],
+    "class_name": ["कक्षा / वर्ग (Class & Sec)", "t", 14, 0, "Class & Section"],
+    "roll_no": ["अनुक्रमांक / रोल नंबर", "t", 14, 0, "Roll Number"],
+    "hospital_name": ["अस्पताल का नाम", "t", 26, 0, "Hospital Name"],
+    "department_opd": ["विभाग / ओपीडी (उदा: नेत्र/अस्थि/सामान्य)", "t", 20, 0, "Department / OPD Name"],
+    "doctor_name": ["डॉक्टर का नाम (यदि ज्ञात हो)", "t", 20, 0, "Doctor Name (if known)"],
+    "incident_date": ["घटना / उपस्थिति की तारीख (DD/MM/YYYY)", "d", 11, 0, "Incident / Visit Date"],
+    "incident_time": ["घटना / उपस्थिति का समय (उदा: 10:30 AM)", "t", 16, 0, "Incident / Visit Time"],
+    "problem_faced": ["उत्पन्न समस्या (उदा: घंटों प्रतीक्षा/बिना इलाज लौटना)", "t", 28, 0, "Problem Faced Description"],
+    "medicine_name": ["लिखी गई दवा का नाम", "t", 24, 0, "Prescribed Medicine Name"],
+    "prescription_date": ["पर्चे की तारीख (DD/MM/YYYY)", "d", 11, 0, "Prescription Date"],
+    "pharmacy_response": ["दवा वितरण केंद्र का जवाब (उदा: स्टॉक में नहीं)", "t", 24, 0, "Pharmacy Response Description"]
+  };
+
+  var T = [
+    {"t": "मेडिकल बोर्ड से दिव्यांगता प्रमाण पत्र (Disability Certificate) बनवाने हेतु आवेदन", "s": "मेडिकल बोर्ड द्वारा दिव्यांगता का परीक्षण कर दिव्यांगता प्रमाण पत्र (Disability Certificate) एवं UDID कार्ड जारी किए जाने हेतु आवेदन।", "auth": "श्रीमान मुख्य चिकित्सा अधिकारी / चिकित्सा अधीक्षक महोदय,", "keys": ["office_name", "district_state", "applicant_name", "guardian_name", "applicant_address", "mobile", "aadhar_no", "disability_type", "difficulty_desc", "place", "date"], "info_keys": ["applicant_name", "guardian_name", "disability_type", "aadhar_no", "mobile"], "sig_keys": ["applicant_name", "applicant_address", "mobile", "aadhar_no"], "intro": "सविनय निवेदन है कि मैं <b>{applicant_name}</b>, पिता/माता/अभिभावक का नाम <b>{guardian_name}</b>, निवासी <b>{applicant_address}</b> का/की स्थायी निवासी हूँ। मैं <b>{disability_type}</b> से प्रभावित हूँ, जिसके कारण मुझे <b>{difficulty_desc}</b> में अत्यधिक कठिनाई होती है।", "paras": ["INFO_BOX", "अतः आपसे विनम्र अनुरोध है कि मेरे आवेदन एवं उपलब्ध चिकित्सीय अभिलेखों का नियमानुसार सत्यापन कर मुझे संबंधित चिकित्सा विशेषज्ञ / मेडिकल बोर्ड के समक्ष परीक्षण हेतु आवश्यक तिथि एवं प्रक्रिया की जानकारी प्रदान करने की कृपा करें। मेडिकल बोर्ड द्वारा निर्धारित परीक्षण एवं मूल्यांकन के आधार पर, यदि मैं निर्धारित मानकों के अनुसार पात्र पाया/पाई जाता/जाती हूँ, तो मेरा दिव्यांगता प्रमाण पत्र तथा UDID कार्ड जारी करने की आवश्यक कार्रवाई करने की कृपा करें।", "मैं आवश्यक दस्तावेज एवं निर्धारित प्रक्रिया के अनुसार सभी औपचारिकताएँ पूरी करने के लिए तैयार हूँ। आवश्यक पहचान व चिकित्सीय दस्तावेज संलग्न हैं।"], "encl": ["आधार कार्ड की स्वप्रमाणित छायाप्रति", "पूर्व चिकित्सीय पर्चा / जांच रिपोर्ट की छायाप्रति", "दिव्यांगता दर्शाती हुई नवीनतम रंगीन फोटोग्राफ", "निवास प्रमाण पत्र की प्रति"]},
+    {"t": "आयुष्मान कार्ड में नाम जोड़ने हेतु आवेदन", "s": "आयुष्मान भारत प्रधानमंत्री जन आरोग्य योजना (AB-PMJAY) के अंतर्गत परिवार के सदस्य का नाम जोड़ने हेतु आवेदन।", "auth": "श्रीमान चिकित्साधिकारी / आयुष्मान मित्र / संबंधित अधिकारी महोदय,", "keys": ["office_name", "district_state", "applicant_name", "applicant_address", "mobile", "ration_card_no", "new_member_name", "member_relation", "member_dob", "member_aadhar", "place", "date"], "info_keys": ["applicant_name", "ration_card_no", "new_member_name", "member_relation", "member_aadhar"], "sig_keys": ["applicant_name", "applicant_address", "mobile"], "intro": "सविनय निवेदन है कि मैं <b>{applicant_name}</b>, निवासी <b>{applicant_address}</b> का निवासी हूँ। हमारा परिवार आयुष्मान भारत प्रधानमंत्री जन आरोग्य योजना (PMJAY) के अंतर्गत पात्र परिवार है। हमारे परिवार के सदस्य का विवरण वर्तमान आयुष्मान पोर्टल/कार्ड में दर्ज नहीं हो सका है।", "paras": ["INFO_BOX", "मेरे परिवार के सदस्य <b>{new_member_name}</b> का नाम हमारे वैध पात्रता राशन कार्ड (संख्या: <b>{ration_card_no}</b>) में विधिवत दर्ज है। स्वास्थ्य सुरक्षा की दृष्टि से इनका आयुष्मान कार्ड बनना अत्यंत आवश्यक है।", "अतः आपसे विनम्र अनुरोध है कि संलग्न राशन कार्ड एवं आधार कार्ड का सत्यापन कर उक्त सदस्य का नाम आयुष्मान भारत योजना के अंतर्गत लाभार्थी के रूप में जोड़ने एवं आयुष्मान कार्ड जारी कराने की आवश्यक कार्रवाई करने की कृपा करें। मैं सत्यापन हेतु सभी मूल दस्तावेज प्रस्तुत करने के लिए तैयार हूँ।"], "encl": ["पात्रता राशन कार्ड की छायाप्रति (जिसमें सदस्य का नाम दर्ज हो)", "सदस्य का आधार कार्ड", "परिवार के मुखिया का आधार कार्ड व पूर्व आयुष्मान कार्ड प्रति"]},
+    {"t": "आयुष्मान कार्ड में नाम/विवरण सुधार कराने हेतु आवेदन", "s": "आयुष्मान भारत प्रधानमंत्री जन आरोग्य योजना के लाभार्थी विवरण में नाम/व्यक्तिगत जानकारी का सुधार कराने हेतु आवेदन।", "auth": "श्रीमान संबंधित अधिकारी / आयुष्मान मित्र महोदय,", "keys": ["office_name", "district_state", "applicant_name", "applicant_address", "mobile", "beneficiary_id", "aadhar_no", "detail_type", "wrong_detail", "correct_detail", "place", "date"], "info_keys": ["applicant_name", "beneficiary_id", "aadhar_no", "detail_type", "wrong_detail", "correct_detail"], "sig_keys": ["applicant_name", "applicant_address", "mobile", "aadhar_no"], "intro": "सविनय निवेदन है कि मैं <b>{applicant_name}</b>, निवासी <b>{applicant_address}</b> का/की निवासी हूँ। मेरा/मेरे परिवार का विवरण आयुष्मान भारत प्रधानमंत्री जन आरोग्य योजना के लाभार्थी रिकॉर्ड में दर्ज है।", "paras": ["मेरे आयुष्मान कार्ड/लाभार्थी रिकॉर्ड में <b>{detail_type}</b> गलत दर्ज है, जिसका विवरण निम्नवत है—", "INFO_BOX", "अतः आपसे अनुरोध है कि संलग्न सरकारी पहचान पत्र (आधार कार्ड) एवं संबंधित अभिलेखों के आधार पर मेरे लाभार्थी विवरण का सत्यापन कर सही विवरण दर्ज कराने हेतु नियमानुसार आवश्यक कार्रवाई करने की कृपा करें।", "यदि इस सुधार के लिए ई-केवाईसी (e-KYC) अथवा बायोमेट्रिक सत्यापन की आवश्यकता हो, तो मैं प्रक्रिया पूरी करने हेतु उपस्थित होने के लिए तैयार हूँ।"], "encl": ["आधार कार्ड की स्वप्रमाणित छायाप्रति (सही विवरण सहित)", "आयुष्मान कार्ड की छायाप्रति (यदि उपलब्ध हो)", "राशन कार्ड अथवा अन्य सहायक पहचान पत्र"]},
+    {"t": "कार्यालय के लिए डॉक्टर से मेडिकल फिटनेस/सिकनेस सर्टिफिकेट हेतु अनुरोध पत्र", "s": "कार्यालय में प्रस्तुत करने हेतु मेडिकल सिकनेस/फिटनेस सर्टिफिकेट जारी करने के संबंध में अनुरोध।", "auth": "श्रीमान चिकित्साधिकारी / चिकित्सक महोदय,", "keys": ["office_name", "district_state", "applicant_name", "father_husband_name", "applicant_address", "mobile", "employer_name", "designation", "illness_desc", "leave_from_date", "leave_to_date", "place", "date"], "info_keys": ["applicant_name", "designation", "employer_name", "leave_from_date", "leave_to_date"], "sig_keys": ["applicant_name", "designation", "employer_name", "mobile"], "intro": "सविनय निवेदन है कि मैं <b>{applicant_name}</b>, पिता/पति का नाम <b>{father_husband_name}</b>, निवासी <b>{applicant_address}</b>, वर्तमान में <b>{employer_name}</b> में <b>{designation}</b> के पद पर कार्यरत हूँ।", "paras": ["INFO_BOX", "मुझे दिनांक <b>{leave_from_date}</b> से <b>{illness_desc}</b> के कारण चिकित्सकीय परामर्श/आराम की आवश्यकता रही है। मुझे अपने कार्यालय में अपनी बीमारी की अवधि में अनुपस्थिति तथा पुनः स्वस्थ होकर कार्यभार ग्रहण करने (Fitness) के संबंध में अधिकृत चिकित्सकीय प्रमाण प्रस्तुत करना है।", "अतः आपसे विनम्र अनुरोध है कि मेरी चिकित्सकीय जांच कर, मेरी स्वास्थ्य स्थिति के अनुसार आवश्यक होने पर Medical Sickness Certificate / Medical Fitness Certificate जारी करने की कृपा करें, ताकि मैं उसे अपने कार्यालय में नियमानुसार प्रस्तुत कर सकूँ।", "मैं जांच एवं प्रमाणपत्र जारी करने के लिए आवश्यक सभी औपचारिकताएँ पूरी करने के लिए तैयार हूँ।"], "encl": ["आधार कार्ड / विभागीय पहचान पत्र की छायाप्रति", "पूर्व चिकित्सीय पर्चा / डिस्चार्ज समरी / लैब जांच रिपोर्ट", "कार्यालय का अवकाश पत्र (यदि लागू हो)"]},
+    {"t": "स्कूल के लिए डॉक्टर से मेडिकल फिटनेस/सिकनेस सर्टिफिकेट हेतु अनुरोध पत्र", "s": "विद्यालय में प्रस्तुत करने हेतु मेडिकल सिकनेस/फिटनेस सर्टिफिकेट जारी करने के संबंध में अनुरोध।", "auth": "श्रीमान चिकित्साधिकारी / चिकित्सक महोदय,", "keys": ["office_name", "district_state", "student_name", "guardian_name", "applicant_address", "mobile", "school_name", "class_name", "roll_no", "illness_desc", "leave_from_date", "leave_to_date", "place", "date"], "info_keys": ["student_name", "school_name", "class_name", "roll_no", "leave_from_date", "leave_to_date"], "sig_keys": ["student_name", "school_name", "class_name", "guardian_name", "mobile"], "intro": "सविनय निवेदन है कि मैं <b>{student_name}</b>, पिता/माता/अभिभावक का नाम <b>{guardian_name}</b>, कक्षा <b>{class_name}</b>, अनुक्रमांक/रोल नंबर <b>{roll_no}</b>, <b>{school_name}</b> में अध्ययनरत हूँ।", "paras": ["INFO_BOX", "मैं दिनांक <b>{leave_from_date}</b> से <b>{illness_desc}</b> के कारण अस्वस्थ होने से विद्यालय में उपस्थित नहीं हो सका/सकी। विद्यालय में अनुपस्थिति को नियमित कराने तथा पुनः कक्षा में बैठने के संबंध में अधिकृत चिकित्सकीय फिटनेस प्रमाण-पत्र प्रस्तुत करना अनिवार्य है।", "अतः आपसे विनम्र अनुरोध है कि मेरी चिकित्सकीय जांच कर मेरी स्वास्थ्य स्थिति के अनुसार Medical Sickness / Fitness Certificate जारी करने की कृपा करें, ताकि मैं उक्त प्रमाणपत्र विद्यालय में प्रस्तुत कर सकूँ।", "अतः कृपया मेरी जांच कर नियमानुसार आवश्यक प्रमाणपत्र जारी करने की कृपा करें।"], "encl": ["विद्यार्थी का आधार कार्ड / स्कूल पहचान पत्र की छायाप्रति", "चिकित्सीय पर्चा / उपचार रसीद की छायाप्रति", "अभिभावक का पहचान पत्र"]},
+    {"t": "सरकारी अस्पताल में डॉक्टर की अनुपस्थिति की शिकायत हेतु आवेदन", "s": "सरकारी अस्पताल में निर्धारित समय पर चिकित्सक के उपस्थित न होने के संबंध में शिकायत।", "auth": "श्रीमान चिकित्सा अधीक्षक / मुख्य चिकित्सा अधिकारी महोदय,", "keys": ["hospital_name", "district_state", "applicant_name", "applicant_address", "mobile", "department_opd", "doctor_name", "incident_date", "incident_time", "problem_faced", "place", "date"], "info_keys": ["hospital_name", "department_opd", "incident_date", "incident_time", "problem_faced"], "sig_keys": ["applicant_name", "applicant_address", "mobile"], "intro": "सविनय निवेदन है कि मैं <b>{applicant_name}</b>, निवासी <b>{applicant_address}</b>, दिनांक <b>{incident_date}</b> को लगभग <b>{incident_time}</b> बजे उपचार/चिकित्सकीय परामर्श हेतु <b>{hospital_name}</b> में उपस्थित हुआ/हुई था/थी।", "paras": ["INFO_BOX", "मुझे <b>{department_opd}</b> में चिकित्सकीय परामर्श प्राप्त करना था, लेकिन निर्धारित ड्यूटी समय में संबंधित चिकित्सक के कक्ष में उपस्थित न होने के कारण मुझे भारी कठिनाई का सामना करना पड़ा। चिकित्सक की अनुपस्थिति के कारण मुझे <b>{problem_faced}</b> पड़ा।", "अतः आपसे अनुरोध है कि उक्त मामले की निष्पक्ष जांच कर यह सुनिश्चित करने की कृपा करें कि अस्पताल में निर्धारित समय-सारणी के अनुसार चिकित्सक उपस्थित रहें तथा मरीजों को समय पर सुलभ उपचार मिल सके।", "कृपया मेरी शिकायत को संज्ञान में लेकर नियमानुसार आवश्यक अनुशासनात्मक कार्रवाई करने तथा की गई कार्रवाई से मुझे अवगत कराने की कृपा करें।"], "encl": ["अस्पताल की रजिस्ट्रेशन / ओपीडी पर्ची की छायाप्रति", "शिकायतकर्ता के पहचान पत्र (आधार कार्ड) की छायाप्रति", "संबंधित साक्ष्य (यदि उपलब्ध हो)"]},
+    {"t": "सरकारी अस्पताल में दवा उपलब्ध न होने की शिकायत हेतु आवेदन", "s": "सरकारी अस्पताल में चिकित्सक द्वारा लिखी गई आवश्यक दवा उपलब्ध न होने के संबंध में शिकायत।", "auth": "श्रीमान चिकित्सा अधीक्षक / मुख्य चिकित्सा अधिकारी महोदय,", "keys": ["hospital_name", "district_state", "applicant_name", "applicant_address", "mobile", "department_opd", "medicine_name", "prescription_date", "pharmacy_response", "place", "date"], "info_keys": ["hospital_name", "department_opd", "medicine_name", "prescription_date"], "sig_keys": ["applicant_name", "applicant_address", "mobile"], "intro": "सविनय निवेदन है कि मैं <b>{applicant_name}</b>, निवासी <b>{applicant_address}</b>, दिनांक <b>{prescription_date}</b> को उपचार हेतु <b>{hospital_name}</b> के <b>{department_opd}</b> में उपस्थित हुआ/हुई था/थी। चिकित्सकीय परीक्षण के उपरांत चिकित्सक द्वारा मुझे <b>{medicine_name}</b> सहित आवश्यक दवाएँ लिखी गई थीं।", "paras": ["INFO_BOX", "अस्पताल के दवा वितरण केंद्र (फार्मेसी) पर पर्चा प्रस्तुत करने पर कर्मचारियों द्वारा बताया गया कि <b>{pharmacy_response}</b>। सरकारी अस्पताल की आवश्यक दवा सूची (EDL) में सम्मिलित होने के बावजूद दवा उपलब्ध न होने से मुझे बिना दवा के लौटना पड़ा तथा आर्थिक व शारीरिक परेशानी झेलनी पड़ी।", "अतः आपसे विनम्र अनुरोध है कि अस्पताल के दवा भंडार एवं वितरण व्यवस्था की तत्काल जांच कराई जाए तथा आवश्यक जीवनरक्षक दवाओं की निर्बाध उपलब्धता सुनिश्चित की जाए।", "कृपया मेरी शिकायत पर नियमानुसार संज्ञान लेकर उचित कार्रवाई करने तथा की गई कार्रवाई से मुझे सूचित करने की कृपा करें।"], "encl": ["चिकित्सक द्वारा जारी मूल पर्चे (Prescription) की छायाप्रति", "अस्पताल ओपीडी पंजीकरण रसीद", "पहचान पत्र (आधार कार्ड) की छायाप्रति"]}
+  ];
+
+  var T_EN = [
+    {"t": "Application for Disability Certificate and UDID Card from Medical Board", "s": "Application requesting medical examination and issuance of Disability Certificate and UDID Card by Medical Board.", "auth": "The Chief Medical Officer / Medical Superintendent,", "keys": ["office_name", "district_state", "applicant_name", "guardian_name", "applicant_address", "mobile", "aadhar_no", "disability_type", "difficulty_desc", "place", "date"], "info_keys": ["applicant_name", "guardian_name", "disability_type", "aadhar_no", "mobile"], "sig_keys": ["applicant_name", "applicant_address", "mobile", "aadhar_no"], "intro": "Most respectfully, I, <b>{applicant_name}</b>, daughter/son/ward of <b>{guardian_name}</b>, resident of <b>{applicant_address}</b>, am suffering from <b>{disability_type}</b> which severely impedes me in <b>{difficulty_desc}</b>.", "paras": ["INFO_BOX", "Therefore, I humbly request you to verify my application and medical records, and schedule an examination before the competent Medical Board. Based on the evaluation and statutory benchmarks, kindly issue my official Disability Certificate and UDID Card as per government guidelines.", "I am prepared to complete all procedural requirements and present necessary credentials. Medical and identity proofs are enclosed herewith."], "encl": ["Self-attested copy of Aadhaar Card", "Copies of prior medical records / diagnostic reports", "Recent passport size photographs showing disability", "Proof of Residence"]},
+    {"t": "Application for Adding Family Member's Name in Ayushman Bharat Card", "s": "Application for inclusion of family member in Ayushman Bharat PM-JAY beneficiary records.", "auth": "The Medical Officer / Ayushman Mitra / Competent Authority,", "keys": ["office_name", "district_state", "applicant_name", "applicant_address", "mobile", "ration_card_no", "new_member_name", "member_relation", "member_dob", "member_aadhar", "place", "date"], "info_keys": ["applicant_name", "ration_card_no", "new_member_name", "member_relation", "member_aadhar"], "sig_keys": ["applicant_name", "applicant_address", "mobile"], "intro": "Most respectfully, I, <b>{applicant_name}</b>, resident of <b>{applicant_address}</b>, state that our family is an eligible beneficiary under Ayushman Bharat Pradhan Mantri Jan Arogya Yojana (PMJAY). The name of our family member has not yet been registered in the beneficiary database.", "paras": ["INFO_BOX", "The name of my family member <b>{new_member_name}</b> is duly recorded in our valid eligibility Ration Card (No: <b>{ration_card_no}</b>). To ensure access to health benefits, enrollment under Ayushman Bharat is essential.", "Therefore, I earnestly request you to verify the enclosed Ration Card and Aadhaar records and initiate the process to enroll the said member and generate their Ayushman Golden Card as per rules. I am ready to present all original credentials for physical verification."], "encl": ["Copy of Eligible Ration Card showing member's name", "Aadhaar Card of the member to be enrolled", "Aadhaar Card of Family Head and existing Ayushman Card"]},
+    {"t": "Application for Correction in Ayushman Card Beneficiary Details", "s": "Application for correction of name / demographic details in Ayushman Bharat PM-JAY records.", "auth": "The Competent Authority / Ayushman Mitra,", "keys": ["office_name", "district_state", "applicant_name", "applicant_address", "mobile", "beneficiary_id", "aadhar_no", "detail_type", "wrong_detail", "correct_detail", "place", "date"], "info_keys": ["applicant_name", "beneficiary_id", "aadhar_no", "detail_type", "wrong_detail", "correct_detail"], "sig_keys": ["applicant_name", "applicant_address", "mobile", "aadhar_no"], "intro": "Most respectfully, I, <b>{applicant_name}</b>, resident of <b>{applicant_address}</b>, state that my/my family's details are registered under Ayushman Bharat Pradhan Mantri Jan Arogya Yojana.", "paras": ["In my Ayushman Card / beneficiary portal records, my <b>{detail_type}</b> is erroneously recorded as detailed below:", "INFO_BOX", "Therefore, I request you to verify my authentic government identity credentials (Aadhaar Card) and rectify the stated records in the beneficiary portal as per rules.", "I am ready to complete e-KYC or biometric re-authentication as needed."], "encl": ["Self-attested copy of Aadhaar Card (with correct details)", "Copy of existing Ayushman Card", "Ration Card or supporting government identity proof"]},
+    {"t": "Request Letter to Doctor for Medical Sickness / Fitness Certificate for Office", "s": "Application requesting issuance of Medical Sickness/Fitness Certificate for workplace submission.", "auth": "The Medical Officer / Attending Physician,", "keys": ["office_name", "district_state", "applicant_name", "father_husband_name", "applicant_address", "mobile", "employer_name", "designation", "illness_desc", "leave_from_date", "leave_to_date", "place", "date"], "info_keys": ["applicant_name", "designation", "employer_name", "leave_from_date", "leave_to_date"], "sig_keys": ["applicant_name", "designation", "employer_name", "mobile"], "intro": "Most respectfully, I, <b>{applicant_name}</b>, daughter/son/spouse of <b>{father_husband_name}</b>, resident of <b>{applicant_address}</b>, am currently employed as <b>{designation}</b> at <b>{employer_name}</b>.", "paras": ["INFO_BOX", "I required medical rest and treatment from <b>{leave_from_date}</b> due to <b>{illness_desc}</b>. To regularize my absence and formally resume official duties (Fitness), I am required to submit an authorized Medical Certificate to my department.", "Therefore, I humbly request you to conduct a medical evaluation and issue a formal Medical Sickness / Fitness Certificate as per clinical assessment so that I may submit it to my employer.", "I am prepared to complete all necessary clinical examination procedures."], "encl": ["Copy of Aadhaar / Departmental Employee ID Card", "Prior prescription / discharge summary / lab test reports", "Official leave application copy (if applicable)"]},
+    {"t": "Request Letter to Doctor for Medical Sickness / Fitness Certificate for School", "s": "Application requesting Medical Sickness/Fitness Certificate for submission to school/college.", "auth": "The Medical Officer / Attending Physician,", "keys": ["office_name", "district_state", "student_name", "guardian_name", "applicant_address", "mobile", "school_name", "class_name", "roll_no", "illness_desc", "leave_from_date", "leave_to_date", "place", "date"], "info_keys": ["student_name", "school_name", "class_name", "roll_no", "leave_from_date", "leave_to_date"], "sig_keys": ["student_name", "school_name", "class_name", "guardian_name", "mobile"], "intro": "Most respectfully, I, <b>{student_name}</b>, ward of <b>{guardian_name}</b>, studying in Class <b>{class_name}</b>, Roll No. <b>{roll_no}</b> at <b>{school_name}</b>.", "paras": ["INFO_BOX", "I was unable to attend school from <b>{leave_from_date}</b> due to indisposition on account of <b>{illness_desc}</b>. The school administration requires an official Medical Sickness/Fitness Certificate to regularize my attendance and permit class resumption.", "Therefore, I humbly request you to examine me and issue a Medical Sickness / Fitness Certificate in accordance with medical evaluation.", "I am ready to undergo the necessary medical examination."], "encl": ["Copy of Student Aadhaar Card / School ID Card", "Medical treatment slip / prescription", "Guardian's Identity Proof"]},
+    {"t": "Complaint Regarding Absence of Doctor during Duty Hours in Government Hospital", "s": "Complaint regarding non-availability of medical officer during scheduled duty hours in government hospital.", "auth": "The Medical Superintendent / Chief Medical Officer,", "keys": ["hospital_name", "district_state", "applicant_name", "applicant_address", "mobile", "department_opd", "doctor_name", "incident_date", "incident_time", "problem_faced", "place", "date"], "info_keys": ["hospital_name", "department_opd", "incident_date", "incident_time", "problem_faced"], "sig_keys": ["applicant_name", "applicant_address", "mobile"], "intro": "Most respectfully, I, <b>{applicant_name}</b>, resident of <b>{applicant_address}</b>, visited <b>{hospital_name}</b> on <b>{incident_date}</b> at around <b>{incident_time}</b> for clinical consultation.", "paras": ["INFO_BOX", "I sought consultation in <b>{department_opd}</b>, but the concerned doctor was absent from the clinic during scheduled duty hours. Due to the doctor's absence, I faced severe distress and had to <b>{problem_faced}</b>.", "Therefore, I request an inquiry into the matter to ensure doctors remain present in accordance with rostered duty hours so that patients receive prompt medical care.", "Kindly register this grievance, initiate departmental action, and apprise me of the outcome."], "encl": ["Copy of Hospital Registration / OPD Slip", "Copy of Complainant's Aadhaar Card", "Any supporting evidence / token"]},
+    {"t": "Complaint Regarding Non-Availability of Prescribed Medicines in Government Hospital", "s": "Complaint regarding shortage and non-dispensation of essential prescribed medicines at hospital dispensary.", "auth": "The Medical Superintendent / Chief Medical Officer,", "keys": ["hospital_name", "district_state", "applicant_name", "applicant_address", "mobile", "department_opd", "medicine_name", "prescription_date", "pharmacy_response", "place", "date"], "info_keys": ["hospital_name", "department_opd", "medicine_name", "prescription_date"], "sig_keys": ["applicant_name", "applicant_address", "mobile"], "intro": "Most respectfully, I, <b>{applicant_name}</b>, resident of <b>{applicant_address}</b>, was treated at <b>{department_opd}</b> of <b>{hospital_name}</b> on <b>{prescription_date}</b>, where the physician prescribed essential medications including <b>{medicine_name}</b>.", "paras": ["INFO_BOX", "Upon presenting the prescription at the hospital dispensary/pharmacy counter, the staff stated that <b>{pharmacy_response}</b>. Despite being covered under the essential drugs list, the medicine was not provided, causing severe inconvenience and financial hardship.", "Therefore, I earnestly request an inspection into the stock inventory and distribution mechanisms of the hospital pharmacy to ensure continuous supply of essential drugs.", "Kindly look into this grievance and take appropriate remedial measures."], "encl": ["Copy of Doctor's Official Prescription Slip", "Copy of Hospital Registration Slip", "Copy of Aadhaar Card"]}
+  ];
+
+  function getList(){ return curLang === "en" ? T_EN : T; }
+
+  function getGender(){
+    var r = document.querySelector("input[name=g]:checked");
+    return r ? r.value : "m";
+  }
+
+  function f(k){
+    var v = V[k];
+    if(v !== undefined && v !== null && String(v).trim() !== ""){
+      return esc(String(v).trim());
+    }
+    var d = F[k];
+    var w = d ? d[2] : 14;
+    return '<span class="blank" style="min-width:' + w + 'ch"></span>';
+  }
+
+  function adaptGrammar(str, isFemale, isEn){
+    if(!str) return "";
+    var res = str;
+    if(!isEn){
+      if(isFemale){
+        res = res.replace(/करता\/करती/g, "करती");
+        res = res.replace(/चाहता\/चाहती/g, "चाहती");
+        res = res.replace(/रहा\/रही/g, "रही");
+        res = res.replace(/दूंगा\/दूंगी/g, "दूंगी");
+        res = res.replace(/दूँगा\/दूँगी/g, "दूँगी");
+        res = res.replace(/करूँगा\/करूँगी/g, "करूँगी");
+        res = res.replace(/करूंगा\/करूंगी/g, "करूंगी");
+        res = res.replace(/पाया\/पाई/g, "पाई");
+        res = res.replace(/सका\/सकी/g, "सकी");
+        res = res.replace(/हुआ\/हुई/g, "हुई");
+        res = res.replace(/था\/थी/g, "थी");
+        res = res.replace(/का\/की/g, "की");
+      } else {
+        res = res.replace(/करता\/करती/g, "करता");
+        res = res.replace(/चाहता\/चाहती/g, "चाहता");
+        res = res.replace(/रहा\/रही/g, "रहा");
+        res = res.replace(/दूंगा\/दूंगी/g, "दूंगा");
+        res = res.replace(/दूँगा\/दूँगी/g, "दूँगा");
+        res = res.replace(/करूँगा\/करूँगी/g, "करूँगा");
+        res = res.replace(/करूंगा\/करूंगी/g, "करूंगा");
+        res = res.replace(/पाया\/पाई/g, "पाया");
+        res = res.replace(/सका\/सकी/g, "सका");
+        res = res.replace(/हुआ\/हुई/g, "हुआ");
+        res = res.replace(/था\/थी/g, "था");
+        res = res.replace(/का\/की/g, "का");
+      }
+    }
+    return res;
+  }
+
+  function gen(str, t, isEn, isFemale){
+    if(!str) return "";
+    var res = adaptGrammar(str, isFemale, isEn);
+    res = res.replace(/\{applicant_name\}/g, f("applicant_name"));
+    res = res.replace(/\{guardian_name\}/g, f("guardian_name"));
+    res = res.replace(/\{father_husband_name\}/g, f("father_husband_name"));
+    res = res.replace(/\{applicant_address\}/g, f("applicant_address"));
+    res = res.replace(/\{mobile\}/g, f("mobile"));
+    res = res.replace(/\{aadhar_no\}/g, f("aadhar_no"));
+    res = res.replace(/\{office_name\}/g, f("office_name"));
+    res = res.replace(/\{hospital_name\}/g, f("hospital_name"));
+    res = res.replace(/\{district_state\}/g, f("district_state"));
+
+    t.keys.forEach(function(k){
+      res = res.replace(new RegExp("\{" + k + "\}", "g"), f(k));
+    });
+    return res;
+  }
+
+  function renderInfoBox(t, isEn){
+    if(!t.info_keys || t.info_keys.length === 0) return "";
+    var cells = t.info_keys.map(function(k){
+      var d = F[k];
+      var lbl = isEn ? (d[4] || d[0]) : d[0];
+      return '<div><b>• ' + lbl + ':</b> ' + f(k) + '</div>';
+    }).join("");
+    return '<div class="info-box"><div class="info-grid">' + cells + '</div></div>';
+  }
+
+  function render(){
+    var list = getList();
+    var t = list[cur];
+    var isEn = curLang === "en";
+    var g = getGender();
+    var isFemale = g === "f";
+
+    var fitEl = document.querySelector("input[name=page_fit]:checked");
+    var fitVal = fitEl ? fitEl.value : "fit80";
+    $("paper").classList.remove("compact", "fit-90");
+    if(fitVal === "fit90") $("paper").classList.add("fit-90");
+    else if(fitVal === "compact") $("paper").classList.add("compact");
+
+    var toLine1 = isEn ? "To," : "सेवा में,";
+    var toOffice = t.keys.indexOf("hospital_name") !== -1 ? f("hospital_name") : f("office_name");
+    var toAddr = f("district_state");
+
+    var toBlock = toLine1 + '<br>' +
+      esc(t.auth) + '<br>' +
+      toOffice + '<br>' +
+      toAddr + (isEn ? "." : "।");
+
+    var subjLbl = isEn ? "Subject:" : "विषय:";
+    var salutation = isEn ? "Respected Sir/Madam," : "महोदय/महोदया,";
+    var closing = isEn ? "Yours faithfully," : (isFemale ? "भवदीया" : "भवदीय");
+    var sigLbl = isEn ? "Signature:" : "हस्ताक्षर:";
+    var enclLbl = isEn ? "Enclosures:" : "संलग्नक:";
+
+    var bodyHtml = t.paras.map(function(p){
+      if(p === "INFO_BOX") return renderInfoBox(t, isEn);
+      return "<p>" + gen(p, t, isEn, isFemale) + "</p>";
+    }).join("");
+
+    var enclHtml = "";
+    if(t.encl && t.encl.length > 0){
+      enclHtml = '<div class="enclosure-box"><b>' + enclLbl + '</b><ol class="enclosure-list">' +
+        t.encl.map(function(item){ return '<li>' + esc(item) + '</li>'; }).join("") +
+        '</ol></div>';
+    }
+
+    var sigLines = t.sig_keys.map(function(k){
+      var d = F[k];
+      var lbl = isEn ? (d[4] || d[0]) : d[0];
+      return '<b>' + lbl + ': </b>' + f(k);
+    }).join("<br>");
+
+    $("paper").innerHTML = 
+      "<h2>" + esc(t.t) + "</h2>" +
+      '<div class="to">' + toBlock + '</div>' +
+      '<p><b>' + subjLbl + '</b> ' + gen(t.s, t, isEn, isFemale) + '</p>' +
+      '<p>' + salutation + '</p>' +
+      '<p>' + gen(t.intro, t, isEn, isFemale) + '</p>' +
+      bodyHtml +
+      '<div class="sig">' +
+        '<div class="left">' +
+          (isEn ? "Date: " : "दिनांक: ") + f("date") + '<br>' +
+          (isEn ? "Place: " : "स्थान: ") + f("place") + '<br>' +
+          enclHtml +
+        '</div>' +
+        '<div class="right">' +
+          closing + '<br><br>' +
+          sigLines + '<br><br>' +
+          sigLbl + ' <span class="blank" style="min-width:14ch"></span>' +
+        '</div>' +
+      '</div>';
+
+    document.title = t.t;
+  }
+
+  function build(){
+    var list = getList();
+    var t = list[cur];
+    var isEn = curLang === "en";
+    var h = "";
+
+    t.keys.forEach(function(k){
+      var d = F[k];
+      if(!d) return;
+      var id = "f_" + k;
+      var v = V[k] || "";
+      var lbl = isEn ? (d[4] || d[0]) : d[0];
+
+      if(d[1] === "d"){
+        h += '<label for="' + id + '">' + lbl + '</label><input id="' + id + '" type="text" inputmode="numeric" placeholder="DD/MM/YYYY" maxlength="10" autocomplete="off" value="' + esc(v) + '">';
+      } else if(k === "applicant_address" || k === "difficulty_desc" || k === "problem_faced" || k === "illness_desc"){
+        h += '<label for="' + id + '">' + lbl + '</label><textarea id="' + id + '" placeholder="' + (isEn ? "Enter details..." : "यहाँ विवरण लिखें...") + '">' + esc(v) + '</textarea>';
+      } else {
+        var itype = d[1] === "n" ? "tel" : "text";
+        var maxAttr = d[3] ? (' maxlength="' + d[3] + '"') : "";
+        h += '<label for="' + id + '">' + lbl + '</label><input id="' + id + '" type="' + itype + '"' + maxAttr + ' value="' + esc(v) + '">';
+      }
+    });
+
+    $("fields").innerHTML = h;
+
+    t.keys.forEach(function(k){
+      var el = $("f_" + k);
+      if(!el) return;
+      el.addEventListener("input", function(){
+        V[k] = el.value;
+        render();
+      });
+      // Date Auto-Slash formatting
+      if(F[k] && F[k][1] === "d"){
+        el.addEventListener("keydown", function(e){
+          if(e.key === "Backspace" || e.key === "Delete"){
+            var pos = el.selectionStart;
+            if((pos === 3 || pos === 6) && el.value.length === pos){
+              e.preventDefault();
+              el.value = el.value.slice(0, pos - 1);
+              V[k] = el.value;
+              render();
+            }
+          }
+        });
+        el.addEventListener("input", function(){
+          var clean = el.value.replace(/[^0-9]/g, "");
+          if(clean.length > 8) clean = clean.substring(0, 8);
+          var formatted = clean;
+          if(clean.length > 2 && clean.length <= 4){
+            formatted = clean.substring(0, 2) + "/" + clean.substring(2);
+          } else if(clean.length > 4){
+            formatted = clean.substring(0, 2) + "/" + clean.substring(2, 4) + "/" + clean.substring(4);
+          }
+          if(formatted !== el.value){
+            el.value = formatted;
+          }
+          V[k] = formatted;
+          render();
+        });
+      }
+    });
+  }
+
+  function updateStaticUI(){
+    var isEn = curLang === "en";
+    document.documentElement.lang = curLang;
+
+    if($("backLink")) $("backLink").innerText = isEn ? "← Home Portal" : "← मुख्य पोर्टल (Home Portal)";
+    if($("portalTitle")) $("portalTitle").innerText = isEn ? "Health & Medical Services Division" : "स्वास्थ्य एवं चिकित्सा प्रभाग (Health & Hospital Services)";
+
+    if($("uiBanner")){
+      $("uiBanner").innerHTML = isEn ? 
+        "🔒 <strong>100% Safe & Private:</strong> This tool runs entirely locally on your device. None of your personal or medical information is sent to any server. Fields left blank will have an empty line in print that can be filled with a pen." : 
+        "🔒 <strong>100% सुरक्षित एवं निजी:</strong> यह टूल पूरी तरह आपके डिवाइस पर स्थानीय रूप से चलता है। आपकी कोई भी व्यक्तिगत या मेडिकल जानकारी सर्वर पर नहीं भेजी जाती। जो जानकारी नहीं भरेंगे, प्रिंट में वहाँ रिक्त रेखा रहेगी जिसे पेन से भरा जा सकता है।";
+    }
+
+    $("uiHeading").innerText = isEn ? "Health, Medical & Hospital Applications" : "स्वास्थ्य एवं चिकित्सा (Health & Hospital) आवेदन पत्र";
+    $("lblLang").innerText = isEn ? "Choose Language" : "भाषा चुनें";
+    if($("optLangHi")) $("optLangHi").innerText = isEn ? "Hindi (हिंदी)" : "हिंदी (Hindi)";
+    if($("optLangEn")) $("optLangEn").innerText = "English";
+
+    $("lblTpl").innerText = isEn ? "Application Type" : "आवेदन पत्र का प्रकार";
+    $("lblPageFit").innerText = isEn ? "Page Coverage / Size" : "पेज भराव / प्रिंट फैलाव";
+    $("optFit80").innerText = isEn ? "80% Balanced (Default)" : "80% संतुलित (Default)";
+    $("optFit90").innerText = isEn ? "90% Large (Full Page)" : "90% बड़ा (Full)";
+    $("optFitCompact").innerText = isEn ? "Compact" : "कॉम्पैक्ट (छोटा)";
+    $("lblGender").innerText = isEn ? "Applicant / Patient" : "आवेदक / प्रार्थी";
+    $("gMale").innerText = isEn ? "Male" : "पुरुष (Male)";
+    $("gFemale").innerText = isEn ? "Female" : "महिला (Female)";
+    $("print").innerText = isEn ? "Print Application" : "प्रिंट करें";
+    $("clear").innerText = isEn ? "Clear Form" : "साफ़ करें";
+    $("uiHint").innerText = isEn ?
+      "Fields left blank will remain empty in print so you can fill them by pen. You can also directly click and edit any text on the letter before printing." :
+      "जो जानकारी नहीं भरेंगे, प्रिंट में वहाँ खाली जगह छूट जाएगी। प्रिंट करने से पहले आप सीधे दाईं ओर पत्र पर क्लिक करके भी कोई बदलाव (एडिट) कर सकते हैं।";
+
+    var formSec = document.querySelector("section.form");
+    if(formSec && formSec.setAttribute) formSec.setAttribute("aria-label", isEn ? "Application Form Settings" : "आवेदन पत्र सेटिंग्स");
+    var paperEl = $("paper");
+    if(paperEl && paperEl.setAttribute) paperEl.setAttribute("aria-label", isEn ? "Application Letter Preview" : "आवेदन पत्र पूर्वावलोकन");
+
+    var langRadio = document.querySelector('input[name=lang][value="' + curLang + '"]');
+    if(langRadio) langRadio.checked = true;
+
+    updateThemeUI();
+
+    var list = getList();
+    $("tpl").innerHTML = list.map(function(t, i){
+      return '<option value="' + i + '"' + (i === cur ? ' selected' : '') + '>' + (i + 1) + '. ' + esc(t.t) + '</option>';
+    }).join("");
+  }
+
+  function updatePrintTitle(){
+    var h2 = $("paper") ? $("paper").querySelector("h2") : null;
+    if(h2 && h2.innerText && h2.innerText.trim()){
+      document.title = h2.innerText.trim();
+    } else {
+      var list = getList();
+      if(list && list[cur]) document.title = list[cur].t;
+    }
+  }
+
+  window.addEventListener("beforeprint", updatePrintTitle);
+  $("print").addEventListener("click", function(){
+    updatePrintTitle();
+    window.print();
+  });
+
+  $("clear").addEventListener("click", function(){
+    V = { date: getTodayDate() };
+    build();
+    render();
+  });
+
+  $("tpl").addEventListener("change", function(){
+    cur = +$("tpl").value;
+    build();
+    render();
+  });
+
+  document.querySelectorAll("input[name=g]").forEach(function(r){
+    r.addEventListener("change", function(){
+      render();
+    });
+  });
+
+  document.querySelectorAll("input[name=page_fit]").forEach(function(r){
+    r.addEventListener("change", function(){
+      render();
+    });
+  });
+
+  document.querySelectorAll("input[name=lang]").forEach(function(r){
+    r.addEventListener("change", function(){
+      curLang = document.querySelector("input[name=lang]:checked").value;
+      try { localStorage.setItem("app_lang", curLang); } catch(e){}
+      updateStaticUI();
+      build();
+      render();
+    });
+  });
+
+  updateStaticUI();
+  build();
+  render();
+})();
+</script>
+</body>
+</html>

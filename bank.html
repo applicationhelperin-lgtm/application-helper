@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>बैंक आवेदन पत्र जनरेटर | Bank Application Generator</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;600;700&amp;family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet">
+<style>
+:root{--bg:#eef1f5;--panel:#fff;--ink:#1b2430;--muted:#5a6675;--line:#cfd6df;--accent:#1f4e8c;--accent-ink:#fff;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#12161c;--panel:#1c222b;--ink:#e8edf3;--muted:#9aa6b4;--line:#333c48;--accent:#6ea3e6;--accent-ink:#0d1622}}
+:root[data-theme="dark"]{--bg:#12161c;--panel:#1c222b;--ink:#e8edf3;--muted:#9aa6b4;--line:#333c48;--accent:#6ea3e6;--accent-ink:#0d1622}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Noto Sans Devanagari","Inter","Mangal","Nirmala UI",system-ui,sans-serif;line-height:1.5}
+
+/* शीर्ष नेविगेशन बार */
+.top-nav{background:var(--panel);border-bottom:1px solid var(--line);padding:10px 16px;display:flex;align-items:center;justify-content:space-between;max-width:1200px;margin:0 auto;gap:10px;flex-wrap:wrap}
+.top-nav a{color:var(--accent);text-decoration:none;font-weight:600;display:inline-flex;align-items:center;gap:6px;font-size:.9rem}
+.top-nav a:hover{text-decoration:underline}
+.top-nav .portal-title{font-size:.95rem;font-weight:600;color:var(--muted)}
+.theme-btn{background:var(--bg);border:1px solid var(--line);color:var(--ink);border-radius:20px;padding:6px 14px;font-size:.85rem;font-weight:600;cursor:pointer;display:inline-flex;align-items:center;gap:6px;font-family:inherit}
+.theme-btn:hover{border-color:var(--accent);color:var(--accent)}
+
+.app{display:grid;gap:16px;padding:16px;max-width:1200px;margin:0 auto}
+@media(min-width:900px){.app{grid-template-columns:360px 1fr;align-items:start}.form{position:sticky;top:16px;max-height:calc(100vh - 32px);overflow:auto}}
+
+.security-banner{
+  grid-column:1/-1;
+  background:#13294b;
+  color:#e8edf3;
+  border:1px solid #244673;
+  border-left:5px solid #3b82f6;
+  padding:12px 16px;
+  border-radius:8px;
+  font-size:.88rem;
+  line-height:1.55;
+  box-shadow:0 1px 4px rgba(0,0,0,.08);
+}
+@media (prefers-color-scheme:light){
+  :root:not([data-theme="dark"]) .security-banner{
+    background:#e9f2fd;
+    color:#14325a;
+    border-color:#bed8f9;
+    border-left-color:#1f4e8c;
+  }
+}
+
+.form{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:16px}
+h1{font-size:1.15rem;margin:0 0 12px;font-weight:600}
+label{display:block;font-size:.85rem;margin:10px 0 3px;font-weight:600}
+input[type=text],input[type=tel],input[type=date],select{width:100%;padding:9px 10px;font:inherit;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:6px}
+input:focus-visible,select:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:1px}
+.seg{display:flex;gap:8px;margin-top:8px}
+.seg label{flex:1;margin:0;font-weight:400}
+.seg input{position:absolute;opacity:0}
+.seg span{display:block;text-align:center;padding:8px 6px;border:1px solid var(--line);border-radius:6px;cursor:pointer;background:var(--bg);font-size:.88rem}
+.seg input:checked+span{background:var(--accent);color:var(--accent-ink);border-color:var(--accent);font-weight:600}
+.seg input:focus-visible+span{outline:2px solid var(--accent);outline-offset:1px}
+.btns{display:flex;gap:8px;margin-top:16px}
+button{font:inherit;padding:10px 14px;border-radius:6px;border:1px solid var(--accent);cursor:pointer}
+.primary{flex:1;background:var(--accent);color:var(--accent-ink);font-weight:600}
+.ghost{background:transparent;color:var(--accent)}
+.hint{color:var(--muted);font-size:.78rem;margin:10px 0 0;line-height:1.5}
+.sheetwrap{container-type:inline-size;width:100%}
+.paper{background:#fff;color:#000;width:100%;max-width:210mm;margin:0 auto;aspect-ratio:210/297;padding:6.5cqw 7.5cqw;font-size:min(11.5pt,2.05cqw);line-height:1.55;box-shadow:0 2px 12px rgba(0,0,0,.18);font-family:"Noto Sans Devanagari","Inter","Mangal","Nirmala UI",sans-serif;overflow:hidden}
+.paper h2{font-size:1.15em;text-align:center;margin:0 0 .7em;text-decoration:underline;text-underline-offset:.25em;font-weight:600}
+.paper p{margin:0 0 .42em;text-align:justify}
+.paper[contenteditable="true"]:focus-visible{outline:2px dashed var(--accent);outline-offset:3px}
+.paper .to{margin-bottom:.55em;line-height:1.48}
+.paper .sig{display:flex;justify-content:space-between;align-items:flex-end;margin-top:.75em;line-height:1.55}
+.paper .sig .left{width:44%;text-align:left}
+.paper .sig .b{width:52%;text-align:left;margin-left:auto}
+.blank{display:inline-block;border-bottom:1px dotted #000;height:1em;vertical-align:baseline}
+
+/* 90% बड़ा फैलाव मोड */
+.paper.fit-90{padding:5.2cqw 6.8cqw;font-size:min(12.5pt,2.25cqw);line-height:1.75}
+.paper.fit-90 p{margin:0 0 .65em}
+.paper.fit-90 .to{margin-bottom:.8em;line-height:1.6}
+.paper.fit-90 .sig{margin-top:1.5em;line-height:1.7}
+
+/* कॉम्पैक्ट मोड (लंबे पत्रों के लिए) */
+.paper.compact{padding:5cqw 6.5cqw;font-size:min(10.5pt,1.85cqw);line-height:1.42}
+.paper.compact p{margin:0 0 .32em}
+.paper.compact .to{margin-bottom:.4em;line-height:1.35}
+.paper.compact .sig{margin-top:.5em;line-height:1.4}
+
+@media print{
+  @page{
+    size: A4;
+    margin: 0;
+  }
+  html, body{
+    background: #fff;
+    margin: 0;
+    padding: 0;
+  }
+  .security-banner, .form, .top-nav{
+    display: none !important;
+  }
+  .app{
+    display: block;
+    padding: 0;
+    max-width: none;
+  }
+  .sheetwrap{
+    container-type: normal;
+  }
+
+  .paper{
+    width: 210mm;
+    min-height: 297mm;
+    max-height: 297mm;
+    box-sizing: border-box;
+    aspect-ratio: auto;
+    padding: 20mm 22mm 18mm 22mm;
+    font-size: 12.5pt;
+    line-height: 1.75;
+    box-shadow: none;
+    margin: 0;
+    overflow: hidden;
+    page-break-after: avoid;
+    outline: none !important;
+  }
+
+  .paper h2{
+    font-size: 1.25em !important;
+    text-align: center !important;
+    margin: 0 0 1.3em !important;
+    text-decoration: underline !important;
+  }
+
+  .paper .to{
+    margin-bottom: 1.4em !important;
+    line-height: 1.75 !important;
+  }
+
+  .paper p{
+    margin: 0 0 1em !important;
+    line-height: 1.75 !important;
+    text-align: justify !important;
+  }
+
+  .paper .sig{
+    margin-top: 2.2em !important;
+    line-height: 1.85 !important;
+  }
+
+  /* प्रिंट में 90% बड़ा फैलाव */
+  .paper.fit-90{
+    padding: 15mm 19mm 13mm 19mm !important;
+    font-size: 13.2pt !important;
+    line-height: 1.85 !important;
+  }
+  .paper.fit-90 p{
+    margin: 0 0 1.1em !important;
+  }
+  .paper.fit-90 .sig{
+    margin-top: 2.5em !important;
+  }
+
+  /* प्रिंट में कॉम्पैक्ट */
+  .paper.compact{
+    padding: 14mm 18mm 12mm 18mm !important;
+    font-size: 11pt !important;
+    line-height: 1.62 !important;
+  }
+  .paper.compact h2{
+    margin: 0 0 0.9em !important;
+    font-size: 1.15em !important;
+  }
+  .paper.compact .to{
+    margin-bottom: 0.9em !important;
+    line-height: 1.55 !important;
+  }
+  .paper.compact p{
+    margin: 0 0 0.6em !important;
+    line-height: 1.62 !important;
+  }
+  .paper.compact .sig{
+    margin-top: 1.3em !important;
+    line-height: 1.65 !important;
+  }
+}
+</style>
+</head>
+<body>
+
+<div class="top-nav">
+  <a href="index.html" id="backLink">← मुख्य पोर्टल (Home Portal)</a>
+  <span class="portal-title" id="portalTitle">बैंक एवं वित्तीय सेवाएं (Banking Services)</span>
+  <button id="themeToggleBtn" type="button" class="theme-btn">
+    <span id="thIcon">🌙</span> <span id="thText">नाइट मोड</span>
+  </button>
+</div>
+
+<div class="app">
+  <aside class="security-banner" id="secBanner" role="status" aria-live="polite">
+    🔒 <strong>100% सुरक्षित एवं निजी:</strong> यह टूल पूरी तरह आपके डिवाइस पर चलता है। आपका कोई भी डेटा सर्वर पर नहीं भेजा जाता। यदि कोई जानकारी नहीं डालना चाहते, तो खाली छोड़ दें—प्रिंट के बाद पेन से भर सकते हैं।
+  </aside>
+
+  <section class="form" aria-label="आवेदन पत्र सेटिंग्स">
+    <h1 id="uiTitle">आवेदन पत्र जनरेटर</h1>
+    
+    <label style="margin-top:0" id="lblLang">भाषा चुनें / Choose Language</label>
+    <div class="seg" role="radiogroup" aria-label="Language">
+      <label><input type="radio" name="lang" value="hi" checked><span id="optLangHi">हिंदी (Hindi)</span></label>
+      <label><input type="radio" name="lang" value="en"><span id="optLangEn">English</span></label>
+    </div>
+
+    <label for="tpl" id="lblTpl">आवेदन का प्रकार</label>
+    <select id="tpl"></select>
+
+    <!-- पेज भराव / प्रिंट फैलाव विकल्प -->
+    <label id="lblPageFit">पेज भराव / प्रिंट फैलाव</label>
+    <div class="seg" role="radiogroup" aria-label="Page Coverage" id="fitWrap">
+      <label><input type="radio" name="page_fit" value="fit80" checked><span id="optFit80">80% संतुलित (डिफ़ॉल्ट)</span></label>
+      <label><input type="radio" name="page_fit" value="fit90"><span id="optFit90">90% बड़ा (पूरा पेज)</span></label>
+      <label><input type="radio" name="page_fit" value="compact"><span id="optFitCompact">कॉम्पैक्ट (छोटा)</span></label>
+    </div>
+
+    <div class="seg" role="radiogroup" aria-label="आवेदक" id="genderWrap">
+      <label><input type="radio" name="g" value="m" checked><span id="gMale">पुरुष</span></label>
+      <label><input type="radio" name="g" value="f"><span id="gFemale">महिला</span></label>
+    </div>
+
+    <div id="fields"></div>
+
+    <div class="btns">
+      <button class="primary" id="print" type="button">प्रिंट करें</button>
+      <button class="ghost" id="clear" type="button">साफ़ करें</button>
+    </div>
+    <p class="hint" id="uiHint">जो जानकारी नहीं भरेंगे, प्रिंट में वहाँ खाली जगह छूट जाएगी। प्रिंट करने से पहले आप सीधे दाईं ओर पत्र पर क्लिक करके भी कोई बदलाव (एडिट) कर सकते हैं।</p>
+  </section>
+
+  <div class="sheetwrap"><article class="paper" id="paper" contenteditable="true" spellcheck="false" aria-label="आवेदन पत्र पूर्वावलोकन"></article></div>
+</div>
+
+<script>
+/* ============ 1) फ़ील्ड सूची ============ */
+var F_NAME=0, F_TYPE=1, F_WIDTH=2, F_MAX=3, F_NAME_EN=4;
+var SIG_LBL=0, SIG_KEY=1;
+var G_MALE=0, G_FEMALE=1;
+
+var F={
+  bank:["बैंक का नाम","b",18,0,"Bank Name"],
+  branch:["शाखा का नाम / पता","t",14,0,"Branch Name / Address"],
+  city:["शहर / जिला","t",12,0,"City / District"],
+  name:["आवेदक का नाम","t",22,0,"Applicant Name"],
+  acc:["खाता संख्या","n",20,20,"Account Number"],
+  newmob:["नया मोबाइल नंबर","n",12,10,"New Mobile Number"],
+  atm_info:["कार्ड विवरण (यदि उपलब्ध हो)","t",16,0,"Card Details (if available)"],
+  lostdate:["कार्ड खोने की तारीख","d",11,0,"Date Card Lost"],
+  chq:["चेक नंबर","n",10,12,"Cheque Number"],
+  date:["दिनांक","d",11,0,"Date"],
+  aadhar:["आधार नo","n",14,12,"Aadhaar No."],
+  chq_pages:["चेकबुक के पृष्ठों की संख्या","t",12,0,"Number of Cheque Leaves"],
+  lost_pb_date:["पासबुक खोने की अनुमानित तारीख","d",11,0,"Estimated Date Passbook Lost"],
+  new_branch:["नई शाखा का नाम","t",16,0,"New Branch Name"],
+  new_city:["नई शाखा का शहर / जिला","t",14,0,"New Branch City / District"],
+  transfer_reason:["स्थानांतरण का कारण","t",20,0,"Reason for Transfer"],
+  email:["ईमेल आईडी","t",22,0,"Email ID"],
+  mob:["मोबाइल नंबर","n",12,10,"Mobile Number"],
+  doc_name:["जमा किया जा रहा दस्तावेज","t",20,0,"Document Submitted"],
+  chq_date:["चेक की तारीख","d",11,0,"Date on Cheque"],
+  stop_reason:["भुगतान रोकने का कारण","t",20,0,"Reason for Stop Payment"],
+  close_reason:["खाता बंद करने का कारण","t",20,0,"Reason for Account Closure"],
+  balance_mode:["शेष राशि प्राप्त करने का तरीका","t",18,0,"Mode of Balance Payout"],
+  nom_name:["नॉमिनी का नाम","t",20,0,"Nominee Name"],
+  nom_rel:["खाताधारक से संबंध","t",14,0,"Relationship with Account Holder"],
+  nom_dob:["नॉमिनी की जन्मतिथि","d",11,0,"Nominee Date of Birth"],
+  nom_addr:["नॉमिनी का पूरा पता","t",24,0,"Nominee Full Address"],
+  nom_mob:["नॉमिनी का मोबाइल नंबर","n",12,10,"Nominee Mobile Number"],
+  old_nom_name:["पुराने नॉमिनी का नाम","t",20,0,"Existing Nominee Name"],
+  notice_date:["जानकारी होने की तारीख / समय","t",16,0,"Date / Time Fraud Noticed"],
+  tx_date:["लेन-देन की तारीख","d",11,0,"Transaction Date"],
+  tx_time:["लेन-देन का समय","t",10,0,"Transaction Time"],
+  tx_amt:["राशि (₹)","n",10,10,"Amount (₹)"],
+  tx_id:["Transaction ID / UTR","t",18,0,"Transaction ID / UTR"],
+  tx_mode:["लेन-देन का माध्यम (UPI/कार्ड आदि)","t",16,0,"Mode of Transaction (UPI/Card etc.)"],
+  tx_desc:["अनधिकृत लेन-देन का विवरण","t",24,0,"Incident / Transaction Description"],
+  name1:["खाताधारक 1 का नाम","t",20,0,"Account Holder 1 Name"],
+  name2:["खाताधारक 2 का नाम","t",20,0,"Account Holder 2 Name"],
+  single_holder:["एकल खाताधारक के रूप में रखने वाले व्यक्ति का नाम","t",20,0,"Single Account Holder Name"],
+  loan_acc:["Loan Account Number (ऋण खाता संख्या)","t",20,0,"Loan Account Number"],
+  loan_type:["ऋण का प्रकार (होम/पर्सनल/वाहन आदि)","t",18,0,"Loan Type (Home/Personal/Auto etc.)"],
+  loan_paid_date:["ऋण पूर्ण चुकता करने की तारीख","d",11,0,"Date Loan Fully Repaid"],
+  place:["स्थान","t",14,0,"Place"]
+};
+
+/* ============ 2) आवेदन पत्र (हिंदी) ============ */
+var T=[
+{t:"बैंक खाते में मोबाइल नंबर अपडेट कराने हेतु आवेदन पत्र",
+ s:"बैंक खाते में मोबाइल नंबर अपडेट कराने हेतु आवेदन पत्र।",
+ p:["सविनय निवेदन है कि मेरा नाम {name} है और मेरा आपके बैंक की {branch} शाखा में {acc} खाता संचालित है।",
+    "मैं अपने बैंक खाते में पंजीकृत मोबाइल नंबर को बदलकर नया मोबाइल नंबर {newmob} अपडेट कराना चाहता/चाहती हूँ। अतः आपसे अनुरोध है कि मेरे बैंक खाते में उपरोक्त मोबाइल नंबर पंजीकृत करने की कृपा करें, ताकि मुझे बैंक खाते से संबंधित लेन-देन एवं अन्य आवश्यक सूचनाएं समय पर प्राप्त हो सकें।",
+    "आवश्यक दस्तावेज आवेदन के साथ संलग्न हैं। कृपया आवश्यक प्रक्रिया पूरी कर मेरे खाते में नया मोबाइल नंबर अपडेट करने की कृपा करें।"],
+ sig:[["नाम","name"],["खाता संख्या","acc"],["नया मोबाइल नंबर","newmob"],["दिनांक","date"],["आधार नo","aadhar"]]},
+
+{t:"खोया हुआ ATM / डेबिट कार्ड ब्लॉक कराने हेतु आवेदन पत्र",
+ s:"खोए हुए ATM / डेबिट कार्ड को तत्काल ब्लॉक कराने हेतु आवेदन पत्र।",
+ p:["सविनय निवेदन है कि मेरा नाम {name} है और मेरा आपके बैंक की {branch} शाखा में {acc} खाता संचालित है।",
+    "मेरा ATM/डेबिट कार्ड कहीं खो गया है। मुझे आशंका है कि इसका किसी अन्य व्यक्ति द्वारा दुरुपयोग किया जा सकता है। अतः आपसे अनुरोध है कि मेरे खाते से संबंधित खोए हुए ATM/डेबिट कार्ड को तत्काल ब्लॉक करने की कृपा करें, ताकि किसी प्रकार का अनधिकृत लेन-देन न हो सके।",
+    "कार्ड से संबंधित उपलब्ध जानकारी नीचे दी गई है। कृपया आवश्यक कार्रवाई करने की कृपा करें।"],
+ sig:[["नाम","name"],["खाता संख्या","acc"],["कार्ड विवरण","atm_info"],["कार्ड खोने की तारीख","lostdate"],["दिनांक","date"],["आधार नo","aadhar"]]},
+
+{t:"खोए हुए चेक का भुगतान रोकने हेतु आवेदन पत्र",
+ s:"खोए हुए चेक का भुगतान रोकने (Stop Payment) हेतु आवेदन पत्र।",
+ p:["सविनय निवेदन है कि मेरा नाम {name} है और मेरा आपके बैंक की {branch} शाखा में {acc} खाता संचालित है।",
+    "मेरी चेकबुक का चेक नंबर {chq} कहीं खो गया है। अतः मुझे आशंका है कि उक्त चेक का किसी अन्य व्यक्ति द्वारा दुरुपयोग किया जा सकता है।",
+    "इसलिए आपसे अनुरोध है कि चेक नंबर {chq} का भुगतान तत्काल रोकने (Stop Payment) की कृपा करें।",
+    "कृपया आवश्यक कार्रवाई कर उक्त चेक के संबंध में भुगतान रोकने की प्रक्रिया पूरी करने की कृपा करें।"],
+ sig:[["नाम","name"],["खाता संख्या","acc"],["चेक नंबर","chq"],["दिनांक","date"],["आधार नo","aadhar"]]},
+
+{t:"नई चेकबुक जारी कराने हेतु आवेदन पत्र",
+ s:"नई चेकबुक जारी कराने हेतु आवेदन पत्र।",
+ p:["सविनय निवेदन है कि मेरा नाम {name} है और मेरा आपके बैंक की {branch} शाखा में {acc} खाता संचालित है।",
+    "मेरे खाते की चेकबुक के पृष्ठ समाप्त हो गए हैं। अतः मुझे अपने बैंक खाते के लिए नई चेकबुक की आवश्यकता है। आपसे अनुरोध है कि मेरे खाते के लिए नियमानुसार नई चेकबुक जारी करने की कृपा करें।",
+    "कृपया मेरा आवेदन स्वीकार कर आवश्यक कार्रवाई करने की कृपा करें।"],
+ sig:[["नाम","name"],["खाता संख्या","acc"],["चेकबुक की आवश्यकता","chq_pages"],["दिनांक","date"],["आधार नo","aadhar"]]},
+
+{t:"पासबुक भर जाने पर नई पासबुक जारी कराने हेतु आवेदन पत्र",
+ s:"पासबुक के पृष्ठ पूर्ण हो जाने के कारण नई पासबुक जारी कराने हेतु आवेदन पत्र।",
+ p:["सविनय निवेदन है कि मेरा नाम {name} है और मेरा आपके बैंक की {branch} शाखा में {acc} खाता संचालित है।",
+    "मेरी बैंक पासबुक के सभी/अधिकांश पृष्ठ लेन-देन की प्रविष्टियों के कारण भर चुके हैं। इसलिए मुझे अपने खाते की नई पासबुक की आवश्यकता है।",
+    "अतः आपसे अनुरोध है कि मेरे बैंक खाते के लिए नई पासबुक जारी करने की कृपा करें।"],
+ sig:[["नाम","name"],["खाता संख्या","acc"],["दिनांक","date"],["आधार नo","aadhar"]]},
+
+{t:"पासबुक खो जाने पर नई पासबुक जारी कराने हेतु आवेदन पत्र",
+ s:"खोई हुई पासबुक के स्थान पर नई पासबुक जारी कराने हेतु आवेदन पत्र।",
+ p:["सविनय निवेदन है कि मेरा नाम {name} है और मेरा आपके बैंक की {branch} शाखा में {acc} खाता संचालित है।",
+    "मेरी बैंक पासबुक कहीं खो गई है। काफी खोजबीन करने के बाद भी पासबुक प्राप्त नहीं हो सकी। अतः आपसे अनुरोध है कि मेरी पुरानी पासबुक को आवश्यकतानुसार निष्प्रभावी मानते हुए मेरे बैंक खाते के लिए नई पासबुक जारी करने की कृपा करें।",
+    "मैं बैंक द्वारा निर्धारित आवश्यक प्रक्रिया एवं औपचारिकताएं पूरी करने के लिए तैयार हूँ।"],
+ sig:[["नाम","name"],["खाता संख्या","acc"],["पासबुक खोने की अनुमानित तारीख","lost_pb_date"],["दिनांक","date"],["आधार नo","aadhar"]]},
+
+{t:"बैंक खाता एक शाखा से दूसरी शाखा में ट्रांसफर कराने हेतु आवेदन पत्र",
+ s:"बैंक खाते को वर्तमान शाखा से दूसरी शाखा में स्थानांतरित कराने हेतु आवेदन पत्र।",
+ p:["सविनय निवेदन है कि मेरा नाम {name} है और मेरा आपके बैंक की {branch} शाखा में {acc} खाता संचालित है।",
+    "वर्तमान में {transfer_reason} के कारण मेरे लिए वर्तमान शाखा में बैंकिंग सेवाओं का उपयोग करना सुविधाजनक नहीं है। अतः मैं अपने बैंक खाते को {new_branch}, {new_city} शाखा में स्थानांतरित कराना चाहता/चाहती हूँ।",
+    "अतः आपसे अनुरोध है कि मेरे बैंक खाते को उपरोक्त शाखा में स्थानांतरित करने की आवश्यक प्रक्रिया पूरी करने की कृपा करें।"],
+ sig:[["नाम","name"],["खाता संख्या","acc"],["वर्तमान शाखा","branch"],["नई शाखा","new_branch"],["नई शाखा का शहर/जिला","new_city"],["स्थानांतरण का कारण","transfer_reason"],["दिनांक","date"],["आधार नo","aadhar"]]},
+
+{t:"बैंक खाते में ईमेल आईडी दर्ज कराने हेतु आवेदन पत्र",
+ s:"बैंक खाते में ईमेल आईडी दर्ज कराने हेतु आवेदन पत्र।",
+ p:["सविनय निवेदन है कि मेरा नाम {name} है और मेरा आपके बैंक की {branch} शाखा में {acc} खाता संचालित है।",
+    "मैं अपने बैंक खाते में अपनी ईमेल आईडी पंजीकृत कराना चाहता/चाहती हूँ, ताकि मुझे बैंक से संबंधित आवश्यक सूचनाएं एवं सेवाएं ईमेल के माध्यम से प्राप्त हो सकें।",
+    "अतः आपसे अनुरोध है कि मेरे बैंक खाते में मेरी ईमेल आईडी {email} दर्ज/पंजीकृत करने की कृपा करें।"],
+ sig:[["नाम","name"],["खाता संख्या","acc"],["ईमेल आईडी","email"],["दिनांक","date"],["आधार नo","aadhar"]]},
+
+{t:"निष्क्रिय (Inactive) बैंक खाता चालू कराने हेतु आवेदन पत्र",
+ s:"निष्क्रिय (Inactive) बैंक खाते को पुनः चालू कराने हेतु आवेदन पत्र।",
+ p:["सविनय निवेदन है कि मेरा नाम {name} है और मेरा आपके बैंक की {branch} शाखा में {acc} खाता संचालित है।",
+    "काफी समय से खाते में नियमित लेन-देन नहीं होने के कारण मेरा बैंक खाता निष्क्रिय हो गया है। अब मैं अपने बैंक खाते का पुनः उपयोग करना चाहता/चाहती हूँ।",
+    "अतः आपसे अनुरोध है कि बैंक के नियमानुसार आवश्यक प्रक्रिया पूरी कर मेरे निष्क्रिय खाते को पुनः सक्रिय करने की कृपा करें।",
+    "मैं आवश्यक दस्तावेज एवं पहचान संबंधी प्रमाण प्रस्तुत करने के लिए तैयार हूँ।"],
+ sig:[["नाम","name"],["खाता संख्या","acc"],["दिनांक","date"],["आधार नo","aadhar"]]},
+
+{t:"Dormant बैंक खाता पुनः सक्रिय कराने हेतु आवेदन पत्र",
+ s:"Dormant बैंक खाते को पुनः सक्रिय कराने हेतु आवेदन पत्र।",
+ p:["सविनय निवेदन है कि मेरा नाम {name} है तथा मेरा आपके बैंक की {branch} शाखा में {acc} खाता संचालित है।",
+    "मेरे बैंक खाते में लंबे समय से कोई नियमित लेन-देन नहीं होने के कारण यह खाता Dormant/निष्क्रिय स्थिति में हो गया है। अब मैं इस खाते को पुनः संचालित करना चाहता/चाहती हूँ।",
+    "अतः आपसे अनुरोध है कि बैंक के नियमानुसार आवश्यक प्रक्रिया एवं औपचारिकताएं पूरी करके मेरे Dormant खाते को पुनः सक्रिय करने की कृपा करें।",
+    "मैं आवश्यक KYC एवं अन्य दस्तावेज जमा करने के लिए तैयार हूँ।"],
+ sig:[["नाम","name"],["खाता संख्या","acc"],["दिनांक","date"],["आधार नo","aadhar"]]},
+
+{t:"KYC / Re-KYC दस्तावेज जमा करने हेतु आवेदन पत्र",
+ s:"बैंक खाते की KYC / Re-KYC प्रक्रिया हेतु दस्तावेज जमा करने के संबंध में।",
+ p:["सविनय निवेदन है कि मेरा नाम {name} है और मेरा आपके बैंक की {branch} शाखा में {acc} खाता संचालित है।",
+    "मेरे बैंक खाते की KYC/Re-KYC प्रक्रिया पूरी करने के लिए आवश्यक दस्तावेज इस आवेदन पत्र के साथ प्रस्तुत कर रहा/रही हूँ।",
+    "अतः आपसे अनुरोध है कि मेरे द्वारा प्रस्तुत दस्तावेजों को स्वीकार कर मेरे बैंक खाते की KYC/Re-KYC प्रक्रिया को नियमानुसार पूरा करने की कृपा करें।"],
+ sig:[["नाम","name"],["खाता संख्या","acc"],["मोबाइल नंबर","mob"],["दस्तावेज का नाम","doc_name"],["दिनांक","date"],["आधार नo","aadhar"]]},
+
+{t:"खोए हुए चेक का भुगतान रोकने हेतु आवेदन पत्र",
+ s:"खोए हुए चेक का भुगतान रोकने (Stop Payment) हेतु आवेदन पत्र।",
+ p:["सविनय निवेदन है कि मेरा नाम {name} है और मेरा आपके बैंक की {branch} शाखा में {acc} खाता संचालित है।",
+    "मेरी चेकबुक का चेक नंबर {chq} कहीं खो गया है। अतः मुझे आशंका है कि उक्त चेक का किसी अन्य व्यक्ति द्वारा दुरुपयोग किया जा सकता है।",
+    "इसलिए आपसे अनुरोध है कि चेक नंबर {chq} का भुगतान तत्काल रोकने (Stop Payment) की कृपा करें।",
+    "कृपया आवश्यक कार्रवाई कर उक्त चेक के संबंध में भुगतान रोकने की प्रक्रिया पूरी करने की कृपा करें।"],
+ sig:[["नाम","name"],["खाता संख्या","acc"],["चेक नंबर","chq"],["दिनांक","date"],["आधार नo","aadhar"]]},
+
+{t:"जारी किए गए चेक का भुगतान रोकने हेतु आवेदन पत्र",
+ s:"जारी किए गए चेक का भुगतान रोकने (Stop Payment) हेतु आवेदन पत्र।",
+ p:["सविनय निवेदन है कि मेरा नाम {name} है और मेरा आपके बैंक की {branch} शाखा में {acc} खाता संचालित है।",
+    "मैंने अपने खाते से संबंधित चेक नंबर {chq} जारी किया था। अब मैं उक्त चेक का भुगतान रोकना चाहता/चाहती हूँ।",
+    "अतः आपसे अनुरोध है कि चेक नंबर {chq} का भुगतान रोकने (Stop Payment) की कृपा करें और बैंक के नियमानुसार आवश्यक कार्रवाई करने की कृपा करें।"],
+ sig:[["नाम","name"],["खाता संख्या","acc"],["चेक नंबर","chq"],["चेक की तारीख","chq_date"],["भुगतान रोकने का कारण","stop_reason"],["दिनांक","date"],["आधार नo","aadhar"]]},
+
+{t:"बैंक बचत खाता स्थायी रूप से बंद कराने हेतु आवेदन पत्र",
+ s:"बैंक बचत खाता स्थायी रूप से बंद कराने हेतु आवेदन पत्र।",
+ p:["सविनय निवेदन है कि मेरा नाम {name} है और मेरा आपके बैंक की {branch} शाखा में {acc} बचत खाता संचालित है।",
+    "अब मुझे उक्त बैंक खाते की आवश्यकता नहीं है। अतः मैं अपने बचत खाते को स्थायी रूप से बंद करवाना चाहता/चाहती हूँ।",
+    "आपसे अनुरोध है कि बैंक के नियमानुसार मेरे खाते को बंद करने की प्रक्रिया पूरी करने की कृपा करें। खाते में यदि कोई शेष राशि उपलब्ध है, तो उसे बैंक के नियमों के अनुसार {balance_mode} के माध्यम से उपलब्ध कराने की कृपा करें।",
+    "मैं बैंक द्वारा आवश्यक सभी औपचारिकताएं पूरी करने के लिए तैयार हूँ।"],
+ sig:[["नाम","name"],["खाता संख्या","acc"],["खाता बंद करने का कारण","close_reason"],["शेष राशि प्राप्त करने का तरीका","balance_mode"],["दिनांक","date"],["आधार नo","aadhar"]]},
+
+{t:"बैंक खाते में नॉमिनी का नाम जोड़ने हेतु आवेदन पत्र",
+ s:"बैंक खाते में नॉमिनी का नाम दर्ज कराने हेतु आवेदन पत्र।",
+ p:["सविनय निवेदन है कि मेरा नाम {name} है और मेरा आपके बैंक की {branch} शाखा में {acc} खाता संचालित है।",
+    "मैं अपने उक्त बैंक खाते में नॉमिनी का नाम दर्ज कराना चाहता/चाहती हूँ। अतः कृपया मेरे खाते में निम्न व्यक्ति को नॉमिनी के रूप में दर्ज करने की आवश्यक प्रक्रिया पूरी करने की कृपा करें।",
+    "नॉमिनी का नाम: {nom_name}<br>खाताधारक से संबंध: {nom_rel}<br>नॉमिनी की जन्मतिथि: {nom_dob}<br>नॉमिनी का पूरा पता: {nom_addr}<br>मोबाइल नंबर: {nom_mob}",
+    "यदि नॉमिनी नाबालिग है, तो उसके अभिभावक/Guardian का विवरण भी आवश्यकतानुसार प्रस्तुत किया जाएगा।",
+    "अतः आपसे अनुरोध है कि बैंक के नियमानुसार मेरे खाते में उपरोक्त व्यक्ति को नॉमिनी के रूप में दर्ज करने की कृपा करें।"],
+ sig:[["खाताधारक का नाम","name"],["खाता संख्या","acc"],["दिनांक","date"],["आधार नo","aadhar"]]},
+
+{t:"बैंक खाते में नॉमिनी का नाम बदलने हेतु आवेदन पत्र",
+ s:"बैंक खाते में दर्ज नॉमिनी को बदलकर नया नॉमिनी दर्ज कराने हेतु आवेदन पत्र।",
+ p:["सविनय निवेदन है कि मेरा नाम {name} है और मेरा आपके बैंक की {branch} शाखा में {acc} खाता संचालित है।",
+    "मेरे बैंक खाते में वर्तमान में {old_nom_name} नॉमिनी के रूप में दर्ज है। अब मैं उक्त नॉमिनी के स्थान पर {nom_name} को नॉमिनी के रूप में दर्ज कराना चाहता/चाहती हूँ।",
+    "नए नॉमिनी का विवरण निम्न है:<br>नए नॉमिनी का नाम: {nom_name}<br>खाताधारक से संबंध: {nom_rel}<br>नॉमिनी की जन्मतिथि: {nom_dob}<br>पूरा पता: {nom_addr}<br>मोबाइल नंबर: {nom_mob}",
+    "अतः आपसे अनुरोध है कि बैंक के नियमानुसार मेरे खाते में दर्ज वर्तमान नॉमिनी को बदलकर उपरोक्त व्यक्ति का नाम नया नॉमिनी दर्ज करने की कृपा करें।"],
+ sig:[["खाताधारक का नाम","name"],["खाता संख्या","acc"],["दिनांक","date"],["आधार नo","aadhar"]]},
+
+{t:"अनधिकृत ऑनलाइन ट्रांजेक्शन / साइबर फ्रॉड की शिकायत हेतु आवेदन पत्र",
+ s:"बैंक खाते में हुए अनधिकृत ऑनलाइन लेन-देन की शिकायत एवं आवश्यक कार्रवाई हेतु आवेदन पत्र।",
+ p:["सविनय निवेदन है कि मेरा नाम {name} है और मेरा आपके बैंक की {branch} शाखा में {acc} खाता संचालित है।",
+    "मेरे बैंक खाते से मेरी जानकारी/अनुमति के बिना एक ऑनलाइन लेन-देन हुआ है। इस लेन-देन की जानकारी मुझे {notice_date} को हुई।",
+    "लेन-देन का विवरण निम्न है:<br>• लेन-देन की तारीख: {tx_date}<br>• लेन-देन का समय: {tx_time}<br>• राशि: ₹{tx_amt}<br>• Transaction ID / UTR: {tx_id}<br>• लेन-देन का माध्यम: {tx_mode}<br>• अनधिकृत लेन-देन का संक्षिप्त विवरण: {tx_desc}",
+    "मैंने उक्त लेन-देन स्वयं नहीं किया है और न ही इसके लिए किसी अन्य व्यक्ति को अनुमति दी थी।",
+    "अतः आपसे अनुरोध है कि मामले की जांच कर आवश्यक कार्रवाई करने तथा बैंक के नियमानुसार इस अनधिकृत लेन-देन की शिकायत दर्ज करने की कृपा करें। यदि आवश्यक हो तो मेरे खाते/कार्ड/डिजिटल बैंकिंग सुविधा की सुरक्षा के लिए उचित कदम उठाने की भी कृपा करें।",
+    "मैं संबंधित दस्तावेज एवं लेन-देन का उपलब्ध प्रमाण आवेदन के साथ प्रस्तुत कर रहा/रही हूँ।"],
+ sig:[["नाम","name"],["खाता संख्या","acc"],["पंजीकृत मोबाइल नंबर","mob"],["दिनांक","date"],["आधार नo","aadhar"]]},
+
+{t:"साइबर फ्रॉड में राशि वापस कराने हेतु आवेदन पत्र",
+ s:"अनधिकृत ऑनलाइन लेन-देन से निकली राशि वापस कराने हेतु आवेदन पत्र।",
+ p:["सविनय निवेदन है कि मेरा नाम {name} है और मेरा आपके बैंक की {branch} शाखा में {acc} खाता संचालित है।",
+    "मेरे बैंक खाते से मेरी जानकारी एवं अनुमति के बिना ₹{tx_amt} का अनधिकृत ऑनलाइन लेन-देन हुआ है। उक्त लेन-देन की जानकारी मुझे {notice_date} को हुई।",
+    "लेन-देन का विवरण:<br>• लेन-देन की तारीख: {tx_date}<br>• समय: {tx_time}<br>• राशि: ₹{tx_amt}<br>• Transaction ID / UTR: {tx_id}<br>• माध्यम: {tx_mode}<br>• घटना का विवरण: {tx_desc}",
+    "मैंने यह लेन-देन स्वयं नहीं किया है और न ही इसके लिए किसी अन्य व्यक्ति को अधिकृत किया था।",
+    "अतः आपसे अनुरोध है कि मेरी शिकायत दर्ज कर मामले की जांच करने तथा बैंक के लागू नियमों एवं प्रक्रिया के अनुसार अनधिकृत रूप से निकाली गई राशि की वापसी/रिफंड के संबंध में आवश्यक कार्रवाई करने की कृपा करें।",
+    "मैं उपलब्ध संबंधित दस्तावेज एवं लेन-देन का प्रमाण आवेदन के साथ प्रस्तुत कर रहा/रही हूँ।"],
+ sig:[["नाम","name"],["खाता संख्या","acc"],["मोबाइल नंबर","mob"],["दिनांक","date"],["आधार नo","aadhar"]]},
+
+{t:"संयुक्त (Joint) बैंक खाते को एकल (Single) खाते में बदलने हेतु आवेदन पत्र",
+ s:"संयुक्त बैंक खाते को एकल खाते में परिवर्तित करने हेतु आवेदन पत्र।",
+ p:["सविनय निवेदन है कि हम {name1} एवं {name2} आपके बैंक की {branch} शाखा में संयुक्त रूप से {acc} खाता संचालित करते हैं।",
+    "अब हम उक्त संयुक्त खाते को {single_holder} के नाम पर एकल खाते के रूप में संचालित करना चाहते हैं।",
+    "अतः आपसे अनुरोध है कि बैंक के नियमानुसार आवश्यक प्रक्रिया एवं दस्तावेजों की पूर्ति के पश्चात उक्त संयुक्त खाते को एकल खाते में परिवर्तित करने की कृपा करें।",
+    "हम बैंक द्वारा निर्धारित सभी आवश्यक औपचारिकताएं पूरी करने के लिए सहमत हैं।"],
+ sig:[["खाताधारक 1 का नाम","name1"],["खाताधारक 2 का नाम","name2"],["खाता संख्या","acc"],["एकल खाताधारक के रूप में रखने वाले व्यक्ति का नाम","single_holder"],["दिनांक","date"],["आधार नo","aadhar"]]},
+
+{t:"बैंक ऋण पूर्ण चुकता होने पर NOC प्राप्त करने हेतु आवेदन पत्र",
+ a:"शाखा प्रबंधक / ऋण अधिकारी महोदय/महोदया,",
+ s:"बैंक ऋण पूर्ण रूप से चुकता होने के पश्चात NOC जारी करने हेतु आवेदन पत्र।",
+ p:["सविनय निवेदन है कि मेरा नाम {name} है। मैंने आपके बैंक की {branch} शाखा से {loan_type} हेतु ऋण लिया था, जिसका ऋण खाता/Loan Account Number {loan_acc} है।",
+    "मेरे द्वारा उक्त ऋण की पूरी बकाया राशि बैंक के नियमानुसार चुका दी गई है। अतः अब मेरे ऋण खाते में कोई बकाया राशि शेष नहीं है/मेरी जानकारी के अनुसार ऋण पूर्ण रूप से चुकता हो चुका है।",
+    "अतः आपसे अनुरोध है कि मेरे उक्त ऋण खाते के संबंध में No Objection Certificate (NOC) / ऋण समापन प्रमाण पत्र जारी करने की कृपा करें। यदि ऋण से संबंधित कोई अन्य आवश्यक औपचारिकता या दस्तावेज शेष हो, तो कृपया मुझे इसकी जानकारी प्रदान करने की कृपा करें।"],
+ sig:[["नाम","name"],["Loan Account Number","loan_acc"],["ऋण का प्रकार","loan_type"],["ऋण पूर्ण चुकता करने की तारीख","loan_paid_date"],["मोबाइल नंबर","mob"],["दिनांक","date"],["स्थान","place"]]}
+];
+
+/* ============ 2B) आवेदन पत्र (English) ============ */
+var T_EN=[
+{t:"Application for Updating Mobile Number in Bank Account",
+ s:"Application for updating mobile number in bank account.",
+ p:["I respectfully state that my name is {name} and I maintain bank account number {acc} with your {branch} branch.",
+    "I wish to update the registered mobile number associated with my bank account to my new mobile number {newmob}. I kindly request you to register this new mobile number in my account records so that I can regularly receive transaction alerts and essential banking notifications.",
+    "Required supporting documents are enclosed with this application. Kindly complete the update process at your earliest convenience."],
+ sig:[["Name","name"],["Account No.","acc"],["New Mobile No.","newmob"],["Date","date"],["Aadhaar No.","aadhar"]]},
+
+{t:"Application for Blocking Lost ATM / Debit Card",
+ s:"Application for immediately blocking lost ATM / Debit Card.",
+ p:["I respectfully state that my name is {name} and I maintain bank account number {acc} with your {branch} branch.",
+    "My ATM / Debit card linked to this account has unfortunately been misplaced / lost. I am concerned that it might be misused by an unauthorized individual. Therefore, I request you to immediately block my lost ATM / Debit card to avoid any financial loss or fraudulent transactions.",
+    "The available details regarding the lost card are mentioned below. Kindly initiate necessary action."],
+ sig:[["Name","name"],["Account No.","acc"],["Card Details","atm_info"],["Date Card Lost","lostdate"],["Date","date"],["Aadhaar No.","aadhar"]]},
+
+{t:"Application for Stop Payment of Lost Cheque",
+ s:"Application for stop payment of lost cheque.",
+ p:["I respectfully state that my name is {name} and I maintain bank account number {acc} with your {branch} branch.",
+    "Cheque number {chq} from my cheque book has been lost. I am apprehensive that it could be misused by an unauthorized person.",
+    "Therefore, I kindly request you to immediately stop payment against cheque number {chq}.",
+    "Kindly take necessary action and initiate the stop payment procedure in your banking system."],
+ sig:[["Name","name"],["Account No.","acc"],["Cheque No.","chq"],["Date","date"],["Aadhaar No.","aadhar"]]},
+
+{t:"Application for Issue of New Cheque Book",
+ s:"Application for issuing a new cheque book.",
+ p:["I respectfully state that my name is {name} and I maintain bank account number {acc} with your {branch} branch.",
+    "The leaves in my current cheque book have been fully exhausted. Hence, I require a fresh cheque book for smoothly conducting transactions through my account. I kindly request you to issue a new cheque book as per bank guidelines.",
+    "Kindly accept my application and process the request."],
+ sig:[["Name","name"],["Account No.","acc"],["Cheque Leaves Required","chq_pages"],["Date","date"],["Aadhaar No.","aadhar"]]},
+
+{t:"Application for Issue of New Passbook (Pages Completed)",
+ s:"Application for issue of new passbook due to completed pages.",
+ p:["I respectfully state that my name is {name} and I maintain bank account number {acc} with your {branch} branch.",
+    "All the pages in my current bank passbook have been filled with transaction entries. Therefore, I require a new passbook for my account.",
+    "I kindly request you to issue a new passbook for my bank account."],
+ sig:[["Name","name"],["Account No.","acc"],["Date","date"],["Aadhaar No.","aadhar"]]},
+
+{t:"Application for Issue of Duplicate Passbook (Lost Passbook)",
+ s:"Application for issue of new passbook in place of lost passbook.",
+ p:["I respectfully state that my name is {name} and I maintain bank account number {acc} with your {branch} branch.",
+    "My original bank passbook has been misplaced/lost and could not be traced despite diligent search. I kindly request you to invalidate the lost passbook and issue a new/duplicate passbook for my account.",
+    "I am ready to complete all verification formalities and pay applicable charges as per bank rules."],
+ sig:[["Name","name"],["Account No.","acc"],["Estimated Date Lost","lost_pb_date"],["Date","date"],["Aadhaar No.","aadhar"]]},
+
+{t:"Application for Transfer of Bank Account to Another Branch",
+ s:"Application for transferring bank account from current branch to another branch.",
+ p:["I respectfully state that my name is {name} and I maintain bank account number {acc} with your {branch} branch.",
+    "Due to {transfer_reason}, it has become inconvenient for me to avail banking services at the present branch. Therefore, I wish to transfer my bank account to your {new_branch}, {new_city} branch.",
+    "I kindly request you to complete the necessary formalities and transfer my bank account to the requested branch."],
+ sig:[["Name","name"],["Account No.","acc"],["Current Branch","branch"],["New Branch","new_branch"],["New Branch City/District","new_city"],["Reason for Transfer","transfer_reason"],["Date","date"],["Aadhaar No.","aadhar"]]},
+
+{t:"Application for Registering Email ID in Bank Account",
+ s:"Application for registering/updating email ID in bank account.",
+ p:["I respectfully state that my name is {name} and I maintain bank account number {acc} with your {branch} branch.",
+    "I wish to register my email address with my bank account so that I can receive monthly e-statements and critical banking notifications on time.",
+    "Therefore, I kindly request you to update and register my email ID {email} in my bank account records."],
+ sig:[["Name","name"],["Account No.","acc"],["Email ID","email"],["Date","date"],["Aadhaar No.","aadhar"]]},
+
+{t:"Application for Activating Inactive Bank Account",
+ s:"Application for activating inactive bank account.",
+ p:["I respectfully state that my name is {name} and I maintain bank account number {acc} with your {branch} branch.",
+    "Due to the absence of regular transactions over an extended period, my bank account has been marked as inactive. I now wish to resume regular operations through this account.",
+    "Therefore, I kindly request you to complete the necessary procedure as per bank norms and reactivate my account.",
+    "I am enclosing my identity and address proof documents for verification."],
+ sig:[["Name","name"],["Account No.","acc"],["Date","date"],["Aadhaar No.","aadhar"]]},
+
+{t:"Application for Re-activating Dormant Bank Account",
+ s:"Application for re-activating dormant bank account.",
+ p:["I respectfully state that my name is {name} and I maintain bank account number {acc} with your {branch} branch.",
+    "Due to lack of customer-induced transactions over a prolonged period, my bank account status has turned Dormant. I now intend to operate this account actively.",
+    "Therefore, I kindly request you to complete the required KYC compliance and re-activate my dormant account.",
+    "I am ready to submit updated KYC documents and deposit the requisite amount to activate the account."],
+ sig:[["Name","name"],["Account No.","acc"],["Date","date"],["Aadhaar No.","aadhar"]]},
+
+{t:"Application for Submitting KYC / Re-KYC Documents",
+ s:"Application regarding submission of documents for KYC / Re-KYC process.",
+ p:["I respectfully state that my name is {name} and I maintain bank account number {acc} with your {branch} branch.",
+    "I am submitting the required self-attested documents along with this application to complete the KYC / Re-KYC verification for my bank account.",
+    "I kindly request you to accept these documents and update my KYC status in the bank records in accordance with regulations."],
+ sig:[["Name","name"],["Account No.","acc"],["Mobile No.","mob"],["Document Submitted","doc_name"],["Date","date"],["Aadhaar No.","aadhar"]]},
+
+{t:"Application for Stop Payment of Lost Cheque",
+ s:"Application for stop payment of lost cheque.",
+ p:["I respectfully state that my name is {name} and I maintain bank account number {acc} with your {branch} branch.",
+    "Cheque number {chq} from my cheque book has been lost. I am concerned that it may be misused by an unauthorized individual.",
+    "Therefore, I kindly request you to stop payment against cheque number {chq} immediately.",
+    "Kindly take necessary action to complete the stop payment procedure."],
+ sig:[["Name","name"],["Account No.","acc"],["Cheque No.","chq"],["Date","date"],["Aadhaar No.","aadhar"]]},
+
+{t:"Application for Stop Payment of Issued Cheque",
+ s:"Application for stop payment of issued cheque.",
+ p:["I respectfully state that my name is {name} and I maintain bank account number {acc} with your {branch} branch.",
+    "I had previously issued cheque number {chq} drawn on my bank account. Due to unforeseen circumstances, I now wish to stop payment of the said cheque.",
+    "Therefore, I kindly request you to place a stop payment instruction on cheque number {chq} and take necessary preventive steps."],
+ sig:[["Name","name"],["Account No.","acc"],["Cheque No.","chq"],["Date on Cheque","chq_date"],["Reason for Stop Payment","stop_reason"],["Date","date"],["Aadhaar No.","aadhar"]]},
+
+{t:"Application for Permanent Closure of Bank Savings Account",
+ s:"Application for permanent closure of bank savings account.",
+ p:["I respectfully state that my name is {name} and I maintain a savings bank account number {acc} with your {branch} branch.",
+    "I no longer require this bank account and wish to close it permanently.",
+    "I kindly request you to initiate the account closure procedure as per bank norms. Any credit balance remaining in the account may kindly be disbursed to me via {balance_mode}.",
+    "I am prepared to surrender unused cheque leaves, debit card, and complete all required formalities."],
+ sig:[["Name","name"],["Account No.","acc"],["Reason for Closure","close_reason"],["Mode of Balance Payout","balance_mode"],["Date","date"],["Aadhaar No.","aadhar"]]},
+
+{t:"Application for Adding Nominee in Bank Account",
+ s:"Application for registering nominee in bank account.",
+ p:["I respectfully state that my name is {name} and I maintain bank account number {acc} with your {branch} branch.",
+    "I wish to register a nominee for my bank account. Kindly register the following individual as the official nominee in my account records:",
+    "Nominee Details:<br>• Nominee Name: {nom_name}<br>• Relationship with Account Holder: {nom_rel}<br>• Date of Birth: {nom_dob}<br>• Full Address: {nom_addr}<br>• Mobile Number: {nom_mob}",
+    "If the nominee is a minor, guardian details will be furnished as per bank guidelines.",
+    "I kindly request you to complete the nomination registration procedure in my account."],
+ sig:[["Account Holder Name","name"],["Account No.","acc"],["Date","date"],["Aadhaar No.","aadhar"]]},
+
+{t:"Application for Changing Nominee in Bank Account",
+ s:"Application for changing/updating registered nominee in bank account.",
+ p:["I respectfully state that my name is {name} and I maintain bank account number {acc} with your {branch} branch.",
+    "Currently, {old_nom_name} is registered as the nominee for my bank account. I now wish to replace the existing nominee and appoint {nom_name} as the new nominee.",
+    "Details of New Nominee:<br>• New Nominee Name: {nom_name}<br>• Relationship with Account Holder: {nom_rel}<br>• Date of Birth: {nom_dob}<br>• Full Address: {nom_addr}<br>• Mobile Number: {nom_mob}",
+    "I kindly request you to update your records and register the above-mentioned person as the new nominee."],
+ sig:[["Account Holder Name","name"],["Account No.","acc"],["Date","date"],["Aadhaar No.","aadhar"]]},
+
+{t:"Application for Complaint of Unauthorized Online Transaction / Cyber Fraud",
+ s:"Complaint regarding unauthorized online transaction in bank account and request for necessary action.",
+ p:["I respectfully state that my name is {name} and I maintain bank account number {acc} with your {branch} branch.",
+    "An unauthorized online transaction was debited from my bank account without my knowledge or consent. I noticed this fraudulent debit on {notice_date}.",
+    "Transaction Details:<br>• Transaction Date: {tx_date}<br>• Transaction Time: {tx_time}<br>• Amount: ₹{tx_amt}<br>• Transaction ID / UTR: {tx_id}<br>• Transaction Mode: {tx_mode}<br>• Brief Incident Details: {tx_desc}",
+    "I hereby declare that I neither performed this transaction myself nor authorized any third party to do so.",
+    "Therefore, I request you to register my complaint, initiate an investigation, and take all necessary steps to safeguard my account and digital banking facilities.",
+    "Available transaction receipts and related supporting documents are enclosed herewith."],
+ sig:[["Name","name"],["Account No.","acc"],["Registered Mobile No.","mob"],["Date","date"],["Aadhaar No.","aadhar"]]},
+
+{t:"Application for Refund of Amount Lost in Cyber Fraud",
+ s:"Application for refund / recovery of amount debited in unauthorized online transaction.",
+ p:["I respectfully state that my name is {name} and I maintain bank account number {acc} with your {branch} branch.",
+    "An unauthorized amount of ₹{tx_amt} was fraudulently debited from my bank account without my knowledge or approval. I came to know about this incident on {notice_date}.",
+    "Transaction Details:<br>• Transaction Date: {tx_date}<br>• Time: {tx_time}<br>• Amount: ₹{tx_amt}<br>• Transaction ID / UTR: {tx_id}<br>• Channel / Mode: {tx_mode}<br>• Details: {tx_desc}",
+    "I did not initiate or authorize this transaction in any manner.",
+    "Therefore, I kindly request you to register this grievance, investigate the fraudulent transaction, and take prompt measures to reverse/refund the debited amount to my account in accordance with banking regulations.",
+    "Relevant documents and transaction proofs are attached for reference."],
+ sig:[["Name","name"],["Account No.","acc"],["Mobile No.","mob"],["Date","date"],["Aadhaar No.","aadhar"]]},
+
+{t:"Application for Converting Joint Account to Single Account",
+ s:"Application for converting joint bank account to single account.",
+ p:["We respectfully state that we, {name1} and {name2}, jointly operate bank account number {acc} at your {branch} branch.",
+    "We now mutually request to convert this joint account into a single account in the name of {single_holder}.",
+    "Therefore, we request you to complete the necessary documentation and convert the joint account into a single account in accordance with bank rules.",
+    "We agree to fulfill all requirements and conditions specified by the bank."],
+ sig:[["Account Holder 1 Name","name1"],["Account Holder 2 Name","name2"],["Account No.","acc"],["Single Account Holder Name","single_holder"],["Date","date"],["Aadhaar No.","aadhar"]]},
+
+{t:"Application for Obtaining NOC after Full Repayment of Bank Loan",
+ a:"The Branch Manager / Loan Officer,",
+ s:"Application for issuing No Objection Certificate (NOC) after full repayment of bank loan.",
+ p:["I respectfully state that my name is {name}. I had availed a loan for {loan_type} from your {branch} branch, under Loan Account Number {loan_acc}.",
+    "The entire outstanding amount of the said loan has been fully repaid by me in accordance with bank rules. As of now, there is no pending due remaining in my loan account, and the loan stands fully cleared to the best of my knowledge.",
+    "Therefore, I kindly request you to issue a No Objection Certificate (NOC) / Loan Closure Certificate for my loan account. If any further formality or documentation is required from my side, kindly let me know."],
+ sig:[["Name","name"],["Loan Account Number","loan_acc"],["Loan Type","loan_type"],["Loan Full Repayment Date","loan_paid_date"],["Mobile No.","mob"],["Date","date"],["Place","place"]]}
+];
+
+/* ============ 3) बैंकों की सूची ============ */
+var BANKS="Airtel Payments Bank|Andhra Pradesh Grameena Bank|AU Small Finance Bank|Axis Bank|Bandhan Bank|Bank of Baroda|Bank of India|Bank of Maharashtra|Baroda Gujarat Gramin Bank|Bihar Gramin Bank|Canara Bank|Central Bank of India|City Union Bank|Equitas Small Finance Bank|Federal Bank|Fino Payments Bank|HDFC Bank|ICICI Bank|IDFC FIRST Bank|India Post Payments Bank|Indian Bank|Indian Overseas Bank|IndusInd Bank|Jana Small Finance Bank|Karnataka Grameena Bank|Karur Vysya Bank|Kotak Mahindra Bank|Madhya Pradesh Gramin Bank|Maharashtra Gramin Bank|NSDL Payments Bank|Punjab & Sind Bank|Punjab Gramin Bank|Punjab National Bank|Rajasthan Gramin Bank|RBL Bank|South Indian Bank|State Bank of India|Telangana Grameena Bank|UCO Bank|Ujjivan Small Finance Bank|Union Bank of India|Uttar Pradesh Gramin Bank|West Bengal Gramin Bank|Yes Bank".split("|");
+
+/* ============ 4) इंजन ============ */
+(function(){
+var $=function(i){return document.getElementById(i)};
+
+// 1. मुख्य पेज (index.html) की भाषा और थीम को स्वतः लोड करें
+var curLang = "hi";
+try {
+  var savedLang = localStorage.getItem("app_lang");
+  if(savedLang === "en" || savedLang === "hi") curLang = savedLang;
+} catch(e){}
+
+var dark = false;
+try {
+  dark = localStorage.getItem("app_theme") === "dark";
+} catch(e){}
+document.documentElement.setAttribute("data-theme", dark ? "dark" : "light");
+
+var V={}, cur=0;
+var GEN=[["चाहता","चाहती"],["रहा","रही"]];
+
+// थीम बटन टेक्स्ट और आइकन अपडेट
+function updateThemeUI(){
+  var icon = $("thIcon");
+  var txt = $("thText");
+  if(!icon || !txt) return;
+  icon.textContent = dark ? "☀️" : "🌙";
+  txt.textContent = dark ? 
+    (curLang === "en" ? "Light Mode" : "लाइट मोड") : 
+    (curLang === "en" ? "Night Mode" : "नाइट मोड");
+}
+
+var thBtn = $("themeToggleBtn");
+if(thBtn){
+  thBtn.addEventListener("click", function(){
+    dark = !dark;
+    document.documentElement.setAttribute("data-theme", dark ? "dark" : "light");
+    try { localStorage.setItem("app_theme", dark ? "dark" : "light"); } catch(e){}
+    updateThemeUI();
+  });
+}
+
+function getList(){
+  return curLang==="en" ? T_EN : T;
+}
+
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
+
+function val(k){
+  var v=k==="bank"?(V.bank==="custom"?(V.bankc||""):(V.bank||"")):(V[k]||"");
+  v=v.trim();
+  if(v&&F[k][F_TYPE]==="d"&&v.indexOf("-")>-1){v=v.split("-").reverse().join("/")}
+  return v;
+}
+
+function f(k){
+  var v=val(k);
+  return v?esc(v):'<span class="blank" style="min-width:'+F[k][F_WIDTH]+'ch"></span>';
+}
+
+function gen(s){
+  var fem=document.querySelector("input[name=g]:checked").value==="f";
+  if(curLang==="hi"){
+    GEN.forEach(function(g){s=s.split(g[G_MALE]+"/"+g[G_FEMALE]).join(fem?g[G_FEMALE]:g[G_MALE])});
+  }
+  return s.replace(/\{(\w+)\}/g,function(_,k){return f(k)});
+}
+
+function keys(t){
+  var k=["bank","branch","city"],s=t.p.join(" ")+" "+t.sig.map(function(x){return "{"+x[SIG_KEY]+"}"}).join(" "),m,re=/\{(\w+)\}/g;
+  while((m=re.exec(s)))if(k.indexOf(m[SIG_KEY])<0)k.push(m[SIG_KEY]);
+  var endOrder=["date","place","aadhar"];
+  var endKeys = endOrder.filter(function(x){
+    return t.sig.some(function(item){return item[SIG_KEY]===x});
+  });
+  return k.filter(function(x){return endOrder.indexOf(x)<0}).concat(endKeys);
+}
+
+function updateStaticUI(){
+  var isEn = curLang==="en";
+  $("secBanner").innerHTML = isEn ?
+    '🔒 <strong>100% Safe & Private:</strong> This tool runs entirely on your device. None of your data is sent to any server. If you prefer not to enter any detail, leave it blank—you can fill it with a pen after printing.' :
+    '🔒 <strong>100% सुरक्षित एवं निजी:</strong> यह टूल पूरी तरह आपके डिवाइस पर चलता है। आपका कोई भी डेटा सर्वर पर नहीं भेजा जाता। यदि कोई जानकारी नहीं डालना चाहते, तो खाली छोड़ दें—प्रिंट के बाद पेन से भर सकते हैं।';
+
+  $("uiTitle").innerText = isEn ? "Bank Application Generator" : "आवेदन पत्र जनरेटर";
+  $("lblLang").innerText = isEn ? "Choose Language" : "भाषा चुनें / Choose Language";
+  $("lblTpl").innerText = isEn ? "Application Type" : "आवेदन का प्रकार";
+
+  /* पेज भराव के द्विभाषी लेबल */
+  if($("lblPageFit")) $("lblPageFit").innerText = isEn ? "Page Coverage / Size" : "पेज भराव / प्रिंट फैलाव";
+  if($("optFit80")) $("optFit80").innerText = isEn ? "80% Balanced (Default)" : "80% संतुलित (डिफ़ॉल्ट)";
+  if($("optFit90")) $("optFit90").innerText = isEn ? "90% Large (Full Page)" : "90% बड़ा (पूरा पेज)";
+  if($("optFitCompact")) $("optFitCompact").innerText = isEn ? "Compact" : "कॉम्पैक्ट (छोटा)";
+
+  $("gMale").innerText = isEn ? "Male" : "पुरुष";
+  $("gFemale").innerText = isEn ? "Female" : "महिला";
+  $("print").innerText = isEn ? "Print Application" : "प्रिंट करें";
+  $("clear").innerText = isEn ? "Clear Form" : "साफ़ करें";
+  $("uiHint").innerText = isEn ?
+    "Fields left blank will remain empty in print so you can fill them by pen. You can also directly click and edit any text on the letter before printing." :
+    "जो जानकारी नहीं भरेंगे, प्रिंट में वहाँ खाली जगह छूट जाएगी। प्रिंट करने से पहले आप सीधे दाईं ओर पत्र पर क्लिक करके भी कोई बदलाव (एडिट) कर सकते हैं।";
+
+  if($("backLink")) $("backLink").innerText = isEn ? "← Home Portal" : "← मुख्य पोर्टल (Home Portal)";
+  if($("portalTitle")) $("portalTitle").innerText = isEn ? "Banking & Financial Services" : "बैंक एवं वित्तीय सेवाएं (Banking Services)";
+
+  var langRadio = document.querySelector('input[name=lang][value="' + curLang + '"]');
+  if(langRadio) langRadio.checked = true;
+
+  updateThemeUI();
+
+  var list = getList();
+  $("tpl").innerHTML = list.map(function(t,i){
+    return '<option value="'+i+'"'+(i===cur?' selected':'')+'>'+(i+1)+'. '+t.t+'</option>';
+  }).join("");
+}
+
+function render(){
+  var list = getList();
+  var t = list[cur];
+  var fem = document.querySelector("input[name=g]:checked").value==="f";
+  var leftSig=[], rightSig=[];
+  t.sig.forEach(function(x){
+    if(x[SIG_KEY]==="date"||x[SIG_KEY]==="aadhar"||x[SIG_KEY]==="place"){
+      leftSig.push(x);
+    }else{
+      rightSig.push(x);
+    }
+  });
+
+  /* पेज भराव (फिटिंग) लागू करना */
+  var fitEl = document.querySelector("input[name=page_fit]:checked");
+  var fitVal = fitEl ? fitEl.value : "fit80";
+  $("paper").classList.remove("compact", "fit-90");
+
+  if(fitVal === "fit90"){
+    $("paper").classList.add("fit-90");
+  } else if(fitVal === "compact"){
+    $("paper").classList.add("compact");
+  } else {
+    // 80% डिफ़ॉल्ट: यदि बहुत लंबा आवेदन (14, 15, 16, 17) हो तो स्वतः कॉम्पैक्ट
+    if (cur === 14 || cur === 15 || cur === 16 || cur === 17) {
+      $("paper").classList.add("compact");
+    }
+  }
+
+  var isEn = curLang==="en";
+  var toLine1 = isEn ? "To," : "सेवा में,";
+  var toLine2 = t.a ? t.a : (isEn ? "The Branch Manager," : "शाखा प्रबंधक महोदय/महोदया,");
+  var subjLbl = isEn ? "Subject:" : "विषय:";
+  var salutation = isEn ? "Respected Sir/Madam," : "महोदय/महोदया,";
+  var thanks = isEn ? "Thanking you," : "धन्यवाद।";
+  var closing = isEn ? "Yours faithfully," : (fem ? "भवदीया," : "भवदीय,");
+  var sigLbl = isEn ? "Signature:" : "हस्ताक्षर:";
+
+  $("paper").innerHTML=
+    "<h2>"+t.t+"</h2>"+
+    '<div class="to">'+toLine1+"<br>"+toLine2+"<br>"+f("bank")+"<br>"+f("branch")+", "+f("city")+"</div>"+
+    "<p><b>"+subjLbl+"</b> "+t.s+"</p><p>"+salutation+"</p>"+
+    t.p.map(function(x){return "<p>"+gen(x)+"</p>"}).join("")+
+    "<p>"+thanks+"</p>"+
+    '<div class="sig">'+
+      '<div class="left">'+
+        leftSig.map(function(x){return x[SIG_LBL]+": "+f(x[SIG_KEY])+"<br>"}).join("")+
+      '</div>'+
+      '<div class="b">'+closing+"<br>"+
+        rightSig.map(function(x){return x[SIG_LBL]+": "+f(x[SIG_KEY])+"<br>"}).join("")+
+        sigLbl+' <span class="blank" style="min-width:16ch"></span>'+
+      '</div>'+
+    '</div>';
+  document.title = t.t;
+}
+
+function build(){
+  var h="";
+  var list = getList();
+  var isEn = curLang==="en";
+  keys(list[cur]).forEach(function(k){
+    var d=F[k],id="f_"+k,v=V[k]||"";
+    var lbl = isEn ? (d[F_NAME_EN]||d[F_NAME]) : d[F_NAME];
+    if(k==="bank"){
+      var optDefault = isEn ? "-- Select Bank --" : "-- बैंक चुनें --";
+      var optCustom = isEn ? "Other — Write Bank Name Manually" : "अन्य — बैंक का नाम खुद लिखें";
+      var phCustom = isEn ? "Write Bank Name" : "बैंक का नाम लिखें";
+      h+='<label for="bankSel">'+lbl+'</label><select id="bankSel"><option value="">'+optDefault+'</option>'+
+        BANKS.map(function(b){return '<option value="'+esc(b)+'"'+(V.bank===b?" selected":"")+">"+esc(b)+"</option>"}).join("")+
+        '<option value="custom"'+(V.bank==="custom"?" selected":"")+'>'+optCustom+'</option></select>'+
+        '<input id="f_bankc" type="text" placeholder="'+phCustom+'" style="margin-top:8px" value="'+esc(V.bankc||"")+'"'+(V.bank==="custom"?"":" hidden")+">";
+      return;
+    }
+    if(d[F_TYPE]==="d"){
+      h+='<label for="'+id+'">'+lbl+'</label><input id="'+id+'" type="text" inputmode="numeric" placeholder="DD/MM/YYYY" maxlength="10" autocomplete="off" value="'+esc(v)+'">';
+    }else{
+      h+='<label for="'+id+'">'+lbl+'</label><input id="'+id+'" type="'+(d[F_TYPE]==="n"?"tel":"text")+'"'+(d[F_TYPE]==="n"?' inputmode="numeric" maxlength="'+d[F_MAX]+'"':"")+' autocomplete="off" value="'+esc(v)+'">';
+    }
+  });
+  $("fields").innerHTML=h;
+}
+
+$("fields").addEventListener("input",function(e){
+  var id=e.target.id;if(!id)return;
+  var k=id.slice(2);
+  if(id==="bankSel")return;
+  if(k!=="bankc"&&F[k]){
+    if(F[k][F_TYPE]==="n") e.target.value=e.target.value.replace(/\D/g,"");
+    if(F[k][F_TYPE]==="d"){
+      var digits=e.target.value.replace(/\D/g,"").slice(0,8);
+      if(digits.length>4){
+        e.target.value=digits.slice(0,2)+"/"+digits.slice(2,4)+"/"+digits.slice(4);
+      }else if(digits.length>2){
+        e.target.value=digits.slice(0,2)+"/"+digits.slice(2);
+      }else{
+        e.target.value=digits;
+      }
+    }
+  }
+  V[k]=e.target.value;render();
+});
+
+$("fields").addEventListener("change",function(e){
+  if(e.target.id!=="bankSel")return;
+  V.bank=e.target.value;
+  var c=$("f_bankc");c.hidden=V.bank!=="custom";
+  if(!c.hidden)c.focus();
+  render();
+});
+
+$("tpl").addEventListener("change",function(){cur=+$("tpl").value;build();render()});
+
+document.querySelectorAll("input[name=g]").forEach(function(r){r.addEventListener("change",render)});
+
+/* पेज भराव रेडियो बटन का इवेंट लिसनर */
+document.querySelectorAll("input[name=page_fit]").forEach(function(r){
+  r.addEventListener("change", render);
+});
+
+document.querySelectorAll("input[name=lang]").forEach(function(r){
+  r.addEventListener("change",function(){
+    curLang = document.querySelector("input[name=lang]:checked").value;
+    try { localStorage.setItem("app_lang", curLang); } catch(e){}
+    updateStaticUI();
+    build();
+    render();
+  });
+});
+
+function updatePrintTitle(){
+  var h2=$("paper")?$("paper").querySelector("h2"):null;
+  if(h2&&h2.innerText&&h2.innerText.trim()){
+    document.title=h2.innerText.trim();
+  }else{
+    var list=getList();
+    if(list&&list[cur])document.title=list[cur].t;
+  }
+}
+window.addEventListener("beforeprint",updatePrintTitle);
+$("print").addEventListener("click",function(){
+  updatePrintTitle();
+  window.print();
+});
+$("clear").addEventListener("click",function(){V={};build();render()});
+
+updateStaticUI();
+build();
+render();
+})();
+</script>
+</body>
+</html>

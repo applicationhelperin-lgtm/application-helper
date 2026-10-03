@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>विद्युत विभाग शिकायत एवं आवेदन पत्र जनरेटर | Electricity Department Application Generator</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;600;700&amp;family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet">
+<style>
+:root{--bg:#eef1f5;--panel:#fff;--ink:#1b2430;--muted:#5a6675;--line:#cfd6df;--accent:#0b5796;--accent-ink:#fff;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#12161c;--panel:#1c222b;--ink:#e8edf3;--muted:#9aa6b4;--line:#333c48;--accent:#5ca2e8;--accent-ink:#0d1622}}
+:root[data-theme="dark"]{--bg:#12161c;--panel:#1c222b;--ink:#e8edf3;--muted:#9aa6b4;--line:#333c48;--accent:#5ca2e8;--accent-ink:#0d1622}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Noto Sans Devanagari","Inter","Mangal","Nirmala UI",system-ui,sans-serif;line-height:1.5}
+
+/* शीर्ष नेविगेशन बार */
+.top-nav{background:var(--panel);border-bottom:1px solid var(--line);padding:10px 16px;display:flex;align-items:center;justify-content:space-between;max-width:1200px;margin:0 auto;gap:10px;flex-wrap:wrap}
+.top-nav a{color:var(--accent);text-decoration:none;font-weight:600;display:inline-flex;align-items:center;gap:6px;font-size:.9rem}
+.top-nav a:hover{text-decoration:underline}
+.top-nav .portal-title{font-size:.95rem;font-weight:600;color:var(--muted)}
+.theme-btn{background:var(--bg);border:1px solid var(--line);color:var(--ink);border-radius:20px;padding:6px 14px;font-size:.85rem;font-weight:600;cursor:pointer;display:inline-flex;align-items:center;gap:6px;font-family:inherit}
+.theme-btn:hover{border-color:var(--accent);color:var(--accent)}
+
+.app{display:grid;gap:16px;padding:16px;max-width:1200px;margin:0 auto}
+@media(min-width:900px){.app{grid-template-columns:390px 1fr;align-items:start}.form{position:sticky;top:16px;max-height:calc(100vh - 32px);overflow:auto}}
+
+.security-banner{
+  grid-column:1/-1;
+  background:#0e2a4a;
+  color:#e8edf3;
+  border:1px solid #1f4a7c;
+  border-left:5px solid #38bdf8;
+  padding:12px 16px;
+  border-radius:8px;
+  font-size:.88rem;
+  line-height:1.55;
+  box-shadow:0 1px 4px rgba(0,0,0,.08);
+}
+@media (prefers-color-scheme:light){
+  :root:not([data-theme="dark"]) .security-banner{
+    background:#e6f2fc;
+    color:#0b3b68;
+    border-color:#bad7f5;
+    border-left-color:#0b5796;
+  }
+}
+
+.form{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:16px}
+h1{font-size:1.15rem;margin:0 0 12px;font-weight:600}
+label{display:block;font-size:.85rem;margin:10px 0 3px;font-weight:600}
+input[type=text],input[type=tel],select,textarea{width:100%;padding:9px 10px;font:inherit;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:6px}
+textarea{resize:vertical;min-height:55px}
+input:focus-visible,select:focus-visible,textarea:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:1px}
+.seg{display:flex;gap:8px;margin-top:8px}
+.seg label{flex:1;margin:0;font-weight:400}
+.seg input{position:absolute;opacity:0}
+.seg span{display:block;text-align:center;padding:8px 6px;border:1px solid var(--line);border-radius:6px;cursor:pointer;background:var(--bg);font-size:.88rem}
+.seg input:checked+span{background:var(--accent);color:var(--accent-ink);border-color:var(--accent);font-weight:600}
+.seg input:focus-visible+span{outline:2px solid var(--accent);outline-offset:1px}
+.female-rel-wrap{margin-top:8px;padding:8px;border:1px dashed var(--line);border-radius:6px;background:var(--bg)}
+.female-rel-wrap span{font-size:.82rem}
+
+.btns{display:flex;gap:8px;margin-top:16px}
+button{font:inherit;padding:10px 14px;border-radius:6px;border:1px solid var(--accent);cursor:pointer}
+.primary{flex:1;background:var(--accent);color:var(--accent-ink);font-weight:600}
+.ghost{background:transparent;color:var(--accent)}
+.hint{color:var(--muted);font-size:.78rem;margin:10px 0 0;line-height:1.5}
+
+/* A4 शीट प्रिव्यू */
+.sheetwrap{container-type:inline-size;width:100%}
+.paper{
+  background:#fff;
+  color:#000;
+  width:100%;
+  max-width:210mm;
+  margin:0 auto;
+  aspect-ratio:210/297;
+  padding:5.8cqw 7cqw;
+  font-size:min(12pt,2.1cqw);
+  line-height:1.68;
+  box-shadow:0 2px 12px rgba(0,0,0,.18);
+  font-family:"Noto Sans Devanagari","Inter","Mangal","Nirmala UI",sans-serif;
+  overflow:hidden;
+}
+.paper h2{font-size:1.24em;text-align:center;margin:0 0 1em;text-decoration:underline;text-underline-offset:.25em;font-weight:700}
+.paper p{margin:0 0 .78em;text-align:justify}
+.paper[contenteditable="true"]:focus-visible{outline:2px dashed var(--accent);outline-offset:3px}
+.paper .to{margin-bottom:.85em;line-height:1.58}
+
+/* विवरण बॉक्स */
+.paper .info-box{
+  background:#f9fafb;
+  border:1.2px solid #cbd5e1;
+  border-radius:4px;
+  padding:7px 12px;
+  margin:7px 0 10px;
+  font-size:0.95em;
+  line-height:1.58;
+}
+.paper .info-grid{display:grid;grid-template-columns:1fr 1fr;gap:4px 12px}
+.paper .enclosure-box{margin-top:.9em;padding-top:.55em;border-top:1px dashed #aaa;font-size:0.9em;line-height:1.52}
+.paper .enclosure-box b{display:block;margin-bottom:3px}
+.paper .enclosure-list{margin:0;padding-left:18px}
+.paper .enclosure-list li{margin-bottom:2px}
+
+.paper .sig{display:flex;justify-content:space-between;align-items:flex-end;margin-top:1.8em;line-height:1.64}
+.paper .sig .left{width:44%;text-align:left}
+.paper .sig .right{width:54%;text-align:left;margin-left:auto}
+.blank{display:inline-block;border-bottom:1px dotted #000;height:1em;vertical-align:baseline}
+
+/* 90% बड़ा फैलाव मोड */
+.paper.fit-90{padding:4.8cqw 6.4cqw;font-size:min(13pt,2.28cqw);line-height:1.8}
+.paper.fit-90 p{margin:0 0 .9em}
+.paper.fit-90 .to{margin-bottom:1em;line-height:1.68}
+.paper.fit-90 .sig{margin-top:2.3em}
+
+/* कॉम्पैक्ट मोड */
+.paper.compact{padding:4cqw 5.6cqw;font-size:min(10.8pt,1.85cqw);line-height:1.45}
+.paper.compact p{margin:0 0 .38em}
+.paper.compact .to{margin-bottom:.48em;line-height:1.38}
+.paper.compact .sig{margin-top:1.1em}
+.paper.compact .info-box{padding:4px 8px;margin:4px 0 6px}
+
+@media print{
+  @page{size:A4;margin:0}
+  html,body{background:#fff !important;margin:0 !important;padding:0 !important}
+  .top-nav,.security-banner,.form{display:none !important}
+  .app{display:block !important;padding:0 !important;max-width:none !important}
+  .sheetwrap{container-type:normal !important}
+  .paper{
+    width:210mm !important;
+    height:297mm !important;
+    max-height:297mm !important;
+    box-sizing:border-box !important;
+    aspect-ratio:auto !important;
+    padding:15mm 18mm 14mm 18mm !important;
+    font-size:12pt !important;
+    line-height:1.68 !important;
+    box-shadow:none !important;
+    page-break-after:avoid !important;
+    page-break-inside:avoid !important;
+    overflow:hidden !important;
+  }
+  .paper h2{font-size:1.25em !important;margin:0 0 1em !important;letter-spacing:0.02em !important}
+  .paper p{margin:0 0 0.78em !important;text-align:justify !important}
+  .paper .to{margin-bottom:0.85em !important;line-height:1.58 !important}
+  .paper .info-box{background:#fff !important;border:1.2px solid #000 !important;padding:7px 12px !important;margin:7px 0 10px !important;font-size:0.95em !important;line-height:1.58 !important}
+  .paper .sig{margin-top:1.8em !important;line-height:1.64 !important}
+  .paper .enclosure-box{margin-top:0.9em !important;padding-top:0.55em !important;border-top:1px dashed #555 !important;font-size:0.9em !important;line-height:1.52 !important}
+  .paper .enclosure-list li{margin-bottom:2px !important}
+  .paper.fit-90{padding:12mm 16mm 10mm 16mm !important;font-size:13pt !important;line-height:1.78 !important}
+  .paper.compact{padding:9mm 14mm 8mm 14mm !important;font-size:10.8pt !important;line-height:1.44 !important}
+}
+</style>
+</head>
+<body>
+
+<div class="top-nav">
+  <a href="index.html" id="backLink">← मुख्य पोर्टल (Home Portal)</a>
+  <span class="portal-title" id="portalTitle">विद्युत उपभोक्ता एवं जनसेवा प्रभाग (Electricity Dept.)</span>
+  <button id="themeToggleBtn" type="button" class="theme-btn">
+    <span id="thIcon">🌙</span> <span id="thText">नाइट मोड</span>
+  </button>
+</div>
+
+<div class="app">
+  <aside class="security-banner">
+    <span id="uiBanner">🔒 <strong>100% सुरक्षित एवं निजी:</strong> यह टूल पूरी तरह आपके डिवाइस पर चलता है। आपका कोई भी डेटा सर्वर पर नहीं भेजा जाता। यदि कोई जानकारी नहीं डालना चाहते, तो खाली छोड़ दें—प्रिंट के बाद पेन से भर सकते हैं।</span>
+  </aside>
+
+  <section class="form" aria-label="विद्युत आवेदन पत्र सेटिंग्स">
+    <h1 id="uiHeading">विद्युत विभाग शिकायत एवं आवेदन पत्र</h1>
+
+    <label id="lblLang">भाषा चुनें / Choose Language</label>
+    <div class="seg" role="radiogroup" aria-label="Language">
+      <label><input type="radio" name="lang" value="hi" checked><span id="optLangHi">हिंदी (Hindi)</span></label>
+      <label><input type="radio" name="lang" value="en"><span id="optLangEn">English</span></label>
+    </div>
+
+    <label for="tpl" id="lblTpl">आवेदन / समस्या का प्रकार</label>
+    <select id="tpl"></select>
+
+    <label id="lblPageFit">पेज भराव / प्रिंट फैलाव (Page Coverage)</label>
+    <div class="seg" role="radiogroup" aria-label="Page Coverage" id="fitWrap">
+      <label><input type="radio" name="page_fit" value="fit80" checked><span id="optFit80">80% संतुलित (Default)</span></label>
+      <label><input type="radio" name="page_fit" value="fit90"><span id="optFit90">90% बड़ा (Full)</span></label>
+      <label><input type="radio" name="page_fit" value="compact"><span id="optFitCompact">कॉम्पैक्ट (छोटा)</span></label>
+    </div>
+
+    <label id="lblGender">आवेदक / उपभोक्ता</label>
+    <div class="seg" role="radiogroup" aria-label="उपभोक्ता" id="genderWrap">
+      <label><input type="radio" name="g" value="m" checked><span id="gMale">पुरुष (Male)</span></label>
+      <label><input type="radio" name="g" value="f"><span id="gFemale">महिला (Female)</span></label>
+    </div>
+
+    <div class="female-rel-wrap" id="femaleRelWrap" style="display:none">
+      <label style="margin-top:0" id="lblFemaleRel">संबंध प्रकार / Relation Type:</label>
+      <div class="seg">
+        <label><input type="radio" name="f_rel" value="daughter" checked><span id="optDaughter">पुत्री (D/o - पिता)</span></label>
+        <label><input type="radio" name="f_rel" value="wife"><span id="optWife">पत्नी (W/o - पति)</span></label>
+      </div>
+    </div>
+
+    <div id="fields"></div>
+
+    <div class="btns">
+      <button class="primary" id="print" type="button">प्रिंट करें</button>
+      <button class="ghost" id="clear" type="button">साफ़ करें</button>
+    </div>
+    <p class="hint" id="uiHint">जो जानकारी नहीं भरेंगे, प्रिंट में वहाँ खाली जगह छूट जाएगी। प्रिंट करने से पहले आप सीधे दाईं ओर पत्र पर क्लिक करके भी कोई बदलाव (एडिट) कर सकते हैं।</p>
+  </section>
+
+  <div class="sheetwrap"><article class="paper" id="paper" contenteditable="true" spellcheck="false" aria-label="आवेदन पत्र पूर्वावलोकन"></article></div>
+</div>
+
+<script>
+(function(){
+  var curLang = "hi";
+  try {
+    var savedLang = localStorage.getItem("app_lang");
+    if(savedLang === "en" || savedLang === "hi") curLang = savedLang;
+  } catch(e){}
+
+  var cur = 0;
+  var V = {};
+
+  function $(id){ return document.getElementById(id); }
+  function esc(s){ return (s||"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;"); }
+
+  // 1. पहले से सेव थीम को लोड करें
+  var dark = false;
+  try {
+    dark = localStorage.getItem("app_theme") === "dark";
+  } catch(e){}
+  document.documentElement.setAttribute("data-theme", dark ? "dark" : "light");
+
+  // 2. बटन का आइकन और टेक्स्ट बदलने का फंक्शन
+  function updateThemeUI(){
+    var icon = $("thIcon");
+    var txt = $("thText");
+    if(!icon || !txt) return;
+    icon.textContent = dark ? "☀️" : "🌙";
+    txt.textContent = dark ? 
+      (curLang === "en" ? "Light Mode" : "लाइट मोड") : 
+      (curLang === "en" ? "Night Mode" : "नाइट मोड");
+  }
+
+  // 3. बटन पर क्लिक करने पर नाइट मोड टॉगल
+  var thBtn = $("themeToggleBtn");
+  if(thBtn){
+    thBtn.addEventListener("click", function(){
+      dark = !dark;
+      document.documentElement.setAttribute("data-theme", dark ? "dark" : "light");
+      try { localStorage.setItem("app_theme", dark ? "dark" : "light"); } catch(e){}
+      updateThemeUI();
+    });
+  }
+
+  function getTodayDate(){
+    var d = new Date();
+    var dd = String(d.getDate()).padStart(2, '0');
+    var mm = String(d.getMonth() + 1).padStart(2, '0');
+    return dd + '/' + mm + '/' + d.getFullYear();
+  }
+  V.date = getTodayDate();
+  V.state = curLang === "en" ? "Uttar Pradesh" : "उत्तर प्रदेश";
+
+  var F = {
+    // Jurisdiction
+    khand: ["विद्युत वितरण खंड का नाम", "t", 20, 0, "Electricity Distribution Division Name"],
+    discom: ["डिस्कॉम का नाम (उदा: MVVNL, PVVNL, DVVNL)", "t", 18, 0, "Discom Name (e.g. MVVNL, PVVNL)"],
+    district: ["जनपद / जिला", "t", 16, 0, "District Name"],
+    state: ["राज्य", "t", 14, 0, "State"],
+
+    // Applicant & General
+    name: ["आवेदक का नाम", "t", 22, 0, "Applicant Name"],
+    parent_name: ["पिता / पति का नाम (वैकल्पिक)", "t", 22, 0, "Father / Husband Name (Optional)"],
+    address: ["पूरा पता (परिसर का पता)", "t", 30, 0, "Full Address"],
+    mobile: ["मोबाइल नंबर", "n", 12, 10, "Mobile Number"],
+    place: ["स्थान", "t", 14, 0, "Place"],
+    date: ["दिनांक (DD/MM/YYYY)", "d", 11, 0, "Date (DD/MM/YYYY)"],
+
+    // Consumer & Meter (1 to 4)
+    conn_no: ["खाता संख्या / कनेक्शन संख्या", "t", 18, 16, "Account / Connection Number"],
+    meter_no: ["मीटर संख्या", "t", 16, 16, "Meter Number"],
+    bill_no: ["विद्युत बिल संख्या", "t", 16, 0, "Bill Number"],
+    bill_month: ["बिल माह / वर्ष (उदा: अगस्त 2026)", "t", 16, 0, "Bill Month / Year"],
+    bill_amt: ["बिल में दर्शाई गई राशि (₹)", "n", 10, 8, "Bill Amount (₹)"],
+    billed_reading: ["बिल में दर्शाई गई रीडिंग", "t", 14, 0, "Reading Shown in Bill"],
+    actual_reading: ["वास्तविक मीटर रीडिंग", "t", 14, 0, "Actual Meter Reading"],
+    meter_issue: ["मीटर की समस्या का संक्षिप्त विवरण", "t", 30, 0, "Brief Description of Meter Defect"],
+
+    // Locality / Community (11 to 14)
+    mohalla_gram: ["मोहल्ले / ग्राम / वार्ड का नाम", "t", 24, 0, "Locality / Village / Ward Name"],
+    ward_no: ["वार्ड संख्या (यदि लागू हो)", "t", 14, 0, "Ward Number (if applicable)"],
+    thana_tehsil: ["थाना / तहसील विवरण", "t", 20, 0, "Police Station / Tehsil Details"],
+    tf_spot: ["ट्रांसफार्मर का स्थान / पहचान", "t", 24, 0, "Transformer Spot / Landmark"],
+    tf_area: ["विद्युत आपूर्ति प्राप्त मोहल्ला/क्षेत्र", "t", 24, 0, "Affected Locality / Consumer Area"],
+    power_issue: ["समस्या का विवरण (कम वोल्टेज/लोड आदि)", "t", 30, 0, "Power Issue Details"],
+    road_name: ["सड़क / गली / मार्ग का नाम", "t", 24, 0, "Road / Street / Lane Name"],
+    exact_spot: ["स्थान का सटीक विवरण", "t", 28, 0, "Exact Spot Description"],
+    pole_spot: ["खंभे का स्थान (सड़क/गली/स्थान)", "t", 26, 0, "Pole Spot / Location"]
+  };
+
+  var T = [
+    // 1. गलत या अत्यधिक बिजली बिल संशोधन हेतु आवेदन
+    {
+      t: "गलत या अत्यधिक बिजली बिल संशोधन हेतु आवेदन",
+      s: "गलत/अत्यधिक विद्युत बिल के संशोधन के संबंध में आवेदन।",
+      keys: ["khand", "discom", "district", "name", "address", "conn_no", "meter_no", "bill_no", "bill_month", "bill_amt", "billed_reading", "actual_reading", "mobile", "place", "date"],
+      info_keys: ["conn_no", "meter_no", "bill_no", "bill_amt", "billed_reading", "actual_reading"],
+      sig_keys: ["name", "conn_no", "meter_no", "mobile", "address"],
+      intro: "सविनय निवेदन है कि मैं {name}, निवासी {address}, आपके विद्युत वितरण खंड का विद्युत उपभोक्ता हूँ। मेरे विद्युत कनेक्शन का खाता संख्या/कनेक्शन संख्या {conn_no} तथा मीटर संख्या {meter_no} है।",
+      paras: [
+        "मेरे कनेक्शन का हाल ही में प्राप्त विद्युत बिल, बिल संख्या <b>{bill_no}</b>, बिल माह <b>{bill_month}</b> में ₹<b>{bill_amt}</b> का बिल दर्शाया गया है। उक्त बिल सामान्य खपत की तुलना में अत्यधिक/गलत प्रतीत हो रहा है। बिल में दर्शाई गई रीडिंग <b>{billed_reading}</b> है, जबकि वास्तविक मीटर रीडिंग <b>{actual_reading}</b> है।",
+        "INFO_BOX",
+        "अतः आपसे अनुरोध है कि मेरे मीटर की रीडिंग, पूर्व बिलों एवं विद्युत खपत का आवश्यक परीक्षण/सत्यापन कराकर बिल में हुई त्रुटि को ठीक किया जाए तथा नियमानुसार संशोधित विद्युत बिल जारी किया जाए।",
+        "कृपया मेरे आवेदन पर आवश्यक कार्यवाही करने की कृपा करें।",
+        "धन्यवाद।"
+      ],
+      encl: ["विवादित विद्युत बिल की छायाप्रति", "मीटर की वर्तमान वास्तविक रीडिंग का फोटो", "पहचान-पत्र (आधार कार्ड) की छायाप्रति"]
+    },
+
+    // 2. खराब बिजली मीटर बदलवाने हेतु आवेदन
+    {
+      t: "खराब बिजली मीटर बदलवाने हेतु आवेदन",
+      s: "खराब विद्युत मीटर को बदलवाने के संबंध में आवेदन।",
+      keys: ["khand", "discom", "district", "name", "address", "conn_no", "meter_no", "meter_issue", "mobile", "place", "date"],
+      info_keys: ["conn_no", "meter_no", "meter_issue"],
+      sig_keys: ["name", "conn_no", "meter_no", "mobile", "address"],
+      intro: "सविनय निवेदन है कि मैं {name}, निवासी {address}, आपके विद्युत वितरण क्षेत्र का उपभोक्ता हूँ। मेरे विद्युत कनेक्शन की संख्या {conn_no} तथा मीटर संख्या {meter_no} है।",
+      paras: [
+        "मेरे परिसर में लगा विद्युत मीटर वर्तमान में खराब हो गया है और ठीक प्रकार से कार्य नहीं कर रहा है। मीटर में <b>{meter_issue}</b> की समस्या दिखाई दे रही है, जिसके कारण विद्युत खपत की सही रीडिंग दर्ज होने में कठिनाई हो रही है।",
+        "INFO_BOX",
+        "अतः आपसे अनुरोध है कि मेरे विद्युत मीटर का निरीक्षण/परीक्षण कराकर यदि मीटर खराब पाया जाता है तो नियमानुसार उसे बदलकर कार्यशील मीटर स्थापित करने की कृपा करें तथा मीटर परिवर्तन के बाद विद्युत बिलिंग को वास्तविक खपत के अनुसार व्यवस्थित किया जाए।",
+        "कृपया आवश्यक कार्यवाही करने की कृपा करें।"
+      ],
+      encl: ["नवीनतम विद्युत बिल की छायाप्रति", "खराब मीटर की वर्तमान स्थिति / डिस्प्ले का फोटो", "पहचान-पत्र (आधार कार्ड) की छायाप्रति"]
+    },
+
+    // 3. रुका हुआ बिजली मीटर बदलवाने हेतु आवेदन
+    {
+      t: "रुका हुआ बिजली मीटर बदलवाने हेतु आवेदन",
+      s: "रुके हुए विद्युत मीटर की जाँच एवं मीटर बदलवाने के संबंध में आवेदन।",
+      keys: ["khand", "discom", "district", "name", "address", "conn_no", "meter_no", "mobile", "place", "date"],
+      info_keys: ["conn_no", "meter_no"],
+      sig_keys: ["name", "conn_no", "meter_no", "mobile", "address"],
+      intro: "सविनय निवेदन है कि मैं {name}, निवासी {address}, आपके विभाग का विद्युत उपभोक्ता हूँ। मेरे विद्युत कनेक्शन की संख्या {conn_no} एवं मीटर संख्या {meter_no} है।",
+      paras: [
+        "मेरे परिसर में स्थापित विद्युत मीटर की रीडिंग पिछले कुछ समय से आगे नहीं बढ़ रही है/मीटर रुका हुआ प्रतीत हो रहा है। इसके कारण मीटर द्वारा विद्युत खपत की सही रीडिंग दर्ज नहीं हो पा रही है और भविष्य में बिलिंग में समस्या उत्पन्न होने की आशंका है।",
+        "INFO_BOX",
+        "अतः आपसे अनुरोध है कि संबंधित कर्मचारी/अधिकारी को भेजकर मीटर का निरीक्षण एवं आवश्यक परीक्षण कराया जाए। यदि मीटर खराब पाया जाता है तो नियमानुसार उसे बदलकर नया/कार्यशील मीटर स्थापित किया जाए तथा बिलिंग को नियमानुसार सही किया जाए।",
+        "कृपया शीघ्र आवश्यक कार्यवाही करने की कृपा करें।"
+      ],
+      encl: ["नवीनतम विद्युत बिल की छायाप्रति", "रुके हुए मीटर की वर्तमान स्थिति का फोटो", "पहचान-पत्र की छायाप्रति"]
+    },
+
+    // 4. तेज गति से चलने वाले बिजली मीटर को बदलवाने हेतु आवेदन
+    {
+      t: "तेज गति से चलने वाले बिजली मीटर को बदलवाने हेतु आवेदन",
+      s: "तेज गति से चल रहे विद्युत मीटर की जाँच/परीक्षण एवं आवश्यकतानुसार बदलने के संबंध में आवेदन।",
+      keys: ["khand", "discom", "district", "name", "address", "conn_no", "meter_no", "mobile", "place", "date"],
+      info_keys: ["conn_no", "meter_no"],
+      sig_keys: ["name", "conn_no", "meter_no", "mobile", "address"],
+      intro: "सविनय निवेदन है कि मैं {name}, निवासी {address}, आपके विभाग का विद्युत उपभोक्ता हूँ। मेरे कनेक्शन की संख्या {conn_no} तथा मीटर संख्या {meter_no} है।",
+      paras: [
+        "मेरे परिसर में स्थापित विद्युत मीटर सामान्य घरेलू/व्यावसायिक उपयोग की तुलना में असामान्य रूप से तेज गति से चलता हुआ प्रतीत हो रहा है। इस कारण मुझे आशंका है कि मीटर द्वारा विद्युत खपत की रीडिंग सही रूप से दर्ज नहीं हो रही है।",
+        "INFO_BOX",
+        "अतः आपसे अनुरोध है कि संबंधित कर्मचारी/अधिकारी द्वारा मेरे विद्युत मीटर का नियमानुसार निरीक्षण एवं परीक्षण कराया जाए। यदि परीक्षण में मीटर में कोई खराबी/त्रुटि पाई जाती है तो नियमानुसार आवश्यक सुधार अथवा मीटर परिवर्तन की कार्यवाही की जाए तथा परीक्षण के परिणाम के अनुसार बिलिंग को व्यवस्थित किया जाए।",
+        "कृपया आवश्यक कार्यवाही करने की कृपा करें।"
+      ],
+      encl: ["नवीनतम एवं पूर्ववर्ती विद्युत बिलों की छायाप्रति", "पहचान-पत्र (आधार कार्ड) की छायाप्रति"]
+    },
+
+    // 11. मोहल्ले में खराब/जला हुआ बिजली ट्रांसफार्मर बदलवाने हेतु आवेदन
+    {
+      t: "मोहल्ले में खराब/जला हुआ बिजली ट्रांसफार्मर बदलवाने हेतु आवेदन",
+      s: "मोहल्ले में खराब/जले हुए विद्युत ट्रांसफार्मर को बदलवाने के संबंध में आवेदन।",
+      keys: ["khand", "discom", "district", "name", "mohalla_gram", "tf_spot", "tf_area", "ward_no", "thana_tehsil", "mobile", "place", "date"],
+      info_keys: ["mohalla_gram", "ward_no", "tf_spot", "tf_area"],
+      sig_keys: ["name", "mohalla_gram", "ward_no", "thana_tehsil", "district", "mobile", "tf_spot"],
+      intro: "सविनय निवेदन है कि {mohalla_gram} में स्थापित विद्युत ट्रांसफार्मर <b>{tf_spot}</b> खराब/जल गया है, जिसके कारण क्षेत्र की विद्युत आपूर्ति प्रभावित हो रही है।",
+      paras: [
+        "उक्त ट्रांसफार्मर से <b>{tf_area}</b> के अनेक घरों/प्रतिष्ठानों को विद्युत आपूर्ति प्राप्त होती है। ट्रांसफार्मर खराब होने के कारण स्थानीय उपभोक्ताओं को विद्युत आपूर्ति में गंभीर परेशानी का सामना करना पड़ रहा है।",
+        "INFO_BOX",
+        "अतः आपसे अनुरोध है कि संबंधित अधिकारी/कर्मचारियों को भेजकर ट्रांसफार्मर का निरीक्षण कराया जाए और यदि ट्रांसफार्मर खराब/जला हुआ पाया जाता है तो नियमानुसार उसे शीघ्र बदलकर कार्यशील ट्रांसफार्मर स्थापित कराया जाए, ताकि क्षेत्र की विद्युत आपूर्ति सामान्य हो सके।",
+        "कृपया जनहित में शीघ्र आवश्यक कार्यवाही करने की कृपा करें।"
+      ],
+      encl: ["स्थानीय उपभोक्ताओं का संयुक्त हस्ताक्षर पत्र", "जले/खराब ट्रांसफार्मर का फोटो", "पहचान-पत्र की छायाप्रति"]
+    },
+
+    // 12. मोहल्ले में नया बिजली ट्रांसफार्मर लगवाने हेतु आवेदन
+    {
+      t: "मोहल्ले में नया बिजली ट्रांसफार्मर लगवाने हेतु आवेदन",
+      s: "क्षेत्र में नया विद्युत ट्रांसफार्मर स्थापित कराने के संबंध में आवेदन।",
+      keys: ["khand", "discom", "district", "name", "mohalla_gram", "ward_no", "power_issue", "mobile", "place", "date"],
+      info_keys: ["mohalla_gram", "ward_no", "power_issue"],
+      sig_keys: ["name", "mohalla_gram", "ward_no", "district", "mobile", "power_issue"],
+      intro: "सविनय निवेदन है कि {mohalla_gram} क्षेत्र में वर्तमान विद्युत आपूर्ति व्यवस्था पर्याप्त नहीं है। क्षेत्र में उपभोक्ताओं की संख्या/विद्युत भार बढ़ने के कारण विद्युत आपूर्ति में बार-बार समस्या उत्पन्न होती है।",
+      paras: [
+        "क्षेत्र के निवासियों को <b>{power_issue}</b> का सामना करना पड़ रहा है। इस कारण घरेलू एवं अन्य आवश्यक विद्युत उपकरणों के संचालन में कठिनाई होती है।",
+        "INFO_BOX",
+        "अतः आपसे अनुरोध है कि संबंधित विभाग द्वारा क्षेत्र का तकनीकी निरीक्षण/सर्वेक्षण कराकर आवश्यकता एवं विभागीय मानकों के अनुसार नया विद्युत ट्रांसफार्मर स्थापित करने की कार्यवाही की जाए, जिससे क्षेत्र की विद्युत आपूर्ति सुचारु एवं पर्याप्त हो सके।",
+        "कृपया जनहित में आवश्यक कार्यवाही करने की कृपा करें।"
+      ],
+      encl: ["क्षेत्रीय निवासियों का संयुक्त मांग-पत्र / हस्ताक्षर", "आवेदक का पहचान-पत्र"]
+    },
+
+    // 13. रास्ते में लटकते हुए बिजली के तारों को ठीक कराने हेतु आवेदन
+    {
+      t: "रास्ते में लटकते हुए बिजली के तारों को ठीक कराने हेतु आवेदन",
+      s: "रास्ते में लटक रहे जर्जर/खतरनाक विद्युत तारों को ठीक कराने के संबंध में आवेदन।",
+      keys: ["khand", "discom", "district", "name", "mohalla_gram", "ward_no", "road_name", "exact_spot", "mobile", "place", "date"],
+      info_keys: ["mohalla_gram", "ward_no", "road_name", "exact_spot"],
+      sig_keys: ["name", "mohalla_gram", "ward_no", "exact_spot", "mobile"],
+      intro: "सविनय निवेदन है कि {mohalla_gram} में <b>{road_name}</b> पर विद्युत तार काफी नीचे/ढीले/जर्जर होकर लटक रहे हैं।",
+      paras: [
+        "उक्त स्थान से प्रतिदिन स्थानीय नागरिकों एवं वाहनों का आवागमन होता है। लटकते हुए विद्युत तारों के कारण दुर्घटना की आशंका बनी रहती है तथा क्षेत्र के लोगों को परेशानी का सामना करना पड़ रहा है।",
+        "INFO_BOX",
+        "अतः आपसे अनुरोध है कि संबंधित विद्युत कर्मचारियों को भेजकर उक्त स्थान का निरीक्षण कराया जाए तथा लटकते/जर्जर विद्युत तारों को नियमानुसार ठीक कराया जाए। आवश्यकता होने पर तारों को उचित ऊँचाई एवं सुरक्षित स्थिति में व्यवस्थित कराने की कार्यवाही की जाए।",
+        "कृपया जनहित एवं सुरक्षा को ध्यान में रखते हुए शीघ्र आवश्यक कार्यवाही करने की कृपा करें।"
+      ],
+      encl: ["लटकते हुए तारों व स्थल का फोटोग्राफ", "आवेदक का पहचान-पत्र"]
+    },
+
+    // 14. झुके हुए बिजली के खंभे को ठीक/सीधा कराने हेतु आवेदन
+    {
+      t: "झुके हुए बिजली के खंभे को ठीक/सीधा कराने हेतु आवेदन",
+      s: "झुके हुए विद्युत खंभे को ठीक/सीधा कराने के संबंध में आवेदन।",
+      keys: ["khand", "discom", "district", "name", "mohalla_gram", "ward_no", "pole_spot", "mobile", "place", "date"],
+      info_keys: ["mohalla_gram", "ward_no", "pole_spot"],
+      sig_keys: ["name", "mohalla_gram", "ward_no", "pole_spot", "mobile", "district"],
+      intro: "सविनय निवेदन है कि {mohalla_gram} में <b>{pole_spot}</b> पर लगा विद्युत खंभा काफी झुक गया है। उक्त खंभे पर विद्युत तार लगे हुए हैं और खंभे की वर्तमान स्थिति के कारण क्षेत्र में सुरक्षा संबंधी समस्या उत्पन्न हो रही है।",
+      paras: [
+        "उक्त स्थान पर प्रतिदिन नागरिकों एवं वाहनों का आवागमन होता है। खंभे के अधिक झुकने से विद्युत तारों एवं विद्युत आपूर्ति व्यवस्था पर भी प्रतिकूल प्रभाव पड़ने की आशंका है।",
+        "INFO_BOX",
+        "अतः आपसे अनुरोध है कि संबंधित कर्मचारियों द्वारा मौके का निरीक्षण कराकर झुके हुए विद्युत खंभे को नियमानुसार सीधा/मजबूत कराया जाए अथवा आवश्यकता होने पर उसे बदलने की कार्यवाही की जाए, ताकि क्षेत्र की विद्युत व्यवस्था सुरक्षित एवं सुचारु बनी रहे।",
+        "कृपया जनहित में शीघ्र आवश्यक कार्यवाही करने की कृपा करें।"
+      ],
+      encl: ["झुके हुए खंभे का नवीनतम फोटो", "आवेदक का पहचान-पत्र"]
+    }
+  ];
+
+  var T_EN = [
+    // 1. Bill Revision
+    {
+      t: "Application for Revision of Incorrect / Excessive Electricity Bill",
+      s: "Application regarding rectification and revision of incorrect/excessive electricity bill.",
+      keys: ["khand", "discom", "district", "name", "address", "conn_no", "meter_no", "bill_no", "bill_month", "bill_amt", "billed_reading", "actual_reading", "mobile", "place", "date"],
+      info_keys: ["conn_no", "meter_no", "bill_no", "bill_amt", "billed_reading", "actual_reading"],
+      sig_keys: ["name", "conn_no", "meter_no", "mobile", "address"],
+      intro: "Most respectfully, I, {name}, resident of {address}, am an electricity consumer under your distribution division. My electricity account/connection number is {conn_no} and meter number is {meter_no}.",
+      paras: [
+        "The recent electricity bill received for my connection bearing Bill No. <b>{bill_no}</b> for billing month <b>{bill_month}</b> reflects an amount of ₹<b>{bill_amt}</b>. The bill appears excessively high compared to usual consumption. Reading shown in the bill is <b>{billed_reading}</b>, whereas actual meter reading is <b>{actual_reading}</b>.",
+        "INFO_BOX",
+        "Therefore, it is requested that necessary verification of meter reading and past bills be conducted to rectify the error and issue a revised electricity bill as per rules.",
+        "Kindly take prompt necessary action on my application.",
+        "Thanking you."
+      ],
+      encl: ["Copy of disputed electricity bill", "Photograph showing current actual meter reading", "Copy of Identity Proof (Aadhaar Card)"]
+    },
+
+    // 2. Faulty Meter
+    {
+      t: "Application for Replacement of Defective Electricity Meter",
+      s: "Application regarding replacement of defective / non-functional electricity meter.",
+      keys: ["khand", "discom", "district", "name", "address", "conn_no", "meter_no", "meter_issue", "mobile", "place", "date"],
+      info_keys: ["conn_no", "meter_no", "meter_issue"],
+      sig_keys: ["name", "conn_no", "meter_no", "mobile", "address"],
+      intro: "Most respectfully, I, {name}, resident of {address}, am an electricity consumer under your jurisdiction. My connection number is {conn_no} and meter number is {meter_no}.",
+      paras: [
+        "The electricity meter installed at my premises has developed a defect and is not functioning properly. The meter exhibits <b>{meter_issue}</b>, creating difficulty in accurately registering actual power consumption.",
+        "INFO_BOX",
+        "Therefore, it is requested that an inspection of the meter be conducted and, if found defective, it may kindly be replaced with a working meter as per rules.",
+        "Kindly initiate necessary action at an early date."
+      ],
+      encl: ["Copy of latest electricity bill", "Photograph of defective meter / display", "Copy of Identity Proof"]
+    },
+
+    // 3. Stopped Meter
+    {
+      t: "Application for Inspection & Replacement of Stopped Electricity Meter",
+      s: "Application for inspection and replacement of stationary/stopped electricity meter.",
+      keys: ["khand", "discom", "district", "name", "address", "conn_no", "meter_no", "mobile", "place", "date"],
+      info_keys: ["conn_no", "meter_no"],
+      sig_keys: ["name", "conn_no", "meter_no", "mobile", "address"],
+      intro: "Most respectfully, I, {name}, resident of {address}, am an electricity consumer of your department. My connection number is {conn_no} and meter number is {meter_no}.",
+      paras: [
+        "The reading on the electricity meter installed at my premises has ceased to advance and the meter appears completely stopped. Actual electricity consumption is not being recorded.",
+        "INFO_BOX",
+        "Therefore, it is requested that concerned officials be deputed to inspect the meter and replace it with a functional meter to adjust future billing as per rules.",
+        "Kindly take urgent necessary action."
+      ],
+      encl: ["Copy of latest electricity bill", "Photograph of stopped meter display", "Copy of Identity Proof"]
+    },
+
+    // 4. Fast Running Meter
+    {
+      t: "Application for Testing and Replacement of Fast Running Meter",
+      s: "Application regarding inspection, calibration, and replacement of fast electricity meter.",
+      keys: ["khand", "discom", "district", "name", "address", "conn_no", "meter_no", "mobile", "place", "date"],
+      info_keys: ["conn_no", "meter_no"],
+      sig_keys: ["name", "conn_no", "meter_no", "mobile", "address"],
+      intro: "Most respectfully, I, {name}, resident of {address}, am an electricity consumer of your department. My connection number is {conn_no} and meter number is {meter_no}.",
+      paras: [
+        "The electricity meter installed at my premises appears to be running at an abnormally rapid rate compared to routine connected load. Power consumption is being incorrectly registered.",
+        "INFO_BOX",
+        "Therefore, it is requested that official calibration and testing of my meter be carried out and necessary corrective measures or meter replacement be taken.",
+        "Kindly take appropriate necessary action."
+      ],
+      encl: ["Copies of latest electricity bills", "Copy of Identity Proof", "Connected load details"]
+    },
+
+    // 11. Burnt Transformer
+    {
+      t: "Application for Replacement of Damaged / Burnt Distribution Transformer",
+      s: "Application regarding replacement of defective / burnt transformer in locality.",
+      keys: ["khand", "discom", "district", "name", "mohalla_gram", "tf_spot", "tf_area", "ward_no", "thana_tehsil", "mobile", "place", "date"],
+      info_keys: ["mohalla_gram", "ward_no", "tf_spot", "tf_area"],
+      sig_keys: ["name", "mohalla_gram", "ward_no", "thana_tehsil", "district", "mobile", "tf_spot"],
+      intro: "Most respectfully, the distribution transformer installed at <b>{tf_spot}</b> in {mohalla_gram} has burnt/broken down, severely disrupting power supply in the area.",
+      paras: [
+        "The said transformer feeds numerous domestic and commercial connections across <b>{tf_area}</b>. Due to this breakdown, residents are facing severe hardship.",
+        "INFO_BOX",
+        "Therefore, it is requested that technical staff be deputed to inspect the transformer and replace it with a functional unit at the earliest to restore power supply.",
+        "Kindly take urgent action in public interest."
+      ],
+      encl: ["Joint representation with signatures of local consumers", "Photograph of burnt / damaged transformer", "Copy of Applicant's ID Proof"]
+    },
+
+    // 12. New Transformer
+    {
+      t: "Application for Installation of New Distribution Transformer in Locality",
+      s: "Application regarding installation of additional/new transformer to resolve overload.",
+      keys: ["khand", "discom", "district", "name", "mohalla_gram", "ward_no", "power_issue", "mobile", "place", "date"],
+      info_keys: ["mohalla_gram", "ward_no", "power_issue"],
+      sig_keys: ["name", "mohalla_gram", "ward_no", "district", "mobile", "power_issue"],
+      intro: "Most respectfully, the existing electricity infrastructure in {mohalla_gram} is insufficient to cater to the growing consumer load.",
+      paras: [
+        "Residents are persistently troubled by <b>{power_issue}</b>, leading to frequent interruptions and damage to household appliances.",
+        "INFO_BOX",
+        "Therefore, it is requested that a departmental survey be conducted and a new distribution transformer be sanctioned and installed as per norms.",
+        "Kindly initiate necessary action in public interest."
+      ],
+      encl: ["Joint petition signed by local residents", "Copy of Applicant's ID Proof"]
+    },
+
+    // 13. Hanging Wires
+    {
+      t: "Application for Rectification of Low Hanging / Dangerous Power Lines",
+      s: "Application regarding repair and tightening of hazardous sagging electric wires.",
+      keys: ["khand", "discom", "district", "name", "mohalla_gram", "ward_no", "road_name", "exact_spot", "mobile", "place", "date"],
+      info_keys: ["mohalla_gram", "ward_no", "road_name", "exact_spot"],
+      sig_keys: ["name", "mohalla_gram", "ward_no", "exact_spot", "mobile"],
+      intro: "Most respectfully, electric wires along <b>{road_name}</b> in {mohalla_gram} are hanging dangerously low, dilapidated, and loose.",
+      paras: [
+        "This thoroughfare experiences daily pedestrian and vehicular traffic. The sagging wires present imminent hazard of electrocution and fatal accidents. (Location landmark: <b>{exact_spot}</b>)",
+        "INFO_BOX",
+        "Therefore, it is requested that linemen be deputed immediately to inspect and tighten the sagging lines to a safe statutory height.",
+        "Kindly take prompt action keeping public safety in view."
+      ],
+      encl: ["Photographs showing dangerous low-hanging wires", "Copy of Applicant's ID Proof"]
+    },
+
+    // 14. Tilted Pole
+    {
+      t: "Application for Straightening / Replacing Dangerously Tilted Electric Pole",
+      s: "Application regarding straightening or replacing leaned electric pole posing safety hazard.",
+      keys: ["khand", "discom", "district", "name", "mohalla_gram", "ward_no", "pole_spot", "mobile", "place", "date"],
+      info_keys: ["mohalla_gram", "ward_no", "pole_spot"],
+      sig_keys: ["name", "mohalla_gram", "ward_no", "pole_spot", "mobile", "district"],
+      intro: "Most respectfully, an electric pole installed at <b>{pole_spot}</b> in {mohalla_gram} has tilted severely, endangering life and property in the vicinity.",
+      paras: [
+        "Pedestrians and vehicles pass under this pole daily. Any collapse could disrupt the power grid and cause fatal injuries.",
+        "INFO_BOX",
+        "Therefore, it is requested that an on-site inspection be conducted to straighten and reinforce or replace the tilted pole immediately.",
+        "Kindly take urgent action in public interest."
+      ],
+      encl: ["Photographs of tilted electric pole", "Copy of Applicant's ID Proof"]
+    }
+  ];
+
+  function getList(){ return curLang === "en" ? T_EN : T; }
+
+  function getGender(){
+    var r = document.querySelector("input[name=g]:checked");
+    return r ? r.value : "m";
+  }
+
+  function getFemaleRel(){
+    var r = document.querySelector("input[name=f_rel]:checked");
+    return r ? r.value : "daughter";
+  }
+
+  function f(k){
+    var v = V[k];
+    if(v !== undefined && v !== null && String(v).trim() !== ""){
+      return esc(String(v).trim());
+    }
+    var d = F[k];
+    var w = d ? d[2] : 14;
+    return '<span class="blank" style="min-width:' + w + 'ch"></span>';
+  }
+
+  function gen(str, t, isEn){
+    if(!str) return "";
+    var res = str;
+    res = res.replace(/\{name\}/g, f("name"));
+    res = res.replace(/\{address\}/g, f("address"));
+    res = res.replace(/\{conn_no\}/g, f("conn_no"));
+    res = res.replace(/\{meter_no\}/g, f("meter_no"));
+    res = res.replace(/\{khand\}/g, f("khand"));
+    res = res.replace(/\{discom\}/g, f("discom"));
+    res = res.replace(/\{district\}/g, f("district"));
+
+    var st = (!V.state || V.state === "उत्तर प्रदेश" || V.state === "Uttar Pradesh") ? 
+      (isEn ? "Uttar Pradesh" : "उत्तर प्रदेश") : esc(V.state);
+    res = res.replace(/\{state\}/g, st);
+
+    res = res.replace(/\{mohalla_gram\}/g, f("mohalla_gram"));
+    res = res.replace(/\{tf_spot\}/g, f("tf_spot"));
+    res = res.replace(/\{tf_area\}/g, f("tf_area"));
+    res = res.replace(/\{ward_no\}/g, f("ward_no"));
+    res = res.replace(/\{thana_tehsil\}/g, f("thana_tehsil"));
+    res = res.replace(/\{power_issue\}/g, f("power_issue"));
+    res = res.replace(/\{road_name\}/g, f("road_name"));
+    res = res.replace(/\{exact_spot\}/g, f("exact_spot"));
+    res = res.replace(/\{pole_spot\}/g, f("pole_spot"));
+
+    t.keys.forEach(function(k){
+      res = res.replace(new RegExp("\\{" + k + "\\}", "g"), f(k));
+    });
+    return res;
+  }
+
+  function renderInfoBox(t, isEn){
+    if(!t.info_keys || t.info_keys.length === 0) return "";
+    var cells = t.info_keys.map(function(k){
+      var d = F[k];
+      var lbl = isEn ? (d[4] || d[0]) : d[0];
+      return '<div><b>• ' + lbl + ':</b> ' + f(k) + '</div>';
+    }).join("");
+    return '<div class="info-box"><div class="info-grid">' + cells + '</div></div>';
+  }
+
+  function render(){
+    var list = getList();
+    var t = list[cur];
+    var isEn = curLang === "en";
+    var g = getGender();
+
+    var fitEl = document.querySelector("input[name=page_fit]:checked");
+    var fitVal = fitEl ? fitEl.value : "fit80";
+    $("paper").classList.remove("compact", "fit-90");
+    if(fitVal === "fit90") $("paper").classList.add("fit-90");
+    else if(fitVal === "compact") $("paper").classList.add("compact");
+
+    var toLine1 = isEn ? "To," : "सेवा में,";
+    var toOffice = isEn ? "The Executive Engineer / Assistant Engineer," : "अधिशासी अभियंता/सहायक अभियंता,";
+    var toKhand = isEn ? ("Electricity Distribution Division — " + f("khand")) : ("विद्युत वितरण खंड — " + f("khand"));
+    var stateName = (!V.state || V.state === "उत्तर प्रदेश" || V.state === "Uttar Pradesh") ? 
+      (isEn ? "Uttar Pradesh" : "उत्तर प्रदेश") : esc(V.state);
+    var toDiscomDist = f("discom") + ", " + f("district") + ", " + stateName + (isEn ? "." : "।");
+
+    var subjLbl = isEn ? "Subject:" : "विषय:";
+    var salutation = isEn ? "Respected Sir/Madam," : "महोदय/महोदया,";
+    var closing = isEn ? "Yours faithfully," : (g === "f" ? "भवदीया" : "भवदीय");
+    var sigLbl = isEn ? "Signature:" : "हस्ताक्षर:";
+    var enclLbl = isEn ? "Enclosures:" : "संलग्नक:";
+
+    var bodyHtml = t.paras.map(function(p){
+      if(p === "INFO_BOX") return renderInfoBox(t, isEn);
+      return "<p>" + gen(p, t, isEn) + "</p>";
+    }).join("");
+
+    var enclHtml = "";
+    if(t.encl && t.encl.length > 0){
+      enclHtml = '<div class="enclosure-box"><b>' + enclLbl + '</b><ol class="enclosure-list">' +
+        t.encl.map(function(item){ return '<li>' + esc(item) + '</li>'; }).join("") +
+        '</ol></div>';
+    }
+
+    var sigLines = t.sig_keys.map(function(k){
+      var d = F[k];
+      var lbl = isEn ? (d[4] || d[0]) : d[0];
+      return '<b>' + lbl + ': </b>' + f(k);
+    }).join("<br>");
+
+    $("paper").innerHTML = 
+      "<h2>" + esc(t.t) + "</h2>" +
+      '<div class="to">' + toLine1 + '<br>' + toOffice + '<br>' + toKhand + '<br>' + toDiscomDist + '</div>' +
+      '<p><b>' + subjLbl + '</b> ' + esc(t.s) + '</p>' +
+      '<p>' + salutation + '</p>' +
+      '<p>' + gen(t.intro, t, isEn) + '</p>' +
+      bodyHtml +
+      '<div class="sig">' +
+        '<div class="left">' +
+          (isEn ? "Date: " : "दिनांक: ") + f("date") + '<br>' +
+          (isEn ? "Place: " : "स्थान: ") + f("place") + '<br>' +
+          enclHtml +
+        '</div>' +
+        '<div class="right">' +
+          closing + '<br><br>' +
+          sigLines + '<br><br>' +
+          sigLbl + ' <span class="blank" style="min-width:14ch"></span>' +
+        '</div>' +
+      '</div>';
+
+    document.title = t.t;
+  }
+
+  function build(){
+    var list = getList();
+    var t = list[cur];
+    var isEn = curLang === "en";
+    var h = "";
+
+    t.keys.forEach(function(k){
+      var d = F[k];
+      if(!d) return;
+      var id = "f_" + k;
+      var v = V[k] || "";
+      var lbl = isEn ? (d[4] || d[0]) : d[0];
+
+      if(d[1] === "d"){
+        h += '<label for="' + id + '">' + lbl + '</label><input id="' + id + '" type="text" inputmode="numeric" placeholder="DD/MM/YYYY" maxlength="10" autocomplete="off" value="' + esc(v) + '">';
+      } else if(k === "address" || k === "meter_issue" || k === "power_issue" || k === "exact_spot"){
+        h += '<label for="' + id + '">' + lbl + '</label><textarea id="' + id + '" placeholder="' + (isEn ? "Enter details here..." : "यहाँ संक्षिप्त विवरण लिखें...") + '">' + esc(v) + '</textarea>';
+      } else {
+        var itype = d[1] === "n" ? "tel" : "text";
+        var maxAttr = d[3] ? (' maxlength="' + d[3] + '"') : "";
+        h += '<label for="' + id + '">' + lbl + '</label><input id="' + id + '" type="' + itype + '"' + maxAttr + ' value="' + esc(v) + '">';
+      }
+    });
+
+    $("fields").innerHTML = h;
+
+    t.keys.forEach(function(k){
+      var el = $("f_" + k);
+      if(!el) return;
+      el.addEventListener("input", function(){
+        V[k] = el.value;
+        render();
+      });
+      // Date Auto-Slash formatting
+      if(F[k] && F[k][1] === "d"){
+        el.addEventListener("keydown", function(e){
+          if(e.key === "Backspace" || e.key === "Delete"){
+            var pos = el.selectionStart;
+            if((pos === 3 || pos === 6) && el.value.length === pos){
+              e.preventDefault();
+              el.value = el.value.slice(0, pos - 1);
+              V[k] = el.value;
+              render();
+            }
+          }
+        });
+        el.addEventListener("input", function(){
+          var clean = el.value.replace(/[^0-9]/g, "");
+          if(clean.length > 8) clean = clean.substring(0, 8);
+          var formatted = clean;
+          if(clean.length > 2 && clean.length <= 4){
+            formatted = clean.substring(0, 2) + "/" + clean.substring(2);
+          } else if(clean.length > 4){
+            formatted = clean.substring(0, 2) + "/" + clean.substring(2, 4) + "/" + clean.substring(4);
+          }
+          if(formatted !== el.value){
+            el.value = formatted;
+          }
+          V[k] = formatted;
+          render();
+        });
+      }
+    });
+  }
+
+  function updateStaticUI(){
+    var isEn = curLang === "en";
+    document.documentElement.lang = curLang;
+
+    if($("backLink")) $("backLink").innerText = isEn ? "← Home Portal" : "← मुख्य पोर्टल (Home Portal)";
+    if($("portalTitle")) $("portalTitle").innerText = isEn ? "Electricity Consumer & Public Services Division" : "विद्युत उपभोक्ता एवं जनसेवा प्रभाग (Electricity Dept.)";
+
+    if($("uiBanner")){
+      $("uiBanner").innerHTML = isEn ? 
+        "🔒 <strong>100% Safe & Private:</strong> This tool runs entirely locally on your device. No data is sent to any server. If you do not wish to enter any detail, leave it blank—it can be filled with a pen after printing." : 
+        "🔒 <strong>100% सुरक्षित एवं निजी:</strong> यह टूल पूरी तरह आपके डिवाइस पर चलता है। आपका कोई भी डेटा सर्वर पर नहीं भेजा जाता। यदि कोई जानकारी नहीं डालना चाहते, तो खाली छोड़ दें—प्रिंट के बाद पेन से भर सकते हैं।";
+    }
+
+    $("uiHeading").innerText = isEn ? "Electricity Department Applications" : "विद्युत विभाग शिकायत एवं आवेदन पत्र";
+    $("lblLang").innerText = isEn ? "Choose Language" : "भाषा चुनें";
+    if($("optLangHi")) $("optLangHi").innerText = isEn ? "Hindi (हिंदी)" : "हिंदी (Hindi)";
+    if($("optLangEn")) $("optLangEn").innerText = "English";
+
+    $("lblTpl").innerText = isEn ? "Application / Problem Type" : "आवेदन / समस्या का प्रकार";
+    $("lblPageFit").innerText = isEn ? "Page Coverage / Size" : "पेज भराव / प्रिंट फैलाव";
+    $("optFit80").innerText = isEn ? "80% Balanced (Default)" : "80% संतुलित (Default)";
+    $("optFit90").innerText = isEn ? "90% Large (Full Page)" : "90% बड़ा (Full)";
+    $("optFitCompact").innerText = isEn ? "Compact" : "कॉम्पैक्ट (छोटा)";
+
+    $("lblGender").innerText = isEn ? "Applicant / Consumer" : "आवेदक / उपभोक्ता";
+    $("gMale").innerText = isEn ? "Male" : "पुरुष (Male)";
+    $("gFemale").innerText = isEn ? "Female" : "महिला (Female)";
+
+    $("lblFemaleRel").innerText = isEn ? "Relation Type:" : "संबंध प्रकार / Relation Type:";
+    $("optDaughter").innerText = isEn ? "Daughter (D/o - Father)" : "पुत्री (D/o - पिता)";
+    $("optWife").innerText = isEn ? "Wife (W/o - Husband)" : "पत्नी (W/o - पति)";
+
+    $("print").innerText = isEn ? "Print Application" : "प्रिंट करें";
+    $("clear").innerText = isEn ? "Clear Form" : "साफ़ करें";
+    $("uiHint").innerText = isEn ? 
+      "Fields left blank will remain empty in print so you can fill them by pen. You can also directly click and edit any text on the letter before printing." : 
+      "जो जानकारी नहीं भरेंगे, प्रिंट में वहाँ खाली जगह छूट जाएगी। प्रिंट करने से पहले आप सीधे दाईं ओर पत्र पर क्लिक करके भी कोई बदलाव (एडिट) कर सकते हैं।";
+
+    var formSec = document.querySelector("section.form");
+    if(formSec && formSec.setAttribute) formSec.setAttribute("aria-label", isEn ? "Electricity Application Settings" : "विद्युत आवेदन पत्र सेटिंग्स");
+    var paperEl = $("paper");
+    if(paperEl && paperEl.setAttribute) paperEl.setAttribute("aria-label", isEn ? "Application Letter Preview" : "आवेदन पत्र पूर्वावलोकन");
+
+    var langRadio = document.querySelector('input[name=lang][value="' + curLang + '"]');
+    if(langRadio) langRadio.checked = true;
+
+    updateThemeUI();
+
+    var list = getList();
+    $("tpl").innerHTML = list.map(function(t, i){
+      return '<option value="' + i + '"' + (i === cur ? ' selected' : '') + '>' + (i + 1) + '. ' + esc(t.t) + '</option>';
+    }).join("");
+  }
+
+  function updatePrintTitle(){
+    var h2 = $("paper") ? $("paper").querySelector("h2") : null;
+    if(h2 && h2.innerText && h2.innerText.trim()){
+      document.title = h2.innerText.trim();
+    } else {
+      var list = getList();
+      if(list && list[cur]) document.title = list[cur].t;
+    }
+  }
+
+  window.addEventListener("beforeprint", updatePrintTitle);
+  $("print").addEventListener("click", function(){
+    updatePrintTitle();
+    window.print();
+  });
+
+  $("clear").addEventListener("click", function(){
+    V = { date: getTodayDate(), state: curLang === "en" ? "Uttar Pradesh" : "उत्तर प्रदेश" };
+    build();
+    render();
+  });
+
+  $("tpl").addEventListener("change", function(){
+    cur = +$("tpl").value;
+    build();
+    render();
+  });
+
+  document.querySelectorAll("input[name=g]").forEach(function(r){
+    r.addEventListener("change", function(){
+      var isFem = document.querySelector("input[name=g]:checked").value === "f";
+      $("femaleRelWrap").style.display = isFem ? "block" : "none";
+      render();
+    });
+  });
+
+  document.querySelectorAll("input[name=f_rel]").forEach(function(r){
+    r.addEventListener("change", function(){
+      render();
+    });
+  });
+
+  document.querySelectorAll("input[name=page_fit]").forEach(function(r){
+    r.addEventListener("change", function(){
+      render();
+    });
+  });
+
+  document.querySelectorAll("input[name=lang]").forEach(function(r){
+    r.addEventListener("change", function(){
+      curLang = document.querySelector("input[name=lang]:checked").value;
+      try { localStorage.setItem("app_lang", curLang); } catch(e){}
+      if(!V.state || V.state === "उत्तर प्रदेश" || V.state === "Uttar Pradesh"){
+        V.state = curLang === "en" ? "Uttar Pradesh" : "उत्तर प्रदेश";
+      }
+      updateStaticUI();
+      build();
+      render();
+    });
+  });
+
+  updateStaticUI();
+  build();
+  render();
+})();
+</script>
+</body>
+</html>
