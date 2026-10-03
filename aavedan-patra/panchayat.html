@@ -1,0 +1,1606 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ग्राम पंचायत एवं नगर निकाय आवेदन पत्र जनरेटर | Panchayat & Municipal Application Generator</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;600;700&amp;family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet">
+<style>
+:root{--bg:#eef1f5;--panel:#fff;--ink:#1b2430;--muted:#5a6675;--line:#cfd6df;--accent:#1f4e8c;--accent-ink:#fff;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#12161c;--panel:#1c222b;--ink:#e8edf3;--muted:#9aa6b4;--line:#333c48;--accent:#6ea3e6;--accent-ink:#0d1622}}
+:root[data-theme="dark"]{--bg:#12161c;--panel:#1c222b;--ink:#e8edf3;--muted:#9aa6b4;--line:#333c48;--accent:#6ea3e6;--accent-ink:#0d1622}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Noto Sans Devanagari","Inter","Mangal","Nirmala UI",system-ui,sans-serif;line-height:1.5}
+
+/* शीर्ष नेविगेशन बार */
+.top-nav{background:var(--panel);border-bottom:1px solid var(--line);padding:10px 16px;display:flex;align-items:center;justify-content:space-between;max-width:1200px;margin:0 auto}
+.top-nav a{color:var(--accent);text-decoration:none;font-weight:600;display:inline-flex;align-items:center;gap:6px;font-size:.9rem}
+.top-nav a:hover{text-decoration:underline}
+.top-nav .portal-title{font-size:.95rem;font-weight:600;color:var(--muted)}
+.theme-btn{background:var(--bg);border:1px solid var(--line);color:var(--ink);border-radius:20px;padding:6px 14px;font-size:.85rem;font-weight:600;cursor:pointer;display:inline-flex;align-items:center;gap:6px;font-family:inherit}
+.theme-btn:hover{border-color:var(--accent);color:var(--accent)}
+
+.app{display:grid;gap:16px;padding:16px;max-width:1200px;margin:0 auto}
+@media(min-width:900px){.app{grid-template-columns:380px 1fr;align-items:start}.form{position:sticky;top:16px;max-height:calc(100vh - 32px);overflow:auto}}
+
+.security-banner{
+  grid-column:1/-1;
+  background:#13294b;
+  color:#e8edf3;
+  border:1px solid #244673;
+  border-left:5px solid #3b82f6;
+  padding:12px 16px;
+  border-radius:8px;
+  font-size:.88rem;
+  line-height:1.55;
+  box-shadow:0 1px 4px rgba(0,0,0,.08);
+}
+@media (prefers-color-scheme:light){
+  :root:not([data-theme="dark"]) .security-banner{
+    background:#e9f2fd;
+    color:#14325a;
+    border-color:#bed8f9;
+    border-left-color:#1f4e8c;
+  }
+}
+
+.form{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:16px}
+h1{font-size:1.15rem;margin:0 0 12px;font-weight:600}
+label{display:block;font-size:.85rem;margin:10px 0 3px;font-weight:600}
+input[type=text],input[type=tel],input[type=date],select,textarea{width:100%;padding:9px 10px;font:inherit;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:6px}
+textarea{resize:vertical;min-height:55px}
+input:focus-visible,select:focus-visible,textarea:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:1px}
+.seg{display:flex;gap:8px;margin-top:8px}
+.seg label{flex:1;margin:0;font-weight:400}
+.seg input{position:absolute;opacity:0}
+.seg span{display:block;text-align:center;padding:8px 6px;border:1px solid var(--line);border-radius:6px;cursor:pointer;background:var(--bg);font-size:.88rem}
+.seg input:checked+span{background:var(--accent);color:var(--accent-ink);border-color:var(--accent);font-weight:600}
+.seg input:focus-visible+span{outline:2px solid var(--accent);outline-offset:1px}
+.female-rel-wrap{margin-top:8px;padding:8px;border:1px dashed var(--line);border-radius:6px;background:var(--bg)}
+.female-rel-wrap span{font-size:.82rem}
+
+.btns{display:flex;gap:8px;margin-top:16px}
+button{font:inherit;padding:10px 14px;border-radius:6px;border:1px solid var(--accent);cursor:pointer}
+.primary{flex:1;background:var(--accent);color:var(--accent-ink);font-weight:600}
+.ghost{background:transparent;color:var(--accent)}
+.hint{color:var(--muted);font-size:.78rem;margin:10px 0 0;line-height:1.5}
+
+/* A4 शीट प्रिव्यू */
+.sheetwrap{container-type:inline-size;width:100%}
+.paper{
+  background:#fff;
+  color:#000;
+  width:100%;
+  max-width:210mm;
+  margin:0 auto;
+  aspect-ratio:210/297;
+  padding:6.2cqw 7.5cqw;
+  font-size:min(12.5pt,2.2cqw);
+  line-height:1.72;
+  box-shadow:0 2px 12px rgba(0,0,0,.18);
+  font-family:"Noto Sans Devanagari","Inter","Mangal","Nirmala UI",sans-serif;
+  overflow:hidden;
+}
+.paper h2{font-size:1.26em;text-align:center;margin:0 0 1.05em;text-decoration:underline;text-underline-offset:.25em;font-weight:700}
+.paper p{margin:0 0 .82em;text-align:justify}
+.paper[contenteditable="true"]:focus-visible{outline:2px dashed var(--accent);outline-offset:3px}
+.paper .to{margin-bottom:.9em;line-height:1.62}
+
+/* विवरण बॉक्स (जन्म/मृत्यु/मनरेगा/आवास आदि) */
+.paper .info-box{
+  background:#f9fafb;
+  border:1.2px solid #cbd5e1;
+  border-radius:4px;
+  padding:8px 14px;
+  margin:8px 0 12px;
+  font-size:0.96em;
+  line-height:1.62;
+}
+.paper .info-grid{display:grid;grid-template-columns:1fr 1fr;gap:4px 14px}
+.paper .enclosure-box{margin-top:1.1em;padding-top:.65em;border-top:1px dashed #aaa;font-size:0.92em;line-height:1.58}
+.paper .enclosure-box b{display:block;margin-bottom:3px}
+.paper .enclosure-list{margin:0;padding-left:18px}
+.paper .enclosure-list li{margin-bottom:3px}
+
+.paper .sig{display:flex;justify-content:space-between;align-items:flex-end;margin-top:2.1em;line-height:1.68}
+.paper .sig .left{width:46%;text-align:left}
+.paper .sig .right{width:50%;text-align:left;margin-left:auto}
+.blank{display:inline-block;border-bottom:1px dotted #000;height:1em;vertical-align:baseline}
+
+/* 90% बड़ा फैलाव मोड */
+.paper.fit-90{padding:5.2cqw 6.8cqw;font-size:min(13.4pt,2.38cqw);line-height:1.82}
+.paper.fit-90 p{margin:0 0 .95em}
+.paper.fit-90 .to{margin-bottom:1.05em;line-height:1.7}
+.paper.fit-90 .sig{margin-top:2.6em;line-height:1.75}
+
+/* कॉम्पैक्ट मोड (लंबे पत्रों के लिए) */
+.paper.compact{padding:4.5cqw 6cqw;font-size:min(11pt,1.9cqw);line-height:1.48}
+.paper.compact p{margin:0 0 .42em}
+.paper.compact .to{margin-bottom:.5em;line-height:1.4}
+.paper.compact .sig{margin-top:1.2em;line-height:1.45}
+.paper.compact .info-box{padding:5px 10px;margin:5px 0 8px}
+
+@media print{
+  @page{
+    size: A4;
+    margin: 0;
+  }
+  html, body{
+    background: #fff !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  .top-nav, .security-banner, .form{
+    display: none !important;
+  }
+  .app{
+    display: block !important;
+    padding: 0 !important;
+    max-width: none !important;
+  }
+  .sheetwrap{
+    container-type: normal !important;
+  }
+  .paper{
+    width: 210mm !important;
+    height: 297mm !important;
+    max-height: 297mm !important;
+    box-sizing: border-box !important;
+    aspect-ratio: auto !important;
+    padding: 16mm 20mm 14mm 20mm !important;
+    font-size: 12.5pt !important;
+    line-height: 1.72 !important;
+    box-shadow: none !important;
+    page-break-after: avoid !important;
+    page-break-inside: avoid !important;
+    overflow: hidden !important;
+  }
+  .paper h2{
+    font-size: 1.28em !important;
+    margin: 0 0 1.05em !important;
+    letter-spacing: 0.02em !important;
+  }
+  .paper p{
+    margin: 0 0 0.82em !important;
+    text-align: justify !important;
+  }
+  .paper .to{
+    margin-bottom: 0.9em !important;
+    line-height: 1.62 !important;
+  }
+  .paper .info-box{
+    background: #fff !important;
+    border: 1.2px solid #000 !important;
+    padding: 8px 14px !important;
+    margin: 8px 0 12px !important;
+    font-size: 0.96em !important;
+    line-height: 1.62 !important;
+  }
+  .paper .sig{
+    margin-top: 2.1em !important;
+    line-height: 1.68 !important;
+  }
+  .paper .enclosure-box{
+    margin-top: 1.1em !important;
+    padding-top: 0.65em !important;
+    border-top: 1px dashed #555 !important;
+    font-size: 0.92em !important;
+    line-height: 1.58 !important;
+  }
+  .paper .enclosure-list li{
+    margin-bottom: 3px !important;
+  }
+  .paper.fit-90{
+    padding: 13mm 18mm 11mm 18mm !important;
+    font-size: 13.4pt !important;
+    line-height: 1.82 !important;
+  }
+  .paper.fit-90 p{
+    margin: 0 0 0.95em !important;
+  }
+  .paper.fit-90 .sig{
+    margin-top: 2.6em !important;
+  }
+  .paper.compact{
+    padding: 10mm 16mm 8mm 16mm !important;
+    font-size: 11pt !important;
+    line-height: 1.48 !important;
+  }
+  .paper.compact p{
+    margin: 0 0 0.42em !important;
+  }
+  .paper.compact .sig{
+    margin-top: 1.2em !important;
+  }
+}
+</style>
+</head>
+<body>
+
+<div class="top-nav">
+  <a href="index.html" id="navHomeLink">← मुख्य पोर्टल (Home Portal)</a>
+  <span class="portal-title" id="navPortalTitle">ग्राम पंचायत एवं नगर निकाय प्रभाग</span>
+  <button id="themeToggleBtn" type="button" class="theme-btn">
+    <span id="thIcon">🌙</span> <span id="thText">नाइट मोड</span>
+  </button>
+</div>
+
+<div class="app">
+  <aside class="security-banner">
+    <span id="uiBanner">🔒 <strong>100% सुरक्षित एवं निजी:</strong> यह टूल पूरी तरह आपके डिवाइस पर चलता है। आपका कोई भी डेटा सर्वर पर नहीं भेजा जाता। यदि कोई जानकारी नहीं डालना चाहते, तो खाली छोड़ दें—प्रिंट के बाद पेन से भर सकते हैं।</span>
+  </aside>
+
+  <section class="form" aria-label="आवेदन पत्र सेटिंग्स">
+    <h1 id="uiHeading">ग्राम पंचायत एवं नगर निकाय आवेदन पत्र</h1>
+
+    <label id="lblLang">भाषा चुनें / Choose Language</label>
+    <div class="seg" role="radiogroup" aria-label="Language">
+      <label><input type="radio" name="lang" value="hi" checked><span id="optLangHi">हिंदी (Hindi)</span></label>
+      <label><input type="radio" name="lang" value="en"><span id="optLangEn">English</span></label>
+    </div>
+
+    <label for="tpl" id="lblTpl">आवेदन का प्रकार</label>
+    <select id="tpl"></select>
+
+    <label id="lblPageFit">पेज भराव / प्रिंट फैलाव (Page Coverage)</label>
+    <div class="seg" role="radiogroup" aria-label="Page Coverage" id="fitWrap">
+      <label><input type="radio" name="page_fit" value="fit80" checked><span id="optFit80">80% संतुलित (Default)</span></label>
+      <label><input type="radio" name="page_fit" value="fit90"><span id="optFit90">90% बड़ा (Full)</span></label>
+      <label><input type="radio" name="page_fit" value="compact"><span id="optFitCompact">कॉम्पैक्ट (छोटा)</span></label>
+    </div>
+
+    <label id="lblGender">आवेदक</label>
+    <div class="seg" role="radiogroup" aria-label="आवेदक" id="genderWrap">
+      <label><input type="radio" name="g" value="m" checked><span id="gMale">पुरुष (Male)</span></label>
+      <label><input type="radio" name="g" value="f"><span id="gFemale">महिला (Female)</span></label>
+    </div>
+
+    <div class="female-rel-wrap" id="femaleRelWrap" style="display:none">
+      <label style="margin-top:0" id="lblFemaleRel">संबंध प्रकार / Relation Type:</label>
+      <div class="seg">
+        <label><input type="radio" name="f_rel" value="daughter" checked><span id="optDaughter">पुत्री (D/o - पिता)</span></label>
+        <label><input type="radio" name="f_rel" value="wife"><span id="optWife">पत्नी (W/o - पति)</span></label>
+      </div>
+    </div>
+
+    <div id="fields"></div>
+
+    <div class="btns">
+      <button class="primary" id="print" type="button">प्रिंट करें</button>
+      <button class="ghost" id="clear" type="button">साफ़ करें</button>
+    </div>
+    <p class="hint" id="uiHint">जो जानकारी नहीं भरेंगे, प्रिंट में वहाँ खाली जगह छूट जाएगी। प्रिंट करने से पहले आप सीधे दाईं ओर पत्र पर क्लिक करके भी कोई बदलाव (एडिट) कर सकते हैं।</p>
+  </section>
+
+  <div class="sheetwrap"><article class="paper" id="paper" contenteditable="true" spellcheck="false" aria-label="आवेदन पत्र पूर्वावलोकन"></article></div>
+</div>
+
+<script>
+
+(function(){
+  // 1. भाषा और थीम स्वतः लोड करें
+  var curLang = "hi";
+  try {
+    var savedLang = localStorage.getItem("app_lang");
+    if(savedLang === "en" || savedLang === "hi") curLang = savedLang;
+  } catch(e){}
+
+  var dark = false;
+  try {
+    dark = localStorage.getItem("app_theme") === "dark";
+  } catch(e){}
+  document.documentElement.setAttribute("data-theme", dark ? "dark" : "light");
+
+  var cur = 0;
+  var V = {};
+
+  function $(id){ return document.getElementById(id); }
+  function esc(s){ return (s||"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;"); }
+
+  // थीम बटन अपडेट और टॉगल
+  function updateThemeUI(){
+    var icon = $("thIcon");
+    var txt = $("thText");
+    if(!icon || !txt) return;
+    icon.textContent = dark ? "☀️" : "🌙";
+    txt.textContent = dark ? 
+      (curLang === "en" ? "Light Mode" : "लाइट मोड") : 
+      (curLang === "en" ? "Night Mode" : "नाइट मोड");
+  }
+
+  var thBtn = $("themeToggleBtn");
+  if(thBtn){
+    thBtn.addEventListener("click", function(){
+      dark = !dark;
+      document.documentElement.setAttribute("data-theme", dark ? "dark" : "light");
+      try { localStorage.setItem("app_theme", dark ? "dark" : "light"); } catch(e){}
+      updateThemeUI();
+    });
+  }
+
+  function getTodayDate(){
+    var d = new Date();
+    var dd = String(d.getDate()).padStart(2, '0');
+    var mm = String(d.getMonth() + 1).padStart(2, '0');
+    var yyyy = d.getFullYear();
+    return dd + '/' + mm + '/' + yyyy;
+  }
+  V.date = getTodayDate();
+  V.state = "उत्तर प्रदेश";
+
+  var F = {
+    panchayat: ["ग्राम पंचायत / नगर निकाय का नाम", "t", 20, 0, "Gram Panchayat / Municipal Name"],
+    block: ["विकास खंड (ब्लॉक)", "t", 16, 0, "Development Block"],
+    district: ["जनपद / जिला", "t", 16, 0, "District Name"],
+    state: ["राज्य", "t", 14, 0, "State"],
+
+    name: ["आवेदक का नाम", "t", 22, 0, "Applicant Name"],
+    parent_name: ["पिता / माता / पति का नाम", "t", 22, 0, "Father / Mother / Husband Name"],
+    address: ["पूरा पता (ग्राम/मोहल्ला, पोस्ट, जिला)", "t", 28, 0, "Full Address"],
+    mobile: ["मोबाइल नंबर", "n", 12, 10, "Mobile Number"],
+    place: ["स्थान", "t", 14, 0, "Place"],
+    date: ["दिनांक (DD/MM/YYYY)", "d", 11, 0, "Date (DD/MM/YYYY)"],
+
+    person_name: ["बच्चे / व्यक्ति का नाम", "t", 22, 0, "Person / Child Name"],
+    relation: ["संबंध (उदा: पुत्र, पुत्री, स्वयं)", "t", 14, 0, "Relationship (e.g. Son, Daughter)"],
+    dob: ["जन्म तिथि (DD/MM/YYYY)", "d", 11, 0, "Date of Birth (DD/MM/YYYY)"],
+    birth_place: ["जन्म का स्थान (अस्पताल/घर/ग्राम)", "t", 22, 0, "Place of Birth"],
+    purpose: ["प्रमाण पत्र की आवश्यकता का प्रयोजन", "t", 26, 0, "Purpose of Certificate"],
+    delay_reason: ["समय से पंजीकरण न होने का कारण", "t", 28, 0, "Reason for Delayed Registration"],
+
+    deceased_name: ["मृतक का नाम", "t", 22, 0, "Deceased Name"],
+    deceased_rel: ["मृतक से संबंध (उदा: पिता, माता, पति)", "t", 16, 0, "Relation with Deceased"],
+    death_date: ["मृत्यु की तारीख (DD/MM/YYYY)", "d", 11, 0, "Date of Death (DD/MM/YYYY)"],
+    death_place: ["मृत्यु का स्थान (घर/अस्पताल/ग्राम)", "t", 22, 0, "Place of Death"],
+
+    locality: ["मोहल्ला / मजरा / वार्ड का नाम", "t", 20, 0, "Locality / Hamlet / Ward Name"],
+    dirt_place: ["गंदगी / कूड़े का स्थान (सड़क/नाली/गली)", "t", 22, 0, "Dirt / Waste Accumulation Spot"],
+    garbage_issue: ["कूड़े की समस्या का विवरण", "t", 24, 0, "Garbage Problem Description"],
+
+    hp_location: ["सरकारी हैंडपंप का सटीक स्थान", "t", 24, 0, "Handpump Exact Location"],
+    broken_duration: ["कब से खराब है (उदा: पिछले 15 दिनों से)", "t", 18, 0, "Duration Out of Order"],
+    importance: ["हैंडपंप का महत्व (आबादी/विद्यालय आदि)", "t", 22, 0, "Importance / User Base"],
+    problem_desc: ["समस्या का विवरण (जलस्तर गिरना/खराबी)", "t", 24, 0, "Problem Details (Low Water/Defect)"],
+    water_cause: ["पेयजल संकट का कारण", "t", 24, 0, "Cause of Drinking Water Shortage"],
+
+    drain_location: ["नाली का स्थान / गली का विवरण", "t", 24, 0, "Drain Location / Street Name"],
+    drain_problem: ["नाली न होने से समस्या", "t", 24, 0, "Problem Due to Lack of Drain"],
+    drain_defect: ["नाली की स्थिति (चोक/टूटी हुई)", "t", 22, 0, "Drain Condition (Choked/Damaged)"],
+    waterlog_place: ["जलभराव का सटीक स्थान", "t", 24, 0, "Waterlogging Location"],
+    waterlog_cause: ["जलभराव का कारण", "t", 22, 0, "Cause of Waterlogging"],
+
+    road_from: ["मार्ग का प्रारंभिक बिंदु (यहाँ से)", "t", 20, 0, "Starting Point of Road"],
+    road_to: ["मार्ग का अंतिम बिंदु (यहाँ तक)", "t", 20, 0, "Ending Point of Road"],
+    road_type: ["प्रस्तावित निर्माण (सड़क/खड़ंजा/इंटरलॉकिंग)", "t", 22, 0, "Proposed Type (Road/Kharanja/Interlocking)"],
+    beneficiaries: ["लाभान्वित आबादी / संस्था", "t", 24, 0, "Beneficiary Population / School"],
+
+    village_name: ["ग्राम का नाम (निवास)", "t", 18, 0, "Village Name"],
+    housing_status: ["वर्तमान आवासीय स्थिति (कच्चा/जर्जर/आवासहीन)", "t", 22, 0, "Current Housing Status (Kutcha/Dilapidated)"],
+    family_desc: ["सामाजिक-आर्थिक स्थिति (मजदूरी/भूमिहीन)", "t", 24, 0, "Socio-Economic Status"],
+
+    adult_members: ["वयस्क सदस्यों का विवरण (1. नाम, आयु 2. नाम, आयु)", "t", 32, 0, "Adult Members (1. Name, Age 2. Name, Age)"],
+    job_card_no: ["मनरेगा जॉब कार्ड संख्या (Job Card No.)", "t", 20, 0, "MGNREGA Job Card Number"],
+    work_days: ["कार्य की मांग की अवधि (दिनों की संख्या)", "t", 18, 0, "Demanded Work Duration (Days)"],
+
+    work_name: ["मनरेगा कार्य का नाम (उदा: तालाब खुदाई)", "t", 22, 0, "MGNREGA Work Name"],
+    work_place: ["कार्य स्थल", "t", 20, 0, "Work Site Location"],
+    work_start: ["कार्य आरंभ तिथि (DD/MM/YYYY)", "d", 11, 0, "Work Start Date"],
+    work_end: ["कार्य समाप्ति तिथि (DD/MM/YYYY)", "d", 11, 0, "Work End Date"],
+    days_worked: ["कार्य किए गए कुल दिन", "n", 8, 4, "Total Days Worked"],
+    muster_roll: ["मस्टर रोल संख्या (यदि उपलब्ध हो)", "t", 16, 0, "Muster Roll Number (if available)"],
+    wage_amount: ["अपेक्षित / बकाया मजदूरी राशि (₹)", "n", 12, 8, "Pending Wage Amount (₹)"],
+    bank_acc: ["बैंक / डाकघर खाता विवरण (अंतिम 4 अंक)", "t", 20, 0, "Bank / Post Office Account Last 4 Digits"]
+  };
+
+var T = [
+  // 1. जन्म प्रमाण पत्र
+  {
+    t: "जन्म प्रमाण पत्र जारी कराने हेतु आवेदन",
+    s: "जन्म प्रमाण पत्र जारी किए जाने हेतु आवेदन।",
+    auth: "श्रीमान/श्रीमती जन्म एवं मृत्यु पंजीयक / संबंधित अधिकारी,",
+    keys: ["panchayat", "block", "district", "name", "parent_name", "address", "mobile", "person_name", "relation", "dob", "birth_place", "purpose", "place", "date"],
+    box_type: "birth",
+    intro: "सविनय निवेदन है कि मेरे {relation} <b>{person_name}</b> का जन्म दिनांक <b>{dob}</b> को <b>{birth_place}</b> पर हुआ था। उक्त जन्म का विवरण संबंधित अभिलेखों में दर्ज है / जन्म का पंजीकरण कराया जा चुका है, किंतु मूल जन्म प्रमाण पत्र प्राप्त नहीं हुआ है।",
+    paras: [
+      "जन्म विवरण निम्नवत है—",
+      "INFO_BOX",
+      "मुझे {person_name} का जन्म प्रमाण पत्र <b>{purpose}</b> के लिए अत्यंत आवश्यक है।",
+      "अतः आपसे विनम्र अनुरोध है कि उपलब्ध अभिलेखों के आधार पर सत्यापित कर जन्म प्रमाण पत्र जारी करने की कृपा करें।"
+    ],
+    encl: [
+      "आवेदक का पहचान-पत्र (आधार कार्ड) की प्रति",
+      "जन्म से संबंधित उपलब्ध प्रमाण / अस्पताल डिस्चार्ज स्लिप / टीकाकरण कार्ड",
+      "अन्य आवश्यक दस्तावेज, यदि लागू हो"
+    ]
+  },
+
+  // 2. मृत्यु प्रमाण पत्र
+  {
+    t: "मृत्यु प्रमाण पत्र जारी कराने हेतु आवेदन",
+    s: "मृत्यु प्रमाण पत्र जारी किए जाने हेतु आवेदन।",
+    auth: "श्रीमान/श्रीमती जन्म एवं मृत्यु पंजीयक / संबंधित अधिकारी,",
+    keys: ["panchayat", "block", "district", "name", "deceased_rel", "address", "mobile", "deceased_name", "death_date", "death_place", "purpose", "place", "date"],
+    box_type: "death",
+    intro: "सविनय निवेदन है कि मेरे {deceased_rel} स्व० <b>{deceased_name}</b> का निधन दिनांक <b>{death_date}</b> को <b>{death_place}</b> पर हुआ था।",
+    paras: [
+      "उक्त मृत्यु के संबंध में आवश्यक जानकारी संबंधित कार्यालय में दर्ज/उपलब्ध है। मृतक का विवरण निम्नवत है—",
+      "INFO_BOX",
+      "मृतक का मृत्यु प्रमाण पत्र मुझे <b>{purpose}</b> (उत्तराधिकार/पेंशन/बीमा/बैंक कार्य) के लिए नितांत आवश्यक है।",
+      "अतः आपसे सादर अनुरोध है कि नियमानुसार मृत्यु का पंजीकरण/अभिलेख सत्यापित कर मृत्यु प्रमाण पत्र जारी करने की कृपा करें।"
+    ],
+    encl: [
+      "आवेदक का पहचान-पत्र (आधार कार्ड)",
+      "मृतक से संबंधित पहचान-पत्र / राशन कार्ड",
+      "मृत्यु से संबंधित प्रमाण / श्मशान घाट रसीद / अस्पताल प्रमाण",
+      "अन्य आवश्यक दस्तावेज, यदि लागू हो"
+    ]
+  },
+
+  // 3. विलंब से जन्म प्रमाण पत्र
+  {
+    t: "विलंब से जन्म प्रमाण पत्र जारी कराने हेतु आवेदन",
+    s: "विलंब से जन्म पंजीकरण कर जन्म प्रमाण पत्र जारी किए जाने हेतु आवेदन।",
+    auth: "श्रीमान/श्रीमती जन्म एवं मृत्यु पंजीयक / संबंधित अधिकारी,",
+    keys: ["panchayat", "block", "district", "name", "parent_name", "relation", "address", "mobile", "person_name", "dob", "birth_place", "delay_reason", "purpose", "place", "date"],
+    box_type: "delayed_birth",
+    intro: "सविनय निवेदन है कि मेरे {relation} <b>{person_name}</b> का जन्म दिनांक <b>{dob}</b> को <b>{birth_place}</b> पर हुआ था। निर्धारित समयावधि में उक्त जन्म का पंजीकरण नहीं कराया जा सका।",
+    paras: [
+      "जन्म का पंजीकरण समय से न हो पाने का वास्तविक कारण: <b>{delay_reason}</b> है। अब <b>{purpose}</b> हेतु जन्म प्रमाण पत्र प्राप्त करना अनिवार्य हो गया है।",
+      "INFO_BOX",
+      "अतः आपसे अनुरोध है कि प्रस्तुत दस्तावेजों एवं नियमानुसार आवश्यक जांच/सक्षम अधिकारी के आदेश की प्रक्रिया पूर्ण कर उक्त जन्म का विलंबित पंजीकरण करने तथा जन्म प्रमाण पत्र जारी करने की कृपा करें।"
+    ],
+    encl: [
+      "आवेदक का पहचान-पत्र",
+      "जन्म से संबंधित उपलब्ध साक्ष्य / जन्म प्रमाण / स्कूल रिकॉर्ड",
+      "विलंब का कारण दर्शाने वाला स्व-घोषणा / शपथ-पत्र (Affidavit)",
+      "माता-पिता / अभिभावक का पहचान प्रमाण"
+    ]
+  },
+
+  // 4. विलंब से मृत्यु प्रमाण पत्र
+  {
+    t: "विलंब से मृत्यु प्रमाण पत्र जारी कराने हेतु आवेदन",
+    s: "विलंब से मृत्यु पंजीकरण कर मृत्यु प्रमाण पत्र जारी किए जाने हेतु आवेदन।",
+    auth: "श्रीमान/श्रीमती जन्म एवं मृत्यु पंजीयक / संबंधित अधिकारी,",
+    keys: ["panchayat", "block", "district", "name", "deceased_rel", "address", "mobile", "deceased_name", "death_date", "death_place", "delay_reason", "purpose", "place", "date"],
+    box_type: "delayed_death",
+    intro: "सविनय निवेदन है कि मेरे {deceased_rel} स्व० <b>{deceased_name}</b> का निधन दिनांक <b>{death_date}</b> को <b>{death_place}</b> पर हुआ था। निर्धारित अवधि में उक्त मृत्यु का पंजीकरण नहीं कराया जा सका।",
+    paras: [
+      "मृत्यु का पंजीकरण समय से न हो पाने का कारण: <b>{delay_reason}</b> है। वर्तमान में मृत्यु प्रमाण पत्र की आवश्यकता <b>{purpose}</b> के लिए है।",
+      "INFO_BOX",
+      "अतः आपसे अनुरोध है कि प्रस्तुत अभिलेखों एवं नियमानुसार आवश्यक जांच/अनुमति की प्रक्रिया पूर्ण कर उक्त मृत्यु का विलंबित पंजीकरण करने तथा मृत्यु प्रमाण पत्र जारी करने की कृपा करें।"
+    ],
+    encl: [
+      "आवेदक का पहचान-पत्र",
+      "मृतक का पहचान प्रमाण / आधार कार्ड",
+      "मृत्यु से संबंधित साक्ष्य / दाह-संस्कार पर्ची / गवाह प्रमाण",
+      "विलंब के संबंध में शपथ-पत्र (Affidavit)"
+    ]
+  },
+
+  // 5. नियमित सफाई न होने की शिकायत
+  {
+    t: "ग्राम पंचायत में नियमित सफाई न होने की शिकायत",
+    s: "ग्राम पंचायत क्षेत्र में नियमित सफाई न होने के संबंध में शिकायत व निस्तारण हेतु।",
+    auth: "श्रीमान ग्राम प्रधान / सचिव महोदय,",
+    keys: ["panchayat", "block", "district", "name", "parent_name", "address", "mobile", "locality", "dirt_place", "place", "date"],
+    box_type: "sanitation",
+    intro: "सविनय निवेदन है कि मैं {name}, निवासी ग्राम पंचायत <b>{panchayat}</b>, विकास खंड {block}, जनपद {district} का/की निवासी हूँ।",
+    paras: [
+      "ग्राम पंचायत के <b>{locality}</b> में नियमित रूप से सफाई नहीं हो रही है। यहाँ <b>{dirt_place}</b> पर भारी मात्रा में कूड़ा-कचरा जमा है तथा सफाई कर्मचारी के नियमित न आने के कारण ग्रामीणों को गंभीर असुविधा का सामना करना पड़ रहा है।",
+      "INFO_BOX",
+      "कई स्थानों पर गंदगी जमा रहने एवं नालियों के चोक होने के कारण संक्रामक बीमारियाँ फैलने की आशंका बनी हुई है तथा आवागमन एवं वातावरण पर प्रतिकूल प्रभाव पड़ रहा है।",
+      "अतः आपसे विनम्र अनुरोध है कि उक्त स्थान का निरीक्षण कराकर नियमित सफाई व्यवस्था सुनिश्चित कराने तथा जमा कूड़े-कचरे को तत्काल हटवाने की कृपा करें।"
+    ],
+    encl: [
+      "पहचान-पत्र (आधार कार्ड) की छायाप्रति",
+      "गंदगी व जमा कचरे के फोटोग्राफ्स (यदि उपलब्ध हों)"
+    ]
+  },
+
+  // 6. कूड़ा निस्तारण की व्यवस्था
+  {
+    t: "कूड़ा निस्तारण की उचित व्यवस्था कराने हेतु आवेदन",
+    s: "ग्राम पंचायत में कूड़ा निस्तारण एवं डस्टबिन की उचित व्यवस्था कराने हेतु आवेदन।",
+    auth: "श्रीमान ग्राम प्रधान / सचिव महोदय,",
+    keys: ["panchayat", "block", "district", "name", "parent_name", "address", "mobile", "locality", "garbage_issue", "place", "date"],
+    box_type: "garbage",
+    intro: "सविनय निवेदन है कि मैं {name}, निवासी {address}, ग्राम पंचायत <b>{panchayat}</b> का/की निवासी हूँ।",
+    paras: [
+      "ग्राम पंचायत के <b>{locality}</b> में घरों एवं आसपास से निकलने वाले दैनिक कूड़े-कचरे के निस्तारण की कोई समुचित व्यवस्था (कूड़ेदान / कलेक्शन) नहीं है।",
+      "INFO_BOX",
+      "उचित व्यवस्था न होने के कारण ग्रामीण खुले सार्वजनिक स्थानों, गलियों अथवा सड़क के किनारे कचरा डालने के लिए विवश हैं, जिससे दुर्गंध फैल रही है और पर्यावरण दूषित हो रहा है।",
+      "अतः आपसे सादर अनुरोध है कि संबंधित स्थल का निरीक्षण कराकर ग्राम स्तर पर नियमित कूड़ा संग्रहण, सार्वजनिक डस्टबिन एवं उचित निस्तारण की व्यवस्था कराने की कृपा करें।"
+    ],
+    encl: [
+      "पहचान-पत्र की छायाप्रति",
+      "कूड़ा डंपिंग स्थल के फोटोग्राफ्स (यदि उपलब्ध हों)"
+    ]
+  },
+
+  // 7. खराब हैंडपंप की मरम्मत
+  {
+    t: "खराब हैंडपंप की मरम्मत कराने हेतु आवेदन",
+    s: "खराब सरकारी हैंडपंप की मरम्मत कराने के संबंध में।",
+    auth: "श्रीमान ग्राम प्रधान / सचिव महोदय,",
+    keys: ["panchayat", "block", "district", "name", "parent_name", "address", "mobile", "hp_location", "broken_duration", "importance", "place", "date"],
+    box_type: "handpump_repair",
+    intro: "सविनय निवेदन है कि मैं {name}, निवासी {address}, ग्राम पंचायत {panchayat} का/की निवासी हूँ।",
+    paras: [
+      "ग्राम पंचायत में <b>{hp_location}</b> पर स्थापित सरकारी हैंडपंप <b>{broken_duration}</b> से खराब पड़ा हुआ है। हैंडपंप खराब होने से आसपास के ग्रामीणों को भीषण पेयजल संकट का सामना करना पड़ रहा है।",
+      "INFO_BOX",
+      "उक्त हैंडपंप <b>{importance}</b> हेतु पेयजल का मुख्य आधार है। अतः इसकी तत्काल मरम्मत कराया जाना जनहित में अति आवश्यक है।",
+      "अतः आपसे अनुरोध है कि संबंधित मिस्त्री/कर्मचारी को मौके पर भेजकर हैंडपंप की जांच एवं आवश्यक मरम्मत शीघ्र कराने की कृपा करें।"
+    ],
+    encl: [
+      "आवेदक का पहचान-पत्र",
+      "खराब हैंडपंप का फोटो (यदि उपलब्ध हो)"
+    ]
+  },
+
+  // 8. हैंडपंप रिबोर
+  {
+    t: "हैंडपंप के रिबोर हेतु आवेदन",
+    s: "खराब / जलविहीन सरकारी हैंडपंप का रिबोर कराने हेतु आवेदन।",
+    auth: "श्रीमान ग्राम प्रधान / सचिव महोदय,",
+    keys: ["panchayat", "block", "district", "name", "parent_name", "address", "mobile", "hp_location", "problem_desc", "place", "date"],
+    box_type: "handpump_rebore",
+    intro: "सविनय निवेदन है कि मैं {name}, निवासी {address}, ग्राम पंचायत {panchayat} का/की निवासी हूँ।",
+    paras: [
+      "ग्राम पंचायत में <b>{hp_location}</b> पर स्थापित सरकारी हैंडपंप लंबे समय से खराब है तथा सामान्य मरम्मत के बावजूद उससे पानी नहीं आ रहा है। भूजल स्तर गिरने अथवा पाइप में खराबी के कारण हैंडपंप पूर्णतः जलविहीन हो चुका है।",
+      "INFO_BOX",
+      "उक्त स्थान पर ग्रामीणों के लिए स्वच्छ पेयजल का कोई अन्य विकल्प मौजूद नहीं है। इसलिए हैंडपंप का तकनीकी परीक्षण कराकर रिबोर कराया जाना आवश्यक है।",
+      "अतः आपसे अनुरोध है कि संबंधित तकनीकी कर्मचारी से हैंडपंप का निरीक्षण कराकर कार्ययोजना के तहत शीघ्र रिबोर कराने की कृपा करें।"
+    ],
+    encl: [
+      "पहचान-पत्र की छायाप्रति",
+      "ग्रामीणों का संयुक्त हस्ताक्षर पत्र (यदि उपलब्ध हो)"
+    ]
+  },
+
+  // 9. पेयजल समस्या समाधान
+  {
+    t: "पेयजल की समस्या दूर कराने हेतु आवेदन",
+    s: "ग्राम में पेयजल की गंभीर समस्या दूर कराने हेतु प्रार्थना-पत्र।",
+    auth: "श्रीमान ग्राम प्रधान / सचिव महोदय,",
+    keys: ["panchayat", "block", "district", "name", "parent_name", "address", "mobile", "locality", "water_cause", "place", "date"],
+    box_type: "drinking_water",
+    intro: "सविनय निवेदन है कि मैं {name}, निवासी {address}, ग्राम पंचायत {panchayat} का/की निवासी हूँ।",
+    paras: [
+      "ग्राम पंचायत के <b>{locality}</b> में वर्तमान समय में स्वच्छ पेयजल का घोर संकट उत्पन्न हो गया है। <b>{water_cause}</b> के कारण ग्रामीणों को दैनिक उपयोग हेतु पर्याप्त पानी नहीं मिल पा रहा है।",
+      "INFO_BOX",
+      "महिलाओं एवं बच्चों को पेयजल लाने के लिए आधा से एक किलोमीटर दूर जाना पड़ता है, जिससे दैनिक जीवन बुरी तरह प्रभावित हो रहा है।",
+      "अतः आपसे विनम्र अनुरोध है कि समस्या की गंभीरता को देखते हुए संबंधित स्थल का निरीक्षण कराकर पेयजल आपूर्ति का स्थायी व सुलभ समाधान कराने की कृपा करें।"
+    ],
+    encl: [
+      "पहचान-पत्र (आधार कार्ड) की प्रति"
+    ]
+  },
+
+  // 10. नाली निर्माण
+  {
+    t: "नाली निर्माण कराने हेतु आवेदन",
+    s: "ग्राम में जल निकासी हेतु पक्की नाली निर्माण कराने के संबंध में।",
+    auth: "श्रीमान ग्राम प्रधान / सचिव महोदय,",
+    keys: ["panchayat", "block", "district", "name", "parent_name", "address", "mobile", "drain_location", "drain_problem", "place", "date"],
+    box_type: "drain_construction",
+    intro: "सविनय निवेदन है कि मैं {name}, निवासी {address}, ग्राम पंचायत {panchayat} का/की निवासी हूँ।",
+    paras: [
+      "ग्राम पंचायत के <b>{drain_location}</b> में घरों से निकलने वाले गंदे पानी की समुचित निकासी हेतु पक्की नाली की कोई व्यवस्था नहीं है।",
+      "INFO_BOX",
+      "नाली के अभाव में दूषित पानी रास्तों एवं गलियों में बहता रहता है, जिससे हर समय जलभराव और कीचड़ बना रहता है तथा राहगीरों का निकलना दूभर हो गया है।",
+      "अतः आपसे अनुरोध है कि स्थल का स्थलीय निरीक्षण कराकर ग्राम पंचायत की कार्ययोजना में सम्मिलित करते हुए पक्की नाली निर्माण कराने की कृपा करें।"
+    ],
+    encl: [
+      "पहचान-पत्र की छायाप्रति",
+      "रास्ते/जलभराव के फोटोग्राफ्स"
+    ]
+  },
+
+  // 11. नाली मरम्मत व सफाई
+  {
+    t: "नाली की मरम्मत / सफाई हेतु आवेदन",
+    s: "टूटी व चोक नाली की तत्काल सफाई एवं मरम्मत कराने हेतु आवेदन।",
+    auth: "श्रीमान ग्राम प्रधान / सचिव महोदय,",
+    keys: ["panchayat", "block", "district", "name", "parent_name", "address", "mobile", "drain_location", "drain_defect", "place", "date"],
+    box_type: "drain_repair",
+    intro: "सविनय निवेदन है कि मैं {name}, निवासी {address}, ग्राम पंचायत {panchayat} का/की निवासी हूँ।",
+    paras: [
+      "ग्राम पंचायत के <b>{drain_location}</b> पर बनी पक्की नाली <b>{drain_defect}</b> के कारण पूर्णतः अवरुद्ध हो गई है और पानी की सुचारु निकासी नहीं हो पा रही है।",
+      "INFO_BOX",
+      "नाली का गंदा पानी ओवरफ्लो होकर मुख्य रास्ते पर भर रहा है, जिससे दुर्गंध और मच्छर जनित रोगों का प्रकोप बढ़ रहा है।",
+      "अतः आपसे अनुरोध है कि सफाई कर्मचारी को निर्देशित कर नाली की तलीझार सफाई एवं क्षतिग्रस्त हिस्से की मरम्मत शीघ्र कराने की कृपा करें।"
+    ],
+    encl: [
+      "पहचान-पत्र की प्रति"
+    ]
+  },
+
+  // 12. जलभराव समस्या
+  {
+    t: "जलभराव की समस्या दूर कराने हेतु आवेदन",
+    s: "ग्राम में जलभराव की समस्या के स्थायी समाधान हेतु प्रार्थना-पत्र।",
+    auth: "श्रीमान ग्राम प्रधान / सचिव महोदय,",
+    keys: ["panchayat", "block", "district", "name", "parent_name", "address", "mobile", "waterlog_place", "waterlog_cause", "place", "date"],
+    box_type: "waterlogging",
+    intro: "सविनय निवेदन है कि मैं {name}, निवासी {address}, ग्राम पंचायत {panchayat} का/की निवासी हूँ।",
+    paras: [
+      "ग्राम पंचायत के <b>{waterlog_place}</b> पर जल निकासी का समुचित साधन न होने तथा <b>{waterlog_cause}</b> के कारण भारी जलभराव की स्थिति उत्पन्न हो गई है।",
+      "INFO_BOX",
+      "सड़क पर घुटनों तक पानी भर जाने से बच्चों का स्कूल जाना, बुजुर्गों का आवागमन एवं वाहनों का निकलना पूरी तरह बाधित हो गया है।",
+      "अतः आपसे अनुरोध है कि स्थल का मुआयना कर जलनिकासी का प्रबंध, नाली की खुदाई अथवा अन्य आवश्यक कदम उठाकर जलभराव की समस्या से मुक्ति दिलाने की कृपा करें।"
+    ],
+    encl: [
+      "पहचान-पत्र की प्रति",
+      "जलभराव से संबंधित तस्वीरें"
+    ]
+  },
+
+  // 13. सड़क / खड़ंजा / इंटरलॉकिंग
+  {
+    t: "नई सड़क / खड़ंजा / इंटरलॉकिंग निर्माण हेतु आवेदन",
+    s: "ग्राम में सड़क / खड़ंजा / इंटरलॉकिंग मार्ग निर्माण कराने हेतु आवेदन।",
+    auth: "श्रीमान ग्राम प्रधान / सचिव महोदय,",
+    keys: ["panchayat", "block", "district", "name", "parent_name", "address", "mobile", "road_from", "road_to", "road_type", "beneficiaries", "place", "date"],
+    box_type: "road_construction",
+    intro: "सविनय निवेदन है कि मैं {name}, निवासी {address}, ग्राम पंचायत {panchayat} का/की निवासी हूँ।",
+    paras: [
+      "ग्राम पंचायत में <b>{road_from}</b> से <b>{road_to}</b> तक आवागमन हेतु कोई पक्का मार्ग उपलब्ध नहीं है / वर्तमान मार्ग कच्चा व गड्ढों से युक्त है।",
+      "INFO_BOX",
+      "बरसात के मौसम में इस रास्ते पर दलदल व कीचड़ हो जाने के कारण आवागमन पूरी तरह ठप हो जाता है। इस मार्ग से <b>{beneficiaries}</b> का प्रतिदिन आवागमन होता है।",
+      "अतः आपसे सादर अनुरोध है कि मौके का निरीक्षण कर ग्राम निधि अथवा संबंधित विकास योजना के अंतर्गत उक्त मार्ग पर {road_type} का निर्माण कराने की कृपा करें।"
+    ],
+    encl: [
+      "पहचान-पत्र की प्रति",
+      "ग्रामीणों का हस्ताक्षरित समर्थन पत्र (यदि उपलब्ध हो)",
+      "कच्चे/क्षतिग्रस्त रास्ते के फोटो"
+    ]
+  },
+
+  // 14. प्रधानमंत्री आवास योजना (PMAY-G)
+  {
+    t: "प्रधानमंत्री आवास योजना-ग्रामीण में नाम शामिल कराने हेतु आवेदन",
+    s: "प्रधानमंत्री आवास योजना-ग्रामीण के अंतर्गत पात्र परिवार के रूप में नाम शामिल किए जाने हेतु आवेदन।",
+    auth: "श्रीमान ग्राम प्रधान / सचिव महोदय,",
+    keys: ["panchayat", "block", "district", "name", "parent_name", "village_name", "housing_status", "family_desc", "address", "mobile", "place", "date"],
+    box_type: "pmay_g",
+    intro: "सविनय निवेदन है कि मैं {name}, {rel} {parent_name}, निवासी ग्राम {village_name}, ग्राम पंचायत {panchayat}, विकास खंड {block}, जनपद {district} का/की स्थायी निवासी हूँ।",
+    paras: [
+      "मेरे परिवार की वर्तमान आवासीय स्थिति <b>{housing_status}</b> है तथा पारिवारिक सामाजिक-आर्थिक स्थिति: <b>{family_desc}</b> है।",
+      "INFO_BOX",
+      "मैं प्रधानमंत्री आवास योजना-ग्रामीण के अंतर्गत निर्धारित सभी पात्रता शर्तों को पूर्ण करता/करती हूँ। पक्का मकान न होने के कारण बरसात व सर्दी में परिवार को भारी कठिनाइयों का सामना करना पड़ता है।",
+      "अतः आपसे विनम्र अनुरोध है कि मेरे परिवार की पात्रता का नियमानुसार स्थलीय सत्यापन कराकर प्रधानमंत्री आवास योजना-ग्रामीण की प्राथमिकता सूची/सर्वे में मेरा नाम सम्मिलित कराने की कृपा करें। मैं सत्यापन हेतु आवश्यक समस्त दस्तावेज प्रस्तुत करने को तैयार हूँ।"
+    ],
+    encl: [
+      "आवेदक एवं परिवार के आधार कार्ड की प्रतियां",
+      "राशन कार्ड / परिवार रजिस्टर नकल की प्रति",
+      "वर्तमान कच्चे/जर्जर मकान का फोटो",
+      "बैंक पासबुक के प्रथम पृष्ठ की छायाप्रति"
+    ]
+  },
+
+  // 15. मनरेगा जॉब कार्ड बनवाना
+  {
+    t: "मनरेगा जॉब कार्ड बनवाने हेतु आवेदन",
+    s: "मनरेगा (MGNREGA) के अंतर्गत नया जॉब कार्ड जारी किए जाने हेतु आवेदन।",
+    auth: "श्रीमान ग्राम प्रधान / सचिव महोदय,",
+    keys: ["panchayat", "block", "district", "name", "parent_name", "address", "mobile", "adult_members", "place", "date"],
+    box_type: "jobcard_new",
+    intro: "सविनय निवेदन है कि मैं {name}, {rel} {parent_name}, निवासी ग्राम व ग्राम पंचायत {panchayat}, विकास खंड {block}, जनपद {district} का/की निवासी हूँ।",
+    paras: [
+      "मैं एवं मेरे परिवार के वयस्क सदस्य महात्मा गांधी राष्ट्रीय ग्रामीण रोजगार गारंटी अधिनियम (मनरेगा) के अंतर्गत अकुशल शारीरिक श्रम कार्य करने के इच्छुक हैं।",
+      "INFO_BOX",
+      "मनरेगा के आधिकारिक नियमों के अनुसार ग्रामीण परिवार पंजीकरण कराकर जॉब कार्ड प्राप्त करने का हकदार है। अतः मेरे परिवार का पंजीकरण कर जॉब कार्ड जारी करने की कृपा करें।",
+      "अतः आपसे अनुरोध है कि नियमानुसार आवश्यक जांच पूर्ण कर हमारे परिवार का मनरेगा जॉब कार्ड निर्गत करने की कृपा करें।"
+    ],
+    encl: [
+      "परिवार के सभी वयस्क सदस्यों के आधार कार्ड",
+      "बैंक / डाकघर पासबुक की छायाप्रति",
+      "पासपोर्ट साइज रंगीन फोटोग्राफ्स",
+      "राशन कार्ड की प्रति"
+    ]
+  },
+
+  // 16. मनरेगा में काम मांगना
+  {
+    t: "मनरेगा के अंतर्गत काम (रोजगार) उपलब्ध कराने हेतु आवेदन",
+    s: "मनरेगा (MGNREGA) के अंतर्गत अकुशल रोजगार उपलब्ध कराने हेतु कार्य की मांग।",
+    auth: "श्रीमान ग्राम प्रधान / सचिव महोदय,",
+    keys: ["panchayat", "block", "district", "name", "parent_name", "job_card_no", "work_days", "address", "mobile", "place", "date"],
+    box_type: "jobcard_work",
+    intro: "सविनय निवेदन है कि मैं {name}, {rel} {parent_name}, निवासी ग्राम पंचायत {panchayat} का/की निवासी हूँ। मेरे परिवार का मनरेगा जॉब कार्ड बना हुआ है।",
+    paras: [
+      "मेरा जॉब कार्ड विवरण एवं कार्य की मांग निम्नवत है—",
+      "INFO_BOX",
+      "मैं एवं मेरे परिवार के वयस्क सदस्य मनरेगा के अंतर्गत अकुशल शारीरिक श्रम करने हेतु पूर्णतः तैयार हैं। मनरेगा नियमावली के अनुसार कार्य की मांग करने पर 15 दिवस के भीतर रोजगार उपलब्ध कराने का विधिक प्रावधान है।",
+      "अतः आपसे अनुरोध है कि मेरी कार्य की मांग को विधिवत रजिस्टर में दर्ज कर दिनांक सहित पावती देने तथा शीघ्र रोजगार आवंटित करने की कृपा करें।"
+    ],
+    encl: [
+      "मनरेगा जॉब कार्ड की छायाप्रति",
+      "पहचान-पत्र (आधार कार्ड) की छायाप्रति"
+    ]
+  },
+
+  // 17. मनरेगा मजदूरी न मिलने की शिकायत
+  {
+    t: "मनरेगा की मजदूरी का भुगतान न होने के संबंध में शिकायत",
+    s: "मनरेगा कार्य की लंबित मजदूरी का भुगतान कराने हेतु शिकायत पत्र।",
+    auth: "श्रीमान कार्यक्रम अधिकारी / खंड विकास अधिकारी (BDO) महोदय,",
+    keys: ["panchayat", "block", "district", "name", "parent_name", "job_card_no", "work_name", "work_place", "work_start", "work_end", "days_worked", "muster_roll", "wage_amount", "bank_acc", "address", "mobile", "place", "date"],
+    box_type: "mgnrega_wages",
+    intro: "सविनय निवेदन है कि मैं {name}, {rel} {parent_name}, निवासी ग्राम पंचायत {panchayat}, विकास खंड {block}, जनपद {district} का/की मनरेगा श्रमिक हूँ।",
+    paras: [
+      "मैंने मनरेगा योजना के अंतर्गत पूरी निष्ठा से कार्य संपन्न किया है, किंतु काफी समय व्यतीत हो जाने के उपरांत भी मेरी मजदूरी की राशि खाते में नहीं भेजी गई है। कार्य का विवरण निम्नवत है—",
+      "INFO_BOX",
+      "कार्य पूर्ण करने के बावजूद मजदूरी न मिलने के कारण परिवार के भरण-पोषण में भारी आर्थिक संकट उत्पन्न हो गया है। मनरेगा अधिनियम के अनुसार कार्य समाप्ति के 15 दिनों में भुगतान होना अनिवार्य है।",
+      "अतः श्रीमान जी से विनम्र निवेदन है कि मस्टर रोल व कार्य उपस्थिति का सत्यापन कराकर मेरी लंबित मजदूरी ₹<b>{wage_amount}</b> का भुगतान मेरे बैंक खाते में तत्काल कराने की कृपा करें।"
+    ],
+    encl: [
+      "मनरेगा जॉब कार्ड की छायाप्रति",
+      "बैंक पासबुक के संबंधित पृष्ठ की छायाप्रति",
+      "उपलब्ध मस्टर रोल विवरण / कार्य पर्ची"
+    ]
+  }
+];
+
+var T_EN = [
+  // 1. Birth Certificate
+  {
+    t: "Application for Issuance of Birth Certificate",
+    s: "Application for issuance of official birth certificate.",
+    auth: "The Registrar (Birth & Death) / Competent Officer,",
+    keys: ["panchayat", "block", "district", "name", "parent_name", "address", "mobile", "person_name", "relation", "dob", "birth_place", "purpose", "place", "date"],
+    box_type: "birth",
+    intro: "Most respectfully, I submit that my {relation}, <b>{person_name}</b>, was born on <b>{dob}</b> at <b>{birth_place}</b>. The birth details stand duly registered in the official records, but the formal certificate has not yet been obtained.",
+    paras: [
+      "Particulars of birth are as follows:",
+      "INFO_BOX",
+      "I urgently require the birth certificate of {person_name} for the purpose of <b>{purpose}</b>.",
+      "Therefore, it is requested that after verifying the official records, the birth certificate be kindly issued at an early date."
+    ],
+    encl: [
+      "Copy of Applicant Identity Proof (Aadhaar Card)",
+      "Proof of Birth / Hospital Discharge Slip / Vaccination Card",
+      "Other requisite documents, if applicable"
+    ]
+  },
+
+  // 2. Death Certificate
+  {
+    t: "Application for Issuance of Death Certificate",
+    s: "Application for issuance of official death certificate.",
+    auth: "The Registrar (Birth & Death) / Competent Officer,",
+    keys: ["panchayat", "block", "district", "name", "deceased_rel", "address", "mobile", "deceased_name", "death_date", "death_place", "purpose", "place", "date"],
+    box_type: "death",
+    intro: "Most respectfully, I submit that my {deceased_rel}, late <b>{deceased_name}</b>, passed away on <b>{death_date}</b> at <b>{death_place}</b>.",
+    paras: [
+      "Necessary particulars regarding the demise are recorded in the concerned office. The details of the deceased are as follows:",
+      "INFO_BOX",
+      "The death certificate is urgently required for the purpose of <b>{purpose}</b> (succession, pension, insurance, bank settlement, etc.).",
+      "Therefore, it is requested that after verification of records, the death certificate be kindly issued as per rules."
+    ],
+    encl: [
+      "Copy of Applicant Identity Proof (Aadhaar Card)",
+      "Identity Proof of Deceased / Ration Card Copy",
+      "Proof of Demise / Cremation Slip / Hospital Record",
+      "Other supporting documents, if applicable"
+    ]
+  },
+
+  // 3. Delayed Birth Certificate
+  {
+    t: "Application for Delayed Registration and Issuance of Birth Certificate",
+    s: "Application for delayed birth registration and issuance of birth certificate.",
+    auth: "The Registrar (Birth & Death) / Competent Officer,",
+    keys: ["panchayat", "block", "district", "name", "parent_name", "relation", "address", "mobile", "person_name", "dob", "birth_place", "delay_reason", "purpose", "place", "date"],
+    box_type: "delayed_birth",
+    intro: "Most respectfully, I submit that my {relation}, <b>{person_name}</b>, was born on <b>{dob}</b> at <b>{birth_place}</b>. Due to unavoidable circumstances, birth registration could not be executed within the stipulated timeline.",
+    paras: [
+      "The genuine reason for delayed registration is: <b>{delay_reason}</b>. The birth certificate is now required for <b>{purpose}</b>.",
+      "INFO_BOX",
+      "Therefore, it is requested that upon examination of enclosed documents and following prescribed procedure / magistrate order, the delayed birth registration be recorded and the certificate be issued."
+    ],
+    encl: [
+      "Copy of Applicant Identity Proof",
+      "Supporting Evidence of Birth / School Records",
+      "Self-Declaration / Notarized Affidavit explaining cause of delay",
+      "Identity Proof of Parents / Guardian"
+    ]
+  },
+
+  // 4. Delayed Death Certificate
+  {
+    t: "Application for Delayed Registration and Issuance of Death Certificate",
+    s: "Application for delayed death registration and issuance of death certificate.",
+    auth: "The Registrar (Birth & Death) / Competent Officer,",
+    keys: ["panchayat", "block", "district", "name", "deceased_rel", "address", "mobile", "deceased_name", "death_date", "death_place", "delay_reason", "purpose", "place", "date"],
+    box_type: "delayed_death",
+    intro: "Most respectfully, I submit that my {deceased_rel}, late <b>{deceased_name}</b>, expired on <b>{death_date}</b> at <b>{death_place}</b>. Due to unforeseen circumstances, registration could not be done within the prescribed timeframe.",
+    paras: [
+      "The reason for delay in registration is: <b>{delay_reason}</b>. The death certificate is now required for <b>{purpose}</b>.",
+      "INFO_BOX",
+      "Therefore, it is requested that after requisite inquiry and official order, delayed death registration be entered and the death certificate be issued."
+    ],
+    encl: [
+      "Copy of Applicant Identity Proof",
+      "Identity Proof of Deceased",
+      "Cremation / Burial Certificate / Witness Testimonials",
+      "Notarized Affidavit explaining delay"
+    ]
+  },
+
+  // 5. Sanitation Complaint
+  {
+    t: "Complaint Regarding Irregular Sanitation and Cleanliness in Gram Panchayat",
+    s: "Complaint regarding lack of regular sanitation and accumulated filth in village area.",
+    auth: "The Gram Pradhan / Secretary, Gram Panchayat,",
+    keys: ["panchayat", "block", "district", "name", "parent_name", "address", "mobile", "locality", "dirt_place", "place", "date"],
+    box_type: "sanitation",
+    intro: "Most respectfully, I, {name}, resident of Gram Panchayat <b>{panchayat}</b>, Block {block}, District {district}, submit as follows:",
+    paras: [
+      "In our Gram Panchayat at <b>{locality}</b>, sanitation work is not being carried out regularly. Garbage and waste have accumulated heavily at <b>{dirt_place}</b>, causing severe inconvenience to residents due to absence of sanitation workers.",
+      "INFO_BOX",
+      "Stagnant filth and choked drains pose serious health hazards and risk of epidemic outbreak, impacting public movement and the local environment.",
+      "Therefore, it is requested that the site be inspected, regular cleaning by sanitation staff be enforced, and accumulated garbage be removed immediately."
+    ],
+    encl: [
+      "Copy of Identity Proof (Aadhaar Card)",
+      "Photographs showing accumulated garbage (if available)"
+    ]
+  },
+
+  // 6. Garbage Disposal
+  {
+    t: "Application for Proper Waste Management and Disposal System",
+    s: "Application for installation of public dustbins and systematic garbage disposal in Gram Panchayat.",
+    auth: "The Gram Pradhan / Secretary, Gram Panchayat,",
+    keys: ["panchayat", "block", "district", "name", "parent_name", "address", "mobile", "locality", "garbage_issue", "place", "date"],
+    box_type: "garbage",
+    intro: "Most respectfully, I, {name}, resident of {address}, Gram Panchayat <b>{panchayat}</b>, submit as follows:",
+    paras: [
+      "In our Gram Panchayat at <b>{locality}</b>, there is an acute absence of proper waste disposal arrangements (dustbins / collection mechanism) for domestic waste.",
+      "INFO_BOX",
+      "Owing to lack of disposal infrastructure, residents are compelled to dump garbage in open lanes and roadsides, creating foul smell and environmental pollution.",
+      "Therefore, it is requested that public dustbins be installed and a routine waste collection mechanism be organized in the village."
+    ],
+    encl: [
+      "Copy of Identity Proof",
+      "Photographs of dumping spot (if available)"
+    ]
+  },
+
+  // 7. Handpump Repair
+  {
+    t: "Application for Urgent Repair of Defective Public Handpump",
+    s: "Application for repair of broken government handpump.",
+    auth: "The Gram Pradhan / Secretary, Gram Panchayat,",
+    keys: ["panchayat", "block", "district", "name", "parent_name", "address", "mobile", "hp_location", "broken_duration", "importance", "place", "date"],
+    box_type: "handpump_repair",
+    intro: "Most respectfully, I, {name}, resident of {address}, Gram Panchayat {panchayat}, state as follows:",
+    paras: [
+      "The public government handpump installed at <b>{hp_location}</b> has been lying defunct for the past <b>{broken_duration}</b>. The breakdown has triggered an acute drinking water shortage in the neighborhood.",
+      "INFO_BOX",
+      "The said handpump serves as the primary water source for <b>{importance}</b>. Hence, its prompt repair is urgently needed in public interest.",
+      "Therefore, it is requested that a technician/mechanic be deputed immediately to inspect and repair the handpump."
+    ],
+    encl: [
+      "Copy of Identity Proof",
+      "Photograph of defunct handpump (if available)"
+    ]
+  },
+
+  // 8. Handpump Re-bore
+  {
+    t: "Application for Re-boring of Defective / Dried-up Handpump",
+    s: "Application for technical inspection and re-boring of dried-up government handpump.",
+    auth: "The Gram Pradhan / Secretary, Gram Panchayat,",
+    keys: ["panchayat", "block", "district", "name", "parent_name", "address", "mobile", "hp_location", "problem_desc", "place", "date"],
+    box_type: "handpump_rebore",
+    intro: "Most respectfully, I, {name}, resident of {address}, Gram Panchayat {panchayat}, state as follows:",
+    paras: [
+      "The government handpump installed at <b>{hp_location}</b> has been defunct for a prolonged duration. Routine repairs have proved unsuccessful due to water level depletion or damaged casing pipe.",
+      "INFO_BOX",
+      "There is no alternative source of potable drinking water nearby. Hence, re-boring of the handpump is essential to restore supply.",
+      "Therefore, it is requested that technical inspection be conducted and necessary re-boring work be sanctioned under village development funds."
+    ],
+    encl: [
+      "Copy of Identity Proof",
+      "Joint signature representation by local residents (if available)"
+    ]
+  },
+
+  // 9. Drinking Water Crisis
+  {
+    t: "Application for Resolution of Drinking Water Crisis in Village",
+    s: "Application for redressal of acute potable drinking water shortage in Gram Panchayat.",
+    auth: "The Gram Pradhan / Secretary, Gram Panchayat,",
+    keys: ["panchayat", "block", "district", "name", "parent_name", "address", "mobile", "locality", "water_cause", "place", "date"],
+    box_type: "drinking_water",
+    intro: "Most respectfully, I, {name}, resident of {address}, Gram Panchayat {panchayat}, submit as follows:",
+    paras: [
+      "Residents of <b>{locality}</b> are currently facing an acute crisis of potable drinking water due to <b>{water_cause}</b>.",
+      "INFO_BOX",
+      "Women and children are forced to travel long distances to fetch clean water, causing immense daily hardship.",
+      "Therefore, it is requested that the situation be inspected on priority and a durable drinking water solution be instituted."
+    ],
+    encl: [
+      "Copy of Identity Proof (Aadhaar Card)"
+    ]
+  },
+
+  // 10. Drain Construction
+  {
+    t: "Application for Construction of Proper Drainage System",
+    s: "Application for construction of permanent brick/concrete drain for wastewater discharge.",
+    auth: "The Gram Pradhan / Secretary, Gram Panchayat,",
+    keys: ["panchayat", "block", "district", "name", "parent_name", "address", "mobile", "drain_location", "drain_problem", "place", "date"],
+    box_type: "drain_construction",
+    intro: "Most respectfully, I, {name}, resident of {address}, Gram Panchayat {panchayat}, submit as follows:",
+    paras: [
+      "In our Gram Panchayat at <b>{drain_location}</b>, there is no permanent drainage system for domestic wastewater.",
+      "INFO_BOX",
+      "In the absence of a drain, dirty wastewater overflows into streets and pathways, causing perpetual waterlogging, mud, and breeding of disease-carrying vectors.",
+      "Therefore, it is requested that an on-site survey be conducted and construction of a permanent drain be sanctioned under Gram Panchayat development works."
+    ],
+    encl: [
+      "Copy of Identity Proof",
+      "Photographs showing water overflowing onto pathways"
+    ]
+  },
+
+  // 11. Drain Repair & Cleaning
+  {
+    t: "Application for Cleaning and Repair of Clogged / Damaged Drain",
+    s: "Application for urgent desiltation, cleaning, and repair of damaged drain.",
+    auth: "The Gram Pradhan / Secretary, Gram Panchayat,",
+    keys: ["panchayat", "block", "district", "name", "parent_name", "address", "mobile", "drain_location", "drain_defect", "place", "date"],
+    box_type: "drain_repair",
+    intro: "Most respectfully, I, {name}, resident of {address}, Gram Panchayat {panchayat}, submit as follows:",
+    paras: [
+      "The existing drain constructed at <b>{drain_location}</b> has become completely choked and dysfunctional due to <b>{drain_defect}</b>.",
+      "INFO_BOX",
+      "Foul wastewater is spilling over onto the main road, emitting intense stench and multiplying disease vectors.",
+      "Therefore, it is requested that sanitation staff be directed to clean the drain thoroughly and execute necessary repairs promptly."
+    ],
+    encl: [
+      "Copy of Identity Proof"
+    ]
+  },
+
+  // 12. Waterlogging
+  {
+    t: "Application for Resolution of Serious Waterlogging Problem",
+    s: "Application for immediate intervention to drain accumulated stagnant water.",
+    auth: "The Gram Pradhan / Secretary, Gram Panchayat,",
+    keys: ["panchayat", "block", "district", "name", "parent_name", "address", "mobile", "waterlog_place", "waterlog_cause", "place", "date"],
+    box_type: "waterlogging",
+    intro: "Most respectfully, I, {name}, resident of {address}, Gram Panchayat {panchayat}, state as follows:",
+    paras: [
+      "At <b>{waterlog_place}</b> in our Gram Panchayat, severe waterlogging has occurred owing to lack of drainage and <b>{waterlog_cause}</b>.",
+      "INFO_BOX",
+      "Stagnant water measuring knee-deep has paralyzed movement of school children, elderly citizens, and emergency vehicles.",
+      "Therefore, it is requested that water discharge pumps or drainage channels be arranged immediately to eliminate the waterlogging."
+    ],
+    encl: [
+      "Copy of Identity Proof",
+      "Photographs of waterlogged area"
+    ]
+  },
+
+  // 13. Road / Kharanja / Interlocking
+  {
+    t: "Application for Construction of Road / Kharanja / Interlocking Pathway",
+    s: "Application for construction of permanent road / Kharanja / interlocking pathway.",
+    auth: "The Gram Pradhan / Secretary, Gram Panchayat,",
+    keys: ["panchayat", "block", "district", "name", "parent_name", "address", "mobile", "road_from", "road_to", "road_type", "beneficiaries", "place", "date"],
+    box_type: "road_construction",
+    intro: "Most respectfully, I, {name}, resident of {address}, Gram Panchayat {panchayat}, state as follows:",
+    paras: [
+      "In our Gram Panchayat from <b>{road_from}</b> to <b>{road_to}</b>, there is no paved pathway; the current route is unpaved (kuchha) and heavily degraded.",
+      "INFO_BOX",
+      "During rainy seasons, the path turns into a swamp, cutting off daily transit for <b>{beneficiaries}</b> who use this road daily.",
+      "Therefore, it is requested that an on-site inspection be conducted and construction of {road_type} be sanctioned under village development plans."
+    ],
+    encl: [
+      "Copy of Identity Proof",
+      "Joint signature petition of village residents",
+      "Photographs of degraded pathway"
+    ]
+  },
+
+  // 14. PMAY-G Housing
+  {
+    t: "Application for Inclusion in Pradhan Mantri Awas Yojana - Gramin (PMAY-G)",
+    s: "Application for survey and inclusion in beneficiary list of PMAY-Gramin as an eligible rural household.",
+    auth: "The Gram Pradhan / Secretary, Gram Panchayat,",
+    keys: ["panchayat", "block", "district", "name", "parent_name", "village_name", "housing_status", "family_desc", "address", "mobile", "place", "date"],
+    box_type: "pmay_g",
+    intro: "Most respectfully, I, {name}, {rel} {parent_name}, permanent resident of Village {village_name}, Gram Panchayat {panchayat}, Block {block}, District {district}, state as follows:",
+    paras: [
+      "My family's current housing status is <b>{housing_status}</b> and our socio-economic status is <b>{family_desc}</b>.",
+      "INFO_BOX",
+      "I fulfill all the statutory eligibility criteria under Pradhan Mantri Awas Yojana - Gramin. In the absence of a pucca dwelling, my family suffers acute hardship in monsoon and harsh weather.",
+      "Therefore, it is requested that an on-site physical verification be conducted and my name be included in the PMAY-G beneficiary survey list. I undertake to produce all requisite documents for verification."
+    ],
+    encl: [
+      "Copies of Aadhaar Cards of applicant and family members",
+      "Copy of Ration Card / Family Register Nakal",
+      "Photograph of current kutcha / dilapidated house",
+      "Bank passbook front page copy"
+    ]
+  },
+
+  // 15. MGNREGA Job Card
+  {
+    t: "Application for Issuance of MGNREGA Job Card",
+    s: "Application for registration of rural household and issuance of MGNREGA Job Card.",
+    auth: "The Gram Pradhan / Secretary, Gram Panchayat,",
+    keys: ["panchayat", "block", "district", "name", "parent_name", "address", "mobile", "adult_members", "place", "date"],
+    box_type: "jobcard_new",
+    intro: "Most respectfully, I, {name}, {rel} {parent_name}, resident of Gram Panchayat {panchayat}, Block {block}, District {district}, state as follows:",
+    paras: [
+      "I and the adult members of my household are desirous of undertaking unskilled manual labor under the Mahatma Gandhi National Rural Employment Guarantee Act (MGNREGA).",
+      "INFO_BOX",
+      "As per official MGNREGA guidelines, every rural household willing to do unskilled manual work is legally entitled to register and obtain a Job Card. Hence, registration of our household is requested.",
+      "Therefore, it is requested that after verification, an MGNREGA Job Card be kindly issued to our family."
+    ],
+    encl: [
+      "Aadhaar cards of all adult household members",
+      "Copy of Bank / Post Office Savings Account Passbook",
+      "Passport size color photographs",
+      "Copy of Ration Card"
+    ]
+  },
+
+  // 16. MGNREGA Work Demand
+  {
+    t: "Application for Demand of Employment Under MGNREGA",
+    s: "Application for formal demand of unskilled manual work under MGNREGA.",
+    auth: "The Gram Pradhan / Secretary, Gram Panchayat,",
+    keys: ["panchayat", "block", "district", "name", "parent_name", "job_card_no", "work_days", "address", "mobile", "place", "date"],
+    box_type: "jobcard_work",
+    intro: "Most respectfully, I, {name}, {rel} {parent_name}, resident of Gram Panchayat {panchayat}, hold an active MGNREGA Job Card.",
+    paras: [
+      "Particulars of Job Card and demand for work are as follows:",
+      "INFO_BOX",
+      "The adult members of our family are ready to undertake manual labor. As per statutory provisions of MGNREGA, employment must be provided within 15 days of demand.",
+      "Therefore, it is requested that this demand for work be recorded in the register, a dated receipt be provided, and work be allotted at the earliest."
+    ],
+    encl: [
+      "Photocopy of MGNREGA Job Card",
+      "Copy of Identity Proof (Aadhaar Card)"
+    ]
+  },
+
+  // 17. MGNREGA Wage Complaint
+  {
+    t: "Complaint Regarding Non-Payment of Pending MGNREGA Wages",
+    s: "Complaint regarding delayed disbursement of pending wages for MGNREGA work.",
+    auth: "The Block Development Officer (BDO) / Programme Officer,",
+    keys: ["panchayat", "block", "district", "name", "parent_name", "job_card_no", "work_name", "work_place", "work_start", "work_end", "days_worked", "muster_roll", "wage_amount", "bank_acc", "address", "mobile", "place", "date"],
+    box_type: "mgnrega_wages",
+    intro: "Most respectfully, I, {name}, {rel} {parent_name}, resident of Gram Panchayat {panchayat}, Block {block}, District {district}, am an enrolled MGNREGA wage seeker.",
+    paras: [
+      "I have duly completed unskilled manual work under MGNREGA with full dedication, but despite the lapse of significant time, my earned wages have not been credited to my bank account. Particulars of work executed are as under:",
+      "INFO_BOX",
+      "Non-payment of earned wages has subjected my family to severe financial distress. Under Section 3 of MGNREGA, wages are statutorily required to be disbursed within 15 days of work closure.",
+      "Therefore, it is requested that after verifying attendance and muster rolls, my pending wages of ₹<b>{wage_amount}</b> be credited to my bank account without further delay."
+    ],
+    encl: [
+      "Copy of MGNREGA Job Card",
+      "Bank Account Passbook Statement copy",
+      "Muster Roll / Work Slip copy (if available)"
+    ]
+  }
+];
+
+  function getList(){ return curLang === "en" ? T_EN : T; }
+
+  function getGender(){
+    var r = document.querySelector("input[name=g]:checked");
+    return r ? r.value : "m";
+  }
+
+  function getFemaleRel(){
+    var r = document.querySelector("input[name=f_rel]:checked");
+    return r ? r.value : "daughter";
+  }
+
+  function f(k){
+    var v = V[k];
+    if(v !== undefined && v !== null && String(v).trim() !== ""){
+      return esc(String(v).trim());
+    }
+    var d = F[k];
+    var w = d ? d[2] : 14;
+    return '<span class="blank" style="min-width:' + w + 'ch"></span>';
+  }
+
+  function getRelText(isEn){
+    var g = getGender();
+    if(g === "m"){
+      return isEn ? "S/o" : "पुत्र";
+    }
+    var frel = getFemaleRel();
+    if(frel === "wife"){
+      return isEn ? "W/o" : "पत्नी";
+    }
+    return isEn ? "D/o" : "पुत्री";
+  }
+
+  function getParentLabel(isEn){
+    var g = getGender();
+    if(g === "m"){
+      return isEn ? "Father's Name" : "पिता का नाम";
+    }
+    var frel = getFemaleRel();
+    if(frel === "wife"){
+      return isEn ? "Husband's Name" : "पति का नाम";
+    }
+    return isEn ? "Father's Name" : "पिता का नाम";
+  }
+
+  function gen(str, t, isEn){
+    if(!str) return "";
+    var res = str;
+    res = res.replace(/\{name\}/g, f("name"));
+    res = res.replace(/\{parent_name\}/g, f("parent_name"));
+    res = res.replace(/\{rel\}/g, getRelText(isEn));
+    res = res.replace(/\{address\}/g, f("address"));
+    res = res.replace(/\{panchayat\}/g, f("panchayat"));
+    res = res.replace(/\{block\}/g, f("block"));
+    res = res.replace(/\{district\}/g, f("district"));
+
+    var st = (!V.state || V.state === "उत्तर प्रदेश" || V.state === "Uttar Pradesh") ? 
+      (isEn ? "Uttar Pradesh" : "उत्तर प्रदेश") : esc(V.state);
+    res = res.replace(/\{state\}/g, st);
+
+    t.keys.forEach(function(k){
+      var regex = new RegExp("\\{" + k + "\\}", "g");
+      res = res.replace(regex, f(k));
+    });
+    return res;
+  }
+
+  function renderInfoBox(t, isEn){
+    var bt = t.box_type;
+    var b = '<div class="info-box"><div class="info-grid">';
+
+    if(bt === "birth" || bt === "delayed_birth"){
+      if(isEn){
+        b += '<div><b>• Child / Person Name:</b> ' + f("person_name") + '</div>' +
+             '<div><b>• Relation with Applicant:</b> ' + f("relation") + '</div>' +
+             '<div><b>• Date of Birth:</b> ' + f("dob") + '</div>' +
+             '<div><b>• Place of Birth:</b> ' + f("birth_place") + '</div>';
+        if(bt === "delayed_birth"){
+          b += '<div style="grid-column:1/-1"><b>• Reason for Delayed Registration:</b> ' + f("delay_reason") + '</div>';
+        }
+      } else {
+        b += '<div><b>• बच्चे / व्यक्ति का नाम:</b> ' + f("person_name") + '</div>' +
+             '<div><b>• आवेदक से संबंध:</b> ' + f("relation") + '</div>' +
+             '<div><b>• जन्म तिथि:</b> ' + f("dob") + '</div>' +
+             '<div><b>• जन्म का स्थान:</b> ' + f("birth_place") + '</div>';
+        if(bt === "delayed_birth"){
+          b += '<div style="grid-column:1/-1"><b>• विलंब का वास्तविक कारण:</b> ' + f("delay_reason") + '</div>';
+        }
+      }
+    } else if(bt === "death" || bt === "delayed_death"){
+      if(isEn){
+        b += '<div><b>• Deceased Name:</b> ' + f("deceased_name") + '</div>' +
+             '<div><b>• Relation with Applicant:</b> ' + f("deceased_rel") + '</div>' +
+             '<div><b>• Date of Death:</b> ' + f("death_date") + '</div>' +
+             '<div><b>• Place of Death:</b> ' + f("death_place") + '</div>';
+        if(bt === "delayed_death"){
+          b += '<div style="grid-column:1/-1"><b>• Reason for Delay in Registration:</b> ' + f("delay_reason") + '</div>';
+        }
+      } else {
+        b += '<div><b>• मृतक का नाम:</b> ' + f("deceased_name") + '</div>' +
+             '<div><b>• आवेदक से संबंध:</b> ' + f("deceased_rel") + '</div>' +
+             '<div><b>• मृत्यु की तिथि:</b> ' + f("death_date") + '</div>' +
+             '<div><b>• मृत्यु का स्थान:</b> ' + f("death_place") + '</div>';
+        if(bt === "delayed_death"){
+          b += '<div style="grid-column:1/-1"><b>• विलंब का वास्तविक कारण:</b> ' + f("delay_reason") + '</div>';
+        }
+      }
+    } else if(bt === "sanitation"){
+      if(isEn){
+        b += '<div><b>• Gram Panchayat:</b> ' + f("panchayat") + '</div>' +
+             '<div><b>• Block & District:</b> ' + f("block") + ', ' + f("district") + '</div>' +
+             '<div><b>• Affected Locality / Ward:</b> ' + f("locality") + '</div>' +
+             '<div><b>• Spot of Garbage / Dirt:</b> ' + f("dirt_place") + '</div>';
+      } else {
+        b += '<div><b>• ग्राम पंचायत:</b> ' + f("panchayat") + '</div>' +
+             '<div><b>• विकास खंड व जनपद:</b> ' + f("block") + ', ' + f("district") + '</div>' +
+             '<div><b>• प्रभावित मोहल्ला / वार्ड:</b> ' + f("locality") + '</div>' +
+             '<div><b>• गंदगी / कूड़े का स्थान:</b> ' + f("dirt_place") + '</div>';
+      }
+    } else if(bt === "garbage"){
+      if(isEn){
+        b += '<div><b>• Gram Panchayat & Locality:</b> ' + f("panchayat") + ' (' + f("locality") + ')</div>' +
+             '<div><b>• Block & District:</b> ' + f("block") + ', ' + f("district") + '</div>' +
+             '<div style="grid-column:1/-1"><b>• Nature of Disposal Problem:</b> ' + f("garbage_issue") + '</div>';
+      } else {
+        b += '<div><b>• ग्राम पंचायत व मोहल्ला:</b> ' + f("panchayat") + ' (' + f("locality") + ')</div>' +
+             '<div><b>• विकास खंड व जनपद:</b> ' + f("block") + ', ' + f("district") + '</div>' +
+             '<div style="grid-column:1/-1"><b>• कूड़ा समस्या का विवरण:</b> ' + f("garbage_issue") + '</div>';
+      }
+    } else if(bt === "handpump_repair" || bt === "handpump_rebore"){
+      var isRebore = bt === "handpump_rebore";
+      if(isEn){
+        b += '<div><b>• Handpump Location:</b> ' + f("hp_location") + '</div>' +
+             '<div><b>• Gram Panchayat:</b> ' + f("panchayat") + '</div>' +
+             '<div><b>• Defect / Issue:</b> ' + (isRebore ? f("problem_desc") : f("broken_duration")) + '</div>' +
+             '<div><b>• Importance / Community Base:</b> ' + (isRebore ? "Potable Water Need" : f("importance")) + '</div>';
+      } else {
+        b += '<div><b>• हैंडपंप का सटीक स्थान:</b> ' + f("hp_location") + '</div>' +
+             '<div><b>• ग्राम पंचायत:</b> ' + f("panchayat") + '</div>' +
+             '<div><b>• खराबी / समस्या:</b> ' + (isRebore ? f("problem_desc") : f("broken_duration")) + '</div>' +
+             '<div><b>• हैंडपंप का महत्व / उपयोग:</b> ' + (isRebore ? "पेयजल का एकमात्र साधन" : f("importance")) + '</div>';
+      }
+    } else if(bt === "drinking_water"){
+      if(isEn){
+        b += '<div><b>• Gram Panchayat:</b> ' + f("panchayat") + '</div>' +
+             '<div><b>• Affected Locality / Hamlet:</b> ' + f("locality") + '</div>' +
+             '<div style="grid-column:1/-1"><b>• Cause of Water Shortage:</b> ' + f("water_cause") + '</div>';
+      } else {
+        b += '<div><b>• ग्राम पंचायत:</b> ' + f("panchayat") + '</div>' +
+             '<div><b>• प्रभावित मोहल्ला / मजरा:</b> ' + f("locality") + '</div>' +
+             '<div style="grid-column:1/-1"><b>• पेयजल संकट का मुख्य कारण:</b> ' + f("water_cause") + '</div>';
+      }
+    } else if(bt === "drain_construction" || bt === "drain_repair" || bt === "waterlogging"){
+      var isRepair = bt === "drain_repair";
+      var isWaterlog = bt === "waterlogging";
+      var loc = isWaterlog ? f("waterlog_place") : f("drain_location");
+      var issue = isWaterlog ? f("waterlog_cause") : (isRepair ? f("drain_defect") : f("drain_problem"));
+      if(isEn){
+        b += '<div><b>• Location / Street:</b> ' + loc + '</div>' +
+             '<div><b>• Gram Panchayat:</b> ' + f("panchayat") + '</div>' +
+             '<div style="grid-column:1/-1"><b>• Defect / Problem Description:</b> ' + issue + '</div>';
+      } else {
+        b += '<div><b>• स्थान / गली का विवरण:</b> ' + loc + '</div>' +
+             '<div><b>• ग्राम पंचायत:</b> ' + f("panchayat") + '</div>' +
+             '<div style="grid-column:1/-1"><b>• समस्या / खराबी का विवरण:</b> ' + issue + '</div>';
+      }
+    } else if(bt === "road_construction"){
+      if(isEn){
+        b += '<div><b>• Starting Point:</b> ' + f("road_from") + '</div>' +
+             '<div><b>• Ending Point:</b> ' + f("road_to") + '</div>' +
+             '<div><b>• Proposed Construction Type:</b> ' + f("road_type") + '</div>' +
+             '<div><b>• Beneficiary Community:</b> ' + f("beneficiaries") + '</div>';
+      } else {
+        b += '<div><b>• मार्ग का प्रारंभ (यहाँ से):</b> ' + f("road_from") + '</div>' +
+             '<div><b>• मार्ग का समापन (यहाँ तक):</b> ' + f("road_to") + '</div>' +
+             '<div><b>• प्रस्तावित निर्माण कार्य:</b> ' + f("road_type") + '</div>' +
+             '<div><b>• लाभान्वित आबादी / संस्था:</b> ' + f("beneficiaries") + '</div>';
+      }
+    } else if(bt === "pmay_g"){
+      if(isEn){
+        b += '<div><b>• Applicant Name:</b> ' + f("name") + '</div>' +
+             '<div><b>• Village & Panchayat:</b> ' + f("village_name") + ', ' + f("panchayat") + '</div>' +
+             '<div><b>• Current Housing Condition:</b> ' + f("housing_status") + '</div>' +
+             '<div><b>• Socio-Economic Condition:</b> ' + f("family_desc") + '</div>';
+      } else {
+        b += '<div><b>• आवेदक का नाम:</b> ' + f("name") + '</div>' +
+             '<div><b>• ग्राम व ग्राम पंचायत:</b> ' + f("village_name") + ', ' + f("panchayat") + '</div>' +
+             '<div><b>• वर्तमान मकान की स्थिति:</b> ' + f("housing_status") + '</div>' +
+             '<div><b>• सामाजिक-आर्थिक स्थिति:</b> ' + f("family_desc") + '</div>';
+      }
+    } else if(bt === "jobcard_new"){
+      if(isEn){
+        b += '<div><b>• Applicant Name:</b> ' + f("name") + '</div>' +
+             '<div><b>• Gram Panchayat:</b> ' + f("panchayat") + ' (' + f("block") + ')</div>' +
+             '<div style="grid-column:1/-1"><b>• Adult Household Members Seeking Work:</b> ' + f("adult_members") + '</div>';
+      } else {
+        b += '<div><b>• आवेदक का नाम:</b> ' + f("name") + '</div>' +
+             '<div><b>• ग्राम पंचायत व ब्लॉक:</b> ' + f("panchayat") + ' (' + f("block") + ')</div>' +
+             '<div style="grid-column:1/-1"><b>• कार्य करने के इच्छुक वयस्क सदस्य:</b> ' + f("adult_members") + '</div>';
+      }
+    } else if(bt === "jobcard_work"){
+      if(isEn){
+        b += '<div><b>• Job Card Holder:</b> ' + f("name") + '</div>' +
+             '<div><b>• MGNREGA Job Card No.:</b> ' + f("job_card_no") + '</div>' +
+             '<div><b>• Gram Panchayat:</b> ' + f("panchayat") + '</div>' +
+             '<div><b>• Demanded Work Duration:</b> ' + f("work_days") + '</div>';
+      } else {
+        b += '<div><b>• जॉब कार्ड धारक का नाम:</b> ' + f("name") + '</div>' +
+             '<div><b>• मनरेगा जॉब कार्ड संख्या:</b> ' + f("job_card_no") + '</div>' +
+             '<div><b>• ग्राम पंचायत:</b> ' + f("panchayat") + '</div>' +
+             '<div><b>• कार्य की मांग (दिन/अवधि):</b> ' + f("work_days") + '</div>';
+      }
+    } else if(bt === "mgnrega_wages"){
+      if(isEn){
+        b += '<div><b>• Worker Name:</b> ' + f("name") + '</div>' +
+             '<div><b>• Job Card Number:</b> ' + f("job_card_no") + '</div>' +
+             '<div><b>• Work Name & Site:</b> ' + f("work_name") + ' (' + f("work_place") + ')</div>' +
+             '<div><b>• Work Period & Days:</b> ' + f("work_start") + ' to ' + f("work_end") + ' (' + f("days_worked") + ' days)</div>' +
+             '<div><b>• Muster Roll Number:</b> ' + f("muster_roll") + '</div>' +
+             '<div><b>• Pending Wage Amount:</b> ₹' + f("wage_amount") + ' (A/c: ' + f("bank_acc") + ')</div>';
+      } else {
+        b += '<div><b>• श्रमिक का नाम:</b> ' + f("name") + '</div>' +
+             '<div><b>• जॉब कार्ड संख्या:</b> ' + f("job_card_no") + '</div>' +
+             '<div><b>• कार्य का नाम व स्थल:</b> ' + f("work_name") + ' (' + f("work_place") + ')</div>' +
+             '<div><b>• कार्य अवधि व कुल दिन:</b> ' + f("work_start") + ' से ' + f("work_end") + ' (' + f("days_worked") + ' दिन)</div>' +
+             '<div><b>• मस्टर रोल संख्या:</b> ' + f("muster_roll") + '</div>' +
+             '<div><b>• बकाया मजदूरी राशि:</b> ₹' + f("wage_amount") + ' (खाता: ' + f("bank_acc") + ')</div>';
+      }
+    }
+    b += '</div></div>';
+    return b;
+  }
+
+  function render(){
+    var list = getList();
+    var t = list[cur];
+    var isEn = curLang === "en";
+    var g = getGender();
+
+    // 80% संतुलित भराव / 90% बड़ा / कॉम्पैक्ट
+    var fitEl = document.querySelector("input[name=page_fit]:checked");
+    var fitVal = fitEl ? fitEl.value : "fit80";
+    $("paper").classList.remove("compact", "fit-90");
+    if(fitVal === "fit90"){
+      $("paper").classList.add("fit-90");
+    } else if(fitVal === "compact"){
+      $("paper").classList.add("compact");
+    } else {
+      // 80% डिफ़ॉल्ट: यदि लंबा पत्र हो (जैसे #17 मनरेगा मजदूरी) तो हल्का समायोजन
+      if(cur === 16){
+        $("paper").classList.add("compact");
+      }
+    }
+
+    var toLine1 = isEn ? "To," : "सेवा में,";
+    var toOffice = t.auth;
+    var stateName = (!V.state || V.state === "उत्तर प्रदेश" || V.state === "Uttar Pradesh") ? 
+      (isEn ? "Uttar Pradesh" : "उत्तर प्रदेश") : esc(V.state);
+    var toLine3 = "";
+    if(cur === 16){ // BDO
+      toLine3 = isEn ? 
+        ("Development Block — " + f("block") + ", District — " + f("district") + ", " + stateName + ".") :
+        ("विकास खंड — " + f("block") + ", जनपद — " + f("district") + ", " + stateName + "।");
+    } else {
+      toLine3 = isEn ? 
+        ("Gram Panchayat / Body — " + f("panchayat") + ", Block — " + f("block") + ", District — " + f("district") + ", " + stateName + ".") :
+        ("ग्राम पंचायत / निकाय — " + f("panchayat") + ", विकास खंड — " + f("block") + ", जनपद — " + f("district") + ", " + stateName + "।");
+    }
+
+    var subjLbl = isEn ? "Subject:" : "विषय:";
+    var salutation = isEn ? "Respected Sir/Madam," : "महोदय/महोदया,";
+    var closing = isEn ? "Yours faithfully," : (g === "f" ? "भवदीया," : "भवदीय,");
+    var parentLbl = getParentLabel(isEn);
+    var sigLbl = isEn ? "Signature / Thumb Impression:" : "हस्ताक्षर / अंगूठा निशान:";
+    var enclLbl = isEn ? "Enclosures:" : "संलग्नक:";
+
+    var bodyHtml = t.paras.map(function(p){
+      if(p === "INFO_BOX"){
+        return renderInfoBox(t, isEn);
+      }
+      return "<p>" + gen(p, t, isEn) + "</p>";
+    }).join("");
+
+    var enclHtml = "";
+    if(t.encl && t.encl.length > 0){
+      enclHtml = '<div class="enclosure-box"><b>' + enclLbl + '</b><ol class="enclosure-list">' +
+        t.encl.map(function(item){ return '<li>' + esc(item) + '</li>'; }).join("") +
+        '</ol></div>';
+    }
+
+    var applicantMob = V.mobile ? f("mobile") : f("mobile");
+
+    $("paper").innerHTML = 
+      "<h2>" + esc(t.t) + "</h2>" +
+      '<div class="to">' + toLine1 + '<br>' + esc(toOffice) + '<br>' + toLine3 + '</div>' +
+      '<p><b>' + subjLbl + '</b> ' + esc(t.s) + '</p>' +
+      '<p>' + salutation + '</p>' +
+      '<p>' + gen(t.intro, t, isEn) + '</p>' +
+      bodyHtml +
+      '<div class="sig">' +
+        '<div class="left">' +
+          (isEn ? "Place: " : "स्थान: ") + f("place") + '<br>' +
+          (isEn ? "Date: " : "दिनांक: ") + f("date") + '<br>' +
+          enclHtml +
+        '</div>' +
+        '<div class="right">' +
+          closing + '<br><br>' +
+          '<b>' + (isEn ? "Name: " : "नाम: ") + '</b>' + f("name") + '<br>' +
+          '<b>' + parentLbl + ': </b>' + f("parent_name") + '<br>' +
+          '<b>' + (isEn ? "Address: " : "पता: ") + '</b>' + f("address") + '<br>' +
+          '<b>' + (isEn ? "Mobile No.: " : "मोबाइल नंबर: ") + '</b>' + applicantMob + '<br><br>' +
+          sigLbl + ' <span class="blank" style="min-width:14ch"></span>' +
+        '</div>' +
+      '</div>';
+
+    document.title = t.t;
+  }
+
+  function build(){
+    var list = getList();
+    var t = list[cur];
+    var isEn = curLang === "en";
+    var h = "";
+
+    t.keys.forEach(function(k){
+      var d = F[k];
+      if(!d) return;
+      var id = "f_" + k;
+      var v = V[k] || "";
+      var lbl = isEn ? (d[4] || d[0]) : d[0];
+
+      if(d[1] === "d"){
+        h += '<label for="' + id + '">' + lbl + '</label><input id="' + id + '" type="text" inputmode="numeric" placeholder="DD/MM/YYYY" maxlength="10" autocomplete="off" value="' + esc(v) + '">';
+      } else if(k === "adult_members" || k === "delay_reason" || k === "purpose" || k === "garbage_issue" || k === "family_desc"){
+        h += '<label for="' + id + '">' + lbl + '</label><textarea id="' + id + '" placeholder="' + (isEn ? "Enter concise details here..." : "संक्षिप्त विवरण यहाँ लिखें...") + '">' + esc(v) + '</textarea>';
+      } else {
+        var itype = d[1] === "n" ? "tel" : "text";
+        var maxAttr = d[3] ? (' maxlength="' + d[3] + '"') : "";
+        h += '<label for="' + id + '">' + lbl + '</label><input id="' + id + '" type="' + itype + '"' + maxAttr + ' value="' + esc(v) + '">';
+      }
+    });
+
+    $("fields").innerHTML = h;
+
+    t.keys.forEach(function(k){
+      var el = $("f_" + k);
+      if(!el) return;
+      el.addEventListener("input", function(){
+        V[k] = el.value;
+        render();
+      });
+      // Date Auto-Slash formatting
+      if(F[k] && F[k][1] === "d"){
+        el.addEventListener("keydown", function(e){
+          if(e.key === "Backspace" || e.key === "Delete"){
+            var pos = el.selectionStart;
+            if((pos === 3 || pos === 6) && el.value.length === pos){
+              e.preventDefault();
+              el.value = el.value.slice(0, pos - 1);
+              V[k] = el.value;
+              render();
+            }
+          }
+        });
+        el.addEventListener("input", function(){
+          var clean = el.value.replace(/[^0-9]/g, "");
+          if(clean.length > 8) clean = clean.substring(0, 8);
+          var formatted = clean;
+          if(clean.length > 2 && clean.length <= 4){
+            formatted = clean.substring(0, 2) + "/" + clean.substring(2);
+          } else if(clean.length > 4){
+            formatted = clean.substring(0, 2) + "/" + clean.substring(2, 4) + "/" + clean.substring(4);
+          }
+          if(formatted !== el.value){
+            el.value = formatted;
+          }
+          V[k] = formatted;
+          render();
+        });
+      }
+    });
+  }
+
+  function updateStaticUI(){
+    var isEn = curLang === "en";
+    document.documentElement.lang = curLang;
+
+    if($("navHomeLink")){
+      $("navHomeLink").textContent = isEn ? "← Home Portal" : "← मुख्य पोर्टल (Home Portal)";
+    }
+    if($("navPortalTitle")){
+      $("navPortalTitle").textContent = isEn ? "Gram Panchayat & Municipal Division" : "ग्राम पंचायत एवं नगर निकाय प्रभाग";
+    }
+
+    if($("uiBanner")){
+      $("uiBanner").innerHTML = isEn ?
+        "🔒 <strong>100% Safe & Private:</strong> This tool runs entirely locally on your device. No data is sent to any server. If you do not wish to enter any detail, leave it blank—it can be filled with a pen after printing." :
+        "🔒 <strong>100% सुरक्षित एवं निजी:</strong> यह टूल पूरी तरह आपके डिवाइस पर चलता है। आपका कोई भी डेटा सर्वर पर नहीं भेजा जाता। यदि कोई जानकारी नहीं डालना चाहते, तो खाली छोड़ दें—प्रिंट के बाद पेन से भर सकते हैं।";
+    }
+
+    $("uiHeading").innerText = isEn ? "Gram Panchayat & Municipal Applications" : "ग्राम पंचायत एवं नगर निकाय आवेदन पत्र";
+    $("lblLang").innerText = isEn ? "Choose Language" : "भाषा चुनें";
+    $("optLangHi").innerText = isEn ? "Hindi (हिंदी)" : "हिंदी (Hindi)";
+    $("optLangEn").innerText = "English";
+
+    $("lblTpl").innerText = isEn ? "Application Type" : "आवेदन का प्रकार";
+    $("lblPageFit").innerText = isEn ? "Page Coverage / Size" : "पेज भराव / प्रिंट फैलाव";
+    $("optFit80").innerText = isEn ? "80% Balanced (Default)" : "80% संतुलित (Default)";
+    $("optFit90").innerText = isEn ? "90% Large (Full Page)" : "90% बड़ा (Full)";
+    $("optFitCompact").innerText = isEn ? "Compact" : "कॉम्पैक्ट (छोटा)";
+
+    $("lblGender").innerText = isEn ? "Applicant Gender" : "आवेदक";
+    $("gMale").innerText = isEn ? "Male" : "पुरुष (Male)";
+    $("gFemale").innerText = isEn ? "Female" : "महिला (Female)";
+
+    $("lblFemaleRel").innerText = isEn ? "Relation Type:" : "संबंध प्रकार / Relation Type:";
+    $("optDaughter").innerText = isEn ? "Daughter (D/o - Father)" : "पुत्री (D/o - पिता)";
+    $("optWife").innerText = isEn ? "Wife (W/o - Husband)" : "पत्नी (W/o - पति)";
+
+    $("print").innerText = isEn ? "Print Application" : "प्रिंट करें";
+    $("clear").innerText = isEn ? "Clear Form" : "साफ़ करें";
+    $("uiHint").innerText = isEn ?
+      "Fields left blank will remain empty in print so you can fill them by pen. You can also directly click and edit any text on the letter before printing." :
+      "जो जानकारी नहीं भरेंगे, प्रिंट में वहाँ खाली जगह छूट जाएगी। प्रिंट करने से पहले आप सीधे दाईं ओर पत्र पर क्लिक करके भी कोई बदलाव (एडिट) कर सकते हैं।";
+
+    var formSec = document.querySelector("section.form");
+    if(formSec && formSec.setAttribute) formSec.setAttribute("aria-label", isEn ? "Application Form Settings" : "आवेदन पत्र सेटिंग्स");
+    var paperEl = $("paper");
+    if(paperEl && paperEl.setAttribute) paperEl.setAttribute("aria-label", isEn ? "Application Letter Preview" : "आवेदन पत्र पूर्वावलोकन");
+
+    // रेडियो बटन को सक्रिय भाषा के अनुसार सेट करें
+    var langRadio = document.querySelector('input[name=lang][value="' + curLang + '"]');
+    if(langRadio) langRadio.checked = true;
+
+    updateThemeUI();
+
+    var list = getList();
+    $("tpl").innerHTML = list.map(function(t, i){
+      return '<option value="' + i + '"' + (i === cur ? ' selected' : '') + '>' + (i + 1) + '. ' + esc(t.t) + '</option>';
+    }).join("");
+  }
+
+  function updatePrintTitle(){
+    var h2 = $("paper") ? $("paper").querySelector("h2") : null;
+    if(h2 && h2.innerText && h2.innerText.trim()){
+      document.title = h2.innerText.trim();
+    } else {
+      var list = getList();
+      if(list && list[cur]) document.title = list[cur].t;
+    }
+  }
+
+  window.addEventListener("beforeprint", updatePrintTitle);
+  $("print").addEventListener("click", function(){
+    updatePrintTitle();
+    window.print();
+  });
+
+  $("clear").addEventListener("click", function(){
+    V = { date: getTodayDate(), state: curLang === "en" ? "Uttar Pradesh" : "उत्तर प्रदेश" };
+    build();
+    render();
+  });
+
+  $("tpl").addEventListener("change", function(){
+    cur = +$("tpl").value;
+    build();
+    render();
+  });
+
+  document.querySelectorAll("input[name=g]").forEach(function(r){
+    r.addEventListener("change", function(){
+      var isFem = document.querySelector("input[name=g]:checked").value === "f";
+      $("femaleRelWrap").style.display = isFem ? "block" : "none";
+      render();
+    });
+  });
+
+  document.querySelectorAll("input[name=f_rel]").forEach(function(r){
+    r.addEventListener("change", function(){
+      render();
+    });
+  });
+
+  document.querySelectorAll("input[name=page_fit]").forEach(function(r){
+    r.addEventListener("change", function(){
+      render();
+    });
+  });
+
+  document.querySelectorAll("input[name=lang]").forEach(function(r){
+    r.addEventListener("change", function(){
+      curLang = document.querySelector("input[name=lang]:checked").value;
+      try { localStorage.setItem("app_lang", curLang); } catch(e){}
+      updateStaticUI();
+      build();
+      render();
+    });
+  });
+
+  updateStaticUI();
+  build();
+  render();
+})();
+
+</script>
+</body>
+</html>
