@@ -1,3 +1,4 @@
 User-agent: *
 Allow: /
-Sitemap: https://applicationhelperin-lgtm.github.io/application-helper/sitemap.xml
+
+Sitemap: https://applicationhelper.in/sitemap.xml
