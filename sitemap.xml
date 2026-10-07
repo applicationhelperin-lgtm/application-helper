@@ -1,47 +1,98 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- 1. मुख्य होमपेज -->
   <url>
-    <loc>https://applicationhelperin-lgtm.github.io/application-helper/</loc>
-    <priority>1.00</priority>
+    <loc>https://applicationhelper.in/</loc>
+    <lastmod>2026-10-07</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
   </url>
+
+  <!-- 2. महत्वपूर्ण लेख हब पेज -->
   <url>
-    <loc>https://applicationhelperin-lgtm.github.io/application-helper/tehsil.html</loc>
-    <priority>0.80</priority>
+    <loc>https://applicationhelper.in/articles.html</loc>
+    <lastmod>2026-10-07</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
   </url>
+
+  <!-- 3. तहसील एवं राजस्व टूल -->
   <url>
-    <loc>https://applicationhelperin-lgtm.github.io/application-helper/panchayat.html</loc>
-    <priority>0.80</priority>
+    <loc>https://applicationhelper.in/tehsil.html</loc>
+    <lastmod>2026-10-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
   </url>
+
+  <!-- 4. बैंक सेवा टूल -->
   <url>
-    <loc>https://applicationhelperin-lgtm.github.io/application-helper/bank.html</loc>
-    <priority>0.80</priority>
+    <loc>https://applicationhelper.in/bank.html</loc>
+    <lastmod>2026-10-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
   </url>
+
+  <!-- 5. ग्राम पंचायत टूल -->
   <url>
-    <loc>https://applicationhelperin-lgtm.github.io/application-helper/police.html</loc>
-    <priority>0.80</priority>
+    <loc>https://applicationhelper.in/panchayat.html</loc>
+    <lastmod>2026-10-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
   </url>
+
+  <!-- 6. पुलिस व कानून व्यवस्था टूल -->
   <url>
-    <loc>https://applicationhelperin-lgtm.github.io/application-helper/bijli.html</loc>
-    <priority>0.80</priority>
+    <loc>https://applicationhelper.in/police.html</loc>
+    <lastmod>2026-10-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
   </url>
+
+  <!-- 7. विद्युत विभाग टूल -->
   <url>
-    <loc>https://applicationhelperin-lgtm.github.io/application-helper/swasthya.html</loc>
-    <priority>0.80</priority>
+    <loc>https://applicationhelper.in/bijli.html</loc>
+    <lastmod>2026-10-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
   </url>
+
+  <!-- 8. स्वास्थ्य एवं चिकित्सा टूल -->
   <url>
-    <loc>https://applicationhelperin-lgtm.github.io/application-helper/shiksha.html</loc>
-    <priority>0.80</priority>
+    <loc>https://applicationhelper.in/swasthya.html</loc>
+    <lastmod>2026-10-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
   </url>
+
+  <!-- 9. स्कूल एवं शिक्षा टूल -->
   <url>
-    <loc>https://applicationhelperin-lgtm.github.io/application-helper/dak-parivahan.html</loc>
-    <priority>0.80</priority>
+    <loc>https://applicationhelper.in/shiksha.html</loc>
+    <lastmod>2026-10-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
   </url>
+
+  <!-- 10. डाकघर एवं परिवहन (RTO) टूल -->
   <url>
-    <loc>https://applicationhelperin-lgtm.github.io/application-helper/rti.html</loc>
-    <priority>0.80</priority>
+    <loc>https://applicationhelper.in/dak-parivahan.html</loc>
+    <lastmod>2026-10-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
   </url>
+
+  <!-- 11. सूचना का अधिकार (RTI) टूल -->
   <url>
-    <loc>https://applicationhelperin-lgtm.github.io/application-helper/daftar.html</loc>
-    <priority>0.80</priority>
+    <loc>https://applicationhelper.in/rti.html</loc>
+    <lastmod>2026-10-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- 12. दफ्तर एवं नौकरी टूल -->
+  <url>
+    <loc>https://applicationhelper.in/daftar.html</loc>
+    <lastmod>2026-10-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
   </url>
 </urlset>
