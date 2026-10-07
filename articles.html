@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="hi" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>महत्वपूर्ण विधिक एवं प्रशासनिक मार्गदर्शिकाएँ — 25 प्रामाणिक नागरिक गाइड्स | Application Helper</title>
+<meta name="description" content="राजस्व, भूमि विवाद, बैंकिंग, बिजली बिल, पुलिस शिकायत, पंचायती राज, शिक्षा व आरटीओ से संबंधित 25 महत्वपूर्ण नागरिक विधिक मार्गदर्शिकाएँ एवं प्रारूप।">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%231f4e8c'/><text y='72' x='50' text-anchor='middle' font-size='65' font-family='Arial, sans-serif' font-weight='bold' fill='white'>A</text></svg>">
+
+<style>
+:root, :root[data-theme="light"] {
+  --bg: #eef1f5;
+  --card: #ffffff;
+  --bd: #cfd6df;
+  --tx: #1b2430;
+  --mu: #5a6675;
+  --pr: #1f4e8c;
+  --prh: #173d6e;
+  --accent-ink: #ffffff;
+  --badge-bg: #e8f1fc;
+  --badge-tx: #1f4e8c;
+  --quote-bg: #f8fafc;
+}
+:root[data-theme="dark"] {
+  --bg: #12161c;
+  --card: #1c222b;
+  --bd: #333c48;
+  --tx: #e8edf3;
+  --mu: #9aa6b4;
+  --pr: #6ea3e6;
+  --prh: #8cb8f0;
+  --accent-ink: #0d1622;
+  --badge-bg: #18283d;
+  --badge-tx: #93c5fd;
+  --quote-bg: #151b23;
+}
+
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;padding:0;background:var(--bg);color:var(--tx);font-family:"Noto Sans Devanagari","Inter",sans-serif;line-height:1.65;transition:background .25s,color .25s}
+
+/* टॉप नेविगेशन */
+.top-nav{background:var(--card);border-bottom:1px solid var(--bd);padding:10px 16px;position:sticky;top:0;z-index:50}
+.nav-wrap{max-width:1180px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.nav-brand{display:inline-flex;align-items:center;gap:8px}
+.nav-brand a{color:var(--pr);text-decoration:none;font-weight:700;font-size:0.95rem;display:inline-flex;align-items:center;gap:6px}
+.nav-brand a:hover{text-decoration:underline}
+.portal-subtitle{color:var(--mu);font-size:0.85rem;font-weight:500}
+
+.nav-actions{display:inline-flex;align-items:center;gap:8px}
+.ctrl-btn{
+  background:var(--bg);
+  border:1px solid var(--bd);
+  color:var(--tx);
+  border-radius:20px;
+  padding:6px 13px;
+  font-size:0.84rem;
+  font-weight:600;
+  cursor:pointer;
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  font-family:inherit;
+  transition:all .2s ease;
+}
+.ctrl-btn:hover{border-color:var(--pr);color:var(--pr)}
+
+.hero-section{max-width:1180px;margin:32px auto 20px;padding:0 16px;text-align:center}
+.hero-section h1{font-size:clamp(1.6rem, 3vw, 2.2rem);color:var(--pr);margin:0 0 10px;font-weight:700}
+.hero-section p{color:var(--mu);font-size:1.05rem;max-width:760px;margin:0 auto 24px}
+
+/* सर्च एवं फ़िल्टर बार */
+.search-filter-box{max-width:780px;margin:0 auto 32px;display:flex;flex-direction:column;gap:16px}
+.search-input-wrap{position:relative;width:100%}
+.search-input{
+  width:100%;
+  padding:14px 20px 14px 44px;
+  font-size:1rem;
+  font-family:inherit;
+  border:1.5px solid var(--bd);
+  border-radius:30px;
+  background:var(--card);
+  color:var(--tx);
+  box-shadow:0 4px 14px rgba(0,0,0,0.04);
+  transition:border-color .2s;
+}
+.search-input:focus{outline:none;border-color:var(--pr)}
+.search-icon{position:absolute;left:16px;top:50%;transform:translateY(-50%);font-size:1.2rem;color:var(--mu)}
+
+.filter-chips{display:flex;justify-content:center;gap:8px;flex-wrap:wrap}
+.chip{
+  background:var(--card);
+  border:1px solid var(--bd);
+  color:var(--tx);
+  padding:6px 14px;
+  border-radius:18px;
+  font-size:0.84rem;
+  font-weight:600;
+  cursor:pointer;
+  transition:all .2s ease;
+}
+.chip:hover, .chip.active{background:var(--pr);color:var(--accent-ink);border-color:var(--pr)}
+
+/* आर्टिकल्स ग्रिड */
+.grid-container{max-width:1180px;margin:0 auto 48px;padding:0 16px}
+.articles-grid{display:grid;grid-template-columns:repeat(auto-fill, minmax(340px, 1fr));gap:22px}
+@media(max-width:600px){
+  .articles-grid{grid-template-columns:1fr}
+}
+
+.article-card{
+  background:var(--card);
+  border:1px solid var(--bd);
+  border-radius:12px;
+  padding:22px 20px;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  box-shadow:0 3px 12px rgba(0,0,0,0.03);
+  transition:transform .2s, box-shadow .2s;
+  text-decoration:none;
+  color:inherit;
+}
+.article-card:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(0,0,0,0.08);border-color:var(--pr)}
+
+.card-top{margin-bottom:14px}
+.badge-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
+.card-badge{
+  background:var(--badge-bg);
+  color:var(--badge-tx);
+  font-size:0.75rem;
+  font-weight:700;
+  padding:3px 10px;
+  border-radius:12px;
+}
+.card-time{font-size:0.78rem;color:var(--mu);display:inline-flex;align-items:center;gap:4px}
+.card-title{font-size:1.08rem;font-weight:700;color:var(--pr);margin:0 0 8px;line-height:1.4}
+.card-desc{font-size:0.88rem;color:var(--tx);margin:0;line-height:1.55}
+
+.card-btn{
+  margin-top:14px;
+  color:var(--pr);
+  font-size:0.86rem;
+  font-weight:700;
+  display:inline-flex;
+  align-items:center;
+  gap:4px;
+}
+.article-card:hover .card-btn{text-decoration:underline}
+
+.no-results{text-align:center;padding:48px 16px;color:var(--mu);font-size:1.1rem;grid-column:1/-1;display:none}
+
+footer{text-align:center;padding:32px 16px;color:var(--mu);font-size:0.86rem;border-top:1px solid var(--bd);background:var(--card)}
+footer a{color:var(--pr);text-decoration:none;font-weight:600}
+footer a:hover{text-decoration:underline}
+</style>
+</head>
+<body>
+
+<header class="top-nav">
+  <div class="nav-wrap">
+    <div class="nav-brand">
+      <a href="index.html" id="navHomeLink">← मुख्य आवेदन जनरेटर पोर्टल</a>
+      <span class="portal-subtitle" id="navSubtitle">| महत्वपूर्ण विधिक लेख</span>
+    </div>
+    
+    <div class="nav-actions">
+      <!-- भाषा टॉगल बटन (Hindi / English) -->
+      <button id="langToggleBtn" type="button" class="ctrl-btn" aria-label="भाषा बदलें / Toggle Language">
+        <span id="langIcon">🌐</span> <span id="langText">English</span>
+      </button>
+      
+      <!-- ब्राइट / नाइट मोड टॉगल बटन -->
+      <button id="themeToggleBtn" type="button" class="ctrl-btn" aria-label="थीम बदलें / Toggle Theme">
+        <span id="thIcon">🌙</span> <span id="thText">नाइट मोड</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<section class="hero-section">
+  <h1 id="heroTitle">महत्वपूर्ण विधिक एवं प्रशासनिक मार्गदर्शिकाएँ</h1>
+  <p id="heroSubtitle">राजस्व, बैंकिंग, बिजली, पुलिस, पंचायती राज, शिक्षा एवं आरटीओ से संबंधित 25 प्रामाणिक नागरिक मार्गदर्शिकाएँ। अपने अधिकारों और सरकारी नियमों को समझें।</p>
+
+  <div class="search-filter-box">
+    <div class="search-input-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="articleSearch" class="search-input" placeholder="अपने विषय को खोजें (जैसे: पैमाइश, बिजली बिल, आरसी, खाता बंद, टीसी)..." aria-label="सर्च बॉक्स">
+    </div>
+    <div class="filter-chips" id="filterChips">
+      <button class="chip active" data-filter="all">सभी लेख (All)</button>
+      <button class="chip" data-filter="revenue">📜 राजस्व व जमीन</button>
+      <button class="chip" data-filter="banking">🏦 बैंकिंग सेवाएं</button>
+      <button class="chip" data-filter="electricity">⚡ बिजली विभाग</button>
+      <button class="chip" data-filter="panchayat">🏛️ पंचायती राज</button>
+      <button class="chip" data-filter="police">👮 पुलिस व सुरक्षा</button>
+      <button class="chip" data-filter="education">🎓 शिक्षा व छात्र</button>
+      <button class="chip" data-filter="transport">🚗 परिवहन व RTO</button>
+    </div>
+  </div>
+</section>
+
+<main class="grid-container">
+  <div class="articles-grid" id="articlesGrid">
+
+    <!-- 1. Bank Account Transfer -->
+    <a href="bank-khata-transfer-application.html" class="article-card" data-category="banking" data-keywords="bank khata transfer account rbi kyc sbi pnb bob बैंक खाता ट्रांसफर">
+      <div class="card-top">
+        <div class="badge-row">
+          <span class="card-badge">🏦 बैंकिंग सेवाएं</span>
+          <span class="card-time">⏱️ 6 मिनट</span>
+        </div>
+        <h2 class="card-title">बैंक खाता दूसरी शाखा में ट्रांसफर कैसे कराएं?</h2>
+        <p class="card-desc">जानिए RBI के निःशुल्क ट्रांसफर नियम, क्या खाता संख्या बदलती है, आवश्यक दस्तावेज और शाखा प्रबंधक प्रार्थना पत्र की प्रक्रिया।</p>
+      </div>
+      <span class="card-btn">पूरी मार्गदर्शिका पढ़ें →</span>
+    </a>
+
+    <!-- 2. Paimayish -->
+    <a href="tehsil-zamin-paimayish-aavedan.html" class="article-card" data-category="revenue" data-keywords="zamin paimayish dhara 24 tehsil demarcation chauhaddi khet zameen खेत पैमाइश सीमांकन चौहद्दी">
+      <div class="card-top">
+        <div class="badge-row">
+          <span class="card-badge">📜 राजस्व एवं तहसील</span>
+          <span class="card-time">⏱️ 6 मिनट</span>
+        </div>
+        <h2 class="card-title">खेत की सरकारी पैमाइश (सीमांकन) कैसे कराएं?</h2>
+        <p class="card-desc">उप्र राजस्व संहिता की धारा 24 के तहत ₹1,000 ट्रेजरी चालान, प्रपत्र आर.सी.-22, चारों दिशाओं की चौहद्दी और पत्थर गड़वाने के नियम।</p>
+      </div>
+      <span class="card-btn">पूरी मार्गदर्शिका पढ़ें →</span>
+    </a>
+
+    <!-- 3. Police Lost Mobile -->
+    <a href="police-mobile-gumshuda-complaint.html" class="article-card" data-category="police" data-keywords="police mobile khoya gumshuda ceir imei lost report documents sim aadhar पुलिस मोबाइल खोया रिपोर्ट">
+      <div class="card-top">
+        <div class="badge-row">
+          <span class="card-badge">👮 पुलिस एवं सुरक्षा</span>
+          <span class="card-time">⏱️ 6 मिनट</span>
+        </div>
+        <h2 class="card-title">मोबाइल या जरूरी दस्तावेज खोने पर पुलिस शिकायत व CEIR ब्लॉक</h2>
+        <p class="card-desc">फोन या आधार-पैन खो जाने पर ऑनलाइन खोया-पाया रसीद, संचार साथी CEIR पोर्टल पर IMEI ब्लॉक करना और डुप्लीकेट सिम निकालने के नियम।</p>
+      </div>
+      <span class="card-btn">पूरी मार्गदर्शिका पढ़ें →</span>
+    </a>
+
+    <!-- 4. Land Mutation / Dakhil Kharij -->
+    <a href="tehsil-dakhil-kharij-mutation-guide.html" class="article-card" data-category="revenue" data-keywords="dakhil kharij mutation registry bainama dhara 34 35 tehsil dakhil kharij दाखिल खारिज बैनामा">
+      <div class="card-top">
+        <div class="badge-row">
+          <span class="card-badge">📜 राजस्व एवं तहसील</span>
+          <span class="card-time">⏱️ 6 मिनट</span>
+        </div>
+        <h2 class="card-title">जमीन रजिस्ट्री के बाद दाखिल-खारिज (Mutation) कैसे कराएं?</h2>
+        <p class="card-desc">उप्र राजस्व संहिता की धारा 34-35 के नियम, 35 दिन का इश्तहार व आपत्ति नियम, और खतौनी में नया नाम दर्ज कराने की वैधानिक प्रक्रिया।</p>
+      </div>
+      <span class="card-btn">पूरी मार्गदर्शिका पढ़ें →</span>
+    </a>
+
+    <!-- 5. Electricity Bill Correction -->
+    <a href="bijli-bill-sudhar-aavedan-patra.html" class="article-card" data-category="electricity" data-keywords="bijli bill galat sudhar uppcl reading mismatch sdo electricity bill correction बिजली बिल सुधार">
+      <div class="card-top">
+        <div class="badge-row">
+          <span class="card-badge">⚡ बिजली विभाग</span>
+          <span class="card-time">⏱️ 6 मिनट</span>
+        </div>
+        <h2 class="card-title">बिजली का गलत या अत्यधिक बिल कैसे ठीक कराएं?</h2>
+        <p class="card-desc">मीटर रीडिंग बेमेल (Mismatch), IDF/ADF औसत बिलिंग, SDO को प्रार्थना पत्र और 1912 टोल-फ्री शिकायत से बिल संशोधन की प्रक्रिया।</p>
+      </div>
+      <span class="card-btn">पूरी मार्गदर्शिका पढ़ें →</span>
+    </a>
+
+    <!-- 6. Khatauni Name Correction -->
+    <a href="khatoni-naam-sudhar-tehsil-aavedan.html" class="article-card" data-category="revenue" data-keywords="khatauni naam sudhar dhara 38 sdm court spelling error tankeeh खतौनी नाम सुधार धारा 38">
+      <div class="card-top">
+        <div class="badge-row">
+          <span class="card-badge">📜 राजस्व एवं तहसील</span>
+          <span class="card-time">⏱️ 6 मिनट</span>
+        </div>
+        <h2 class="card-title">खतौनी में नाम या पिता के नाम की गलत वर्तनी कैसे सुधारें?</h2>
+        <p class="card-desc">उप्र राजस्व संहिता की धारा 38 के तहत उपजिलाधिकारी (SDM) न्यायालय में अभिलेख दुरुस्ती वाद, आवश्यक साक्ष्य और आदेश प्रक्रिया।</p>
+      </div>
+      <span class="card-btn">पूरी मार्गदर्शिका पढ़ें →</span>
+    </a>
+
+    <!-- 7. Varasat / Inheritance -->
+    <a href="varasat-dakhil-kharij-panjikaran.html" class="article-card" data-category="revenue" data-keywords="varasat dakhil kharij dhara 33 rc 9 pa ka 11 mritak waris वरासत उत्तराधिकार धारा 33">
+      <div class="card-top">
+        <div class="badge-row">
+          <span class="card-badge">📜 राजस्व एवं तहसील</span>
+          <span class="card-time">⏱️ 6 मिनट</span>
+        </div>
+        <h2 class="card-title">मृतक के बाद पैतृक जमीन की वरासत कैसे दर्ज कराएं?</h2>
+        <p class="card-desc">धारा 33, प्रपत्र आर.सी.-9, विवाहित व अविवाहित बेटियों का समान कानूनी हक और ई-वरासत पोर्टल से ऑनलाइन नाम दर्ज कराने के नियम।</p>
+      </div>
+      <span class="card-btn">पूरी मार्गदर्शिका पढ़ें →</span>
+    </a>
+
+    <!-- 8. Bank ATM Debit Card -->
+    <a href="bank-atm-debit-card-application.html" class="article-card" data-category="banking" data-keywords="atm card debit card reissue apply green pin rbi emv एटीएम कार्ड रीइश्यू ग्रीन पिन">
+      <div class="card-top">
+        <div class="badge-row">
+          <span class="card-badge">🏦 बैंकिंग सेवाएं</span>
+          <span class="card-time">⏱️ 6 मिनट</span>
+        </div>
+        <h2 class="card-title">बैंक नया एटीएम / डेबिट कार्ड जारी कराने या री-इश्यू का आवेदन</h2>
+        <p class="card-desc">खोए या एक्सपायर कार्ड को ब्लॉक करना, नया चिप कार्ड प्राप्त करना, रिप्लेसमेंट चार्ज और ग्रीन पिन (Green PIN) सेट करने के नियम।</p>
+      </div>
+      <span class="card-btn">पूरी मार्गदर्शिका पढ़ें →</span>
+    </a>
+
+    <!-- 9. Panchayat RTI -->
+    <a href="panchayat-rti-application-format.html" class="article-card" data-category="panchayat" data-keywords="panchayat rti gram pradhan budget muster roll bdo rti act धारा 6 1 पंचायत आरटीआई">
+      <div class="card-top">
+        <div class="badge-row">
+          <span class="card-badge">🏛️ पंचायती राज</span>
+          <span class="card-time">⏱️ 6 मिनट</span>
+        </div>
+        <h2 class="card-title">ग्राम पंचायत विकास कार्य व बजट खर्च पर RTI कैसे लगाएं?</h2>
+        <p class="card-desc">RTI Act की धारा 6(1) के तहत 10-सूत्रीय प्रश्न प्रारूप, मस्टर रोल, एमबी (माप पुस्तिका), सामग्री क्रय बिल व भौतिक निरीक्षण के अधिकार।</p>
+      </div>
+      <span class="card-btn">पूरी मार्गदर्शिका पढ़ें →</span>
+    </a>
+
+    <!-- 10. Defective Electricity Meter -->
+    <a href="bijli-meter-kharab-complaint-application.html" class="article-card" data-category="electricity" data-keywords="meter kharab fast running check meter uperc supply code sdo खराब बिजली मीटर चेक मीटर">
+      <div class="card-top">
+        <div class="badge-row">
+          <span class="card-badge">⚡ बिजली विभाग</span>
+          <span class="card-time">⏱️ 6 मिनट</span>
+        </div>
+        <h2 class="card-title">खराब, जला या तेज भागता बिजली मीटर कैसे बदलवाएं?</h2>
+        <p class="card-desc">डिस्प्ले बंद या तेज चलने पर चेक मीटर जांच नियम, 24 से 72 घंटे की विधिक समयसीमा और औसत बिलिंग के कानूनी नियम।</p>
+      </div>
+      <span class="card-btn">पूरी मार्गदर्शिका पढ़ें →</span>
+    </a>
+
+    <!-- 11. School TC -->
+    <a href="school-tc-transfer-certificate-application.html" class="article-card" data-category="education" data-keywords="school tc transfer certificate slc rte act fees dispute principal स्कूल टीसी स्थानांतरण">
+      <div class="card-top">
+        <div class="badge-row">
+          <span class="card-badge">🎓 शिक्षा व छात्र</span>
+          <span class="card-time">⏱️ 6 मिनट</span>
+        </div>
+        <h2 class="card-title">स्कूल या कॉलेज से स्थानांतरण प्रमाण पत्र (TC) कैसे प्राप्त करें?</h2>
+        <p class="card-desc">RTE Act धारा 5 के नियम—फीस विवाद में स्कूल टीसी नहीं रोक सकता; नो-ड्यूज प्रक्रिया, काउंटर-साइन नियम और औपचारिक प्रार्थना पत्र।</p>
+      </div>
+      <span class="card-btn">पूरी मार्गदर्शिका पढ़ें →</span>
+    </a>
+
+    <!-- 12. New Electricity Connection -->
+    <a href="naya-bijli-connection-application.html" class="article-card" data-category="electricity" data-keywords="naya bijli connection jhatpat portal uppcl electricity act 43 b form नया बिजली कनेक्शन">
+      <div class="card-top">
+        <div class="badge-row">
+          <span class="card-badge">⚡ बिजली विभाग</span>
+          <span class="card-time">⏱️ 6 मिनट</span>
+        </div>
+        <h2 class="card-title">नया बिजली कनेक्शन (घरेलू / दुकान) कैसे लें?</h2>
+        <p class="card-desc">विद्युत अधिनियम की धारा 43—15 दिनों में कनेक्शन देने की बाध्यता, झटपट पोर्टल प्रक्रिया, B-Form वायरिंग रिपोर्ट और सिक्योरिटी शुल्क।</p>
+      </div>
+      <span class="card-btn">पूरी मार्गदर्शिका पढ़ें →</span>
+    </a>
+
+    <!-- 13. Bank Account Close -->
+    <a href="bank-khata-band-close-application.html" class="article-card" data-category="banking" data-keywords="bank khata band close account rbi zero charge negative balance बैंक खाता बंद">
+      <div class="card-top">
+        <div class="badge-row">
+          <span class="card-badge">🏦 बैंकिंग सेवाएं</span>
+          <span class="card-time">⏱️ 6 मिनट</span>
+        </div>
+        <h2 class="card-title">बैंक खाता स्थायी रूप से बंद (Close) कैसे कराएं?</h2>
+        <p class="card-desc">RBI नियम: 1 वर्ष बाद शून्य क्लोजर चार्ज; माइनस बैलेंस की पेनाल्टी वसूली अवैध; चेकबुक/एटीएम सरेंडर व शेष राशि वापसी के नियम।</p>
+      </div>
+      <span class="card-btn">पूरी मार्गदर्शिका पढ़ें →</span>
+    </a>
+
+    <!-- 14. Chakroad Encroachment -->
+    <a href="chakroad-atikraman-hatwane-ka-aavedan.html" class="article-card" data-category="revenue" data-keywords="chakroad atikraman rasta naali dhara 26 67 rc 19 20 sdm चकरोड अतिक्रमण नाली कब्जा">
+      <div class="card-top">
+        <div class="badge-row">
+          <span class="card-badge">📜 राजस्व एवं तहसील</span>
+          <span class="card-time">⏱️ 6 मिनट</span>
+        </div>
+        <h2 class="card-title">सार्वजनिक चकरोड या नाली से अवैध अतिक्रमण कैसे हटवाएं?</h2>
+        <p class="card-desc">उप्र राजस्व संहिता की धारा 26 व 67—आर.सी. प्रपत्र 19 नोटिस, आर.सी. 20 बेदखली आदेश, क्षतिपूर्ति वसूली और पुलिस बल द्वारा रास्ता बहाली।</p>
+      </div>
+      <span class="card-btn">पूरी मार्गदर्शिका पढ़ें →</span>
+    </a>
+
+    <!-- 15. Farm Boundary Dispute -->
+    <a href="khet-med-vivad-police-tehsil-aavedan.html" class="article-card" data-category="revenue" data-keywords="khet medh vivad boundary paimayish dhara 24 227 bnss 126 खेत मेड़ विवाद सीमांकन">
+      <div class="card-top">
+        <div class="badge-row">
+          <span class="card-badge">📜 राजस्व एवं तहसील</span>
+          <span class="card-time">⏱️ 6 मिनट</span>
+        </div>
+        <h2 class="card-title">खेत की मेड़ काटने या सीमा विवाद पर कानूनी कार्रवाई</h2>
+        <p class="card-desc">धारा 24 पैमाइश, धारा 227 के तहत मेड़ क्षति पर जुर्माना, सीमा स्तम्भ (पत्थर) गड़वाने और शांति भंग में पुलिस पाबंदी के नियम।</p>
+      </div>
+      <span class="card-btn">पूरी मार्गदर्शिका पढ़ें →</span>
+    </a>
+
+    <!-- 16. Bank Mobile Number Update -->
+    <a href="bank-mobile-number-update-application.html" class="article-card" data-category="banking" data-keywords="bank mobile update email kyc rbi alert zero liability बैंक मोबाइल नंबर अपडेट">
+      <div class="card-top">
+        <div class="badge-row">
+          <span class="card-badge">🏦 बैंकिंग सेवाएं</span>
+          <span class="card-time">⏱️ 6 मिनट</span>
+        </div>
+        <h2 class="card-title">बैंक खाते में मोबाइल नंबर और ईमेल आईडी कैसे अपडेट कराएं?</h2>
+        <p class="card-desc">पुराना सिम बंद होने पर शाखा में बायोमेट्रिक e-KYC, RBI अनिवार्य एसएमएस अलर्ट नियम और 3 दिन में फ्रॉड की सूचना पर शून्य देयता।</p>
+      </div>
+      <span class="card-btn">पूरी मार्गदर्शिका पढ़ें →</span>
+    </a>
+
+    <!-- 17. Birth Certificate -->
+    <a href="panchayat-janm-praman-patra-guide.html" class="article-card" data-category="panchayat" data-keywords="janm praman patra birth certificate rbd act 2023 crs portal sdm order धारा 13 3 जन्म प्रमाण पत्र">
+      <div class="card-top">
+        <div class="badge-row">
+          <span class="card-badge">🏛️ पंचायती राज</span>
+          <span class="card-time">⏱️ 6 मिनट</span>
+        </div>
+        <h2 class="card-title">नया जन्म प्रमाण पत्र कैसे बनवाएं? 21 दिन नियम व 1 वर्ष बाद SDM आदेश</h2>
+        <p class="card-desc">संशोधन अधिनियम 2023—जन्म प्रमाण पत्र एकल अनिवार्य दस्तावेज; 1 वर्ष बाद धारा 13(3) के तहत एसडीएम न्यायालय न्यायिक आदेश प्रक्रिया।</p>
+      </div>
+      <span class="card-btn">पूरी मार्गदर्शिका पढ़ें →</span>
+    </a>
+
+    <!-- 18. Character Certificate School/College -->
+    <a href="charitra-praman-patra-cc-application.html" class="article-card" data-category="education" data-keywords="charitra praman patra cc conduct certificate school college principal चरित्र प्रमाण पत्र">
+      <div class="card-top">
+        <div class="badge-row">
+          <span class="card-badge">🎓 शिक्षा व छात्र</span>
+          <span class="card-time">⏱️ 6 मिनट</span>
+        </div>
+        <h2 class="card-title">स्कूल या कॉलेज से चरित्र प्रमाण पत्र (CC) कैसे प्राप्त करें?</h2>
+        <p class="card-desc">उच्च शिक्षा व सरकारी नौकरी में उपयोगिता, 6 माह की वैधता, पूर्व छात्रों (Alumni) हेतु एसआर नंबर से जारी करने के नियम और आवेदन।</p>
+      </div>
+      <span class="card-btn">पूरी मार्गदर्शिका पढ़ें →</span>
+    </a>
+
+    <!-- 19. Death Certificate -->
+    <a href="panchayat-mrityu-praman-patra-guide.html" class="article-card" data-category="panchayat" data-keywords="mrityu praman patra death certificate rbd act 13 3 sdm order varasat claim मृत्यु प्रमाण पत्र">
+      <div class="card-top">
+        <div class="badge-row">
+          <span class="card-badge">🏛️ पंचायती राज</span>
+          <span class="card-time">⏱️ 6 मिनट</span>
+        </div>
+        <h2 class="card-title">मृत्यु प्रमाण पत्र (Death Certificate) कैसे बनवाएं?</h2>
+        <p class="card-desc">21 दिन में निःशुल्क पंजीकरण, 1 वर्ष बाद धारा 13(3) एसडीएम न्यायिक आदेश, वरासत, बैंक क्लेम व बीमा में उपयोग और आवेदन प्रक्रिया।</p>
+      </div>
+      <span class="card-btn">पूरी मार्गदर्शिका पढ़ें →</span>
+    </a>
+
+    <!-- 20. EWS Certificate -->
+    <a href="ews-praman-patra-tehsil-guide.html" class="article-card" data-category="revenue" data-keywords="ews certificate 10 percent reservation general 8 lakh limit dopt tehsildar ईडब्ल्यूएस प्रमाण पत्र">
+      <div class="card-top">
+        <div class="badge-row">
+          <span class="card-badge">📜 राजस्व एवं तहसील</span>
+          <span class="card-time">⏱️ 6 मिनट</span>
+        </div>
+        <h2 class="card-title">ईडब्ल्यूएस (EWS) प्रमाण पत्र कैसे बनवाएं? पात्रता व नियम</h2>
+        <p class="card-desc">103वां संविधान संशोधन—₹8 लाख आय सीमा, 5 एकड़ जमीन व 1000 वर्ग फुट फ्लैट की शर्तें, केंद्रीय DoPT प्रारूप और तहसीलदार प्रक्रिया।</p>
+      </div>
+      <span class="card-btn">पूरी मार्गदर्शिका पढ़ें →</span>
+    </a>
+
+    <!-- 21. Income & Caste Certificate -->
+    <a href="aay-jati-praman-patra-tehsil-guide.html" class="article-card" data-category="revenue" data-keywords="aay jati praman patra income caste certificate edistrict obc creamy layer sc st आय जाति प्रमाण पत्र">
+      <div class="card-top">
+        <div class="badge-row">
+          <span class="card-badge">📜 राजस्व एवं तहसील</span>
+          <span class="card-time">⏱️ 6 मिनट</span>
+        </div>
+        <h2 class="card-title">आय व जाति प्रमाण पत्र बनवाने की पूरी प्रक्रिया (e-District UP)</h2>
+        <p class="card-desc">जनहित गारंटी 15 दिन समयसीमा; आय 3 वर्ष मान्य; SC/ST आजीवन मान्य; OBC नॉन-क्रीमी लेयर नियम व विवाहित महिला जाति नियम।</p>
+      </div>
+      <span class="card-btn">पूरी मार्गदर्शिका पढ़ें →</span>
+    </a>
+
+    <!-- 22. Electricity Theft Notice -->
+    <a href="bijli-chori-notice-shikayat-patra.html" class="article-card" data-category="electricity" data-keywords="bijli chori notice dhara 135 126 compounding sdo special court बिजली चोरी नोटिस">
+      <div class="card-top">
+        <div class="badge-row">
+          <span class="card-badge">⚡ बिजली विभाग</span>
+          <span class="card-time">⏱️ 6 मिनट</span>
+        </div>
+        <h2 class="card-title">बिजली चोरी नोटिस (धारा 135/126) पर कानूनी राहत कैसे पाएं?</h2>
+        <p class="card-desc">धारा 126 सिविल विचलन बनाम 135 आपराधिक चोरी; 15 दिन में SDO को विधिक आपत्ति, अनिवार्य वीडियोग्राफी नियम और अदालत से राहत।</p>
+      </div>
+      <span class="card-btn">पूरी मार्गदर्शिका पढ़ें →</span>
+    </a>
+
+    <!-- 23. School Leave Application -->
+    <a href="school-chhutti-leave-application-hindi.html" class="article-card" data-category="education" data-keywords="school chhutti leave application sick casual urgent work attendance 75 percent स्कूल अवकाश पत्र">
+      <div class="card-top">
+        <div class="badge-row">
+          <span class="card-badge">🎓 शिक्षा व छात्र</span>
+          <span class="card-time">⏱️ 6 मिनट</span>
+        </div>
+        <h2 class="card-title">स्कूल में बीमारी या जरूरी कार्य हेतु अवकाश प्रार्थना पत्र</h2>
+        <p class="card-desc">75% बोर्ड उपस्थिति नियम, 3 दिन से अधिक पर मेडिकल फिटनेस प्रमाण पत्र, आकस्मिक बनाम मेडिकल अवकाश और प्रधानाचार्य आवेदन।</p>
+      </div>
+      <span class="card-btn">पूरी मार्गदर्शिका पढ़ें →</span>
+    </a>
+
+    <!-- 24. Vehicle RC Transfer -->
+    <a href="rto-vahan-rc-transfer-application.html" class="article-card" data-category="transport" data-keywords="rto vahan rc transfer duplicate form 29 30 26 parivahan vahan आरसी ट्रांसफर डुप्लीकेट">
+      <div class="card-top">
+        <div class="badge-row">
+          <span class="card-badge">🚗 परिवहन व RTO</span>
+          <span class="card-time">⏱️ 6 मिनट</span>
+        </div>
+        <h2 class="card-title">गाड़ी की आरसी (RC) ट्रांसफर या डुप्लीकेट RC कैसे बनवाएं?</h2>
+        <p class="card-desc">मोटर वाहन धारा 50—30 दिन में ट्रांसफर अनिवार्य; फॉर्म 29-30 व 26 नियम, चेसिस पेंसिल प्रिंट, ऑनलाइन वाहन पोर्टल व दुर्घटना देनदारी बचाव।</p>
+      </div>
+      <span class="card-btn">पूरी मार्गदर्शिका पढ़ें →</span>
+    </a>
+
+    <!-- 25. Police Verification -->
+    <a href="police-verification-passport-complaint.html" class="article-card" data-category="police" data-keywords="police verification passport pcc upcop character court noc पुलिस वेरिफिकेशन पासपोर्ट">
+      <div class="card-top">
+        <div class="badge-row">
+          <span class="card-badge">👮 पुलिस एवं सुरक्षा</span>
+          <span class="card-time">⏱️ 6 मिनट</span>
+        </div>
+        <h2 class="card-title">पासपोर्ट व सरकारी नौकरी हेतु पुलिस चरित्र सत्यापन (PCC)</h2>
+        <p class="card-desc">थाने व LIU सत्यापन प्रक्रिया, पेंडिंग केस में कोर्ट एनओसी नियम, UPCOP पोर्टल से ₹50 में चरित्र प्रमाण पत्र और प्रतिकूल रिपोर्ट पर राहत।</p>
+      </div>
+      <span class="card-btn">पूरी मार्गदर्शिका पढ़ें →</span>
+    </a>
+
+    <div class="no-results" id="noResultsMsg">
+      कोई भी मार्गदर्शिका नहीं मिली। कृपया अन्य शब्द लिखकर खोजें।
+    </div>
+
+  </div>
+</main>
+
+<footer>
+  <p>© 2026 Application Helper • नि:शुल्क, सुरक्षित एवं आत्मनिर्भर नागरिक सेवा</p>
+  <p style="margin-top:6px;"><a href="index.html">मुख्य जनरेटर पोर्टल पर वापस जाएं</a> | <a href="tehsil.html">राजस्व आवेदन</a> | <a href="bank.html">बैंक आवेदन</a> | <a href="bijli.html">बिजली आवेदन</a> | <a href="police.html">पुलिस आवेदन</a></p>
+</footer>
+
+<script>
+(function(){
+  // भाषा प्रबंधन
+  var curLang = localStorage.getItem("app_lang") || "hi";
+  var langBtn = document.getElementById("langToggleBtn");
+  var langTxt = document.getElementById("langText");
+  var navHome = document.getElementById("navHomeLink");
+  var navSub = document.getElementById("navSubtitle");
+  var heroT = document.getElementById("heroTitle");
+  var heroS = document.getElementById("heroSubtitle");
+  var searchInp = document.getElementById("articleSearch");
+
+  function setLanguage(lang){
+    curLang = lang;
+    localStorage.setItem("app_lang", lang);
+    if(lang === "en"){
+      if(langTxt) langTxt.textContent = "हिंदी (Hindi)";
+      if(navHome) navHome.textContent = "← Main Application Generator Portal";
+      if(navSub) navSub.textContent = "| Important Legal Guides";
+      if(heroT) heroT.textContent = "Authoritative Legal & Administrative Guides";
+      if(heroS) heroS.textContent = "25 verified civic guides across Revenue, Banking, Electricity, Police, Panchayati Raj, Education, and Transport. Understand your statutory rights.";
+      if(searchInp) searchInp.placeholder = "Search topics (e.g. land demarcation, electricity bill, RC, bank close, TC)...";
+      document.title = "Important Legal & Administrative Guides — 25 Official Citizen Procedures | Application Helper";
+    } else {
+      if(langTxt) langTxt.textContent = "English";
+      if(navHome) navHome.textContent = "← मुख्य आवेदन जनरेटर पोर्टल";
+      if(navSub) navSub.textContent = "| महत्वपूर्ण विधिक लेख";
+      if(heroT) heroT.textContent = "महत्वपूर्ण विधिक एवं प्रशासनिक मार्गदर्शिकाएँ";
+      if(heroS) heroS.textContent = "राजस्व, बैंकिंग, बिजली, पुलिस, पंचायती राज, शिक्षा एवं आरटीओ से संबंधित 25 प्रामाणिक नागरिक मार्गदर्शिकाएँ। अपने अधिकारों और सरकारी नियमों को समझें।";
+      if(searchInp) searchInp.placeholder = "अपने विषय को खोजें (जैसे: पैमाइश, बिजली बिल, आरसी, खाता बंद, टीसी)...";
+      document.title = "महत्वपूर्ण विधिक एवं प्रशासनिक मार्गदर्शिकाएँ — 25 प्रामाणिक नागरिक गाइड्स | Application Helper";
+    }
+  }
+
+  if(langBtn){
+    langBtn.addEventListener("click", function(){
+      setLanguage(curLang === "hi" ? "en" : "hi");
+    });
+  }
+
+  // थीम प्रबंधन (नाइट / ब्राइट मोड)
+  var curTheme = localStorage.getItem("app_theme") || "light";
+  var thBtn = document.getElementById("themeToggleBtn");
+  var thIcon = document.getElementById("thIcon");
+  var thTxt = document.getElementById("thText");
+
+  function setTheme(th){
+    curTheme = th;
+    document.documentElement.setAttribute("data-theme", th);
+    localStorage.setItem("app_theme", th);
+    if(th === "dark"){
+      if(thIcon) thIcon.textContent = "☀️";
+      if(thTxt) thTxt.textContent = curLang === "en" ? "Light Mode" : "ब्राइट मोड";
+    } else {
+      if(thIcon) thIcon.textContent = "🌙";
+      if(thTxt) thTxt.textContent = curLang === "en" ? "Dark Mode" : "नाइट मोड";
+    }
+  }
+
+  if(thBtn){
+    thBtn.addEventListener("click", function(){
+      setTheme(curTheme === "dark" ? "light" : "dark");
+    });
+  }
+  setTheme(curTheme);
+  setLanguage(curLang);
+
+  // लाइव सर्च एवं कैटेगरी फ़िल्टरिंग
+  var currentCategory = "all";
+  var cards = document.querySelectorAll(".article-card");
+  var noResults = document.getElementById("noResultsMsg");
+  var filterChips = document.querySelectorAll("#filterChips .chip");
+
+  function filterArticles(){
+    var q = (searchInp.value || "").trim().toLowerCase();
+    var visibleCount = 0;
+
+    cards.forEach(function(card){
+      var cat = card.getAttribute("data-category");
+      var kw = card.getAttribute("data-keywords") || "";
+      var title = card.querySelector(".card-title") ? card.querySelector(".card-title").innerText.toLowerCase() : "";
+      var desc = card.querySelector(".card-desc") ? card.querySelector(".card-desc").innerText.toLowerCase() : "";
+      var fullText = kw + " " + title + " " + desc;
+
+      var matchesCat = (currentCategory === "all" || cat === currentCategory);
+      var matchesSearch = (q === "" || fullText.indexOf(q) !== -1);
+
+      if(matchesCat && matchesSearch){
+        card.style.display = "flex";
+        visibleCount++;
+      } else {
+        card.style.display = "none";
+      }
+    });
+
+    if(noResults){
+      noResults.style.display = visibleCount === 0 ? "block" : "none";
+    }
+  }
+
+  if(searchInp){
+    searchInp.addEventListener("input", filterArticles);
+  }
+
+  filterChips.forEach(function(chip){
+    chip.addEventListener("click", function(){
+      filterChips.forEach(function(c){ c.classList.remove("active"); });
+      chip.classList.add("active");
+      currentCategory = chip.getAttribute("data-filter");
+      filterArticles();
+    });
+  });
+
+})();
+</script>
+</body>
+</html>
