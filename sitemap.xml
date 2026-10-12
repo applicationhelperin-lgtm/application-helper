@@ -95,4 +95,52 @@
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
+
+<!-- 11. सूचना का अधिकार (RTI) टूल -->
+  <url>
+    <loc>https://applicationhelper.in/rti.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- 12. दफ्तर एवं नौकरी टूल -->
+  <url>
+    <loc>https://applicationhelper.in/daftar.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- 13. आर्टिकल: बैंक खाता ट्रांसफर आवेदन -->
+  <url>
+    <loc>https://applicationhelper.in/bank-khata-transfer-application.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- 14. आर्टिकल: जमीन पैमाइश (नाप-जोख) आवेदन -->
+  <url>
+    <loc>https://applicationhelper.in/tehsil-zamin-paimayish-aavedan.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- 15. आर्टिकल: मोबाइल गुमशुदगी पुलिस शिकायत -->
+  <url>
+    <loc>https://applicationhelper.in/police-mobile-gumshuda-complaint.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- 16. आर्टिकल: दाखिल खारिज म्यूटेशन गाइड -->
+  <url>
+    <loc>https://applicationhelper.in/tehsil-dakhil-kharij-mutation-guide.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
 </urlset>
