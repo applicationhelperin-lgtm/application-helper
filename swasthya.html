@@ -262,13 +262,6 @@ button{font:inherit;padding:10px 14px;border-radius:6px;border:1px solid var(--a
     <label for="tpl" id="lblTpl">आवेदन पत्र का प्रकार</label>
     <select id="tpl"></select>
 
-    <label id="lblPageFit">पेज भराव / प्रिंट फैलाव (Page Coverage)</label>
-    <div class="seg" role="radiogroup" aria-label="Page Coverage" id="fitWrap">
-      <label><input type="radio" name="page_fit" value="fit80" checked><span id="optFit80">80% संतुलित (Default)</span></label>
-      <label><input type="radio" name="page_fit" value="fit90"><span id="optFit90">90% बड़ा (Full)</span></label>
-      <label><input type="radio" name="page_fit" value="compact"><span id="optFitCompact">कॉम्पैक्ट (छोटा)</span></label>
-    </div>
-
     <label id="lblGender">आवेदक / प्रार्थी</label>
     <div class="seg" role="radiogroup" aria-label="आवेदक" id="genderWrap">
       <label><input type="radio" name="g" value="m" checked><span id="gMale">पुरुष (Male)</span></label>
@@ -280,6 +273,12 @@ button{font:inherit;padding:10px 14px;border-radius:6px;border:1px solid var(--a
     <div class="btns">
       <button class="primary" id="print" type="button">प्रिंट करें</button>
       <button class="ghost" id="clear" type="button">साफ़ करें</button>
+    </div>
+    <label id="lblPageFit">पेज भराव / प्रिंट फैलाव (Page Coverage)</label>
+    <div class="seg" role="radiogroup" aria-label="Page Coverage" id="fitWrap">
+      <label><input type="radio" name="page_fit" value="fit80" checked><span id="optFit80">80% संतुलित (Default)</span></label>
+      <label><input type="radio" name="page_fit" value="fit90"><span id="optFit90">90% बड़ा (Full)</span></label>
+      <label><input type="radio" name="page_fit" value="compact"><span id="optFitCompact">कॉम्पैक्ट (छोटा)</span></label>
     </div>
     <p class="hint" id="uiHint">जो जानकारी नहीं भरेंगे, प्रिंट में वहाँ खाली जगह छूट जाएगी। प्रिंट करने से पहले आप सीधे दाईं ओर पत्र पर क्लिक करके भी कोई बदलाव (एडिट) कर सकते हैं।</p>
   </section>
