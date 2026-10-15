@@ -3,16 +3,16 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>तहसील एवं राजस्व आवेदन पत्र जनरेटर | Tehsil & Revenue Application Generator</title>
+<title>तहसील एवं राजस्व आवेदन पत्र जनरेटर | Application Helper</title>
 <link rel="canonical" href="https://applicationhelper.in/tehsil.html">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;600;700&amp;family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
 :root{--bg:#eef1f5;--panel:#fff;--ink:#1b2430;--muted:#5a6675;--line:#cfd6df;--accent:#1f4e8c;--accent-ink:#fff;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#12161c;--panel:#1c222b;--ink:#e8edf3;--muted:#9aa6b4;--line:#333c48;--accent:#6ea3e6;--accent-ink:#0d1622}}
 :root[data-theme="dark"]{--bg:#12161c;--panel:#1c222b;--ink:#e8edf3;--muted:#9aa6b4;--line:#333c48;--accent:#6ea3e6;--accent-ink:#0d1622}
 html{scroll-padding-top:env(safe-area-inset-top,0px)}
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--ink);font-family:"Noto Sans Devanagari","Inter","Mangal","Nirmala UI",system-ui,sans-serif;line-height:1.5}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Noto Sans Devanagari","Mangal","Nirmala UI",system-ui,sans-serif;line-height:1.5}
 
 /* शीर्ष नेविगेशन बार */
 .top-nav{background:var(--panel);border-bottom:1px solid var(--line);padding:10px 16px;display:flex;align-items:center;justify-content:space-between;max-width:1200px;margin:0 auto;gap:10px;flex-wrap:wrap}
@@ -80,7 +80,7 @@ button{font:inherit;padding:10px 14px;border-radius:6px;border:1px solid var(--a
   font-size:min(12.5pt,2.2cqw);
   line-height:1.72;
   box-shadow:0 2px 12px rgba(0,0,0,.18);
-  font-family:"Noto Sans Devanagari","Inter","Mangal","Nirmala UI",sans-serif;
+  font-family:"Noto Sans Devanagari","Mangal","Nirmala UI",sans-serif;
   overflow:hidden;
 }
 .paper h2{font-size:1.26em;text-align:center;margin:0 0 1.05em;text-decoration:underline;text-underline-offset:.25em;font-weight:700}
@@ -97,6 +97,16 @@ button{font:inherit;padding:10px 14px;border-radius:6px;border:1px solid var(--a
   line-height:1.62;
 }
 .paper .land-grid{display:grid;grid-template-columns:1fr 1fr;gap:4px 14px}
+.paper .chouhaddi-box{
+  background:#f9fafb;
+  border:1.2px solid #cbd5e1;
+  border-radius:4px;
+  padding:8px 14px;
+  margin:8px 0 12px;
+  font-size:0.96em;
+  line-height:1.62;
+}
+.paper .chouhaddi-grid{display:grid;grid-template-columns:1fr 1fr;gap:4px 14px}
 .paper .enclosure-box{margin-top:1.1em;padding-top:.65em;border-top:1px dashed #aaa;font-size:0.92em;line-height:1.58}
 .paper .enclosure-box b{display:block;margin-bottom:3px}
 .paper .enclosure-list{margin:0;padding-left:18px}
@@ -167,7 +177,7 @@ button{font:inherit;padding:10px 14px;border-radius:6px;border:1px solid var(--a
     margin-bottom: 0.9em !important;
     line-height: 1.62 !important;
   }
-  .paper .land-box{
+  .paper .land-box, .paper .chouhaddi-box{
     background: #fff !important;
     border: 1.2px solid #000 !important;
     padding: 8px 14px !important;
@@ -217,8 +227,8 @@ button{font:inherit;padding:10px 14px;border-radius:6px;border:1px solid var(--a
 <body>
 
 <div class="top-nav">
-  <a href="index.html" id="navHomeLink">← मुख्य पोर्टल (Home Portal)</a>
-  <span class="portal-title" id="navPortalTitle">राजस्व एवं तहसील प्रभाग</span>
+  <a href="index.html">← मुख्य पोर्टल</a>
+  <span class="portal-title">राजस्व एवं तहसील प्रभाग</span>
   <button id="themeToggleBtn" type="button" class="theme-btn">
     <span id="thIcon">🌙</span> <span id="thText">नाइट मोड</span>
   </button>
@@ -226,32 +236,26 @@ button{font:inherit;padding:10px 14px;border-radius:6px;border:1px solid var(--a
 
 <div class="app">
   <aside class="security-banner">
-    <span id="uiBanner">🔒 <strong>100% सुरक्षित एवं निजी:</strong> यह टूल पूरी तरह आपके डिवाइस पर चलता है। आपका कोई भी डेटा सर्वर पर नहीं भेजा जाता। यदि कोई जानकारी नहीं डालना चाहते, तो खाली छोड़ दें—प्रिंट के बाद पेन से भर सकते हैं।</span>
+    <span>🔒 <strong>100% सुरक्षित एवं निजी:</strong> यह टूल पूरी तरह आपके डिवाइस पर चलता है। आपका कोई भी डेटा सर्वर पर नहीं भेजा जाता। यदि कोई जानकारी नहीं डालना चाहते, तो खाली छोड़ दें—प्रिंट के बाद पेन से भर सकते हैं।</span>
   </aside>
 
   <section class="form" aria-label="आवेदन पत्र सेटिंग्स">
-    <h1 id="uiHeading">तहसील एवं राजस्व आवेदन पत्र</h1>
+    <h1>तहसील एवं राजस्व आवेदन पत्र</h1>
 
-    <label id="lblLang">भाषा चुनें / Choose Language</label>
-    <div class="seg" role="radiogroup" aria-label="Language">
-      <label><input type="radio" name="lang" value="hi" checked><span id="optLangHi">हिंदी (Hindi)</span></label>
-      <label><input type="radio" name="lang" value="en"><span id="optLangEn">English</span></label>
-    </div>
-
-    <label for="tpl" id="lblTpl">आवेदन का प्रकार</label>
+    <label for="tpl">आवेदन का प्रकार</label>
     <select id="tpl"></select>
 
-    <label id="lblGender">आवेदक</label>
+    <label>आवेदक</label>
     <div class="seg" role="radiogroup" aria-label="आवेदक" id="genderWrap">
-      <label><input type="radio" name="g" value="m" checked><span id="gMale">पुरुष (Male)</span></label>
-      <label><input type="radio" name="g" value="f"><span id="gFemale">महिला (Female)</span></label>
+      <label><input type="radio" name="g" value="m" checked><span>पुरुष</span></label>
+      <label><input type="radio" name="g" value="f"><span>महिला</span></label>
     </div>
 
     <div class="female-rel-wrap" id="femaleRelWrap" style="display:none">
-      <label style="margin-top:0" id="lblFemaleRel">संबंध प्रकार / Relation Type:</label>
+      <label style="margin-top:0">संबंध प्रकार:</label>
       <div class="seg">
-        <label><input type="radio" name="f_rel" value="daughter" checked><span id="optDaughter">पुत्री (D/o - पिता)</span></label>
-        <label><input type="radio" name="f_rel" value="wife"><span id="optWife">पत्नी (W/o - पति)</span></label>
+        <label><input type="radio" name="f_rel" value="daughter" checked><span>पुत्री (पिता का नाम)</span></label>
+        <label><input type="radio" name="f_rel" value="wife"><span>पत्नी (पति का नाम)</span></label>
       </div>
     </div>
 
@@ -262,29 +266,21 @@ button{font:inherit;padding:10px 14px;border-radius:6px;border:1px solid var(--a
       <button class="ghost" id="clear" type="button">साफ़ करें</button>
     </div>
 
-     <label id="lblPageFit">पेज भराव / प्रिंट फैलाव (Page Coverage)</label>
-    <div class="seg" role="radiogroup" aria-label="Page Coverage" id="fitWrap">
-      <label><input type="radio" name="page_fit" value="fit80" checked><span id="optFit80">80% संतुलित (Default)</span></label>
-      <label><input type="radio" name="page_fit" value="fit90"><span id="optFit90">90% बड़ा (Full)</span></label>
-      <label><input type="radio" name="page_fit" value="compact"><span id="optFitCompact">कॉम्पैक्ट (छोटा)</span></label>
+    <label>पेज भराव / प्रिंट फैलाव</label>
+    <div class="seg" role="radiogroup" aria-label="पेज भराव" id="fitWrap">
+      <label><input type="radio" name="page_fit" value="fit80" checked><span>80% संतुलित (डिफ़ॉल्ट)</span></label>
+      <label><input type="radio" name="page_fit" value="fit90"><span>90% बड़ा (पूरा पेज)</span></label>
+      <label><input type="radio" name="page_fit" value="compact"><span>कॉम्पैक्ट (छोटा)</span></label>
     </div>
     
-    <p class="hint" id="uiHint">जो जानकारी नहीं भरेंगे, प्रिंट में वहाँ खाली जगह छूट जाएगी। प्रिंट करने से पहले आप सीधे दाईं ओर पत्र पर क्लिक करके भी कोई बदलाव (एडिट) कर सकते हैं।</p>
+    <p class="hint">जो जानकारी नहीं भरेंगे, प्रिंट में वहाँ खाली जगह छूट जाएगी। प्रिंट करने से पहले आप सीधे दाईं ओर पत्र पर क्लिक करके भी कोई बदलाव कर सकते हैं।</p>
   </section>
 
   <div class="sheetwrap"><article class="paper" id="paper" contenteditable="true" spellcheck="false" aria-label="आवेदन पत्र पूर्वावलोकन"></article></div>
 </div>
 
 <script>
-
 (function(){
-  // 1. मुख्य पेज (index.html) की भाषा और थीम को स्वतः लोड करें
-  var curLang = "hi";
-  try {
-    var savedLang = localStorage.getItem("app_lang");
-    if(savedLang === "en" || savedLang === "hi") curLang = savedLang;
-  } catch(e){}
-
   var dark = false;
   try {
     dark = localStorage.getItem("app_theme") === "dark";
@@ -297,16 +293,14 @@ button{font:inherit;padding:10px 14px;border-radius:6px;border:1px solid var(--a
   function $(id){ return document.getElementById(id); }
   function esc(s){ return (s||"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;"); }
 
-  // थीम बटन अपडेट
   function updateThemeUI(){
     var icon = $("thIcon");
     var txt = $("thText");
     if(!icon || !txt) return;
     icon.textContent = dark ? "☀️" : "🌙";
-    txt.textContent = dark ? 
-      (curLang === "en" ? "Light Mode" : "लाइट मोड") : 
-      (curLang === "en" ? "Night Mode" : "नाइट मोड");
+    txt.textContent = dark ? "लाइट मोड" : "नाइट मोड";
   }
+  updateThemeUI();
 
   var thBtn = $("themeToggleBtn");
   if(thBtn){
@@ -329,68 +323,75 @@ button{font:inherit;padding:10px 14px;border-radius:6px;border:1px solid var(--a
   V.state = "उत्तर प्रदेश";
 
   var F = {
-    tehsil: ["तहसील का नाम", "t", 16, 0, "Tehsil Name"],
-    district: ["जनपद / जिला", "t", 16, 0, "District Name"],
-    state: ["राज्य", "t", 14, 0, "State"],
-    name: ["आवेदक का नाम", "t", 22, 0, "Applicant Name"],
-    parent_name: ["पिता / पति का नाम", "t", 22, 0, "Father / Husband Name"],
-    village: ["ग्राम / मोहल्ला (निवास)", "t", 18, 0, "Village / Locality (Residence)"],
-    post: ["पोस्ट ऑफिस (वैकल्पिक)", "t", 16, 0, "Post Office (Optional)"],
-    thana: ["थाना (वैकल्पिक)", "t", 16, 0, "Police Station (Optional)"],
-    mobile: ["मोबाइल नंबर", "n", 12, 10, "Mobile Number"],
-    place: ["स्थान", "t", 14, 0, "Place"],
-    date: ["दिनांक (DD/MM/YYYY)", "d", 11, 0, "Date (DD/MM/YYYY)"],
+    tehsil: ["तहसील का नाम", "t", 16, 0],
+    district: ["जनपद / जिला", "t", 16, 0],
+    state: ["राज्य", "t", 14, 0],
+    name: ["आवेदक का नाम", "t", 22, 0],
+    parent_name: ["पिता / पति का नाम", "t", 22, 0],
+    village: ["ग्राम / मोहल्ला (निवास)", "t", 18, 0],
+    post: ["पोस्ट ऑफिस (वैकल्पिक)", "t", 16, 0],
+    thana: ["थाना (वैकल्पिक)", "t", 16, 0],
+    mobile: ["मोबाइल नंबर", "n", 12, 10],
+    place: ["स्थान", "t", 14, 0],
+    date: ["दिनांक (DD/MM/YYYY)", "d", 11, 0],
 
-    land_village: ["भूमि स्थित ग्राम का नाम (यदि अलग हो)", "t", 18, 0, "Land Village Name (if different)"],
-    gata: ["गाटा / खसरा संख्या", "t", 14, 0, "Gata / Khasra No."],
-    khata: ["खाता संख्या", "t", 14, 0, "Khata No."],
-    area: ["क्षेत्रफल (हेक्टेयर / बीघा)", "t", 18, 0, "Land Area (Hectare/Bigha)"],
-    land_desc: ["भूमि की स्थिति / स्थान का विवरण", "t", 24, 0, "Land Location / Description"],
+    land_village: ["भूमि स्थित ग्राम का नाम (यदि अलग हो)", "t", 18, 0],
+    gata: ["गाटा / खसरा संख्या", "t", 14, 0],
+    khata: ["खाता संख्या", "t", 14, 0],
+    area: ["क्षेत्रफल (हेक्टेयर / बीघा)", "t", 18, 0],
+    land_desc: ["भूमि की स्थिति / स्थान का विवरण", "t", 24, 0],
 
-    neighbor_name: ["पड़ोसी / दूसरे पक्ष का नाम", "t", 22, 0, "Neighbor / Opposite Party Name"],
-    med_action: ["मेड़ संबंधी कृत्य (काटने/हटाने/बदलने)", "t", 18, 0, "Boundary Action (Cut/Removed/Shifted)"],
-    encroacher_name: ["कब्जा / अतिक्रमण करने वाले का नाम", "t", 22, 0, "Encroacher Name"],
-    encroach_part: ["कब्जा किए गए हिस्से का विवरण", "t", 24, 0, "Encroached Portion / Area Details"],
-    chakroad_gata: ["चकरोड का गाटा संख्या", "t", 14, 0, "Chakroad Gata No."],
-    encroach_type: ["अतिक्रमण का प्रकार (निर्माण/बाड़ आदि)", "t", 22, 0, "Encroachment Type (Wall/Fencing)"],
+    // चौहद्दी फील्ड्स (केवल पैमाइश और सीमांकन फॉर्म के लिए)
+    east_owner: ["पूर्व दिशा (East) से सटे खेत के मालिक का नाम", "t", 22, 0],
+    west_owner: ["पश्चिम दिशा (West) से सटे खेत के मालिक का नाम", "t", 22, 0],
+    north_owner: ["उत्तर दिशा (North) से सटे खेत या रास्ते का विवरण", "t", 22, 0],
+    south_owner: ["दक्षिण दिशा (South) से सटे खेत के मालिक का नाम", "t", 22, 0],
 
-    deed_type: ["विलेख का प्रकार (बैनामा / विक्रय विलेख)", "t", 18, 0, "Deed Type (Sale Deed / Bainama)"],
-    sale_date: ["पंजीकरण / बैनामा दिनांक", "d", 11, 0, "Registration / Sale Date"],
-    deed_no: ["पंजीकृत दस्तावेज संख्या", "t", 16, 0, "Registered Document No."],
-    sub_reg_office: ["उप-निबंधक कार्यालय का नाम", "t", 20, 0, "Sub-Registrar Office Name"],
+    neighbor_name: ["पड़ोसी / दूसरे पक्ष का नाम", "t", 22, 0],
+    med_action: ["मेड़ संबंधी कृत्य (काटने/हटाने/बदलने)", "t", 18, 0],
+    encroacher_name: ["कब्जा / अतिक्रमण करने वाले का नाम", "t", 22, 0],
+    encroach_part: ["कब्जा किए गए हिस्से का विवरण", "t", 24, 0],
+    chakroad_gata: ["चकरोड का गाटा संख्या", "t", 14, 0],
+    encroach_type: ["अतिक्रमण का प्रकार (निर्माण/बाड़ आदि)", "t", 22, 0],
 
-    deceased_name: ["मृतक का नाम", "t", 22, 0, "Deceased Name"],
-    deceased_parent: ["मृतक के पिता/पति का नाम", "t", 22, 0, "Deceased Father/Husband Name"],
-    deceased_rel: ["मृतक का संबंध (उदा: पुत्र श्री)", "t", 16, 0, "Deceased Relation"],
-    death_date: ["मृत्यु की तारीख", "d", 11, 0, "Date of Death"],
-    applicant_rel: ["आवेदक का मृतक से संबंध (पुत्र/पत्नी आदि)", "t", 16, 0, "Applicant Relation with Deceased"],
-    heirs: ["वारिसानों का विवरण (1. नाम (पुत्र), 2. नाम (पुत्री))", "t", 32, 0, "Legal Heirs Details"],
+    deed_type: ["विलेख का प्रकार (बैनामा / विक्रय विलेख)", "t", 18, 0],
+    sale_date: ["पंजीकरण / बैनामा दिनांक", "d", 11, 0],
+    deed_no: ["पंजीकृत दस्तावेज संख्या", "t", 16, 0],
+    sub_reg_office: ["उप-निबंधक कार्यालय का नाम", "t", 20, 0],
 
-    wrong_name: ["अभिलेख में दर्ज गलत नाम", "t", 22, 0, "Incorrect Name in Records"],
-    proof_doc: ["सही नाम का प्रमाण दस्तावेज (आधार/पहचान-पत्र)", "t", 24, 0, "Identity / Proof Document"],
+    deceased_name: ["मृतक का नाम", "t", 22, 0],
+    deceased_parent: ["मृतक के पिता/पति का नाम", "t", 22, 0],
+    deceased_rel: ["मृतक का संबंध (उदा: पुत्र श्री)", "t", 16, 0],
+    death_date: ["मृत्यु की तारीख", "d", 11, 0],
+    applicant_rel: ["आवेदक का मृतक से संबंध (पुत्र/पत्नी आदि)", "t", 16, 0],
+    heirs: ["वारिसानों का विवरण (1. नाम (पुत्र), 2. नाम (पुत्री))", "t", 32, 0],
 
-    purpose: ["प्रमाण पत्र का प्रयोजन (शिक्षा/नौकरी/योजना)", "t", 24, 0, "Purpose of Certificate"],
-    ews_purpose: ["EWS प्रमाण पत्र का प्रयोजन (प्रवेश/नौकरी)", "t", 24, 0, "Purpose of EWS Certificate"],
-    haisiyat_purpose: ["हैसियत प्रमाण पत्र का प्रयोजन (ठेका/निविदा)", "t", 24, 0, "Purpose of Solvency Certificate"],
+    wrong_name: ["अभिलेख में दर्ज गलत नाम", "t", 22, 0],
+    proof_doc: ["सही नाम का प्रमाण दस्तावेज (आधार/पहचान-पत्र)", "t", 24, 0],
 
-    crop_name: ["फसल का नाम (गेहूँ / धान / सरसों आदि)", "t", 16, 0, "Crop Name (Wheat/Paddy etc.)"],
-    sown_area: ["बोया गया रकबा / क्षेत्रफल", "t", 16, 0, "Sown Area"],
-    hail_date: ["ओलावृष्टि की तारीख", "d", 11, 0, "Date of Hailstorm"]
+    purpose: ["प्रमाण पत्र का प्रयोजन (शिक्षा/नौकरी/योजना)", "t", 24, 0],
+    ews_purpose: ["EWS प्रमाण पत्र का प्रयोजन (प्रवेश/नौकरी)", "t", 24, 0],
+    haisiyat_purpose: ["हैसियत प्रमाण पत्र का प्रयोजन (ठेका/निविदा)", "t", 24, 0],
+
+    crop_name: ["फसल का नाम (गेहूँ / धान / सरसों आदि)", "t", 16, 0],
+    sown_area: ["बोया गया रकबा / क्षेत्रफल", "t", 16, 0],
+    hail_date: ["ओलावृष्टि की तारीख", "d", 11, 0]
   };
 
-/* ============ 2) आवेदन पत्र टेम्पलेट्स (हिंदी) ============ */
+/* आवेदन पत्र टेम्पलेट्स (हिंदी) */
 var T = [
-  // 1. पैमाइश
+  // 1. पैमाइश (चौहद्दी के साथ)
   {
     t: "कृषि भूमि की सरकारी पैमाइश कराने हेतु प्रार्थना-पत्र",
-    s: "कृषि भूमि की सरकारी पैमाइश कराने हेतु प्रार्थना-पत्र।",
+    s: "कृषि भूमि की सरकारी पैमाइश कराने हेतु प्रार्थना-पत्र",
     auth: "श्रीमान उपजिलाधिकारी महोदय,",
-    keys: ["tehsil", "district", "name", "parent_name", "village", "post", "thana", "land_village", "gata", "khata", "area", "mobile", "place", "date"],
+    keys: ["tehsil", "district", "name", "parent_name", "village", "post", "thana", "land_village", "gata", "khata", "area", "east_owner", "west_owner", "north_owner", "south_owner", "mobile", "place", "date"],
     hasLand: true,
     intro: "सविनय निवेदन है कि मैं {name}, {rel} {parent_name}, निवासी {addr_full} का/की निवासी हूँ।",
     paras: [
-      "मेरी कृषि भूमि ग्राम {land_village} में स्थित है, जिसका विवरण निम्नवत है—",
+      "मेरी कृषि भूमि ग्राम {land_village} में स्थित है, जिसका विवरण एवं चौहद्दी निम्नवत है—",
       "LAND_BOX",
+      "CHOUHADDI_BOX",
       "उक्त भूमि की वास्तविक माप एवं अभिलेखों में दर्ज भूमि के क्षेत्रफल की स्थिति स्पष्ट कराने के लिए उसकी सरकारी पैमाइश कराया जाना आवश्यक है। अतः श्रीमान जी से विनम्र निवेदन है कि संबंधित राजस्व कर्मचारी/अधिकारी को नियमानुसार मौके पर भेजकर उक्त भूमि की पैमाइश कराने तथा आवश्यक कार्यवाही करने की कृपा करें।",
       "मैं पैमाइश के संबंध में आवश्यक अभिलेख एवं अन्य जानकारी उपलब्ध कराने तथा नियमानुसार पूर्ण सहयोग करने के लिए तैयार हूँ।",
       "अतः श्रीमान जी से निवेदन है कि प्रकरण की जांच कर नियमानुसार आवश्यक कार्यवाही करने की कृपा करें।"
@@ -403,17 +404,18 @@ var T = [
     ]
   },
 
-  // 2. सीमांकन (हदबरारी)
+  // 2. सीमांकन (हदबरारी - चौहद्दी के साथ)
   {
     t: "कृषि भूमि के सीमांकन (हदबरारी) कराए जाने हेतु प्रार्थना-पत्र",
     s: "कृषि भूमि के सीमांकन (हदबरारी) कराए जाने हेतु प्रार्थना-पत्र।",
     auth: "श्रीमान उपजिलाधिकारी महोदय,",
-    keys: ["tehsil", "district", "name", "parent_name", "village", "post", "thana", "land_village", "gata", "khata", "area", "land_desc", "mobile", "place", "date"],
+    keys: ["tehsil", "district", "name", "parent_name", "village", "post", "thana", "land_village", "gata", "khata", "area", "land_desc", "east_owner", "west_owner", "north_owner", "south_owner", "mobile", "place", "date"],
     hasLand: true,
     intro: "सविनय निवेदन है कि मैं {name}, {rel} {parent_name}, निवासी {addr_full} हूँ। मेरी कृषि भूमि ग्राम {land_village}, तहसील {tehsil}, जनपद {district} में स्थित है।",
     paras: [
-      "उक्त भूमि का विवरण निम्नलिखित है—",
+      "उक्त भूमि का विवरण एवं चौहद्दी निम्नलिखित है—",
       "LAND_BOX",
+      "CHOUHADDI_BOX",
       "उक्त भूमि की वास्तविक सीमाओं को राजस्व अभिलेख एवं उपलब्ध नक्शे के आधार पर मौके पर स्पष्ट कराया जाना आवश्यक है। अतः श्रीमान जी से निवेदन है कि नियमानुसार संबंधित राजस्व अधिकारी/कर्मचारी के माध्यम से उक्त भूमि का सीमांकन (हदबरारी) कराने की कृपा करें।",
       "मैं सीमांकन के संबंध में आवश्यक अभिलेख एवं निर्धारित प्रक्रिया के अनुसार आवश्यक सहयोग प्रदान करने के लिए तैयार हूँ।",
       "अतः श्रीमान जी से अनुरोध है कि प्रकरण में नियमानुसार आवश्यक कार्यवाही करने की कृपा करें।"
@@ -689,320 +691,6 @@ var T = [
   }
 ];
 
-/* ============ 3) आवेदन पत्र टेम्पलेट्स (English) ============ */
-var T_EN = [
-  // 1. Survey / Paimayish
-  {
-    t: "Application for Government Measurement / Survey (Paimayish) of Agricultural Land",
-    s: "Application for official survey and measurement (Paimayish) of agricultural land.",
-    auth: "The Sub-Divisional Magistrate (SDM),",
-    keys: ["tehsil", "district", "name", "parent_name", "village", "post", "thana", "land_village", "gata", "khata", "area", "mobile", "place", "date"],
-    hasLand: true,
-    intro: "Most respectfully, I, {name}, {rel} {parent_name}, resident of {addr_full}, submit as follows:",
-    paras: [
-      "My agricultural land is situated in Village {land_village}, the details of which are as follows:",
-      "LAND_BOX",
-      "An official measurement/survey of the said land is necessary to ascertain its actual boundaries and verify the area recorded in revenue records. Therefore, it is requested that concerned revenue officials be deputed to conduct an on-site survey and take necessary legal action.",
-      "I undertake to provide all necessary revenue records and extend full cooperation during the measurement process.",
-      "Hence, it is requested that the matter be enquired into and necessary action be taken as per rules."
-    ],
-    encl: [
-      "Copy of Khatauni / Revenue Land Records",
-      "Copy of relevant Land Title Documents",
-      "Copy of Identity Proof (Aadhaar Card)",
-      "Other supporting documents, if applicable"
-    ]
-  },
-
-  // 2. Demarcation (Hadbarari)
-  {
-    t: "Application for Demarcation (Hadbarari) of Agricultural Land",
-    s: "Application for official boundary demarcation (Hadbarari) of agricultural land.",
-    auth: "The Sub-Divisional Magistrate (SDM),",
-    keys: ["tehsil", "district", "name", "parent_name", "village", "post", "thana", "land_village", "gata", "khata", "area", "land_desc", "mobile", "place", "date"],
-    hasLand: true,
-    intro: "Most respectfully, I, {name}, {rel} {parent_name}, resident of {addr_full}, submit that my agricultural land is situated in Village {land_village}, Tehsil {tehsil}, District {district}.",
-    paras: [
-      "The description of the aforesaid land is as follows:",
-      "LAND_BOX",
-      "It is essential to clarify the physical boundaries on-site on the basis of official revenue records and the revenue map. Therefore, it is requested that necessary demarcation (Hadbarari) be conducted through the competent revenue official.",
-      "I am ready to furnish all necessary records and provide required assistance in accordance with the prescribed procedure.",
-      "Hence, it is requested that prompt action be taken in the matter as per revenue laws."
-    ],
-    encl: [
-      "Copy of Village Map (Shajra), if available",
-      "Copy of Khasra, if available",
-      "Copy of Khatauni / Record of Rights",
-      "Copy of Identity Proof (Aadhaar Card)",
-      "Other relevant documents, if applicable"
-    ]
-  },
-
-  // 3. Med Dispute
-  {
-    t: "Application Regarding Field Boundary (Med) Cutting / Boundary Dispute",
-    s: "Application regarding field boundary (Med) cutting and dispute resolution.",
-    auth: "The Sub-Divisional Magistrate (SDM),",
-    keys: ["tehsil", "district", "name", "parent_name", "village", "post", "thana", "land_village", "gata", "khata", "area", "neighbor_name", "med_action", "mobile", "place", "date"],
-    hasLand: true,
-    intro: "Most respectfully, I, {name}, {rel} {parent_name}, resident of {addr_full}, state as follows:",
-    paras: [
-      "My agricultural land is situated in Village {land_village}, details of which are as follows:",
-      "LAND_BOX",
-      "A dispute has arisen regarding the boundary of my land due to the {med_action} of the boundary embankment (Med) by {neighbor_name} possessing adjacent land. This is causing significant hindrance and dispute over the actual boundary.",
-      "Therefore, it is requested that an inquiry be conducted on-site based on revenue records and, if necessary, the land be demarcated/measured to establish the legitimate boundary.",
-      "It is therefore requested that appropriate action be taken in the matter as per rules."
-    ],
-    encl: [
-      "Copy of Khatauni",
-      "Available Land Ownership Documents",
-      "Copy of Identity Proof (Aadhaar Card)",
-      "Other evidence/documents, if available"
-    ]
-  },
-
-  // 4. Illegal Encroachment
-  {
-    t: "Application Regarding Illegal Encroachment on Agricultural Land by Neighbor",
-    s: "Application regarding illegal encroachment / unauthorized possession on agricultural land.",
-    auth: "The Sub-Divisional Magistrate (SDM),",
-    keys: ["tehsil", "district", "name", "parent_name", "village", "post", "thana", "land_village", "gata", "khata", "area", "encroacher_name", "encroach_part", "mobile", "place", "date"],
-    hasLand: true,
-    intro: "Most respectfully, I, {name}, {rel} {parent_name}, resident of {addr_full}, submit that my agricultural land is situated in Village {land_village}, Tehsil {tehsil}, District {district}.",
-    paras: [
-      "The description of my land is as follows:",
-      "LAND_BOX",
-      "A dispute has occurred as {encroacher_name} has unlawfully encroached upon / attempted to take possession of {encroach_part} of my aforesaid land without my consent.",
-      "Therefore, it is requested that an inquiry be made based on revenue records and physical ground conditions, the land be officially measured/demarcated, and appropriate legal action be taken against unauthorized possession.",
-      "Hence, it is requested that necessary legal action be initiated in the interest of justice."
-    ],
-    encl: [
-      "Copy of Khatauni",
-      "Available Land Title Documents",
-      "Copy of Identity Proof (Aadhaar Card)",
-      "Other available evidence/documents"
-    ]
-  },
-
-  // 5. Chakroad Encroachment
-  {
-    t: "Application for Removal of Illegal Encroachment on Public Chakroad (Pathway)",
-    s: "Application for removal of unauthorized encroachment on public Chakroad.",
-    auth: "The Sub-Divisional Magistrate (SDM),",
-    keys: ["tehsil", "district", "name", "parent_name", "village", "post", "thana", "chakroad_gata", "encroacher_name", "encroach_type", "mobile", "place", "date"],
-    hasLand: false,
-    intro: "Most respectfully, this is to bring to your kind notice that public Chakroad situated at Village {village}, Tehsil {tehsil}, District {district}, bearing Gata/Khasra No. {chakroad_gata}, has been illegally encroached upon by {encroacher_name} through {encroach_type}, causing severe obstruction to public movement.",
-    paras: [
-      "The said Chakroad is used by local villagers and farmers for daily transport and agricultural movement. Public convenience is heavily suffering due to this unlawful obstruction.",
-      "Therefore, it is requested that an on-site inspection be conducted through revenue officials and, upon verification of illegal obstruction, the encroachment be removed in accordance with law.",
-      "Hence, it is requested that immediate action be taken in public interest."
-    ],
-    encl: [
-      "Copy of Revenue Map / Records",
-      "Photographs / Evidence of Encroachment, if available",
-      "Copy of Identity Proof (Aadhaar Card)"
-    ]
-  },
-
-  // 6. Mutation (Sale)
-  {
-    t: "Application for Mutation (Dakhil-Kharij) After Purchase of Agricultural Land",
-    s: "Application for mutation (Dakhil-Kharij) of land records following registered purchase.",
-    auth: "The Tehsildar,",
-    keys: ["tehsil", "district", "name", "parent_name", "village", "post", "thana", "land_village", "gata", "khata", "area", "deed_type", "sale_date", "deed_no", "sub_reg_office", "mobile", "place", "date"],
-    hasLand: true,
-    intro: "Most respectfully, I, {name}, {rel} {parent_name}, resident of {addr_full}, state as follows:",
-    paras: [
-      "I have purchased agricultural land situated in Village {land_village}, Tehsil {tehsil}, District {district}, through registered {deed_type} dated {sale_date}. The details of the land are as follows:",
-      "LAND_BOX",
-      "Details of the registered deed are as follows:<br>• Registered Document No.: {deed_no}<br>• Registration Date: {sale_date}<br>• Sub-Registrar Office: {sub_reg_office}",
-      "Therefore, it is requested that mutation (Dakhil-Kharij) proceedings be initiated and my name be duly recorded in the revenue records (Khatauni) as per law.",
-      "Hence, it is requested that necessary order for mutation be passed."
-    ],
-    encl: [
-      "Copy of Registered Sale Deed (Bainama)",
-      "Copy of Current Khatauni",
-      "Copy of Identity Proof (Aadhaar Card)",
-      "Other relevant documents, if applicable"
-    ]
-  },
-
-  // 7. Mutation (Inheritance / Varasat)
-  {
-    t: "Application for Inheritance Mutation (Varasat) in Revenue Land Records",
-    s: "Application for recording names of legal heirs (Varasat mutation) in revenue records.",
-    auth: "The Tehsildar,",
-    keys: ["tehsil", "district", "name", "parent_name", "village", "post", "thana", "deceased_name", "deceased_parent", "deceased_rel", "death_date", "land_village", "gata", "khata", "area", "applicant_rel", "heirs", "mobile", "place", "date"],
-    hasLand: true,
-    intro: "Most respectfully, it is submitted that late {deceased_name}, {deceased_rel} {deceased_parent}, resident of {village}, passed away on {death_date}. The deceased owned agricultural land in Village {land_village}, Tehsil {tehsil}, District {district}.",
-    paras: [
-      "The description of the land recorded in the name of the deceased is as follows:",
-      "LAND_BOX",
-      "Following the demise of the deceased, I/we are the {applicant_rel} and legal heirs. The details of the legal heirs are as under:<br><b>{heirs}</b>",
-      "Therefore, it is requested that after due enquiry, necessary inheritance mutation (Varasat) be carried out and names of eligible legal heirs be entered in the revenue records."
-    ],
-    encl: [
-      "Copy of Death Certificate",
-      "Copy of Khatauni / Revenue Records",
-      "Identity Proof of Applicant",
-      "Family Register Copy / Documents of Legal Heirs",
-      "Other requisite documents, if applicable"
-    ]
-  },
-
-  // 8. Name Correction
-  {
-    t: "Application for Correction of Name Error in Khatauni / Revenue Land Record",
-    s: "Application for clerical correction of applicant's name in revenue records.",
-    auth: "The Tehsildar,",
-    keys: ["tehsil", "district", "name", "parent_name", "village", "post", "thana", "land_village", "gata", "khata", "area", "wrong_name", "proof_doc", "mobile", "place", "date"],
-    hasLand: true,
-    intro: "Most respectfully, I, {name}, {rel} {parent_name}, resident of {addr_full}, state as follows:",
-    paras: [
-      "My name has been recorded incorrectly due to clerical error in the revenue records (Khatauni) for my agricultural land situated in Village {land_village}, Tehsil {tehsil}, District {district}:",
-      "LAND_BOX",
-      "Particulars of the required correction are as follows:<br>• Name recorded incorrectly: <b>{wrong_name}</b><br>• Correct Name (to be recorded): <b>{name}</b><br>• Supporting identity proof submitted: <b>{proof_doc}</b>",
-      "Therefore, it is requested that after verifying the enclosed documents, the clerical error in my name be rectified in the revenue records as per rules."
-    ],
-    encl: [
-      "Copy of Concerned Khatauni",
-      "Copy of Document Showing Correct Name",
-      "Copy of Identity Proof (Aadhaar Card)",
-      "Other relevant documents, if applicable"
-    ]
-  },
-
-  // 9. Domicile
-  {
-    t: "Application for Issuance of Domicile / Residence Certificate",
-    s: "Application for issuance of domicile / permanent residence certificate.",
-    auth: "The Tehsildar,",
-    keys: ["tehsil", "district", "name", "parent_name", "village", "post", "thana", "purpose", "mobile", "place", "date"],
-    hasLand: false,
-    intro: "Most respectfully, I, {name}, {rel} {parent_name}, resident of Village/Locality {village}, Post {post}, Police Station {thana}, Tehsil {tehsil}, District {district}, {state}, am a permanent resident.",
-    paras: [
-      "I require an official Domicile / Residence Certificate of Uttar Pradesh for the purpose of {purpose}.",
-      "Therefore, it is requested that after due verification of the enclosed documents and records, a Domicile Certificate be kindly issued to me."
-    ],
-    encl: [
-      "Copy of Identity Proof (Aadhaar Card / Voter ID)",
-      "Residence proof documents (Electricity Bill / Ration Card)",
-      "Other requisite documents, if applicable"
-    ]
-  },
-
-  // 10. EWS Certificate
-  {
-    t: "Application for Issuance of Economically Weaker Section (EWS) Certificate",
-    s: "Application for issuance of Economically Weaker Section (EWS) certificate.",
-    auth: "The Tehsildar,",
-    keys: ["tehsil", "district", "name", "parent_name", "village", "post", "thana", "ews_purpose", "mobile", "place", "date"],
-    hasLand: false,
-    intro: "Most respectfully, I, {name}, {rel} {parent_name}, resident of {addr_full}, state as follows:",
-    paras: [
-      "I require an Economically Weaker Section (EWS) Certificate for the purpose of {ews_purpose}.",
-      "I satisfy all the requisite income and asset eligibility criteria prescribed for EWS certification and have attached all relevant supporting documents.",
-      "Therefore, it is requested that after necessary verification, an EWS Certificate be kindly issued to me."
-    ],
-    encl: [
-      "Copy of Identity Proof (Aadhaar Card / PAN Card)",
-      "Residence proof documents",
-      "Income proof documents / Income Certificate copy",
-      "Property / Land details or other requisite documents"
-    ]
-  },
-
-  // 11. Solvency (Haisiyat)
-  {
-    t: "Application for Issuance of Solvency (Haisiyat) Certificate",
-    s: "Application for issuance of Solvency (Haisiyat) certificate for financial standing.",
-    auth: "The Tehsildar,",
-    keys: ["tehsil", "district", "name", "parent_name", "village", "post", "thana", "haisiyat_purpose", "mobile", "place", "date"],
-    hasLand: false,
-    intro: "Most respectfully, I, {name}, {rel} {parent_name}, resident of {addr_full}, state as follows:",
-    paras: [
-      "I require an official Solvency (Haisiyat) Certificate for the purpose of {haisiyat_purpose}.",
-      "Complete details and valuation documents regarding my movable and immovable assets are enclosed herewith for assessment.",
-      "Therefore, it is requested that after due enquiry and verification of the enclosed assets, a Solvency Certificate be kindly issued to me."
-    ],
-    encl: [
-      "Copy of Identity Proof and PAN Card",
-      "Details and documents of movable / immovable assets",
-      "Valuation report / Land and Property records",
-      "Affidavit and other requisite documents"
-    ]
-  },
-
-  // 12. Flood Crop Damage
-  {
-    t: "Application for Compensation for Crop Damage Due to Floods",
-    s: "Application for survey and compensation for agricultural crop damage caused by floods.",
-    auth: "The Tehsildar,",
-    keys: ["tehsil", "district", "name", "parent_name", "village", "post", "thana", "land_village", "gata", "khata", "area", "crop_name", "sown_area", "mobile", "place", "date"],
-    hasLand: true,
-    intro: "Most respectfully, I, {name}, {rel} {parent_name}, resident of {addr_full}, submit that my agricultural land is situated in Village {land_village}:",
-    paras: [
-      "Description of the agricultural land is as follows:",
-      "LAND_BOX",
-      "I had cultivated <b>{crop_name}</b> over an area of <b>{sown_area}</b> in the aforesaid land. Due to recent heavy floods, the standing crop has been completely submerged and devastated, causing tremendous financial loss.",
-      "Therefore, it is requested that an on-site survey and assessment of the crop damage be conducted by revenue officials and eligible compensation/relief be sanctioned to me as per government norms."
-    ],
-    encl: [
-      "Copy of Identity Proof (Aadhaar Card)",
-      "Copy of Land Record (Khatauni)",
-      "Available details of sowing / crop cultivation",
-      "Photographs / Evidence of flooded crop, if available"
-    ]
-  },
-
-  // 13. Hailstorm Crop Damage
-  {
-    t: "Application for Compensation for Crop Damage Due to Hailstorm",
-    s: "Application for survey and relief compensation for crop damage caused by hailstorm.",
-    auth: "The Tehsildar,",
-    keys: ["tehsil", "district", "name", "parent_name", "village", "post", "thana", "land_village", "gata", "khata", "area", "crop_name", "sown_area", "hail_date", "mobile", "place", "date"],
-    hasLand: true,
-    intro: "Most respectfully, I, {name}, {rel} {parent_name}, resident of {addr_full}, state as follows:",
-    paras: [
-      "Description of my agricultural land and crop is as follows:",
-      "LAND_BOX",
-      "I had sown <b>{crop_name}</b> over <b>{sown_area}</b> of the aforesaid land. Due to severe hailstorm that occurred on <b>{hail_date}</b>, my standing crop has suffered catastrophic damage, leading to severe financial distress.",
-      "Therefore, it is requested that an on-site assessment of the damage be conducted by competent revenue officials and eligible relief compensation be granted as per government rules."
-    ],
-    encl: [
-      "Copy of Identity Proof (Aadhaar Card)",
-      "Copy of Land Record (Khatauni)",
-      "Particulars of crop cultivation",
-      "Photographs / evidence of hailstorm damage, if available"
-    ]
-  },
-
-  // 14. Drought Crop Damage
-  {
-    t: "Application for Compensation for Crop Damage Due to Drought",
-    s: "Application for survey and compensation for crop devastation due to drought conditions.",
-    auth: "The Tehsildar,",
-    keys: ["tehsil", "district", "name", "parent_name", "village", "post", "thana", "land_village", "gata", "khata", "area", "crop_name", "sown_area", "mobile", "place", "date"],
-    hasLand: true,
-    intro: "Most respectfully, I, {name}, {rel} {parent_name}, resident of {addr_full}, state that my agricultural land is situated in Village {land_village}:",
-    paras: [
-      "Details of the agricultural land are as under:",
-      "LAND_BOX",
-      "I had cultivated <b>{crop_name}</b> over <b>{sown_area}</b> of the said land. Owing to deficient rainfall and prevailing drought conditions, the crop has withered and suffered extreme damage, causing irreparable loss.",
-      "Therefore, it is requested that an on-site inspection and damage assessment be conducted through revenue officials and financial assistance/compensation be provided to me as per rules."
-    ],
-    encl: [
-      "Copy of Identity Proof (Aadhaar Card)",
-      "Copy of Land Record (Khatauni)",
-      "Particulars of crop cultivation",
-      "Photographs / evidence of drought damage, if available"
-    ]
-  }
-];
-
-
-  function getList(){ return curLang === "en" ? T_EN : T; }
-
   function getGender(){
     var r = document.querySelector("input[name=g]:checked");
     return r ? r.value : "m";
@@ -1023,81 +711,49 @@ var T_EN = [
     return '<span class="blank" style="min-width:' + w + 'ch"></span>';
   }
 
-  function getRelText(isEn){
+  function getRelText(){
     var g = getGender();
-    if(g === "m"){
-      return isEn ? "S/o" : "पुत्र";
-    }
-    var frel = getFemaleRel();
-    if(frel === "wife"){
-      return isEn ? "W/o" : "पत्नी";
-    }
-    return isEn ? "D/o" : "पुत्री";
+    if(g === "m") return "पुत्र";
+    return getFemaleRel() === "wife" ? "पत्नी" : "पुत्री";
   }
 
-  function getParentLabel(isEn){
+  function getParentLabel(){
     var g = getGender();
-    if(g === "m"){
-      return isEn ? "Father's Name" : "पिता का नाम";
-    }
-    var frel = getFemaleRel();
-    if(frel === "wife"){
-      return isEn ? "Husband's Name" : "पति का नाम";
-    }
-    return isEn ? "Father's Name" : "पिता का नाम";
+    if(g === "m") return "पिता का नाम";
+    return getFemaleRel() === "wife" ? "पति का नाम" : "पिता का नाम";
   }
 
-  function getFullAddress(isEn){
-    var v = V.village ? f("village") : f("village");
-    var parts = [];
-    if(isEn){
-      parts.push("Village " + v);
-      if(V.post) parts.push("Post " + f("post"));
-      if(V.thana) parts.push("Police Station " + f("thana"));
-      parts.push("Tehsil " + f("tehsil"));
-      parts.push("District " + f("district"));
-    } else {
-      parts.push("ग्राम " + v);
-      if(V.post) parts.push("पोस्ट " + f("post"));
-      if(V.thana) parts.push("थाना " + f("thana"));
-      parts.push("तहसील " + f("tehsil"));
-      parts.push("जनपद " + f("district"));
-    }
+  function getFullAddress(){
+    var v = f("village");
+    var parts = ["ग्राम " + v];
+    if(V.post) parts.push("पोस्ट " + f("post"));
+    if(V.thana) parts.push("थाना " + f("thana"));
+    parts.push("तहसील " + f("tehsil"));
+    parts.push("जनपद " + f("district"));
     return parts.join(", ");
   }
 
-  function gen(str, t, isEn){
+  function gen(str, t){
     if(!str) return "";
     var res = str;
-    res = res.replace(/\{rel\}/g, getRelText(isEn));
-    res = res.replace(/\{addr_full\}/g, getFullAddress(isEn));
+    res = res.replace(/\{rel\}/g, getRelText());
+    res = res.replace(/\{addr_full\}/g, getFullAddress());
     
-    // Land village default to applicant village if empty
     var lVillage = V.land_village ? f("land_village") : (V.village ? f("village") : f("land_village"));
     res = res.replace(/\{land_village\}/g, lVillage);
 
-    // Replace all other known keys
     t.keys.forEach(function(k){
       var regex = new RegExp("\\{" + k + "\\}", "g");
       res = res.replace(regex, f(k));
     });
 
-    var st = (!V.state || V.state === "उत्तर प्रदेश" || V.state === "Uttar Pradesh") ? 
-      (isEn ? "Uttar Pradesh" : "उत्तर प्रदेश") : esc(V.state);
+    var st = (!V.state || V.state === "उत्तर प्रदेश") ? "उत्तर प्रदेश" : esc(V.state);
     res = res.replace(/\{state\}/g, st);
     return res;
   }
 
-  function renderLandBox(t, isEn){
+  function renderLandBox(){
     var lVillage = V.land_village ? f("land_village") : (V.village ? f("village") : f("land_village"));
-    if(isEn){
-      return '<div class="land-box"><div class="land-grid">' +
-        '<div><b>• Gata / Khasra No.:</b> ' + f("gata") + '</div>' +
-        '<div><b>• Khata No.:</b> ' + f("khata") + '</div>' +
-        '<div><b>• Total Area:</b> ' + f("area") + '</div>' +
-        '<div><b>• Village / Tehsil:</b> ' + lVillage + ', ' + f("tehsil") + '</div>' +
-        '</div></div>';
-    }
     return '<div class="land-box"><div class="land-grid">' +
       '<div><b>• गाटा/खसरा संख्या:</b> ' + f("gata") + '</div>' +
       '<div><b>• खाता संख्या:</b> ' + f("khata") + '</div>' +
@@ -1106,13 +762,19 @@ var T_EN = [
       '</div></div>';
   }
 
+  function renderChouhaddiBox(){
+    return '<div class="chouhaddi-box"><b>खेत की चौहद्दी (सीमावर्ती काश्तकार):</b><div class="chouhaddi-grid" style="margin-top:6px">' +
+      '<div>1. <b>पूर्व दिशा (East):</b> ' + f("east_owner") + '</div>' +
+      '<div>2. <b>पश्चिम दिशा (West):</b> ' + f("west_owner") + '</div>' +
+      '<div>3. <b>उत्तर दिशा (North):</b> ' + f("north_owner") + '</div>' +
+      '<div>4. <b>दक्षिण दिशा (South):</b> ' + f("south_owner") + '</div>' +
+      '</div></div>';
+  }
+
   function render(){
-    var list = getList();
-    var t = list[cur];
-    var isEn = curLang === "en";
+    var t = T[cur];
     var g = getGender();
 
-    // पेज भराव (80% डिफ़ॉल्ट / 90% बड़ा / कॉम्पैक्ट)
     var fitEl = document.querySelector("input[name=page_fit]:checked");
     var fitVal = fitEl ? fitEl.value : "fit80";
     $("paper").classList.remove("compact", "fit-90");
@@ -1126,31 +788,24 @@ var T_EN = [
       }
     }
 
-    var toLine1 = isEn ? "To," : "सेवा में,";
-    var toOffice = t.auth;
-    var stateName = (!V.state || V.state === "उत्तर प्रदेश" || V.state === "Uttar Pradesh") ? 
-      (isEn ? "Uttar Pradesh" : "उत्तर प्रदेश") : esc(V.state);
-    var toLine3 = isEn ? 
-      ("Tehsil — " + f("tehsil") + ", District — " + f("district") + ", " + stateName + ".") :
-      ("तहसील — " + f("tehsil") + ", जनपद — " + f("district") + ", " + stateName + "।");
-
-    var subjLbl = isEn ? "Subject:" : "विषय:";
-    var salutation = isEn ? "Respected Sir/Madam," : "महोदय,";
-    var closing = isEn ? "Yours faithfully," : (g === "f" ? "भवदीया," : "भवदीय,");
-    var parentLbl = getParentLabel(isEn);
-    var sigLbl = isEn ? "Signature:" : "हस्ताक्षर:";
-    var enclLbl = isEn ? "Enclosures:" : "संलग्नक:";
+    var stateName = (!V.state || V.state === "उत्तर प्रदेश") ? "उत्तर प्रदेश" : esc(V.state);
+    var toLine3 = "तहसील — " + f("tehsil") + ", जनपद — " + f("district") + ", " + stateName + "।";
+    var closing = g === "f" ? "भवदीया," : "भवदीय,";
+    var parentLbl = getParentLabel();
 
     var bodyHtml = t.paras.map(function(p){
       if(p === "LAND_BOX"){
-        return renderLandBox(t, isEn);
+        return renderLandBox();
       }
-      return "<p>" + gen(p, t, isEn) + "</p>";
+      if(p === "CHOUHADDI_BOX"){
+        return renderChouhaddiBox();
+      }
+      return "<p>" + gen(p, t) + "</p>";
     }).join("");
 
     var enclHtml = "";
     if(t.encl && t.encl.length > 0){
-      enclHtml = '<div class="enclosure-box"><b>' + enclLbl + '</b><ol class="enclosure-list">' +
+      enclHtml = '<div class="enclosure-box"><b>संलग्नक:</b><ol class="enclosure-list">' +
         t.encl.map(function(item){ return '<li>' + esc(item) + '</li>'; }).join("") +
         '</ol></div>';
     }
@@ -1159,24 +814,24 @@ var T_EN = [
 
     $("paper").innerHTML = 
       "<h2>" + esc(t.t) + "</h2>" +
-      '<div class="to">' + toLine1 + '<br>' + esc(toOffice) + '<br>' + toLine3 + '</div>' +
-      '<p><b>' + subjLbl + '</b> ' + esc(t.s) + '</p>' +
-      '<p>' + salutation + '</p>' +
-      '<p>' + gen(t.intro, t, isEn) + '</p>' +
+      '<div class="to">सेवा में,<br>' + esc(t.auth) + '<br>' + toLine3 + '</div>' +
+      '<p><b>विषय:</b> ' + esc(t.s) + '</p>' +
+      '<p>महोदय,</p>' +
+      '<p>' + gen(t.intro, t) + '</p>' +
       bodyHtml +
       '<div class="sig">' +
         '<div class="left">' +
-          (isEn ? "Place: " : "स्थान: ") + f("place") + '<br>' +
-          (isEn ? "Date: " : "दिनांक: ") + f("date") + '<br>' +
+          'स्थान: ' + f("place") + '<br>' +
+          'दिनांक: ' + f("date") + '<br>' +
           enclHtml +
         '</div>' +
         '<div class="right">' +
           closing + '<br><br>' +
-          '<b>' + (isEn ? "Name: " : "नाम: ") + '</b>' + f("name") + '<br>' +
+          '<b>नाम: </b>' + f("name") + '<br>' +
           '<b>' + parentLbl + ': </b>' + f("parent_name") + '<br>' +
-          '<b>' + (isEn ? "Address: " : "पता: ") + '</b>' + applicantAddr + '<br>' +
-          '<b>' + (isEn ? "Mobile No.: " : "मोबाइल नंबर: ") + '</b>' + f("mobile") + '<br><br>' +
-          sigLbl + ' <span class="blank" style="min-width:14ch"></span>' +
+          '<b>पता: </b>' + applicantAddr + '<br>' +
+          '<b>मोबाइल नंबर: </b>' + f("mobile") + '<br><br>' +
+          'हस्ताक्षर: <span class="blank" style="min-width:14ch"></span>' +
         '</div>' +
       '</div>';
 
@@ -1184,9 +839,7 @@ var T_EN = [
   }
 
   function build(){
-    var list = getList();
-    var t = list[cur];
-    var isEn = curLang === "en";
+    var t = T[cur];
     var h = "";
 
     t.keys.forEach(function(k){
@@ -1194,12 +847,12 @@ var T_EN = [
       if(!d) return;
       var id = "f_" + k;
       var v = V[k] || "";
-      var lbl = isEn ? (d[4] || d[0]) : d[0];
+      var lbl = d[0];
 
       if(d[1] === "d"){
         h += '<label for="' + id + '">' + lbl + '</label><input id="' + id + '" type="text" inputmode="numeric" placeholder="DD/MM/YYYY" maxlength="10" autocomplete="off" value="' + esc(v) + '">';
       } else if(k === "heirs"){
-        h += '<label for="' + id + '">' + lbl + '</label><textarea id="' + id + '" placeholder="' + (isEn ? "e.g. 1. Ramesh (Son), 2. Sunita (Wife)" : "उदा. 1. रमेश (पुत्र), 2. सुनीता (पत्नी)") + '">' + esc(v) + '</textarea>';
+        h += '<label for="' + id + '">' + lbl + '</label><textarea id="' + id + '" placeholder="उदा. 1. रमेश (पुत्र), 2. सुनीता (पत्नी)">' + esc(v) + '</textarea>';
       } else {
         var itype = d[1] === "n" ? "tel" : "text";
         var maxAttr = d[3] ? (' maxlength="' + d[3] + '"') : "";
@@ -1216,7 +869,6 @@ var T_EN = [
         V[k] = el.value;
         render();
       });
-      // Date Auto-Slash formatting
       if(F[k] && F[k][1] === "d"){
         el.addEventListener("keydown", function(e){
           if(e.key === "Backspace" || e.key === "Delete"){
@@ -1248,72 +900,16 @@ var T_EN = [
     });
   }
 
-  function updateStaticUI(){
-    var isEn = curLang === "en";
-    document.documentElement.lang = curLang;
-
-    if($("navHomeLink")){
-      $("navHomeLink").textContent = isEn ? "← Home Portal" : "← मुख्य पोर्टल (Home Portal)";
-    }
-    if($("navPortalTitle")){
-      $("navPortalTitle").textContent = isEn ? "Revenue & Tehsil Division" : "राजस्व एवं तहसील प्रभाग";
-    }
-
-    if($("uiBanner")){
-      $("uiBanner").innerHTML = isEn ?
-        "🔒 <strong>100% Safe & Private:</strong> This tool runs entirely locally on your device. No data is sent to any server. If you do not wish to enter any detail, leave it blank—it can be filled with a pen after printing." :
-        "🔒 <strong>100% सुरक्षित एवं निजी:</strong> यह टूल पूरी तरह आपके डिवाइस पर चलता है। आपका कोई भी डेटा सर्वर पर नहीं भेजा जाता। यदि कोई जानकारी नहीं डालना चाहते, तो खाली छोड़ दें—प्रिंट के बाद पेन से भर सकते हैं।";
-    }
-
-    $("uiHeading").innerText = isEn ? "Tehsil & Revenue Applications" : "तहसील एवं राजस्व आवेदन पत्र";
-    $("lblLang").innerText = isEn ? "Choose Language" : "भाषा चुनें";
-    $("optLangHi").innerText = isEn ? "Hindi (हिंदी)" : "हिंदी (Hindi)";
-    $("optLangEn").innerText = "English";
-
-    $("lblTpl").innerText = isEn ? "Application Type" : "आवेदन का प्रकार";
-    $("lblPageFit").innerText = isEn ? "Page Coverage / Size" : "पेज भराव / प्रिंट फैलाव";
-    $("optFit80").innerText = isEn ? "80% Balanced (Default)" : "80% संतुलित (डिफ़ॉल्ट)";
-    $("optFit90").innerText = isEn ? "90% Large (Full Page)" : "90% बड़ा (पूरा पेज)";
-    $("optFitCompact").innerText = isEn ? "Compact" : "कॉम्पैक्ट (छोटा)";
-
-    $("lblGender").innerText = isEn ? "Applicant Gender" : "आवेदक";
-    $("gMale").innerText = isEn ? "Male" : "पुरुष (Male)";
-    $("gFemale").innerText = isEn ? "Female" : "महिला (Female)";
-
-    $("lblFemaleRel").innerText = isEn ? "Relation Type:" : "संबंध प्रकार / Relation Type:";
-    $("optDaughter").innerText = isEn ? "Daughter (D/o - Father)" : "पुत्री (D/o - पिता)";
-    $("optWife").innerText = isEn ? "Wife (W/o - Husband)" : "पत्नी (W/o - पति)";
-
-    $("print").innerText = isEn ? "Print Application" : "प्रिंट करें";
-    $("clear").innerText = isEn ? "Clear Form" : "साफ़ करें";
-    $("uiHint").innerText = isEn ?
-      "Fields left blank will remain empty in print so you can fill them by pen. You can also directly click and edit any text on the letter before printing." :
-      "जो जानकारी नहीं भरेंगे, प्रिंट में वहाँ खाली जगह छूट जाएगी। प्रिंट करने से पहले आप सीधे दाईं ओर पत्र पर क्लिक करके भी कोई बदलाव (एडिट) कर सकते हैं।";
-
-    var formSec = document.querySelector("section.form");
-    if(formSec && formSec.setAttribute) formSec.setAttribute("aria-label", isEn ? "Application Form Settings" : "आवेदन पत्र सेटिंग्स");
-    var paperEl = $("paper");
-    if(paperEl && paperEl.setAttribute) paperEl.setAttribute("aria-label", isEn ? "Application Letter Preview" : "आवेदन पत्र पूर्वावलोकन");
-
-    // रेडियो बटन को सक्रिय भाषा के अनुसार सेट करें
-    var langRadio = document.querySelector('input[name=lang][value="' + curLang + '"]');
-    if(langRadio) langRadio.checked = true;
-
-    updateThemeUI();
-
-    var list = getList();
-    $("tpl").innerHTML = list.map(function(t, i){
-      return '<option value="' + i + '"' + (i === cur ? ' selected' : '') + '>' + (i + 1) + '. ' + esc(t.t) + '</option>';
-    }).join("");
-  }
+  $("tpl").innerHTML = T.map(function(t, i){
+    return '<option value="' + i + '"' + (i === cur ? ' selected' : '') + '>' + (i + 1) + '. ' + esc(t.t) + '</option>';
+  }).join("");
 
   function updatePrintTitle(){
     var h2 = $("paper") ? $("paper").querySelector("h2") : null;
     if(h2 && h2.innerText && h2.innerText.trim()){
       document.title = h2.innerText.trim();
-    } else {
-      var list = getList();
-      if(list && list[cur]) document.title = list[cur].t;
+    } else if(T[cur]) {
+      document.title = T[cur].t;
     }
   }
 
@@ -1355,22 +951,9 @@ var T_EN = [
     });
   });
 
-  // भाषा बदलने पर localStorage में भी सेव करें ताकि मेन पेज पर वापस जाने पर भी याद रहे
-  document.querySelectorAll("input[name=lang]").forEach(function(r){
-    r.addEventListener("change", function(){
-      curLang = document.querySelector("input[name=lang]:checked").value;
-      try { localStorage.setItem("app_lang", curLang); } catch(e){}
-      updateStaticUI();
-      build();
-      render();
-    });
-  });
-
-  updateStaticUI();
   build();
   render();
 })();
-
 </script>
 </body>
 </html>
