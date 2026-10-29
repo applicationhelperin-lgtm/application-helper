@@ -1,32 +1,39 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="hi" data-theme="light">
 <head>
 <meta name="google-site-verification" content="3k6_fm823A4OTex9SgbYdRPohFZrgeb5BPeqMaj6gug" />
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<!-- गूगल टैग -->
+<title>Application Helper — औपचारिक पत्र जनरेटर</title>
+
+<!-- गूगल एनालिटिक्स टैग -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-W0GLC3GJGZ"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-W0GLC3GJGZ');
 </script>
 
-<!-- 1. मेटा विवरण -->
+<!-- 1. मेटा विवरण व साइट नेम -->
 <meta name="description" content="Application Helper — तहसील, ग्राम पंचायत, बैंक, पुलिस, बिजली विभाग, स्कूल और दफ्तर के लिए औपचारिक आवेदन पत्र 1 मिनट में ऑनलाइन तैयार और प्रिंट करें।">
 <meta name="application-name" content="Application Helper">
 <meta name="apple-mobile-web-app-title" content="Application Helper">
 
-<!-- सोशल मीडिया व साइट नेम मेटा टैग -->
+<!-- सोशल मीडिया व ओपन ग्राफ टैग -->
 <meta property="og:site_name" content="Application Helper">
-<meta property="og:title" content="Application Helper>
+<meta property="og:title" content="Application Helper — औपचारिक पत्र जनरेटर">
+<meta property="og:description" content="तहसील, ग्राम पंचायत, बैंक, पुलिस और स्कूल के लिए औपचारिक आवेदन पत्र ऑनलाइन तैयार करें।">
 <meta property="og:url" content="https://applicationhelper.in/">
 <meta property="og:type" content="website">
 <meta property="og:image" content="https://applicationhelper.in/favicon.png">
 
-<!-- 2. गूगल का आधिकारिक साइट नेम और लोगो स्कीमा -->
+<!-- 2. गूगल सर्च और ब्राउज़र के लिए फेविकॉन (Favicon) -->
+<link rel="icon" type="image/png" sizes="192x192" href="https://applicationhelper.in/favicon.png">
+<link rel="shortcut icon" href="https://applicationhelper.in/favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="https://applicationhelper.in/favicon.png">
+
+<!-- 3. गूगल आधिकारिक साइट नेम व ऑर्गनाइजेशन स्कीमा (Structured Data) -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -35,7 +42,7 @@
       "@type": "WebSite",
       "@id": "https://applicationhelper.in/#website",
       "name": "Application Helper",
-      "alternateName": ["Application Helper", "एप्लीकेशन हेल्पर", "applicationhelper.in"],
+      "alternateName": ["ApplicationHelper", "एप्लीकेशन हेल्पर"],
       "url": "https://applicationhelper.in/"
     },
     {
@@ -64,14 +71,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap" rel="stylesheet">
 </noscript>
 
-<!-- गूगल सर्च के लिए फेविकॉन (Favicon) -->
-<link rel="icon" type="image/png" href="https://applicationhelper.in/favicon.png" sizes="512x512">
-<link rel="icon" type="image/png" href="https://applicationhelper.in/favicon.png" sizes="192x192">
-<link rel="icon" type="image/png" href="https://applicationhelper.in/favicon.png" sizes="48x48">
-<link rel="shortcut icon" href="https://applicationhelper.in/favicon.png" type="image/png">
-<link rel="apple-touch-icon" href="https://applicationhelper.in/favicon.png">
-
-<title>Application Helper </title>
 <style>
 /* तहसील पेज वाले हूबहू कलर्स */
 :root, :root[data-theme="light"] {
@@ -191,7 +190,7 @@ footer{border-top:1px solid var(--bd);padding:26px 0;color:var(--mu);font-size:.
 <div class="box" style="text-align:center"><h3 data-i="fastH">⚡ तुरंत और सुरक्षित</h3><p data-i="fastP" style="font-size:.9rem;color:var(--mu);margin:0">कोई रजिस्ट्रेशन नहीं। आपका भरा विवरण हमारे सर्वर पर नहीं जाता, सब कुछ आपके मोबाइल/कंप्यूटर में ही रहता है।</p></div></div>
 <div style="text-align:center;margin:36px 0 22px"><h2 data-i="catsH">प्रमुख 10 पत्र श्रेणियां</h2><p data-i="catsP" style="color:var(--mu);font-size:.92rem;margin:0">किसी भी श्रेणी पर क्लिक करें और अपना पत्र भरना शुरू करें:</p></div>
 
-<!-- 10 मुख्य श्रेणियां (सीधे HTML Links के साथ ताकि Google तुरंत क्रॉल करे) -->
+<!-- 10 मुख्य श्रेणियां -->
 <div class="grid10" id="cats">
   <a href="tehsil.html" class="cat">
     <h3>1. तहसील, राजस्व एवं भूमि</h3>
@@ -387,7 +386,6 @@ document.querySelectorAll("[data-ph]").forEach(function(e){e.placeholder=t(e.dat
 $("yr").textContent=new Date().getFullYear();
 setThemeLabel();
 
-// त्वरित सेलेक्ट ड्रॉपडाउन
 var qi=$("quick").selectedIndex<0?0:$("quick").selectedIndex;$("quick").innerHTML="";
 CATS.forEach(function(c,n){
   var o=document.createElement("option");
@@ -397,14 +395,12 @@ CATS.forEach(function(c,n){
 });
 $("quick").selectedIndex=qi;
 
-// जनरेटर सेलेक्ट
 var cs=$("cat");cs.innerHTML="";CATS.forEach(function(c,n){var o=document.createElement("option");o.value=n;o.textContent=(n+1)+". "+c.hi[0];cs.appendChild(o)});
 fillOptions($("sal"),t("sal"));fillOptions($("close"),t("cl"));
 
 apply(cur);
 }
 
-// सीधा रीडायरेक्ट
 function openCat(n){
   if(CATS[n] && CATS[n].s){
     window.location.href = CATS[n].s + ".html";
@@ -470,18 +466,15 @@ window.validateContactForm = function(e){
   var errorMsg = $("captchaError");
   var submitBtn = $("c_submitBtn");
 
-  // 1. हनीपॉट जांच
   if(honeypot !== ""){
     e.preventDefault();
     return false;
   }
-  // 2. टाइम जांच (3 सेकंड से पहले सबमिशन नहीं)
   if(Date.now() - formLoadTime < 3000){
     alert("कृपया फॉर्म को ध्यानपूर्वक भरकर सबमिट करें।");
     e.preventDefault();
     return false;
   }
-  // 3. कैप्चा जांच
   if(captchaInput !== (num1 + num2)){
     e.preventDefault();
     errorMsg.style.display = "block";
