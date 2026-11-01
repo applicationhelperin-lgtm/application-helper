@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<!-- गूगल टैग -->
+
+<!-- गूगल टैग (Google Tag Manager) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-W0GLC3GJGZ"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -14,15 +15,60 @@
 
 <title>महत्वपूर्ण विधिक एवं प्रशासनिक मार्गदर्शिकाएँ — प्रामाणिक नागरिक गाइड्स | Application Helper</title>
 <meta name="description" content="राजस्व, भूमि विवाद, बैंकिंग, बिजली बिल, पुलिस शिकायत, पंचायती राज, शिक्षा व आरटीओ से संबंधित महत्वपूर्ण नागरिक विधिक मार्गदर्शिकाएँ एवं प्रारूप।">
+<meta name="keywords" content="महत्वपूर्ण पेज, सरकारी योजनाएं, आय प्रमाण पत्र, जाति प्रमाण पत्र, बिजली बिल शिकायत, ई-डिस्ट्रिक्ट रजिस्ट्रेशन">
+<meta name="author" content="विशाल राज (Vishal Raj) — Application Helper">
+<meta name="robots" content="index, follow">
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="hi_IN">
 <meta property="og:site_name" content="Application Helper">
 <meta property="og:title" content="महत्वपूर्ण विधिक एवं प्रशासनिक मार्गदर्शिकाएँ — Application Helper">
+<meta property="og:description" content="राजस्व, भूमि, बिजली, पुलिस एवं सरकारी सेवाओं से जुड़ी संपूर्ण नागरिक मार्गदर्शिकाएँ।">
 <meta property="og:url" content="https://applicationhelper.in/articles.html">
+<meta property="og:image" content="https://applicationhelper.in/profile.jpg">
 <link rel="canonical" href="https://applicationhelper.in/articles.html">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%231f4e8c'/><text y='72' x='50' text-anchor='middle' font-size='65' font-family='Arial, sans-serif' font-weight='bold' fill='white'>A</text></svg>">
+
+<!-- Schema.org BreadcrumbList & CollectionPage -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "होम",
+          "item": "https://applicationhelper.in/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "महत्वपूर्ण पेज",
+          "item": "https://applicationhelper.in/articles.html"
+        }
+      ]
+    },
+    {
+      "@type": "CollectionPage",
+      "name": "महत्वपूर्ण विधिक एवं प्रशासनिक मार्गदर्शिकाएँ",
+      "description": "राजस्व, बैंकिंग, बिजली, पुलिस, पंचायती राज व नागरिक सेवाओं की मार्गदर्शिकाएँ।",
+      "url": "https://applicationhelper.in/articles.html",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Application Helper",
+        "url": "https://applicationhelper.in/"
+      }
+    }
+  ]
+}
+</script>
 
 <style>
 :root, :root[data-theme="light"] {
@@ -55,7 +101,7 @@
 *,*::before,*::after{box-sizing:border-box}
 body{margin:0;padding:0;background:var(--bg);color:var(--tx);font-family:"Noto Sans Devanagari","Inter",system-ui,sans-serif;line-height:1.65;transition:background .25s,color .25s;min-height:100vh;display:flex;flex-direction:column}
 
-/* ===== सेव किया गया हेडर (Header & Navigation) स्टाइल ===== */
+/* हेडर */
 header.site {
   background: var(--card);
   border-bottom: 1px solid var(--bd);
@@ -140,94 +186,121 @@ nav.main a:hover, nav.main a[aria-current="page"] {
   nav.main a { width: 100%; padding: 8px 12px; }
 }
 
-/* ===== हीरो सेक्शन ===== */
-.hero-section{max-width:1180px;margin:32px auto 20px;padding:0 16px;text-align:center}
-.hero-section h1{font-size:clamp(1.6rem, 3vw, 2.2rem);color:var(--pr);margin:0 0 10px;font-weight:700}
-.hero-section p{color:var(--mu);font-size:1.05rem;max-width:760px;margin:0 auto 24px}
+/* हीरो सेक्शन व ब्रेडक्रंब */
+.hero-section { max-width: 1180px; margin: 20px auto 16px; padding: 0 16px; }
+.top-breadcrumb {
+  font-size: 0.88rem;
+  color: var(--mu);
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.top-breadcrumb a { color: var(--pr); text-decoration: none; font-weight: 600; }
+.top-breadcrumb a:hover { text-decoration: underline; }
+
+.hero-text { text-align: center; margin-bottom: 24px; }
+.hero-text h1 { font-size: clamp(1.6rem, 3vw, 2.2rem); color: var(--pr); margin: 0 0 10px; font-weight: 700; }
+.hero-text p { color: var(--mu); font-size: 1.02rem; max-width: 760px; margin: 0 auto; }
 
 /* सर्च एवं फ़िल्टर बार */
-.search-filter-box{max-width:860px;margin:0 auto 32px;display:flex;flex-direction:column;gap:16px}
-.search-input-wrap{position:relative;width:100%}
-.search-input{
-  width:100%;
-  padding:14px 20px 14px 44px;
-  font-size:1rem;
-  font-family:inherit;
-  border:1.5px solid var(--bd);
-  border-radius:30px;
-  background:var(--card);
-  color:var(--tx);
-  box-shadow:0 4px 14px rgba(0,0,0,0.04);
-  transition:border-color .2s;
+.search-filter-box { max-width: 860px; margin: 0 auto 32px; display: flex; flex-direction: column; gap: 16px; }
+.search-input-wrap { position: relative; width: 100%; }
+.search-input {
+  width: 100%;
+  padding: 14px 20px 14px 44px;
+  font-size: 1rem;
+  font-family: inherit;
+  border: 1.5px solid var(--bd);
+  border-radius: 30px;
+  background: var(--card);
+  color: var(--tx);
+  box-shadow: 0 4px 14px rgba(0,0,0,0.04);
+  transition: border-color .2s;
 }
-.search-input:focus{outline:none;border-color:var(--pr)}
-.search-icon{position:absolute;left:16px;top:50%;transform:translateY(-50%);font-size:1.2rem;color:var(--mu)}
+.search-input:focus { outline: none; border-color: var(--pr); }
+.search-icon { position: absolute; left: 16px; top: 50%; transform: translateY(-50%); font-size: 1.2rem; color: var(--mu); }
 
-.filter-chips{display:flex;justify-content:center;gap:8px;flex-wrap:wrap}
-.chip{
-  background:var(--card);
-  border:1px solid var(--bd);
-  color:var(--tx);
-  padding:6px 14px;
-  border-radius:18px;
-  font-size:0.84rem;
-  font-weight:600;
-  cursor:pointer;
-  font-family:inherit;
-  transition:all .2s ease;
+.filter-chips { display: flex; justify-content: center; gap: 8px; flex-wrap: wrap; }
+.chip {
+  background: var(--card);
+  border: 1px solid var(--bd);
+  color: var(--tx);
+  padding: 6px 14px;
+  border-radius: 18px;
+  font-size: 0.84rem;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: inherit;
+  transition: all .2s ease;
 }
-.chip:hover, .chip.active{background:var(--pr);color:var(--accent-ink);border-color:var(--pr)}
+.chip:hover, .chip.active { background: var(--pr); color: var(--accent-ink); border-color: var(--pr); }
 
 /* आर्टिकल्स ग्रिड */
-.grid-container{max-width:1180px;width:100%;margin:0 auto 48px;padding:0 16px;flex:1}
-.articles-grid{display:grid;grid-template-columns:repeat(auto-fill, minmax(340px, 1fr));gap:22px}
+.grid-container { max-width: 1180px; width: 100%; margin: 0 auto 48px; padding: 0 16px; flex: 1; }
+.articles-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 22px; }
 @media(max-width:600px){
-  .articles-grid{grid-template-columns:1fr}
+  .articles-grid { grid-template-columns: 1fr; }
 }
 
-.article-card{
-  background:var(--card);
-  border:1px solid var(--bd);
-  border-radius:12px;
-  padding:22px 20px;
-  display:flex;
-  flex-direction:column;
-  justify-content:space-between;
-  box-shadow:0 3px 12px rgba(0,0,0,0.03);
-  transition:transform .2s, box-shadow .2s;
-  text-decoration:none;
-  color:inherit;
+.article-card {
+  background: var(--card);
+  border: 1px solid var(--bd);
+  border-radius: 12px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 3px 12px rgba(0,0,0,0.03);
+  transition: transform .2s, box-shadow .2s;
+  text-decoration: none;
+  color: inherit;
 }
-.article-card:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(0,0,0,0.08);border-color:var(--pr)}
+.article-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,0.08); border-color: var(--pr); }
 
-.card-top{margin-bottom:14px}
-.badge-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
-.card-badge{
-  background:var(--badge-bg);
-  color:var(--badge-tx);
-  font-size:0.75rem;
-  font-weight:700;
-  padding:3px 10px;
-  border-radius:12px;
+.badge-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
+.card-badge {
+  background: var(--badge-bg);
+  color: var(--badge-tx);
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 12px;
 }
-.card-time{font-size:0.78rem;color:var(--mu);display:inline-flex;align-items:center;gap:4px}
-.card-title{font-size:1.08rem;font-weight:700;color:var(--pr);margin:0 0 8px;line-height:1.4}
-.card-desc{font-size:0.88rem;color:var(--tx);margin:0;line-height:1.55}
+.card-time { font-size: 0.78rem; color: var(--mu); display: inline-flex; align-items: center; gap: 4px; }
+.card-title { font-size: 1.08rem; font-weight: 700; color: var(--pr); margin: 0 0 10px; line-height: 1.4; }
 
-.card-btn{
-  margin-top:14px;
-  color:var(--pr);
-  font-size:0.86rem;
-  font-weight:700;
-  display:inline-flex;
-  align-items:center;
-  gap:4px;
+/* कार्ड थंबनेल इमेज (यूनिफॉर्म स्टाइल) */
+.card-img-wrap {
+  width: 100%;
+  margin: 8px 0 14px 0;
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--quote-bg);
+  border: 1px solid var(--bd);
 }
-.article-card:hover .card-btn{text-decoration:underline}
+.card-img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  display: block;
+}
 
-.no-results{text-align:center;padding:48px 16px;color:var(--mu);font-size:1.05rem;grid-column:1/-1;display:none;background:var(--card);border:1px dashed var(--bd);border-radius:12px}
+.card-desc { font-size: 0.88rem; color: var(--tx); margin: 0; line-height: 1.6; }
+.card-btn {
+  margin-top: 16px;
+  color: var(--pr);
+  font-size: 0.86rem;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+.article-card:hover .card-btn { text-decoration: underline; }
 
-/* ===== सेव किया गया फुटर (Footer) स्टाइल ===== */
+.no-results { text-align: center; padding: 48px 16px; color: var(--mu); font-size: 1.05rem; grid-column: 1/-1; display: none; background: var(--card); border: 1px dashed var(--bd); border-radius: 12px; }
+
+/* फुटर */
 footer {
   background: var(--card);
   border-top: 1px solid var(--bd);
@@ -245,35 +318,18 @@ footer .wrap.fg {
   flex-wrap: wrap;
   gap: 14px;
 }
-footer .fl {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px 16px;
-}
-footer .fl a {
-  color: var(--mu);
-  text-decoration: none;
-  font-weight: 500;
-  transition: .2s;
-}
-footer .fl a:hover {
-  color: var(--pr);
-  text-decoration: underline;
-}
+footer .fl { display: flex; flex-wrap: wrap; gap: 10px 16px; }
+footer .fl a { color: var(--mu); text-decoration: none; font-weight: 500; transition: .2s; }
+footer .fl a:hover { color: var(--pr); text-decoration: underline; }
 @media (max-width: 650px) {
-  footer .wrap.fg {
-    flex-direction: column;
-    text-align: center;
-  }
-  footer .fl {
-    justify-content: center;
-  }
+  footer .wrap.fg { flex-direction: column; text-align: center; }
+  footer .fl { justify-content: center; }
 }
 </style>
 </head>
 <body>
 
-<!-- ===== सेव किया गया हेडर (Header) ===== -->
+<!-- हेडर -->
 <header class="site"><div class="bar">
   <a class="brand" href="index.html"><strong>Application Helper</strong><span></span></a>
   <div class="acts">
@@ -293,8 +349,15 @@ footer .fl a:hover {
 </div></header>
 
 <section class="hero-section">
-  <h1>महत्वपूर्ण विधिक एवं प्रशासनिक मार्गदर्शिकाएँ</h1>
-  <p>राजस्व, बैंकिंग, बिजली, पुलिस, पंचायती राज, शिक्षा एवं आरटीओ से संबंधित प्रामाणिक नागरिक मार्गदर्शिकाएँ। अपने अधिकारों और सरकारी नियमों को समझें।</p>
+  <!-- ब्रेडक्रंब नेविगेशन -->
+  <div class="top-breadcrumb">
+    <a href="index.html">होम</a> &gt; <span>महत्वपूर्ण पेज</span>
+  </div>
+
+  <div class="hero-text">
+    <h1>महत्वपूर्ण विधिक एवं प्रशासनिक मार्गदर्शिकाएँ</h1>
+    <p>राजस्व, बैंकिंग, बिजली, पुलिस, पंचायती राज, शिक्षा एवं आरटीओ से संबंधित प्रामाणिक नागरिक मार्गदर्शिकाएँ। अपने अधिकारों और सरकारी नियमों को समझें।</p>
+  </div>
 
   <div class="search-filter-box">
     <div class="search-input-wrap">
@@ -302,17 +365,17 @@ footer .fl a:hover {
       <input type="text" id="articleSearch" class="search-input" placeholder="अपने विषय को खोजें (जैसे: जन्म प्रमाण पत्र, मृत्यु प्रमाण पत्र, वरासत, आय, जाति)..." aria-label="सर्च बॉक्स">
     </div>
     <div class="filter-chips" id="filterChips">
-      <button class="chip active" data-filter="all">सभी लेख</button>
-      <button class="chip" data-filter="tehsil">📜 तहसील (Tehsil)</button>
-      <button class="chip" data-filter="bank">🏦 बैंक (Bank)</button>
-      <button class="chip" data-filter="panchayat">🏛️ पंचायत (Panchayat)</button>
-      <button class="chip" data-filter="police">👮 पुलिस (Police)</button>
-      <button class="chip" data-filter="bijli">⚡ बिजली (Bijli)</button>
-      <button class="chip" data-filter="swasthya">🏥 स्वास्थ्य (Swasthya)</button>
-      <button class="chip" data-filter="shiksha">🎓 शिक्षा (Shiksha)</button>
-      <button class="chip" data-filter="dak-privahan">📮 डाक-परिवहन (Dak-Privahan)</button>
-      <button class="chip" data-filter="rti">📋 आरटीआई (RTI)</button>
-      <button class="chip" data-filter="dafter">🏢 दफ्तर (Dafter)</button>
+      <button type="button" class="chip active" data-filter="all">सभी लेख</button>
+      <button type="button" class="chip" data-filter="tehsil">📜 तहसील (Tehsil)</button>
+      <button type="button" class="chip" data-filter="bijli">⚡ बिजली (Bijli)</button>
+      <button type="button" class="chip" data-filter="bank">🏦 बैंक (Bank)</button>
+      <button type="button" class="chip" data-filter="panchayat">🏛️ पंचायत (Panchayat)</button>
+      <button type="button" class="chip" data-filter="police">👮 पुलिस (Police)</button>
+      <button type="button" class="chip" data-filter="swasthya">🏥 स्वास्थ्य (Swasthya)</button>
+      <button type="button" class="chip" data-filter="shiksha">🎓 शिक्षा (Shiksha)</button>
+      <button type="button" class="chip" data-filter="dak-privahan">📮 डाक-परिवहन (Dak-Privahan)</button>
+      <button type="button" class="chip" data-filter="rti">📋 आरटीआई (RTI)</button>
+      <button type="button" class="chip" data-filter="dafter">🏢 दफ्तर (Dafter)</button>
     </div>
   </div>
 </section>
@@ -321,72 +384,77 @@ footer .fl a:hover {
   <div class="articles-grid" id="articlesGrid">
 
     <!-- कार्ड 1: आय प्रमाण पत्र -->
-    <a href="aay-praman-patra-online-apply-up.html" class="article-card" data-category="tehsil" data-keywords="आय प्रमाण पत्र Income Certificate eSathi UP">
+    <a href="aay-praman-patra-online-apply-up.html" class="article-card" data-category="tehsil" data-keywords="आय प्रमाण पत्र Income Certificate eSathi UP eDistrict तहसिल तहसील">
       <div class="card-top">
         <div class="badge-row">
           <span class="card-badge">📜 तहसील</span>
           <span class="card-time">⏱️ 18 मिनट</span>
         </div>
         <h2 class="card-title">मोबाइल से यूपी आय प्रमाण पत्र कैसे बनाएं सिर्फ 15 रुपये में</h2>
-<div style="margin: 16px 0; text-align: center;">
-  <img src="up-aay-praman-patra-mobile-se-kaise-banaye.webp" alt="मोबाइल से यूपी आय प्रमाण पत्र कैसे बनाएं सिर्फ 15 रुपये में " style="max-width: 100%; height: auto; border-radius: 10px; border: 1px solid var(--bd); box-shadow: 0 3px 12px rgba(0,0,0,0.06);">
-</div>
-        <p class="card-desc">जब मैं कॉलेज में था, तब मुझे भी अपना आय प्रमाण पत्र बनवाने के लिए जनसेवा केंद्र (CSC) के चक्कर लगाने पड़ते थे और हर बार 70 से 80 रुपये देने पड़ते थे।</p>
+        <div class="card-img-wrap">
+          <img src="up-aay-praman-patra-mobile-se-kaise-banaye.webp" alt="मोबाइल से यूपी आय प्रमाण पत्र कैसे बनाएं" class="card-img" loading="lazy">
+        </div>
+        <p class="card-desc">कॉलेज या छात्रवृत्ति के लिए आय प्रमाण पत्र बनवाने हेतु जनसेवा केंद्र के चक्कर लगाने और अधिक शुल्क देने के बजाय घर बैठे ऑनलाइन बनाने की प्रक्रिया।</p>
       </div>
       <span class="card-btn">पूरी मार्गदर्शिका पढ़ें →</span>
     </a>
 
     <!-- कार्ड 2: जाति प्रमाण पत्र -->
-    <a href="jati-praman-patra-online-apply-up.html" class="article-card" data-category="tehsil" data-keywords="जाति प्रमाण पत्र Caste Certificate eSathi UP SC ST OBC">
+    <a href="jati-praman-patra-online-apply-up.html" class="article-card" data-category="tehsil" data-keywords="जाति प्रमाण पत्र Caste Certificate eSathi UP SC ST OBC तहसील">
       <div class="card-top">
         <div class="badge-row">
           <span class="card-badge">📜 तहसील</span>
           <span class="card-time">⏱️ 14 मिनट</span>
         </div>
-        <h2 class="card-title">जाति प्रमाण पत्र (Caste Certificate) कैसे बनवाएं? महत्वपूर्ण दस्तावेज और ऑनलाइन प्रक्रिया।</h2>
-        <p class="card-desc">उत्तर प्रदेश में राजस्व विभाग द्वारा नागरिकों को अनुसूचित जाति (SC), अनुसूचित जनजाति (ST) और अन्य पिछड़ा वर्ग (OBC) के डिजिटल रूप से सत्यापित जाति प्रमाण पत्र जारी किए जाते हैं।</p>
+        <h2 class="card-title">जाति प्रमाण पत्र (Caste Certificate) कैसे बनवाएं? महत्वपूर्ण दस्तावेज और ऑनलाइन प्रक्रिया</h2>
+        <div class="card-img-wrap">
+          <img src="up-jati-praman-patra-online-apply.webp" alt="जाति प्रमाण पत्र ऑनलाइन आवेदन" class="card-img" loading="lazy" onerror="this.parentElement.style.display='none'">
+        </div>
+        <p class="card-desc">उत्तर प्रदेश में राजस्व विभाग द्वारा नागरिकों को अनुसूचित जाति (SC), अनुसूचित जनजाति (ST) और अन्य पिछड़ा वर्ग (OBC) के डिजिटल सत्यापित प्रमाण पत्र जारी करने की पूरी प्रक्रिया।</p>
       </div>
       <span class="card-btn">पूरी मार्गदर्शिका पढ़ें →</span>
     </a>
 
-    <!-- कार्ड 3: बिजली बिल अधिक आने पर क्या करें (अब बिल्कुल सही) -->
-    <a href="bijli-bill-adhik-aane-par-kya-kare.html" class="article-card" data-category="bijli" data-keywords="बिजली बिल अधिक आने पर क्या करें बिजली बिल ज्यादा UPPCL bill correction complaint">
+    <!-- कार्ड 3: बिजली बिल अधिक आने पर क्या करें -->
+    <a href="bijli-bill-adhik-aane-par-kya-kare.html" class="article-card" data-category="bijli" data-keywords="बिजली बिल अधिक आने पर क्या करें बिजली बिल ज्यादा UPPCL bill correction complaint meter reading 1912">
       <div class="card-top">
         <div class="badge-row">
           <span class="card-badge">⚡ बिजली</span>
           <span class="card-time">⏱️ 11 मिनट</span>
         </div>
-        <h2 class="card-title">बिजली बिल अधिक आने पर क्या करें।</h2>
-        <div style="margin: 16px 0; text-align: center;">
-  <img src="bijli-bill-adhik-aane-par-kya-kare.webp" alt="बिजली बिल अधिक आने पर क्या करें। " style="max-width: 100%; height: auto; border-radius: 10px; border: 1px solid var(--bd); box-shadow: 0 3px 12px rgba(0,0,0,0.06);">
-</div>
-        <p class="card-desc">बिजली लगभग हर घर में आती है शायद ही ऐसे कोई घर होंगे जहां बिजली नहीं आती होगी। बिजली आज के समय में हमारे दैनिक जीवन का अहम हिस्सा बन चुकी है। </p>
+        <h2 class="card-title">बिजली बिल अधिक आने पर क्या करें: कारण, समाधान व शिकायत प्रक्रिया</h2>
+        <div class="card-img-wrap">
+          <img src="bijli-bill-adhik-aane-par-kya-kare.webp" alt="बिजली बिल अधिक आने पर क्या करें" class="card-img" loading="lazy">
+        </div>
+        <p class="card-desc">बिजली बिल अधिक आने के मुख्य कारण, प्राथमिक घरेलू जांच, UPPCL पोर्टल व 1912 हेल्पलाइन पर शिकायत और बिजली दफ्तर जाने के नियम।</p>
       </div>
       <span class="card-btn">पूरी मार्गदर्शिका पढ़ें →</span>
     </a>
 
-<!-- कार्ड 4: ई-डिस्ट्रिक्ट पर खाता कैसे बनाएं? (eDistrict UP Citizen Registration) -->
-<a href="edistrict-up-account-registration.html" class="article-card" data-category="tehsil" data-keywords="ई-डिस्ट्रिक्ट पर खाता कैसे बनाएं eDistrict UP registration eSathi citizen login यूजर आईडी पासवर्ड रीसेट">
-  <div class="card-top">
-    <div class="badge-row">
-      <span class="card-badge">📜 ई-डिस्ट्रिक्ट</span>
-      <span class="card-time">⏱️ 7 मिनट</span>
-    </div>
-    <h2 class="card-title">ई-डिस्ट्रिक्ट पर खाता कैसे बनाएं? (eDistrict UP Citizen Registration)</h2>
-    <div style="margin: 16px 0; text-align: center;">
-      <img src="edistrict-registration.webp" alt="ई-डिस्ट्रिक्ट पर खाता कैसे बनाएं? (eDistrict UP Citizen Registration)" style="max-width: 100%; height: auto; border-radius: 10px; border: 1px solid var(--bd); box-shadow: 0 3px 12px rgba(0,0,0,0.06);">
-    </div>
-    <p class="card-desc">उत्तर प्रदेश e-District (eSathi) पोर्टल पर नया सिटिजन खाता कैसे बनाएं, 32+ सरकारी सेवाओं के लाभ, आवश्यक दस्तावेज, भूली यूजर आईडी व पासवर्ड रीसेट करने की पूरी गाइड।</p>
-  </div>
-  <span class="card-btn">पूरी मार्गदर्शिका पढ़ें →</span>
-</a>
+    <!-- कार्ड 4: ई-डिस्ट्रिक्ट पर खाता कैसे बनाएं -->
+    <a href="edistrict-up-account-registration.html" class="article-card" data-category="tehsil" data-keywords="ई-डिस्ट्रिक्ट पर खाता कैसे बनाएं eDistrict UP registration eSathi citizen login यूजर आईडी पासवर्ड रीसेट तहसील">
+      <div class="card-top">
+        <div class="badge-row">
+          <span class="card-badge">📜 ई-डिस्ट्रिक्ट</span>
+          <span class="card-time">⏱️ 7 मिनट</span>
+        </div>
+        <h2 class="card-title">ई-डिस्ट्रिक्ट पर खाता कैसे बनाएं? (eDistrict UP Citizen Registration)</h2>
+        <div class="card-img-wrap">
+          <img src="edistrict-registration.webp" alt="ई-डिस्ट्रिक्ट पर खाता कैसे बनाएं" class="card-img" loading="lazy" onerror="this.src='images/edistrict-registration.jpg'">
+        </div>
+        <p class="card-desc">उत्तर प्रदेश e-District (eSathi) पोर्टल पर नया सिटिजन खाता कैसे बनाएं, 32+ सरकारी सेवाओं के लाभ, आवश्यक दस्तावेज, भूली यूजर आईडी व पासवर्ड रीसेट करने की पूरी गाइड।</p>
+      </div>
+      <span class="card-btn">पूरी मार्गदर्शिका पढ़ें →</span>
+    </a>
+
     <div class="no-results" id="noResultsMsg">
       कोई भी मार्गदर्शिका नहीं मिली। कृपया अन्य शब्द लिखकर खोजें।
     </div>
 
   </div>
 </main>
-<!-- ===== सेव किया गया फुटर (Footer) ===== -->
+
+<!-- फुटर -->
 <footer>
   <div class="wrap fg">
     <div>© <span id="yr"></span> Application Helper — All Rights Reserved.</div>
@@ -405,72 +473,11 @@ footer .fl a:hover {
 
 <script>
 (function(){
-  /* =========================================================================
-     🚀 तरीका 2 (ऑटोमैटिक तरीका — MY_POSTS लिस्ट):
-     आप चाहें तो ऊपर HTML में कॉपी-पेस्ट करने के बजाय नीचे `MY_POSTS` के अंदर भी
-     नया ब्लॉक जोड़ सकते हैं:
-     ========================================================================= */
-  var CATEGORY_BADGES = {
-    "tehsil": "📜 तहसील",
-    "bank": "🏦 बैंकिंग सेवाएं",
-    "panchayat": "🏛️ पंचायती राज",
-    "police": "👮 पुलिस व सुरक्षा",
-    "bijli": "⚡ बिजली विभाग",
-    "swasthya": "🏥 स्वास्थ्य सेवाएं",
-    "shiksha": "🎓 शिक्षा व छात्र",
-    "dak-privahan": "📮 डाक व परिवहन",
-    "rti": "📋 आरटीआई (RTI)",
-    "dafter": "🏢 दफ्तर व प्रशासन"
-  };
-
-  var MY_POSTS = [
-    /* उदाहरण:
-    {
-      url: "mrityu-praman-patra-kaise-banwaye-2026.html",
-      category: "panchayat",
-      time: "8 मिनट",
-      title: "मृत्यु प्रमाण पत्र कैसे बनवाएं 2026: ऑनलाइन/ऑफलाइन प्रक्रिया",
-      desc: "जानिए 21 दिन में निःशुल्क पंजीकरण, 1 वर्ष बाद धारा 13(3) SDM आदेश, आवश्यक दस्तावेज़ और शपथ पत्र प्रारूप।",
-      keywords: "मृत्यु प्रमाण पत्र डेथ सर्टिफिकेट SDM आदेश वरासत NAC"
-    }
-    */
-  ];
-
-  // MY_POSTS लिस्ट से कार्ड ऑटोमैटिक बनाकर ग्रिड में जोड़ें
-  var gridEl = document.getElementById("articlesGrid");
-  var noResults = document.getElementById("noResultsMsg");
-
-  if(gridEl && MY_POSTS.length > 0){
-    MY_POSTS.forEach(function(post){
-      var catKey = (post.category || "all").trim().toLowerCase();
-      var autoBadge = post.badge || CATEGORY_BADGES[catKey] || "📄 मार्गदर्शिका";
-
-      var a = document.createElement("a");
-      a.href = post.url || "#";
-      a.className = "article-card";
-      a.setAttribute("data-category", catKey);
-      a.setAttribute("data-keywords", post.keywords || "");
-
-      a.innerHTML =
-        '<div class="card-top">' +
-          '<div class="badge-row">' +
-            '<span class="card-badge">' + autoBadge + '</span>' +
-            '<span class="card-time">⏱️ ' + (post.time || "5 मिनट") + '</span>' +
-          '</div>' +
-          '<h2 class="card-title">' + (post.title || "") + '</h2>' +
-          '<p class="card-desc">' + (post.desc || "") + '</p>' +
-        '</div>' +
-        '<span class="card-btn">पूरी मार्गदर्शिका पढ़ें →</span>';
-
-      gridEl.insertBefore(a, noResults);
-    });
-  }
-
-  // 1. फुटर में वर्तमान वर्ष (Current Year) ऑटोमैटिक दिखाएं
+  // 1. फुटर वर्ष
   var yrEl = document.getElementById("yr");
   if(yrEl) yrEl.textContent = new Date().getFullYear();
 
-  // 2. मोबाइल मेनू टॉगल (☰ बटन)
+  // 2. मोबाइल मेनू टॉगल
   var navToggle = document.getElementById("navToggle");
   var mainNav = document.getElementById("mainNav");
   if(navToggle && mainNav){
@@ -479,15 +486,11 @@ footer .fl a:hover {
     });
   }
 
-  // 3. सुरक्षित लोकल स्टोरेज हेल्पर
-  function getStore(k, def){
-    try { return localStorage.getItem(k) || def; } catch(e) { return def; }
-  }
-  function setStore(k, v){
-    try { localStorage.setItem(k, v); } catch(e) {}
-  }
+  // 3. लोकल स्टोरेज हेल्पर
+  function getStore(k, def){ try { return localStorage.getItem(k) || def; } catch(e){ return def; } }
+  function setStore(k, v){ try { localStorage.setItem(k, v); } catch(e){} }
 
-  // 4. थीम प्रबंधन (Light / Dark Mode)
+  // 4. थीम प्रबंधन (Dark / Light Mode)
   var curTheme = getStore("app_theme", "light");
   var thBtn = document.getElementById("themeBtn");
   var thIcon = document.getElementById("thI");
@@ -513,14 +516,15 @@ footer .fl a:hover {
   }
   setTheme(curTheme);
 
-  // 5. लाइव सर्च एवं कैटेगरी फ़िल्टरिंग
+  // 5. स्मार्ट सर्च (Word-by-Word Matching) एवं फ़िल्टरिंग
   var searchInp = document.getElementById("articleSearch");
   var currentCategory = "all";
   var filterChips = document.querySelectorAll("#filterChips .chip");
 
   function filterArticles(){
     var cards = document.querySelectorAll(".article-card");
-    var q = (searchInp && searchInp.value ? searchInp.value : "").trim().toLowerCase();
+    var rawQuery = (searchInp && searchInp.value ? searchInp.value : "").trim().toLowerCase();
+    var queryTokens = rawQuery ? rawQuery.split(/\s+/).filter(Boolean) : [];
     var visibleCount = 0;
 
     cards.forEach(function(card){
@@ -531,7 +535,14 @@ footer .fl a:hover {
       var fullText = kw + " " + title + " " + desc;
 
       var matchesCat = (currentCategory === "all" || cat === currentCategory);
-      var matchesSearch = (q === "" || fullText.indexOf(q) !== -1);
+      
+      // स्मार्ट सर्च: हर शब्द मैच होना चाहिए
+      var matchesSearch = true;
+      if(queryTokens.length > 0){
+        matchesSearch = queryTokens.every(function(token){
+          return fullText.indexOf(token) !== -1;
+        });
+      }
 
       if(matchesCat && matchesSearch){
         card.style.display = "flex";
@@ -541,14 +552,9 @@ footer .fl a:hover {
       }
     });
 
+    var noResults = document.getElementById("noResultsMsg");
     if(noResults){
-      if(cards.length === 0){
-        noResults.textContent = "अभी कोई लेख प्रकाशित नहीं किया गया है। नया लेख जोड़ने के लिए कोड में दिए गए टेम्पलेट का उपयोग करें।";
-        noResults.style.display = "block";
-      } else {
-        noResults.textContent = "कोई भी मार्गदर्शिका नहीं मिली। कृपया अन्य शब्द लिखकर खोजें।";
-        noResults.style.display = visibleCount === 0 ? "block" : "none";
-      }
+      noResults.style.display = visibleCount === 0 ? "block" : "none";
     }
   }
 
