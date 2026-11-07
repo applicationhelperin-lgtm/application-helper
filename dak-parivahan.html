@@ -210,7 +210,11 @@ button{
 .hint{color:var(--muted);font-size:.78rem;margin:10px 0 0;line-height:1.5}
 
 /* A4 शीट प्रिव्यू */
-.sheetwrap{container-type:inline-size;width:100%}
+.sheetwrap{container-type:inline-size;width:100%;position:relative}
+
+/* स्क्रीन पर वेबसाइट URL छिपा रहेगा */
+.print-url{display:none}
+
 .paper{
   background:#fff;
   color:#000;
@@ -276,17 +280,36 @@ button{
 .paper.compact .info-box{padding:4px 8px;margin:4px 0 6px}
 
 @media print{
-  @page{size:A4;margin:0}
-  html,body{background:#fff !important;margin:0 !important;padding:0 !important}
+  @page{size:A4 portrait;margin:0}
+  *, *::before, *::after{box-sizing:border-box !important}
+  html,body{background:#fff !important;margin:0 !important;padding:0 !important;width:100% !important;height:auto !important;min-height:0 !important;overflow:visible !important}
   .top-nav,.security-banner,.form{display:none !important}
-  .app{display:block !important;padding:0 !important;max-width:none !important}
-  .sheetwrap{container-type:normal !important}
+  .app{display:block !important;padding:0 !important;margin:0 !important;max-width:none !important;border:none !important}
+  .sheetwrap{container-type:normal !important;position:relative !important;width:210mm !important;max-width:210mm !important;margin:0 auto !important;padding:0 !important}
+
+  /* प्रिंट में दिखने वाला टॉप-राइट URL */
+  .print-url{
+    display:block !important;
+    position:absolute !important;
+    top:6mm !important;
+    right:18mm !important;
+    font-size:8.5pt !important;
+    font-family:"Inter",Arial,sans-serif !important;
+    color:#4b5563 !important;
+    font-weight:500 !important;
+    line-height:1 !important;
+    z-index:100 !important;
+    letter-spacing:0.2px !important;
+  }
+
   .paper{
     background:#fff !important;
     color:#000 !important;
     width:210mm !important;
-    height:297mm !important;
-    max-height:297mm !important;
+    max-width:210mm !important;
+    min-height:auto !important;
+    height:auto !important;
+    max-height:292mm !important;
     box-sizing:border-box !important;
     aspect-ratio:auto !important;
     padding:15mm 18mm 14mm 18mm !important;
@@ -296,6 +319,7 @@ button{
     page-break-after:avoid !important;
     page-break-inside:avoid !important;
     overflow:hidden !important;
+    margin:0 auto !important;
   }
   .paper h2{font-size:1.25em !important;margin:0 0 1em !important;letter-spacing:0.02em !important;color:#000 !important}
   .paper p{margin:0 0 0.78em !important;text-align:justify !important}
@@ -365,7 +389,11 @@ button{
     <p class="hint" id="uiHint">जो जानकारी नहीं भरेंगे, प्रिंट में वहाँ खाली जगह छूट जाएगी। प्रिंट करने से पहले आप सीधे दाईं ओर पत्र पर क्लिक करके भी कोई बदलाव (एडिट) कर सकते हैं।</p>
   </section>
 
-  <div class="sheetwrap"><article class="paper" id="paper" contenteditable="true" spellcheck="false" aria-label="आवेदन पत्र पूर्वावलोकन"></article></div>
+  <div class="sheetwrap">
+    <!-- प्रिंट में दिखने वाला वेबसाइट URL -->
+    <div class="print-url">https://applicationhelper.in</div>
+    <article class="paper" id="paper" contenteditable="true" spellcheck="false" aria-label="आवेदन पत्र पूर्वावलोकन"></article>
+  </div>
 </div>
 
 <script>
@@ -592,7 +620,7 @@ button{
         res = res.replace(/दूंगा\/दूंगी/g, "दूंगी");
         res = res.replace(/दूँगा\/दूँगी/g, "दूँगी");
         res = res.replace(/करूँगा\/करूँगी/g, "करूँगी");
-        res = res.replace(/करूंगा\/करूंगी/g, "करूंगी");
+        res = res.replace(/करूंगा\/करूंगी/g, "करूंगा");
         res = res.replace(/सकता\/सकती/g, "सकती");
         res = res.replace(/का पंजीकृत स्वामी/g, "की पंजीकृत स्वामिनी");
         res = res.replace(/स्वामी\/अधिकृत संचालक/g, "स्वामिनी/अधिकृत संचालिका");
