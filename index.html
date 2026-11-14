@@ -15,16 +15,17 @@
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
   gtag('config', 'G-W0GLC3GJGZ');
-  <!-- Google tag (gtag.js) -->
+</script>
+
+<!-- Google tag (gtag.js) दूसरा ट्रैक -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-DHYSQKK072"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-DHYSQKK072');
 </script>
-</script>
+
 <!-- 1. मेटा विवरण व साइट नेम -->
 <meta name="description" content="Application Helper — तहसील, ग्राम पंचायत, बैंक, पुलिस, बिजली विभाग, स्कूल और दफ्तर के लिए औपचारिक आवेदन पत्र 1 मिनट में ऑनलाइन तैयार और प्रिंट करें।">
 <meta name="application-name" content="Application Helper">
@@ -62,277 +63,381 @@
       "url": "https://applicationhelper.in/",
       "logo": {
         "@type": "ImageObject",
+        "@id": "https://applicationhelper.in/#logo",
         "url": "https://applicationhelper.in/favicon.png",
         "width": 512,
-        "height": 512
+        "height": 512,
+        "caption": "Application Helper"
+      },
+      "image": {
+        "@id": "https://applicationhelper.in/#logo"
       }
     }
   ]
 }
 </script>
 
-<!-- स्पीड के लिए गूगल फॉन्ट्स प्रीकनेक्ट -->
-<link rel="canonical" href="https://applicationhelper.in/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-<noscript>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap" rel="stylesheet">
-</noscript>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700&amp;family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet">
 
 <style>
-/* तहसील पेज वाले हूबहू कलर्स */
 :root, :root[data-theme="light"] {
   color-scheme: light;
-  --bg: #eef1f5;
+  --bg: #f4f6f9;
+  --panel: #ffffff;
   --card: #ffffff;
-  --inp: #ffffff;
-  --bd: #cfd6df;
-  --tx: #1b2430;
-  --mu: #5a6675;
-  --pr: #1f4e8c;
-  --prh: #173d6e;
-  --br: #1f4e8c;
-  --paper: #ffffff;
+  --ink: #1b2430;
+  --muted: #5a6675;
+  --line: #cfd6df;
+  --accent: #1f4e8c;
+  --accent-ink: #ffffff;
   --sh: 0 4px 18px rgba(0,0,0,.06);
 }
 :root[data-theme="dark"] {
   color-scheme: dark;
   --bg: #12161c;
+  --panel: #1c222b;
   --card: #1c222b;
-  --inp: #242c38;
-  --bd: #333c48;
-  --tx: #e8edf3;
-  --mu: #9aa6b4;
-  --pr: #6ea3e6;
-  --prh: #8cb8f0;
-  --br: #6ea3e6;
-  --paper: #1c222b;
+  --ink: #e8edf3;
+  --muted: #9aa6b4;
+  --line: #333c48;
+  --accent: #6ea3e6;
+  --accent-ink: #0d1622;
   --sh: 0 6px 24px rgba(0,0,0,.45);
 }
 
 *,*::before,*::after{box-sizing:border-box}
-html,body{margin:0;min-height:100%}
-body{background:var(--bg);color:var(--tx);font-family:"Noto Sans Devanagari",system-ui,sans-serif;line-height:1.7;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);transition:background .25s,color .25s}
-h1,h2,h3{color:var(--pr);margin:0 0 .5em;font-weight:700}
-.wrap{max-width:1100px;margin:0 auto;padding:0 20px}
-header.site{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:var(--card);border-bottom:1px solid var(--bd)}
-.bar{max-width:1100px;margin:0 auto;padding:10px 20px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
-.brand{display:flex;flex-direction:row;align-items:center;gap:10px;color:var(--pr);text-decoration:none;cursor:pointer}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Noto Sans Devanagari","Inter",sans-serif;line-height:1.6;transition:background .25s,color .25s}
+
+/* रिस्पॉन्सिव हेडर (Header) - एक ही लाइन में सभी एलिमेंट्स */
+header.site{position:sticky;top:0;z-index:1000;background:var(--panel);border-bottom:1px solid var(--line);box-shadow:var(--sh);margin-bottom:30px;}
+.bar{max-width:1300px;margin:0 auto;padding:12px 20px;display:flex;align-items:center;justify-content:space-between;gap:16px;position:relative}
+
+.brand{display:flex;flex-direction:row;align-items:center;gap:10px;color:var(--accent);text-decoration:none;cursor:pointer;flex-shrink:0}
 .brand img{width:38px;height:38px;border-radius:8px;object-fit:contain}
 .brand-text{display:flex;flex-direction:column}
-.brand strong{font-size:1.15rem;line-height:1.2;font-weight:700}
-.brand span{font-size:.75rem;color:var(--mu)}
-.acts{display:flex;gap:8px;align-items:center}
-.ab{background:var(--bg);border:1px solid var(--bd);color:var(--tx);border-radius:20px;padding:6px 14px;font:600 .84rem inherit;cursor:pointer;display:inline-flex;align-items:center;gap:6px;transition:.2s}
-.ab:hover{border-color:var(--pr);color:var(--pr)}
-nav.main{display:flex;gap:2px;flex-wrap:wrap}
-nav.main button,nav.main a{background:none;border:0;cursor:pointer;font-family:inherit;font-size:.9rem;color:var(--mu);padding:7px 10px;border-radius:6px;transition:.2s;text-decoration:none;display:inline-flex;align-items:center}
-nav.main button:hover,nav.main button[aria-current],nav.main a:hover{color:var(--pr);background:var(--bg);font-weight:600}
+.brand strong{font-size:1.1rem;line-height:1.2;font-weight:700}
+.brand span{font-size:.72rem;color:var(--muted)}
+
+/* मेनू लिंक्स (एक लाइन में) */
+nav.main{display:flex;gap:6px;align-items:center;flex-wrap:nowrap}
+nav.main a{background:none;border:0;cursor:pointer;font-family:inherit;font-size:0.88rem;color:var(--muted);padding:6px 10px;border-radius:6px;transition:.2s;text-decoration:none;display:inline-flex;align-items:center;white-space:nowrap}
+nav.main a:hover, nav.main a[aria-current]{color:var(--accent);background:var(--bg);font-weight:600}
+
+.acts{display:flex;gap:8px;align-items:center;flex-shrink:0}
+.ab, .theme-btn{background:var(--bg);border:1px solid var(--line);color:var(--ink);border-radius:20px;padding:6px 14px;font:600 .84rem inherit;cursor:pointer;display:inline-flex;align-items:center;gap:6px;transition:.2s;white-space:nowrap}
+.ab:hover, .theme-btn:hover{border-color:var(--accent);color:var(--accent)}
+
 .tg{display:none}
-@media(max-width:890px){.tg{display:block}nav.main{display:none;width:100%;flex-direction:column}nav.main.open{display:flex}}
-.page{display:none;padding:32px 0}.page.active{display:block}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font:600 .95rem inherit;padding:10px 18px;border-radius:6px;border:1.5px solid transparent;cursor:pointer;transition:.2s}
-.bp{background:var(--pr);color:#fff}.bp:hover{background:var(--prh)}
-:root[data-theme="dark"] .bp{color:#0d1622}
-.bg{background:transparent;border-color:var(--bd);color:var(--tx)}.bg:hover{border-color:var(--pr);color:var(--pr)}
-.hero{display:grid;grid-template-columns:1.2fr .8fr;gap:28px;align-items:center}
-@media(max-width:820px){.hero{grid-template-columns:1fr}}
-.box{background:var(--card);border:1px solid var(--bd);padding:22px;border-radius:10px;box-shadow:var(--sh)}
-select,input,textarea{width:100%;font-family:inherit;font-size:.93rem;color:var(--tx);background:var(--inp);border:1px solid var(--bd);border-radius:6px;padding:9px 12px;transition:.2s}
-select:focus,input,textarea:focus{outline:2px solid var(--pr);outline-offset:1px}
-textarea{resize:vertical;min-height:100px}
-.grid10{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:16px}
-.cat{display:block;text-decoration:none;color:inherit;background:var(--card);border:1px solid var(--bd);border-radius:10px;padding:18px;cursor:pointer;transition:.2s}
-.cat:hover{border-color:var(--pr);transform:translateY(-3px);box-shadow:var(--sh)}
-.cat h3{font-size:1.05rem;margin-bottom:6px}.cat p{font-size:.84rem;color:var(--mu);margin:0 0 8px;line-height:1.5}
-.gen{display:grid;grid-template-columns:1fr 1fr;gap:26px;align-items:start}
-@media(max-width:880px){.gen{grid-template-columns:1fr}}
-.f{margin-bottom:12px}.f label{display:block;font-size:.85rem;font-weight:600;color:var(--mu);margin-bottom:4px}
-.row{display:grid;grid-template-columns:1fr 1fr;gap:10px}@media(max-width:520px){.row{grid-template-columns:1fr}}
-fieldset{border:0;padding:0;margin:14px 0}legend{color:var(--pr);font-weight:700;margin-bottom:8px}
-.pv{position:sticky;top:90px}
-.paper{background:var(--paper);border:1px solid var(--bd);border-radius:6px;box-shadow:var(--sh);padding:28px;min-height:420px;white-space:pre-wrap;line-height:1.8}
-.pa{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap}
-.req{margin-top:24px;background:var(--card);border:1.5px dashed var(--bd);border-radius:8px;padding:18px;text-align:center}
-.doc{max-width:74ch}.doc h3{margin-top:1.4em;font-size:1.1rem}.doc p{color:var(--mu);margin:0 0 .6em}
-footer{border-top:1px solid var(--bd);padding:26px 0;color:var(--mu);font-size:.88rem;margin-top:40px;background:var(--card)}
-.fg{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
-.fl{display:flex;gap:10px;flex-wrap:wrap}.fl button,.fl a{background:none;border:0;color:var(--mu);cursor:pointer;font-family:inherit;text-decoration:none;font-size:inherit}.fl button:hover,.fl a:hover{color:var(--pr)}
-#toast{display:none;position:fixed;bottom:calc(24px + env(safe-area-inset-bottom,0px));left:50%;transform:translateX(-50%);background:var(--pr);color:#fff;padding:8px 20px;border-radius:30px;font-size:.88rem;z-index:100}
-:root[data-theme="dark"] #toast{color:#0d1622}
-@media print{header,footer,.pa,.box,.req,.no-print{display:none!important}.page{display:none!important}#p-generator{display:block!important}.gen{display:block}.paper{border:0;box-shadow:none;background:#fff;color:#000;font-size:13pt}}
+
+/* मोबाइल और टैबलेट व्यू (जब स्क्रीन छोटी हो) */
+@media(max-width:1100px){
+  .tg{display:inline-flex}
+  nav.main{display:none;position:absolute;top:100%;left:0;width:100%;background:var(--panel);flex-direction:column;gap:4px;padding:12px 20px;border-bottom:1px solid var(--line);box-shadow:var(--sh)}
+  nav.main.open{display:flex}
+  nav.main a{width:100%;padding:10px 12px;justify-content:flex-start}
+}
+
+/* हीरो सेक्शन */
+.hero{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:35px 20px;text-align:center;max-width:1200px;margin:0 auto 30px auto;box-shadow:var(--sh);}
+.hero h1{font-size:1.6rem;color:var(--accent);margin:0 0 10px}
+.hero p{font-size:0.95rem;color:var(--muted);max-width:650px;margin:0 auto}
+
+/* कंटेनर */
+.container{max-width:1200px;margin:0 auto;padding:0 16px}
+
+/* सबसे ज्यादा उपयोग किए जाने वाले प्रार्थना पत्र (Trending Section) */
+.popular-section{margin-bottom:30px}
+.section-title{font-size:1.2rem;color:var(--accent);margin:0 0 16px 0;display:flex;align-items:center;gap:8px;}
+.popular-grid{display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(320px,1fr))}
+.pop-card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:18px;display:flex;flex-direction:column;justify-content:space-between;text-decoration:none;color:var(--ink);transition:transform .2s, box-shadow .2s;}
+.pop-card:hover{transform:translateY(-2px);box-shadow:var(--sh);}
+.pop-card h3{font-size:1.1rem;color:var(--accent);margin:0 0 8px;}
+.pop-card p{font-size:0.85rem;color:var(--muted);margin:0;}
+
+/* कैटेगरी सेक्शन ग्रिड */
+.categories-grid{display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(320px,1fr))}
+.cat-card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:18px;display:flex;flex-direction:column;justify-content:space-between}
+.cat-card h2{font-size:1.1rem;color:var(--accent);margin:0 0 12px;border-bottom:1px solid var(--line);padding-bottom:8px}
+
+/* फॉर्म लिस्ट (टॉप 5) */
+.form-list{list-style:none;padding:0;margin:0 0 16px 0;display:grid;gap:8px}
+.form-list li a{color:var(--ink);text-decoration:none;font-size:0.9rem;display:block;padding:8px 10px;border-radius:6px;background:var(--bg);transition:background .2s, color .2s}
+.form-list li a:hover{background:var(--accent);color:var(--accent-ink)}
+
+/* View All बटन */
+.view-all-btn{text-align:right}
+.view-all-btn a{display:inline-block;background:transparent;color:var(--accent);border:1px solid var(--accent);padding:6px 14px;border-radius:6px;font-size:0.85rem;font-weight:600;text-decoration:none;transition:background .2s, color .2s}
+.view-all-btn a:hover{background:var(--accent);color:var(--accent-ink)}
+
+/* रिस्पॉन्सिव फुटर (Footer) */
+footer{border-top:1px solid var(--line);padding:26px 0;color:var(--muted);font-size:.88rem;margin-top:40px;background:var(--panel)}
+.fg{display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap;max-width:1200px;margin:0 auto;padding:0 20px}
+.fl{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+.fl a{background:none;border:0;color:var(--muted);cursor:pointer;font-family:inherit;text-decoration:none;font-size:inherit;transition:color .2s}
+.fl a:hover{color:var(--accent)}
+
+@media(max-width:768px){
+  .fg{flex-direction:column;text-align:center;gap:12px}
+  .fl{justify-content:center;gap:8px 14px}
+}
 </style>
+
+<!-- तुरंत थीम सेट करने की स्क्रिप्ट (फ्लिकर रोकने के लिए) -->
+<script>
+  (function() {
+    const savedTheme = localStorage.getItem('app_theme') || 'light';
+    document.documentElement.setAttribute('data-theme', savedTheme);
+  })();
+</script>
 </head>
 <body>
-<header class="site"><div class="bar">
-<a class="brand" href="/">
-  <img src="favicon.png" alt="Application Helper Logo">
-  <div class="brand-text">
-    <strong data-i="brand">Application Helper</strong>
-    <span data-i="sub">औपचारिक पत्र, तुरंत तैयार करें</span>
+
+<!-- एडवांस हेडर (Header) - एक ही लाइन में लोगो, मेनू और नाईट मोड बटन -->
+<header class="site">
+  <div class="bar">
+    <a class="brand" href="/">
+      <img src="favicon.png" alt="Application Helper Logo">
+      <div class="brand-text">
+        <strong>Application Helper</strong>
+        <span>औपचारिक पत्र, तुरंत तैयार करें</span>
+      </div>
+    </a>
+
+    <nav class="main" id="mainNav">
+      <a href="/" aria-current="page">होम</a>
+      <a href="#cats">पत्र श्रेणियां</a>
+      <a href="articles.html">महत्वपूर्ण पेज</a>
+      <a href="about.html">हमारे बारे में</a>
+      <a href="contact.html">संपर्क करें</a>
+      <a href="privacy-policy.html">गोपनीयता नीति</a>
+      <a href="terms.html">नियम व शर्तें</a>
+      <a href="disclaimer.html">अस्वीकरण</a>
+    </nav>
+
+    <div class="acts no-print">
+      <button class="theme-btn" id="themeToggle" type="button"><span id="thI">🌙</span> <span id="thT">नाइट मोड</span></button>
+      <button class="ab tg" id="navToggle" type="button">☰</button>
+    </div>
   </div>
-</a>
-<div class="acts no-print">
-<button class="ab" id="themeBtn" type="button"><span id="thI"></span> <span id="thT"></span></button>
-<button class="ab tg" id="navToggle" type="button">☰</button></div>
-<nav class="main" id="mainNav">
-    <a href="/">होम</a>
-    <a href="/#cats">पत्र लिखें</a>
-    <a href="articles.html">महत्वपूर्ण पेज</a>
-    <a href="about.html">हमारे बारे में</a>
-    <a href="contact.html">संपर्क करें</a>
-    <a href="privacy-policy.html">गोपनीयता नीति</a>
-    <a href="terms.html">नियम व शर्तें</a>
-    <a href="disclaimer.html">अस्वीकरण</a>
-  </nav>
-</div></header>
+</header>
 
-<main>
-<!-- होमपेज -->
-<section class="page active" id="p-home"><div class="wrap">
-<div class="hero"><div>
-<h1 data-i="heroH">आवेदन पत्र सही प्रारूप में तैयार करें</h1><p data-i="heroD" style="color:var(--mu)">विद्यालय, बैंक, नौकरी, तहसील, पंचायत अथवा सरकारी विभागों हेतु शुद्ध व आधिकारिक प्रारूप में तुरंत पत्र बनाएं।</p>
-<div class="box" style="margin-top:18px"><label for="quick" data-i="pick" style="display:block;font-weight:600;margin-bottom:6px">पत्र की श्रेणी चुनें और शुरू करें:</label>
-<select id="quick" style="margin-bottom:12px"></select>
-<button class="btn bp" id="quickBtn" style="width:100%" data-i="writeBtn" type="button">पत्र लिखें →</button></div></div>
-<div class="box" style="text-align:center"><h3 data-i="fastH">⚡ तुरंत और सुरक्षित</h3><p data-i="fastP" style="font-size:.9rem;color:var(--mu);margin:0">कोई रजिस्ट्रेशन नहीं। आपका भरा विवरण हमारे सर्वर पर नहीं जाता, सब कुछ आपके मोबाइल/कंप्यूटर में ही रहता है।</p></div></div>
-<div style="text-align:center;margin:36px 0 22px"><h2 data-i="catsH">प्रमुख 10 पत्र श्रेणियां</h2><p data-i="catsP" style="color:var(--mu);font-size:.92rem;margin:0">किसी भी श्रेणी पर क्लिक करें और अपना पत्र भरना शुरू करें:</p></div>
+<div class="container">
+  <section class="hero">
+    <h1>मुफ्त हिंदी आवेदन पत्र और प्रार्थना पत्र पोर्टल</h1>
+    <p>अपनी जरूरत की कैटेगरी चुनें, टॉप आवेदन देखें या 'View All' पर क्लिक करके सभी फॉर्म प्राप्त करें।</p>
+  </section>
 
-<!-- 10 मुख्य श्रेणियां -->
-<div class="grid10" id="cats">
-  <a href="tehsil.html" class="cat">
-    <h3>1. तहसील, राजस्व एवं भूमि</h3>
-    <p>भूमि की पैमाइश, सीमांकन, मेड़ व कब्जे संबंधी विवाद, दाखिल-खारिज, वरासत, खतौनी में नाम सुधार, अधिवास, EWS, हैसियत प्रमाण पत्र एवं फसल क्षति मुआवजे से संबंधी आवेदन।</p>
-  </a>
-  <a href="panchayat.html" class="cat">
-    <h3>2. ग्राम पंचायत, ब्लॉक व नगर निकाय</h3>
-    <p>जन्म / मृत्यु प्रमाण पत्र, विलंब से जन्म / मृत्यु प्रमाण पत्र, सफाई व्यवस्था व कूड़ा निस्तारण, सड़क, नाली व जलभराव समस्या, पेयजल व हैंडपंप मरम्मत/रिबोर, आवास योजना, मनरेगा संबंधी आवेदन।</p>
-  </a>
-  <a href="bank.html" class="cat">
-    <h3>3. बैंक एवं वित्तीय सेवाएं</h3>
-    <p>खाता बंद / चालू / सिंगल, मोबाइल व ईमेल अपडेट, KYC / Re-KYC अपडेट, ATM / डेबिट कार्ड, नई चेकबुक / स्टॉप पेमेंट, नई पासबुक जारी कराना, खाता शाखा ट्रांसफर, नॉमिनी जोड़ना / बदलना संबंधी आवेदन।</p>
-  </a>
-  <a href="police.html" class="cat">
-    <h3>4. पुलिस विभाग एवं कानून व्यवस्था</h3>
-    <p>मोबाइल / दस्तावेज़ गुम, वाहन व अन्य चोरी शिकायत, गुमशुदगी रिपोर्ट, साइबर ठगी शिकायत, विवाद / गाली-गलौज व धमकी शिकायत, मारपीट व हमला शिकायत, भूमि / संपत्ति अवैध कब्जा शिकायत संबंधी आवेदन।</p>
-  </a>
-  <a href="bijli.html" class="cat">
-    <h3>5. विद्युत विभाग</h3>
-    <p>गलत बिल सुधार, मीटर खराब / बदलना, नया कनेक्शन (घरेलू/व्यावसायिक), लोड बढ़ाना / घटाना, नाम परिवर्तन, कनेक्शन विच्छेदन, ट्रांसफार्मर समस्या, जर्जर तार व झुका खंभा शिकायत संबंधी आवेदन।</p>
-  </a>
-  <a href="swasthya.html" class="cat">
-    <h3>6. स्वास्थ्य एवं चिकित्सा</h3>
-    <p>दिव्यांगता प्रमाण पत्र (UDID), आयुष्मान कार्ड (नाम जोड़ना / सुधार), मेडिकल सिकनेस व फिटनेस सर्टिफिकेट (कार्यालय / स्कूल), सरकारी अस्पताल शिकायत (डॉक्टर अनुपस्थिति / दवा अनुपलब्धता) संबंधी आवेदन।</p>
-  </a>
-  <a href="shiksha.html" class="cat">
-    <h3>7. स्कूल, कॉलेज एवं शिक्षा</h3>
-    <p>अवकाश आवेदन (बीमारी / घरेलू कार्य / विवाह), फीस माफी (पूर्ण व आंशिक), स्थानांतरण प्रमाण पत्र (TC), चरित्र प्रमाण पत्र (CC), डुप्लीकेट अंकतालिका, अंकतालिका व प्रमाण पत्र में नाम / जन्मतिथि सुधार संबंधी आवेदन।</p>
-  </a>
-  <a href="dak-parivahan.html" class="cat">
-    <h3>8. डाकघर एवं परिवहन (RTO)</h3>
-    <p>वाहन स्वामित्व ट्रांसफर, ड्राइविंग लाइसेंस (डुप्लीकेट / नवीनीकरण / सुधार), वाहन RC (डुप्लीकेट / पता सुधार / निरस्तीकरण), वाहन NOC व फिटनेस प्रमाण पत्र, वाहन परमिट व बीमा अपडेट संबंधी आवेदन।</p>
-  </a>
-  <a href="rti.html" class="cat">
-    <h3>9. सूचना का अधिकार (RTI)</h3>
-    <p>ग्राम पंचायत विकास कार्य व व्यय, भर्ती परीक्षा (OMR शीट / अंक / कट-ऑफ), सड़क व नाली निर्माण (टेंडर / लागत / गुणवत्ता), राशन दुकान आवंटन व लाभार्थी सूची, पुलिस शिकायत कार्रवाई स्थिति संबंधी आवेदन।</p>
-  </a>
-  <a href="daftar.html" class="cat">
-    <h3>10. दफ्तर, नौकरी एवं कार्यस्थल</h3>
-    <p>आकस्मिक व मेडिकल अवकाश, अर्जित अवकाश, मातृत्व व पितृत्व अवकाश, गृह जनपद / शाखा स्थानांतरण, बकाया वेतन भुगतान, वेतन वृद्धि, वेतन पर्ची, अनुभव प्रमाण पत्र, त्यागपत्र संबंधी आवेदन।</p>
-  </a>
+  <!-- 🔥 आज सबसे ज्यादा उपयोग किए जाने वाले प्रार्थना पत्र -->
+  <div class="popular-section" id="cats">
+    <h2 class="section-title">🔥 आज सबसे ज्यादा उपयोग किए जाने वाले प्रार्थना पत्र</h2>
+    <div class="popular-grid">
+      
+      <a href="bank-account-unfreeze-application.html" class="pop-card">
+        <div>
+          <h3>बैंक खाता अनफ्रीज (Hold) करने का पत्र</h3>
+          <p>खाता फ्रीज होने पर 1 क्लिक में बैंक मैनेजर को देने वाला आवेदन तैयार करें。</p>
+        </div>
+      </a>
+
+      <a href="up-income-certificate-correction.html" class="pop-card">
+        <div>
+          <h3>आय प्रमाण पत्र में सुधार / निरस्तीकरण पत्र</h3>
+          <p>लेखपाल द्वारा गलत आय लिखने पर तहसीलदार को देने वाला प्रार्थना पत्र。</p>
+        </div>
+      </a>
+
+      <a href="uppcl-bijli-bill-correction.html" class="pop-card">
+        <div>
+          <h3>गलत बिजली बिल (IDF/RDF) सुधार हेतु पत्र</h3>
+          <p>अचानक आए भारी-भरकम बिजली बिल को ठीक कराने के लिए SDO को दें पत्र。</p>
+        </div>
+      </a>
+
+    </div>
+  </div>
+
+  <!-- कैटेगरी सेक्शन ग्रिड -->
+  <div class="categories-grid">
+
+    <!-- 1. बैंकिंग सेवाएं (Banking Services) -->
+    <div class="cat-card">
+      <div>
+        <h2>🏦 1. बैंकिंग सेवाएं (Banking Services)</h2>
+        <ul class="form-list">
+          <li><a href="bank-mobile-number-update-form.html">👉 बैंक खाते में मोबाइल नंबर अपडेट कराने हेतु आवेदन पत्र</a></li>
+          <li><a href="bank-block-atm-debit-card.html">👉 खोया हुआ ATM / डेबिट कार्ड ब्लॉक कराने हेतु आवेदन पत्र</a></li>
+          <li><a href="bank-stop-payment-lost-cheque.html">👉 खोए हुए चेक का भुगतान रोकने हेतु आवेदन पत्र</a></li>
+          <li><a href="bank-new-cheque-book-request.html">👉 नई चेकबुक जारी कराने हेतु आवेदन पत्र</a></li>
+          <li><a href="bank-new-passbook-request.html">👉 पासबुक भर जाने पर नई पासबुक जारी कराने हेतु आवेदन पत्र</a></li>
+        </ul>
+      </div>
+      <div class="view-all-btn">
+        <a href="bank.html">सभी बैंकिंग फॉर्म देखें (View All) &rarr;</a>
+      </div>
+    </div>
+
+    <!-- 2. बिजली विभाग (Electricity Department) -->
+    <div class="cat-card">
+      <div>
+        <h2>⚡ 2. बिजली विभाग (Electricity Department)</h2>
+        <ul class="form-list">
+          <li><a href="uppcl-bill-correction-application.html">👉 गलत या अत्यधिक बिजली बिल संशोधन हेतु आवेदन</a></li>
+          <li><a href="uppcl-replace-faulty-meter.html">👉 खराब बिजली मीटर बदलवाने हेतु आवेदन</a></li>
+          <li><a href="uppcl-replace-stuck-meter.html">👉 रुका हुआ बिजली मीटर बदलवाने हेतु आवेदन</a></li>
+          <li><a href="uppcl-replace-fast-meter.html">👉 तेज गति से चलने वाले बिजली मीटर को बदलवाने हेतु आवेदन</a></li>
+          <li><a href="uppcl-replace-damaged-transformer.html">👉 मोहल्ले में खराब/जला हुआ बिजली ट्रांसफार्मर बदलवाने हेतु आवेदन</a></li>
+        </ul>
+      </div>
+      <div class="view-all-btn">
+        <a href="bijli.html">सभी बिजली फॉर्म देखें (View All) &rarr;</a>
+      </div>
+    </div>
+
+    <!-- 3. राजस्व एवं तहसील (Revenue & Tehsil) -->
+    <div class="cat-card">
+      <div>
+        <h2>📜 3. राजस्व एवं तहसील (Revenue & Tehsil)</h2>
+        <ul class="form-list">
+          <li><a href="tehsils-land-measurement-application.html">👉 आय प्रमाण पत्र निरस्त व सुधार हेतु तहसीलदार को पत्र</a></li>
+          <li><a href="tehsils-land-demarcation-hadbarari.html">👉 जाति/निवास प्रमाण पत्र पर रिपोर्ट लगवाने हेतु पत्र</a></li>
+          <li><a href="tehsils-field-boundary-dispute.html">👉 खतौनी में नाम सुधार व वरासत हेतु प्रार्थना पत्र</a></li>
+          <li><a href="tehsils-illegal-land-occupation.html">👉 जन्म प्रमाण पत्र में नाम सुधार या विलंबित पंजीकरण पत्र</a></li>
+          <li><a href="tehsils-remove-public-road-encroachment.html">👉 जमीन की पैमाइश (हदबंदी) हेतु SDM को प्रार्थना पत्र</a></li>
+        </ul>
+      </div>
+      <div class="view-all-btn">
+        <a href="tehsil.html">सभी तहसील फॉर्म देखें (View All) &rarr;</a>
+      </div>
+    </div>
+
+    <!-- 4. DAFTER (कार्यालय/नौकरी - Office & Job) -->
+    <div class="cat-card">
+      <div>
+        <h2>💼 4. DAFTER (कार्यालय/नौकरी)</h2>
+        <ul class="form-list">
+          <li><a href="office-casual-leave-application.html">👉 आकस्मिक अवकाश (Casual Leave / CL) हेतु आवेदन</a></li>
+          <li><a href="office-medical-leave-application.html">👉 चिकित्सकीय अवकाश (Medical / Sick Leave) हेतु आवेदन</a></li>
+          <li><a href="office-earned-leave-application.html">👉 अर्जित अवकाश (Earned / Privilege Leave) हेतु आवेदन</a></li>
+          <li><a href="office-maternity-leave-application.html">👉 मातृत्व अवकाश (Maternity Leave) हेतु आवेदन</a></li>
+          <li><a href="office-paternity-leave-application.html">👉 पितृत्व अवकाश (Paternity Leave) हेतु आवेदन</a></li>
+        </ul>
+      </div>
+      <div class="view-all-btn">
+        <a href="daftar.html">सभी कार्यालयीन फॉर्म देखें (View All) &rarr;</a>
+      </div>
+    </div>
+
+    <!-- 5. DAK-PRIVAHAN (परिवहन एवं डाकघर) -->
+    <div class="cat-card">
+      <div>
+        <h2>🚚 5. DAK-PRIVAHAN (परिवहन एवं डाकघर)</h2>
+        <ul class="form-list">
+          <li><a href="transport-vehicle-ownership-transfer.html">👉 वाहन का स्वामित्व ट्रांसफर हेतु आवेदन</a></li>
+          <li><a href="transport-duplicate-driving-license.html">👉 ड्राइविंग लाइसेंस खो जाने पर डुप्लीकेट लाइसेंस हेतु आवेदन</a></li>
+          <li><a href="transport-rto-noc-application.html">👉 वाहन अनापत्ति प्रमाण पत्र (RTO NOC) हेतु आवेदन</a></li>
+          <li><a href="transport-duplicate-rc-application.html">👉 वाहन की RC की डुप्लीकेट प्रति हेतु आवेदन</a></li>
+          <li><a href="transport-rc-correction-application.html">👉 वाहन की RC में नाम/पता सुधार हेतु आवेदन</a></li>
+        </ul>
+      </div>
+      <div class="view-all-btn">
+        <a href="dak-parivahan.html">सभी परिवहन एवं डाकघर फॉर्म देखें (View All) &rarr;</a>
+      </div>
+    </div>
+
+    <!-- 6. PANCHAYAT (ग्राम पंचायत) -->
+    <div class="cat-card">
+      <div>
+        <h2>🏡 6. PANCHAYAT (ग्राम पंचायत)</h2>
+        <ul class="form-list">
+          <li><a href="panchayat-birth-certificate-application.html">👉 जन्म प्रमाण पत्र जारी कराने हेतु आवेदन</a></li>
+          <li><a href="panchayat-death-certificate-application.html">👉 मृत्यु प्रमाण पत्र जारी कराने हेतु आवेदन</a></li>
+          <li><a href="panchayat-late-birth-certificate.html">👉 विलंब से जन्म प्रमाण पत्र जारी कराने हेतु आवेदन</a></li>
+          <li><a href="panchayat-late-death-certificate.html">👉 विलंब से मृत्यु प्रमाण पत्र जारी कराने हेतु आवेदन</a></li>
+          <li><a href="panchayat-cleaning-complaint.html">👉 ग्राम पंचायत में नियमित सफाई न होने की शिकायत</a></li>
+        </ul>
+      </div>
+      <div class="view-all-btn">
+        <a href="panchayat.html">सभी ग्राम पंचायत फॉर्म देखें (View All) &rarr;</a>
+      </div>
+    </div>
+
+    <!-- 7. POLICE (पुलिस) -->
+    <div class="cat-card">
+      <div>
+        <h2>🚨 7. POLICE (पुलिस)</h2>
+        <ul class="form-list">
+          <li><a href="police-lost-mobile-complaint.html">👉 मोबाइल फोन गुम होने की सूचना हेतु आवेदन</a></li>
+          <li><a href="police-character-verification.html">👉 सरकारी नौकरी हेतु चरित्र सत्यापन / पुलिस वेरिफिकेशन हेतु आवेदन</a></li>
+          <li><a href="police-lost-documents-report.html">👉 शैक्षणिक दस्तावेज गुम होने की सूचना हेतु आवेदन</a></li>
+          <li><a href="police-lost-wallet-complaint.html">👉 पर्स / बटुआ गुम होने की सूचना हेतु आवेदन</a></li>
+          <li><a href="police-bike-theft-fir.html">👉 मोटरसाइकिल / बाइक चोरी होने की शिकायत (FIR) हेतु आवेदन</a></li>
+        </ul>
+      </div>
+      <div class="view-all-btn">
+        <a href="police.html">सभी पुलिस फॉर्म देखें (View All) &rarr;</a>
+      </div>
+    </div>
+
+    <!-- 8. RTI (सूचना का अधिकार) -->
+    <div class="cat-card">
+      <div>
+        <h2>ℹ️ 8. RTI (सूचना का अधिकार)</h2>
+        <ul class="form-list">
+          <li><a href="rti-panchayat-development-expenses.html">👉 ग्राम पंचायत के विकास कार्यों व खर्च के विवरण हेतु RTI आवेदन</a></li>
+          <li><a href="rti-government-exam-omr-sheet.html">👉 सरकारी भर्ती परीक्षा की OMR शीट की प्रति हेतु RTI आवेदन</a></li>
+          <li><a href="rti-exam-marks-details.html">👉 सरकारी भर्ती परीक्षा में प्राप्त अंकों की जानकारी हेतु RTI आवेदन</a></li>
+          <li><a href="rti-exam-cutoff-details.html">👉 सरकारी भर्ती परीक्षा की कट-ऑफ की जानकारी हेतु RTI आवेदन</a></li>
+          <li><a href="rti-road-tender-quality.html">👉 सड़क निर्माण के टेंडर, लागत व गुणवत्ता विवरण हेतु RTI आवेदन</a></li>
+        </ul>
+      </div>
+      <div class="view-all-btn">
+        <a href="rti.html">सभी RTI फॉर्म देखें (View All) &rarr;</a>
+      </div>
+    </div>
+
+    <!-- 9. SHIKSHA (शिक्षा एवं विद्यालय) -->
+    <div class="cat-card">
+      <div>
+        <h2>📚 9. SHIKSHA (शिक्षा एवं विद्यालय)</h2>
+        <ul class="form-list">
+          <li><a href="education-sick-leave-application.html">👉 अस्वस्थता (बीमारी) के कारण अवकाश हेतु प्रार्थना पत्र</a></li>
+          <li><a href="education-domestic-leave-application.html">👉 आवश्यक घरेलू कार्य के कारण अवकाश हेतु प्रार्थना पत्र</a></li>
+          <li><a href="education-brother-marriage-leave.html">👉 भाई के विवाह में सम्मिलित होने हेतु अवकाश प्रार्थना पत्र</a></li>
+          <li><a href="education-sister-marriage-leave.html">👉 बहन के विवाह में सम्मिलित होने हेतु अवकाश प्रार्थना पत्र</a></li>
+          <li><a href="education-full-fee-concession.html">👉 आर्थिक तंगी के कारण विद्यालय शुल्क (फीस) पूर्ण माफी हेतु आवेदन</a></li>
+        </ul>
+      </div>
+      <div class="view-all-btn">
+        <a href="shiksha.html">सभी शिक्षा फॉर्म देखें (View All) &rarr;</a>
+      </div>
+    </div>
+
+    <!-- 10. SWASTHYA (स्वास्थ्य एवं चिकित्सा) -->
+    <div class="cat-card">
+      <div>
+        <h2>🏥 10. SWASTHYA (स्वास्थ्य एवं चिकित्सा)</h2>
+        <ul class="form-list">
+          <li><a href="health-disability-certificate-application.html">👉 मेडिकल बोर्ड से दिव्यांगता प्रमाण पत्र (Disability Certificate) बनवाने हेतु आवेदन</a></li>
+          <li><a href="health-ayushman-card-name-addition.html">👉 आयुष्मान कार्ड में नाम जोड़ने हेतु आवेदन</a></li>
+          <li><a href="health-ayushman-card-correction.html">👉 आयुष्मान कार्ड में नाम / विवरण सुधार कराने हेतु आवेदन</a></li>
+          <li><a href="health-office-medical-fitness-certificate.html">👉 कार्यालय के लिए डॉक्टर से मेडिकल फिटनेस/सिकनेस सर्टिफिकेट हेतु अनुरोध पत्र</a></li>
+          <li><a href="health-school-medical-fitness-certificate.html">👉 स्कूल के लिए डॉक्टर से मेडिकल फिटनेस /सिकनेस सर्टिफिकेट हेतु अनुरोध पत्र</a></li>
+        </ul>
+      </div>
+      <div class="view-all-btn">
+        <a href="swasthya.html">सभी स्वास्थ्य फॉर्म देखें (View All) &rarr;</a>
+      </div>
+    </div>
+
+  </div>
 </div>
-</div></section>
 
-<!-- त्वरित जनरेटर -->
-<section class="page" id="p-generator"><div class="wrap">
-<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;gap:10px;flex-wrap:wrap"><button class="btn bg" data-nav="home" data-i="back"></button><span data-i="live" style="font-size:.85rem;color:var(--mu)"></span></div>
-<div class="gen"><div class="box"><form id="form" onsubmit="return false">
-<div class="f"><label for="cat" data-i="fCat"></label><select id="cat"></select></div>
-<div class="f"><label for="type" data-i="fType"></label><select id="type"></select></div>
-<fieldset><legend data-i="fSender"></legend>
-<div class="row"><div class="f"><label for="sName" data-i="fName"></label><input id="sName" data-ph="phName"></div><div class="f"><label for="sRole" data-i="fRole"></label><input id="sRole" data-ph="phRole"></div></div>
-<div class="f"><label for="sAddr" data-i="fAddr"></label><input id="sAddr" data-ph="phAddr"></div>
-<div class="row"><div class="f"><label for="sMob" data-i="fMob"></label><input id="sMob" type="tel" data-ph="phMob"></div><div class="f"><label for="date" data-i="fDate"></label><input id="date" type="date"></div></div></fieldset>
-<fieldset><legend data-i="fTo"></legend>
-<div class="f"><label for="to" data-i="fToWhom"></label><input id="to"></div><div class="f"><label for="org" data-i="fOrg"></label><input id="org"></div></fieldset>
-<fieldset><legend data-i="fMain"></legend>
-<div class="f"><label for="subj" data-i="fSubject"></label><input id="subj"></div>
-<div class="f"><label for="sal" data-i="fSal"></label><select id="sal"></select></div>
-<div class="f"><label for="body" data-i="fBody"></label><textarea id="body"></textarea></div>
-<div class="f"><label for="close" data-i="fClose"></label><select id="close"></select></div></fieldset>
-</form></div>
-<div class="pv"><div class="paper" id="paper"></div>
-<div class="pa no-print"><button class="btn bp" id="printBtn" data-i="print"></button><button class="btn bg" id="copyBtn" data-i="copy"></button><button class="btn bg" id="resetBtn" data-i="reset"></button></div>
-<div class="req no-print"><strong style="color:var(--pr)" data-i="reqH"></strong><p data-i="reqP" style="font-size:.83rem;color:var(--mu);margin:4px 0 10px"></p><a class="btn bg" style="padding:5px 12px;font-size:.82rem" href="mailto:applicationhelper.in@gmail.com?subject=नया%20पत्र%20अनुरोध" data-i="reqBtn"></a></div>
-</div></div></div></section>
-
-<!-- संपर्क करें एवं राय फॉर्म -->
-<section class="page" id="p-contact">
-  <div class="wrap" style="max-width:680px; margin:0 auto;">
-    <div style="text-align:center; margin-bottom:24px;">
-      <h2>संपर्क करें एवं राय साझा करें</h2>
-      <p style="color:var(--mu); font-size:0.92rem; margin:0;">
-        कोई नया प्रारूप जुड़वाना चाहते हैं या कोई सुझाव है? नीचे फॉर्म भरें, यह सीधे हमारे जीमेल पर प्राप्त होगा।
-      </p>
-    </div>
-
-    <div class="box">
-      <form id="contactForm" action="https://formsubmit.co/applicationhelper.in@gmail.com" method="POST" onsubmit="return validateContactForm(event)">
-        <input type="hidden" name="_next" value="https://applicationhelper.in/">
-        <!-- 1. हिडन हनीपॉट (स्पैम बॉट ट्रैप) -->
-        <input type="text" name="_honey" style="display:none !important;" tabindex="-1" autocomplete="off">
-        <input type="hidden" name="_subject" value="नया सुझाव / पत्र अनुरोध — Application Helper">
-        <input type="hidden" name="_template" value="table">
-        <input type="hidden" name="_captcha" value="false">
-
-        <!-- नाम -->
-        <div class="f">
-          <label for="c_name">आपका पूरा नाम <span style="color:red">*</span></label>
-          <input type="text" id="c_name" name="आवेदक_का_नाम" placeholder="जैसे: राहुल शर्मा" required maxlength="50">
-        </div>
-
-        <!-- मोबाइल व ईमेल -->
-        <div class="row">
-          <div class="f">
-            <label for="c_mob">मोबाइल नंबर <span style="color:red">*</span></label>
-            <input type="tel" id="c_mob" name="मोबाइल_नंबर" placeholder="10 अंकों का नंबर" pattern="[6-9][0-9]{9}" title="कृपया 10 अंकों का मान्य भारतीय मोबाइल नंबर लिखें" required>
-          </div>
-          <div class="f">
-            <label for="c_email">ईमेल पता</label>
-            <input type="email" id="c_email" name="ईमेल" placeholder="उदाहरण: name@gmail.com">
-          </div>
-        </div>
-
-        <!-- संदेश -->
-        <div class="f">
-          <label for="c_msg">आपकी राय / संदेश / नया पत्र प्रारूप <span style="color:red">*</span></label>
-          <textarea id="c_msg" name="संदेश_व_राय" placeholder="अपना सुझाव या आवश्यकता यहाँ लिखें..." required minlength="10" maxlength="1500" style="min-height:110px;"></textarea>
-        </div>
-
-        <!-- 2. एंटी-स्पैम मैथ कैप्चा -->
-        <div class="f" style="background:var(--bg); padding:12px; border-radius:6px; border:1px solid var(--bd);">
-          <label for="c_captcha" style="margin-bottom:6px;">
-            🔒 सुरक्षा जांच (स्पैम रोधी): <strong id="captchaQuestion" style="color:var(--pr); font-size:1.1rem;"></strong> = ?
-          </label>
-          <input type="number" id="c_captcha" placeholder="यहाँ उत्तर लिखें" required style="max-width:180px;">
-          <small id="captchaError" style="color:#e63946; display:none; font-weight:600; margin-top:4px;">गलत उत्तर! कृपया दोबारा प्रयास करें।</small>
-        </div>
-
-        <!-- सबमिट बटन -->
-        <div style="margin-top:18px;">
-          <button type="submit" id="c_submitBtn" class="btn bp" style="width:100%;">संदेश भेजें ✉️</button>
-        </div>
-      </form>
-    </div>
-  </div>
-</section>
-</main>
-
+<!-- एडवांस फुटर (Footer) -->
 <footer>
-  <div class="wrap fg">
-    <div>© <span id="yr"></span> Application Helper — All Rights Reserved.</div>
+  <div class="fg">
+    <div>&copy; <span id="yr"></span> ApplicationHelper.in — सभी अधिकार सुरक्षित।</div>
     <div class="fl">
       <a href="about.html">About Us</a>
       <a href="contact.html">Contact Us</a>
@@ -344,164 +449,46 @@ footer{border-top:1px solid var(--bd);padding:26px 0;color:var(--mu);font-size:.
       <a href="copyright.html">Copyright</a>
     </div>
   </div>
-</footer><div id="toast"></div>
+</footer>
 
 <script>
-(function(){"use strict";
-var UI={brand:"Application Helper",sub:"औपचारिक पत्र, तुरंत तैयार करें",nHome:"होम",nGen:"पत्र लिखें",nArticles:"महत्वपूर्ण पेज",nAbout:"हमारे बारे में",nContact:"संपर्क करें",nPrivacy:"गोपनीयता नीति",nTerms:"नियम व शर्तें",nDisc:"अस्वीकरण",heroH:"आवेदन पत्र सही प्रारूप में तैयार करें",heroD:"विद्यालय, बैंक, नौकरी, तहसील, पंचायत अथवा सरकारी विभागों हेतु शुद्ध व आधिकारिक प्रारूप में तुरंत पत्र बनाएं।",pick:"पत्र की श्रेणी चुनें और शुरू करें:",writeBtn:"पत्र लिखें →",fastH:"⚡ तुरंत और सुरक्षित",fastP:"कोई रजिस्ट्रेशन नहीं। आपका भरा विवरण हमारे सर्वर पर नहीं जाता, सब कुछ आपके मोबाइल/कंप्यूटर में ही रहता है।",catsH:"प्रमुख 10 पत्र श्रेणियां",catsP:"किसी भी श्रेणी पर क्लिक करें और अपना पत्र भरना शुरू करें:",back:"← होम पर वापस जाएं",live:"लाइव प्रिव्यू स्वतः अपडेट होता है",fCat:"आवेदन की श्रेणी",fType:"पत्र का प्रकार",fSender:"प्रेषक (आपका विवरण)",fName:"आपका पूरा नाम",fRole:"पद / कक्षा / खाता संख्या",fAddr:"पता",fMob:"मोबाइल नंबर",fDate:"दिनांक",fTo:"प्रापक (सेवा में)",fToWhom:"प्रति (अधिकारी का पद)",fOrg:"संस्था / कार्यालय का नाम व पता",fMain:"पत्र का मुख्य विषय",fSubject:"विषय",fSal:"संबोधन",fBody:"मुख्य संदेश",fClose:"समापन शब्द",phName:"जैसे: राहुल शर्मा",phRole:"जैसे: खाता क्र. / कक्षा",phAddr:"गाँव/शहर, जिला, राज्य",phMob:"10 अंकों का नंबर",print:"🖨️ प्रिंट / PDF सहेजें",copy:"📋 कॉपी करें",reset:"🔄 रीसेट",reqH:"मनचाहा पत्र नहीं मिला?",reqP:"हमें लिखें, हम इसे जोड़ने का प्रयास करेंगे:",reqBtn:"अनुरोध भेजें ✉️",copied:"पत्र सफलतापूर्वक कॉपी हो गया!",soon:"यह श्रेणी जल्द उपलब्ध होगी।",rights:"सर्वाधिकार सुरक्षित।",dark:"नाइट मोड",light:"लाइट मोड",date:"दिनांक: ",to:"सेवा में,",subj:"विषय: ",thanks:"सधन्यवाद।",mob:"मोबाइल: ",phTo:"[प्रापक का पद]",phOrg:"[संस्था का नाम व पता]",phS:"[विषय]",phB:"[पत्र का मुख्य भाग]",phN:"[आपका नाम]",sal:["महोदय,","महोदया,","मान्यवर,"],cl:["भवदीय","प्रार्थी","आपका आज्ञाकारी शिष्य","आपकी आज्ञाकारी शिष्या"]};
+(function(){
+  document.getElementById('yr').textContent = new Date().getFullYear();
 
-var CATS=[
-{hi:["तहसील, राजस्व एवं भूमि","भूमि की पैमाइश, सीमांकन, मेड़ व कब्जे संबंधी विवाद, दाखिल-खारिज, वरासत, खतौनी में नाम सुधार, अधिवास, EWS, हैसियत प्रमाण पत्र एवं फसल क्षति मुआवजे से संबंधी आवेदन।"]},
-{hi:["ग्राम पंचायत, ब्लॉक व नगर निकाय","जन्म / मृत्यु प्रमाण पत्र, विलंब से जन्म / मृत्यु प्रमाण पत्र, सफाई व्यवस्था व कूड़ा निस्तारण, सड़क, नाली व जलभराव समस्या, पेयजल व हैंडपंप मरम्मत/रिबोर, आवास योजना, मनरेगा संबंधी आवेदन।"]},
-{hi:["बैंक एवं वित्तीय सेवाएं","खाता बंद / चालू / सिंगल, मोबाइल व ईमेल अपडेट, KYC / Re-KYC अपडेट, ATM / डेबिट कार्ड, नई चेकबुक / स्टॉप पेमेंट, नई पासबुक जारी कराना, खाता शाखा ट्रांसफर, नॉमिनी जोड़ना / बदलना संबंधी आवेदन।"]},
-{hi:["पुलिस विभाग एवं कानून व्यवस्था","मोबाइल / दस्तावेज़ गुम, वाहन व अन्य चोरी शिकायत, गुमशुदगी रिपोर्ट, साइबर ठगी शिकायत, विवाद / गाली-गलौज व धमकी शिकायत, मारपीट व हमला शिकायत, भूमि / संपत्ति अवैध कब्जा शिकायत संबंधी आवेदन।"]},
-{hi:["विद्युत विभाग","गलत बिल सुधार, मीटर खराब / बदलना, नया कनेक्शन (घरेलू/व्यावसायिक), लोड बढ़ाना / घटाना, नाम परिवर्तन, कनेक्शन विच्छेदन, ट्रांसफार्मर समस्या, जर्जर तार व झुका खंभा शिकायत संबंधी आवेदन।"]},
-{hi:["स्वास्थ्य एवं चिकित्सा","दिव्यांगता प्रमाण पत्र (UDID), आयुष्मान कार्ड (नाम जोड़ना / सुधार), मेडिकल सिकनेस व फिटनेस सर्टिफिकेट (कार्यालय / स्कूल), सरकारी अस्पताल शिकायत (डॉक्टर अनुपस्थिति / दवा अनुपलब्धता) संबंधी आवेदन।"]},
-{hi:["स्कूल, कॉलेज एवं शिक्षा","अवकाश आवेदन (बीमारी / घरेलू कार्य / विवाह), फीस माफी (पूर्ण व आंशिक), स्थानांतरण प्रमाण पत्र (TC), चरित्र प्रमाण पत्र (CC), डुप्लीकेट अंकतालिका, अंकतालिका व प्रमाण पत्र में नाम / जन्मतिथि सुधार संबंधी आवेदन।"]},
-{hi:["डाकघर एवं परिवहन (RTO)","वाहन स्वामित्व ट्रांसफर, ड्राइविंग लाइसेंस (डुप्लीकेट / नवीनीकरण / सुधार), वाहन RC (डुप्लीकेट / पता सुधार / निरस्तीकरण), वाहन NOC व फिटनेस प्रमाण पत्र, वाहन परमिट व बीमा अपडेट संबंधी आवेदन।"]},
-{hi:["सूचना का अधिकार (RTI)","ग्राम पंचायत विकास कार्य व व्यय, भर्ती परीक्षा (OMR शीट / अंक / कट-ऑफ), सड़क व नाली निर्माण (टेंडर / लागत / गुणवत्ता), राशन दुकान आवंटन व लाभार्थी सूची, पुलिस शिकायत कार्रवाई स्थिति संबंधी आवेदन।"]},
-{hi:["दफ्तर, नौकरी एवं कार्यस्थल","आकस्मिक व मेडिकल अवकाश, अर्जित अवकाश, मातृत्व व पितृत्व अवकाश, गृह जनपद / शाखा स्थानांतरण, बकाया वेतन भुगतान, वेतन वृद्धि, वेतन पर्ची, अनुभव प्रमाण पत्र, त्यागपत्र संबंधी आवेदन।"]}
-];
+  const themeBtn = document.getElementById('themeToggle');
+  const thI = document.getElementById('thI');
+  const thT = document.getElementById('thT');
 
-["tehsil","panchayat","bank","police","bijli","swasthya","shiksha","dak-parivahan","rti","daftar"].forEach(function(x,i){CATS[i].s=x});
-
-var TP=[
-[0,"caste",["आय / जाति प्रमाण पत्र आवेदन","श्रीमान उपजिलाधिकारी / तहसीलदार महोदय","तहसील कार्यालय, [तहसील व जिला]","जाति/आय प्रमाण पत्र निर्गत करने हेतु","सविनय निवेदन है कि मुझे शैक्षणिक छात्रवृत्ति/सरकारी योजना के उपयोग हेतु प्रमाण पत्र की आवश्यकता है। सभी सहायक दस्तावेज संलग्न हैं।\n\nअतः प्रमाण पत्र निर्गत करने की कृपा करें।"]],
-[1,"complaint",["जन समस्या / शिकायत पत्र","श्रीमान संबंधित अधिकारी महोदय","[नगर निगम / ग्राम पंचायत / संबंधित विभाग]","समस्या समाधान के संबंध में","सविनय निवेदन है कि हमारे क्षेत्र [मोहल्ला/वार्ड] में [समस्या का संक्षिप्त विवरण] के कारण निवासियों को असुविधा हो रही है।\n\nअतः कृपया तत्काल संज्ञान लेकर समाधान कराएं।"]],
-[2,"bank",["बैंक खाता संबंधी आवेदन","श्रीमान शाखा प्रबंधक महोदय","[बैंक का नाम एवं शाखा]","खाता ट्रांसफर / नया ATM जारी करने हेतु","सविनय निवेदन है कि मेरा बचत खाता संख्या [खाता संख्या] आपकी शाखा में संचालित है। मुझे आवश्यक सेवाओं की निरंतरता हेतु उक्त सुविधा प्रदान करने की कृपा करें।"]],
-[3,"fir",["FIR / शिकायत दर्ज कराने हेतु आवेदन","श्रीमान थानाध्यक्ष महोदय","थाना [थाने का नाम], जिला [जिला]","एफ.आई.आर. दर्ज करने हेतु प्रार्थना पत्र","सविनय निवेदन है कि दिनांक [तारीख] को [स्थान] पर [घटना का विवरण] हुई है।\n\nअतः प्रार्थना है कि मेरी शिकायत पर एफ.आई.आर. दर्ज कर आवश्यक कानूनी कार्यवाही करने की कृपा करें।"]],
-[4,"power",["बिजली कनेक्शन आवेदन","श्रीमान सहायक अभियंता महोदय","[विद्युत आपूर्ति मंडल कार्यालय]","नवीन कनेक्शन प्रदान करने हेतु","सविनय निवेदन है कि मेरे नए परिसर [पूरा पता] पर नए कनेक्शन की आवश्यकता है। कृपया नियमों के अनुरूप आवश्यक कार्यवाही पूर्ण कर कनेक्शन जारी करें।"]],
-[5,"medical",["मेडिकल अवकाश हेतु आवेदन","श्रीमान प्रधानाचार्य / प्रबंधक महोदय","[संस्था का नाम व पता]","बीमारी के कारण अवकाश हेतु","सविनय निवेदन है कि मैं अस्वस्थ होने के कारण दिनांक [से] से [तक] तक उपस्थित नहीं हो सकूँगा/सकूँगी। चिकित्सक का प्रमाण पत्र संलग्न है।\n\nअतः कृपया अवकाश स्वीकृत करने की कृपा करें।"]],
-[6,"sleave",["स्कूल में अवकाश हेतु आवेदन","श्रीमान प्रधानाचार्य महोदय","राजकीय उच्चतर माध्यमिक विद्यालय, [विद्यालय का पता]","अवकाश हेतु प्रार्थना पत्र","सविनय निवेदन है कि मैं आपके विद्यालय की कक्षा [कक्षा] का/की विद्यार्थी हूँ। मुझे आवश्यक घरेलू कार्य / अस्वस्थ होने के कारण दिनांक [से] से [तक] तक विद्यालय आने में असमर्थता है।\n\nअतः प्रार्थना है कि मुझे उक्त अवधि के लिए अवकाश प्रदान करने की कृपा करें।"]],
-[6,"char",["चरित्र प्रमाण पत्र हेतु आवेदन","श्रीमान प्रधानाचार्य / निदेशक महोदय","[संस्थान का नाम एवं पता]","चरित्र प्रमाण पत्र जारी करने हेतु","सविनय निवेदन है कि मैंने वर्ष [वर्ष] में आपके संस्थान से [कक्षा/कोर्स] उत्तीर्ण किया है। आगामी प्रवेश/नौकरी हेतु मुझे चरित्र प्रमाण पत्र की आवश्यकता है। कृपया इसे निर्गत करने की कृपा करें।"]],
-[6,"bona",["बोनाफाइड प्रमाण पत्र आवेदन","श्रीमान विभागाध्यक्ष महोदय","[कॉलेज का नाम एवं पता]","बोनाफाइड प्रमाण पत्र निर्गत करने हेतु","सविनय निवेदन है कि मैं आपके कॉलेज में [कोर्स का नाम] का नियमित विद्यार्थी हूँ। छात्रवृत्ति आवेदन के सत्यापन हेतु मुझे बोनाफाइड प्रमाण पत्र की आवश्यकता है।"]],
-[7,"rto",["ड्राइविंग लाइसेंस / RC हेतु आवेदन","श्रीमान क्षेत्रीय परिवहन अधिकारी (RTO) महोदय","क्षेत्रीय परिवहन कार्यालय, [शहर]","ड्राइविंग लाइसेंस / वाहन पंजीकरण संबंधी आवेदन","सविनय निवेदन है कि मुझे [लाइसेंस नवीनीकरण / डुप्लीकेट RC / वाहन ट्रांसफर] की आवश्यकता है। मेरा वाहन/लाइसेंस संख्या [संख्या] है।\n\nअतः आवश्यक कार्यवाही करने की कृपा करें।"]],
-[8,"rti",["सूचना का अधिकार (RTI) आवेदन","श्रीमान जन सूचना अधिकारी महोदय","[विभाग का नाम व पता]","सूचना का अधिकार अधिनियम, 2005 के अंतर्गत सूचना हेतु","सूचना का अधिकार अधिनियम, 2005 की धारा 6(1) के अंतर्गत मुझे निम्नलिखित सूचना उपलब्ध कराएं:\n\n1. [सूचना का विवरण]\n\nनिर्धारित आवेदन शुल्क संलग्न है।"]],
-[9,"oleave",["कार्यालय में छुट्टी हेतु आवेदन","श्रीमान शाखा प्रबंधक / विभागाध्यक्ष महोदय","[कंपनी/कार्यालय का नाम व पता]","आकस्मिक अवकाश हेतु आवेदन","सविनय निवेदन है कि मैं आपके विभाग में [पद का नाम] के पद पर कार्यरत हूँ। व्यक्तिगत कारणों के चलते मुझे दिनांक [से] से [तक] तक अनुपस्थित रहना पड़ेगा।\n\nअतः कृपया मुझे उक्त दिनों का अवकाश प्रदान करने की कृपा करें।"]],
-[9,"job",["नौकरी हेतु आवेदन पत्र","श्रीमान मानव संसाधन प्रबंधक (HR)","[प्रतिष्ठान का नाम एवं शाखा]","[पद का नाम] पद हेतु आवेदन","सविनय निवेदन है कि आपके द्वारा जारी विज्ञापन के संदर्भ में, मैं [पद का नाम] हेतु अपनी उम्मीदवारी प्रस्तुत कर रहा/रही हूँ। मेरी शैक्षणिक योग्यता एवं अनुभव का विवरण संलग्न रिज्यूमे में है।"]],
-[9,"transfer",["स्थानांतरण आवेदन","श्रीमान सक्षम अधिकारी महोदय","[विभाग का नाम व वर्तमान पता]","शाखा स्थानांतरण हेतु आवेदन","सविनय निवेदन है कि मैं वर्तमान में [वर्तमान स्थान] पर कार्यरत हूँ। पारिवारिक परिस्थितियों के कारण मुझे [नए स्थान] पर स्थानांतरण की अत्यंत आवश्यकता है। कृपया मेरा अनुरोध स्वीकार करें।"]]
-];
-
-var $=function(i){return document.getElementById(i)};
-var cur="caste",dark=false;
-function t(k){return UI[k]||""}
-function tpl(id){for(var i=0;i<TP.length;i++)if(TP[i][1]===id)return TP[i];return TP[0]}
-function pv(id){return tpl(id)[2]}
-
-function fillOptions(sel,arr,vals){var i=sel.selectedIndex<0?0:sel.selectedIndex;sel.innerHTML="";arr.forEach(function(x,n){var o=document.createElement("option");o.textContent=x;o.value=vals?vals[n]:x;sel.appendChild(o)});sel.selectedIndex=Math.min(i,arr.length-1)}
-
-function build(){
-document.querySelectorAll("[data-i]").forEach(function(e){if(t(e.dataset.i))e.textContent=t(e.dataset.i)});
-document.querySelectorAll("[data-ph]").forEach(function(e){e.placeholder=t(e.dataset.ph)});
-$("yr").textContent=new Date().getFullYear();
-setThemeLabel();
-
-var qi=$("quick").selectedIndex<0?0:$("quick").selectedIndex;$("quick").innerHTML="";
-CATS.forEach(function(c,n){
-  var o=document.createElement("option");
-  o.value=n;
-  o.textContent=(n+1)+". "+c.hi[0];
-  $("quick").appendChild(o);
-});
-$("quick").selectedIndex=qi;
-
-var cs=$("cat");cs.innerHTML="";CATS.forEach(function(c,n){var o=document.createElement("option");o.value=n;o.textContent=(n+1)+". "+c.hi[0];cs.appendChild(o)});
-fillOptions($("sal"),t("sal"));fillOptions($("close"),t("cl"));
-
-apply(cur);
-}
-
-function openCat(n){
-  if(CATS[n] && CATS[n].s){
-    window.location.href = CATS[n].s + ".html";
+  function updateButton(isDark) {
+    if (isDark) {
+      thI.textContent = '☀️';
+      thT.textContent = 'लाइट मोड';
+    } else {
+      thI.textContent = '🌙';
+      thT.textContent = 'नाइट मोड';
+    }
   }
-}
 
-function fillTypes(n){var ts=$("type");ts.innerHTML="";TP.forEach(function(r){if(r[0]===n){var o=document.createElement("option");o.value=r[1];o.textContent=r[2][0];ts.appendChild(o)}})}
-function apply(id){cur=id;var r=pv(id),n=tpl(id)[0];$("cat").value=n;fillTypes(n);$("type").value=id;$("to").value=r[1];$("org").value=r[2];$("subj").value=r[3];$("body").value=r[4];render()}
-function fd(v){if(!v)return"__________";var p=v.split("-");return p.length===3?p[2]+"/"+p[1]+"/"+p[0]:v}
-function render(){
-var L=[t("date")+fd($("date").value),"",t("to"),$("to").value||t("phTo"),$("org").value||t("phOrg"),"",t("subj")+($("subj").value||t("phS")),"",$("sal").value,"",$("body").value||t("phB"),"",t("thanks"),"",$("close").value,$("sName").value||t("phN")];
-if($("sRole").value)L.push($("sRole").value);if($("sAddr").value)L.push($("sAddr").value);if($("sMob").value)L.push(t("mob")+$("sMob").value);
-$("paper").textContent=L.join("\n")}
-["sName","sRole","sAddr","sMob","date","to","org","subj","sal","body","close"].forEach(function(i){$(i).addEventListener("input",render);$(i).addEventListener("change",render)});
-$("type").addEventListener("change",function(){apply($("type").value)});
-$("cat").addEventListener("change",function(){var n=parseInt($("cat").value,10);for(var i=0;i<TP.length;i++)if(TP[i][0]===n){apply(TP[i][1]);break}});
-$("quickBtn").addEventListener("click",function(){openCat(parseInt($("quick").value,10))});
+  // इनिशियलाइज़ेशन
+  let currentTheme = localStorage.getItem('app_theme') || 'light';
+  updateButton(currentTheme === 'dark');
 
-function goTo(n){
-  document.querySelectorAll(".page").forEach(function(p){p.classList.toggle("active",p.id==="p-"+n)});
-  document.querySelectorAll("nav.main button").forEach(function(b){if(b.dataset.nav===n)b.setAttribute("aria-current","page");else b.removeAttribute("aria-current")});
-  $("mainNav").classList.remove("open");
-  if(n==="contact") initCaptcha();
-  window.scrollTo(0,0);
-}
-
-document.querySelectorAll("[data-nav]").forEach(function(b){
-  b.addEventListener("click",function(e){
-    e.preventDefault();
-    if(b.dataset.nav==="generator"){goTo("home");$("cats").scrollIntoView();return}
-    goTo(b.dataset.nav);
+  themeBtn.addEventListener('click', () => {
+    let currentTheme = document.documentElement.getAttribute('data-theme');
+    let newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    
+    document.documentElement.setAttribute('data-theme', newTheme);
+    localStorage.setItem('app_theme', newTheme);
+    updateButton(newTheme === 'dark');
   });
-});
-$("navToggle").addEventListener("click",function(){$("mainNav").classList.toggle("open")});
 
-function setThemeLabel(){$("thI").textContent=dark?"☀️":"🌙";$("thT").textContent=dark?t("light"):t("dark")}
-function setTheme(d){dark=d;document.documentElement.setAttribute("data-theme",d?"dark":"light");try{localStorage.setItem("app_theme",d?"dark":"light")}catch(e){}setThemeLabel()}
-try{dark=localStorage.getItem("app_theme")==="dark"}catch(e){}
-$("themeBtn").addEventListener("click",function(){setTheme(!dark)});
-document.documentElement.setAttribute("data-theme",dark?"dark":"light");
-
-$("printBtn").addEventListener("click",function(){window.print()});
-function toast(m){var e=$("toast");e.textContent=typeof m==="string"?m:t("copied");e.style.display="block";setTimeout(function(){e.style.display="none"},2500)}
-$("copyBtn").addEventListener("click",function(){var x=$("paper").textContent;
-if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText(x).then(toast,fallback)}else fallback();
-function fallback(){var a=document.createElement("textarea");a.value=x;document.body.appendChild(a);a.select();try{document.execCommand("copy")}catch(e){}document.body.removeChild(a);toast()}});
-function initDate(){var d=new Date();$("date").value=d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0")}
-$("resetBtn").addEventListener("click",function(){$("form").reset();initDate();build()});
-
-// --- एंटी-स्पैम मैथ कैप्चा और फॉर्म वैलिडेशन ---
-var num1 = 0, num2 = 0, formLoadTime = Date.now();
-window.initCaptcha = function(){
-  num1 = Math.floor(Math.random() * 8) + 2;
-  num2 = Math.floor(Math.random() * 8) + 1;
-  var qEl = $("captchaQuestion");
-  if(qEl) qEl.textContent = num1 + " + " + num2;
-  formLoadTime = Date.now();
-};
-
-window.validateContactForm = function(e){
-  var honeypot = document.querySelector("input[name='_honey']").value;
-  var captchaInput = parseInt($("c_captcha").value, 10);
-  var errorMsg = $("captchaError");
-  var submitBtn = $("c_submitBtn");
-
-  if(honeypot !== ""){
-    e.preventDefault();
-    return false;
-  }
-  if(Date.now() - formLoadTime < 3000){
-    alert("कृपया फॉर्म को ध्यानपूर्वक भरकर सबमिट करें।");
-    e.preventDefault();
-    return false;
-  }
-  if(captchaInput !== (num1 + num2)){
-    e.preventDefault();
-    errorMsg.style.display = "block";
-    initCaptcha();
-    return false;
-  }
-
-  errorMsg.style.display = "none";
-  submitBtn.disabled = true;
-  submitBtn.textContent = "संदेश भेजा जा रहा है...";
-  return true;
-};
-
-initDate();
-build();
-initCaptcha();
+  const navToggle = document.getElementById('navToggle');
+  const mainNav = document.getElementById('mainNav');
+  navToggle.addEventListener('click', () => {
+    mainNav.classList.toggle('open');
+  });
 })();
 </script>
+
 </body>
 </html>

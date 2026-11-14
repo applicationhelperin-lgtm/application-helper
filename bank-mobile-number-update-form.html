@@ -1,0 +1,1127 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>बैंक खाते में मोबाइल नंबर अपडेट कराने हेतु आवेदन पत्र - ApplicationHelper.in</title>
+<meta name="description" content="बैंक खाते में नया मोबाइल नंबर जोड़ने या बदलने के लिए ऑनलाइन आवेदन पत्र भरें और 1 क्लिक में A4 PDF प्रिंट करें। जानिए आवश्यक दस्तावेज और प्रक्रिया।">
+<link rel="canonical" href="https://applicationhelper.in/bank-mobile-number-update-application.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;600;700&amp;family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f1f5f9;
+  --panel:#ffffff;
+  --panel-alt:#f8fafc;
+  --ink:#0f172a;
+  --muted:#475569;
+  --line:#cbd5e1;
+  --accent:#1d4ed8;
+  --accent-hover:#1e40af;
+  --accent-soft:#eff6ff;
+  --accent-border:#bfdbfe;
+  --accent-ink:#ffffff;
+  --emerald:#047857;
+  --emerald-soft:#ecfdf5;
+  --amber:#b45309;
+  --amber-soft:#fffbeb;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#0f172a;
+    --panel:#1e293b;
+    --panel-alt:#162032;
+    --ink:#f1f5f9;
+    --muted:#94a3b8;
+    --line:#334155;
+    --accent:#60a5fa;
+    --accent-hover:#3b82f6;
+    --accent-soft:#1e3a8a;
+    --accent-border:#1d4ed8;
+    --accent-ink:#0f172a;
+    --emerald:#34d399;
+    --emerald-soft:#064e3b;
+    --amber:#fbbf24;
+    --amber-soft:#451a03;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0f172a;
+  --panel:#1e293b;
+  --panel-alt:#162032;
+  --ink:#f1f5f9;
+  --muted:#94a3b8;
+  --line:#334155;
+  --accent:#60a5fa;
+  --accent-hover:#3b82f6;
+  --accent-soft:#1e3a8a;
+  --accent-border:#1d4ed8;
+  --accent-ink:#0f172a;
+  --emerald:#34d399;
+  --emerald-soft:#064e3b;
+  --amber:#fbbf24;
+  --amber-soft:#451a03;
+}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--ink);
+  font-family:"Noto Sans Devanagari","Inter","Mangal","Nirmala UI",system-ui,sans-serif;
+  line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+}
+
+.page-wrap{
+  max-width:1200px;
+  margin:0 auto;
+  padding:16px;
+  display:flex;
+  flex-direction:column;
+  gap:18px;
+}
+
+/* इंट्रो एवं सुरक्षा कार्ड */
+.intro-card{
+  background:var(--panel);
+  border:1px solid var(--line);
+  border-radius:14px;
+  padding:18px 20px;
+  box-shadow:0 1px 3px rgba(0,0,0,.05);
+}
+.intro-top{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  gap:8px;
+  margin-bottom:10px;
+}
+.badge-group{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  align-items:center;
+}
+.badge{
+  font-size:.76rem;
+  font-weight:700;
+  padding:4px 10px;
+  border-radius:6px;
+  background:var(--accent-soft);
+  color:var(--accent);
+  border:1px solid var(--accent-border);
+}
+.badge-sec{
+  background:var(--emerald-soft);
+  color:var(--emerald);
+  border-color:transparent;
+}
+.header-actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+.back-btn{
+  background:var(--panel-alt);
+  border:1px solid var(--line);
+  color:var(--ink);
+  border-radius:20px;
+  padding:5px 12px;
+  font-size:.8rem;
+  font-weight:600;
+  cursor:pointer;
+  text-decoration:none;
+  display:inline-flex;
+  align-items:center;
+  gap:4px;
+  font-family:inherit;
+}
+.back-btn:hover{border-color:var(--accent);color:var(--accent)}
+
+.theme-btn{
+  background:var(--panel-alt);
+  border:1px solid var(--line);
+  color:var(--ink);
+  border-radius:20px;
+  padding:5px 12px;
+  font-size:.8rem;
+  font-weight:600;
+  cursor:pointer;
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  font-family:inherit;
+}
+.theme-btn:hover{border-color:var(--accent);color:var(--accent)}
+
+.intro-title{
+  font-size:clamp(1.18rem, 2.4vw, 1.65rem);
+  font-weight:700;
+  margin:0 0 6px;
+  line-height:1.35;
+}
+.intro-desc{
+  margin:0;
+  font-size:.92rem;
+  color:var(--muted);
+  line-height:1.6;
+}
+.sec-note{
+  margin-top:12px;
+  padding:9px 12px;
+  border-radius:8px;
+  background:var(--panel-alt);
+  border-left:4px solid var(--accent);
+  font-size:.82rem;
+  color:var(--muted);
+}
+.sec-note strong{color:var(--ink)}
+
+/* व्हाट्सएप स्टिकर बटन स्टाइल */
+.whatsapp-sticker-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: #25d366;
+  color: #ffffff;
+  padding: 10px 14px;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: .88rem;
+  text-decoration: none;
+  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.35);
+  border: 2px dashed #ffffff;
+  transform: rotate(-1deg);
+  transition: transform 0.2s, background 0.2s;
+  margin-top: 12px;
+  width: 100%;
+  text-align: center;
+}
+.whatsapp-sticker-btn:hover {
+  transform: rotate(0deg) scale(1.02);
+  background: #20ba5a;
+}
+
+/* मोबाइल टैब स्विचर */
+.mobile-tabs{
+  display:flex;
+  background:var(--line);
+  padding:4px;
+  border-radius:10px;
+  gap:4px;
+}
+.mobile-tabs button{
+  flex:1;
+  border:none;
+  background:transparent;
+  color:var(--muted);
+  font-family:inherit;
+  font-size:.86rem;
+  font-weight:700;
+  padding:9px 8px;
+  border-radius:8px;
+  cursor:pointer;
+}
+.mobile-tabs button.active{
+  background:var(--panel);
+  color:var(--accent);
+  box-shadow:0 1px 3px rgba(0,0,0,.1);
+}
+@media(min-width:920px){
+  .mobile-tabs{display:none}
+}
+
+/* मुख्य वर्कस्पेस ग्रिड */
+.workspace{
+  display:grid;
+  gap:18px;
+  align-items:start;
+}
+@media(min-width:920px){
+  .workspace{
+    grid-template-columns:390px 1fr;
+  }
+  .form-card{
+    position:sticky;
+    top:16px;
+    max-height:calc(100vh - 32px);
+    overflow-y:auto;
+  }
+}
+@media(max-width:919px){
+  .workspace.show-preview .form-card{display:none}
+  .workspace.show-form .preview-col{display:none}
+}
+
+.form-card{
+  background:var(--panel);
+  border:1px solid var(--line);
+  border-radius:14px;
+  padding:16px 18px;
+  box-shadow:0 1px 3px rgba(0,0,0,.05);
+}
+.form-head{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  border-bottom:1px solid var(--line);
+  padding-bottom:10px;
+  margin-bottom:12px;
+  gap:8px;
+}
+.form-head h2{
+  font-size:1rem;
+  margin:0;
+  font-weight:700;
+}
+.sample-btn{
+  background:var(--accent-soft);
+  color:var(--accent);
+  border:1px solid var(--accent-border);
+  border-radius:6px;
+  padding:5px 10px;
+  font-size:.78rem;
+  font-weight:700;
+  cursor:pointer;
+  font-family:inherit;
+}
+.sample-btn:hover{opacity:.9}
+
+label{
+  display:block;
+  font-size:.84rem;
+  margin:10px 0 4px;
+  font-weight:600;
+}
+input[type=text],input[type=tel],input[type=date],select{
+  width:100%;
+  padding:9px 11px;
+  font:inherit;
+  font-size:.9rem;
+  color:var(--ink);
+  background:var(--panel-alt);
+  border:1px solid var(--line);
+  border-radius:8px;
+}
+input:focus-visible,select:focus-visible,button:focus-visible{
+  outline:2px solid var(--accent);
+  outline-offset:1px;
+}
+
+.seg{display:flex;gap:6px;margin-top:6px}
+.seg label{flex:1;margin:0;font-weight:400}
+.seg input{position:absolute;opacity:0;pointer-events:none}
+.seg span{
+  display:block;
+  text-align:center;
+  padding:7px 6px;
+  border:1px solid var(--line);
+  border-radius:8px;
+  cursor:pointer;
+  background:var(--panel-alt);
+  font-size:.83rem;
+  transition:all .15s;
+}
+.seg input:checked+span{
+  background:var(--accent);
+  color:var(--accent-ink);
+  border-color:var(--accent);
+  font-weight:700;
+}
+
+.btns{
+  display:grid;
+  grid-template-columns:1.3fr 1fr;
+  gap:8px;
+  margin-top:16px;
+}
+button.action-btn{
+  font:inherit;
+  font-size:.9rem;
+  padding:10px 12px;
+  border-radius:8px;
+  border:1px solid var(--accent);
+  cursor:pointer;
+  font-weight:700;
+}
+.primary-btn{
+  background:var(--accent);
+  color:var(--accent-ink);
+}
+.primary-btn:hover{background:var(--accent-hover)}
+.ghost-btn{
+  background:transparent;
+  color:var(--accent);
+}
+.hint{
+  color:var(--muted);
+  font-size:.78rem;
+  margin:10px 0 0;
+  line-height:1.5;
+}
+
+/* प्रीव्यू कॉलम */
+.preview-col{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+.preview-bar{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  gap:8px;
+  padding:0 4px;
+  font-size:.8rem;
+  color:var(--muted);
+}
+.preview-bar strong{
+  text-transform:uppercase;
+  letter-spacing:.4px;
+  font-size:.76rem;
+}
+
+.sheetwrap{
+  container-type:inline-size;
+  width:100%;
+  position:relative;
+}
+.print-url{display:none}
+
+.paper{
+  background:#ffffff;
+  color:#000000;
+  width:100%;
+  max-width:210mm;
+  margin:0 auto;
+  aspect-ratio:210/297;
+  padding:6.5cqw 7.5cqw;
+  font-size:min(11.5pt,2.05cqw);
+  line-height:1.55;
+  box-shadow:0 4px 18px rgba(0,0,0,.14);
+  border-radius:4px;
+  font-family:"Noto Sans Devanagari","Inter","Mangal","Nirmala UI",sans-serif;
+  overflow:hidden;
+}
+.paper h2{
+  font-size:1.15em;
+  text-align:center;
+  margin:0 0 .7em;
+  text-decoration:underline;
+  text-underline-offset:.25em;
+  font-weight:700;
+}
+.paper p{margin:0 0 .42em;text-align:justify}
+.paper[contenteditable="true"]:focus-visible{
+  outline:2px dashed var(--accent);
+  outline-offset:3px;
+}
+.paper .to{margin-bottom:.55em;line-height:1.48}
+.paper .sig{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-end;
+  margin-top:.75em;
+  line-height:1.55;
+}
+.paper .sig .left{width:44%;text-align:left}
+.paper .sig .b{width:52%;text-align:left;margin-left:auto}
+.blank{
+  display:inline-block;
+  border-bottom:1px dotted #000;
+  height:1em;
+  vertical-align:baseline;
+}
+
+.paper.fit-90{padding:5.2cqw 6.8cqw;font-size:min(12.5pt,2.25cqw);line-height:1.75}
+.paper.fit-90 p{margin:0 0 .65em}
+.paper.fit-90 .to{margin-bottom:.8em;line-height:1.6}
+.paper.fit-90 .sig{margin-top:1.5em;line-height:1.7}
+
+.paper.compact{padding:5cqw 6.5cqw;font-size:min(10.5pt,1.85cqw);line-height:1.42}
+.paper.compact p{margin:0 0 .32em}
+.paper.compact .to{margin-bottom:.4em;line-height:1.35}
+.paper.compact .sig{margin-top:.5em;line-height:1.4}
+
+.mobile-print-cta{display:none}
+@media(max-width:919px){
+  .mobile-print-cta{
+    display:block;
+    margin-top:6px;
+  }
+  .mobile-print-cta button{
+    width:100%;
+    padding:13px;
+    font-size:1rem;
+  }
+}
+
+/* महत्वपूर्ण बिंदु एवं SEO गाइड सेक्शन */
+.guide-card{
+  background:var(--panel);
+  border:1px solid var(--line);
+  border-radius:14px;
+  padding:20px 22px;
+  box-shadow:0 1px 3px rgba(0,0,0,.05);
+}
+.guide-header{
+  border-bottom:1px solid var(--line);
+  padding-bottom:12px;
+  margin-bottom:16px;
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  gap:10px;
+}
+.guide-tag{
+  font-size:.75rem;
+  font-weight:700;
+  color:var(--accent);
+  text-transform:uppercase;
+  letter-spacing:.5px;
+  display:block;
+  margin-bottom:4px;
+}
+.guide-header h2{
+  font-size:clamp(1.1rem, 2vw, 1.38rem);
+  margin:0;
+  font-weight:700;
+}
+.guide-overview{
+  font-size:.95rem;
+  color:var(--ink);
+  margin:0 0 16px;
+  line-height:1.65;
+}
+.guide-grid{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:14px;
+}
+@media(min-width:768px){
+  .guide-grid{
+    grid-template-columns:repeat(2, 1fr);
+  }
+}
+.guide-box{
+  background:var(--panel-alt);
+  border:1px solid var(--line);
+  border-radius:12px;
+  padding:14px 16px;
+}
+.guide-box h3{
+  font-size:.96rem;
+  margin:0 0 10px;
+  font-weight:700;
+  display:flex;
+  align-items:center;
+  gap:7px;
+}
+.guide-box ul, .guide-box ol{
+  margin:0;
+  padding-left:18px;
+  font-size:.86rem;
+  color:var(--muted);
+  display:flex;
+  flex-direction:column;
+  gap:7px;
+}
+.guide-box li{line-height:1.5}
+
+/* प्रिंट नियम — 100% एक पेज A4 गारंटी */
+@media print{
+  @page{
+    size:A4 portrait;
+    margin:0;
+  }
+  *,*::before,*::after{
+    box-sizing:border-box !important;
+  }
+  html,body{
+    background:#fff !important;
+    margin:0 !important;
+    padding:0 !important;
+    width:100% !important;
+    height:auto !important;
+    min-height:0 !important;
+    overflow:visible !important;
+    -webkit-print-color-adjust:exact;
+    print-color-adjust:exact;
+  }
+  :root{
+    padding-top:0 !important;
+    padding-bottom:0 !important;
+  }
+  .no-print, .intro-card, .form-card, .mobile-tabs, .preview-bar, .mobile-print-cta, .guide-card{
+    display:none !important;
+  }
+  .page-wrap, .workspace, .preview-col{
+    display:block !important;
+    padding:0 !important;
+    margin:0 !important;
+    max-width:none !important;
+    border:none !important;
+  }
+  .sheetwrap{
+    container-type:normal !important;
+    position:relative !important;
+    width:210mm !important;
+    max-width:210mm !important;
+    margin:0 auto !important;
+    padding:0 !important;
+  }
+  .print-url{
+    display:block !important;
+    position:absolute !important;
+    top:6mm !important;
+    right:18mm !important;
+    font-size:8.5pt !important;
+    font-family:"Inter",Arial,sans-serif !important;
+    color:#4b5563 !important;
+    font-weight:500 !important;
+    line-height:1 !important;
+    z-index:100 !important;
+    letter-spacing:0.2px !important;
+  }
+  .paper{
+    width:210mm !important;
+    max-width:210mm !important;
+    min-height:auto !important;
+    height:auto !important;
+    max-height:292mm !important;
+    box-sizing:border-box !important;
+    aspect-ratio:auto !important;
+    padding:15mm 20mm 12mm 20mm !important;
+    font-size:11.8pt !important;
+    line-height:1.65 !important;
+    box-shadow:none !important;
+    border-radius:0 !important;
+    margin:0 auto !important;
+    overflow:hidden !important;
+    page-break-before:avoid !important;
+    page-break-after:avoid !important;
+    page-break-inside:avoid !important;
+    break-before:avoid !important;
+    break-after:avoid !important;
+    break-inside:avoid !important;
+    outline:none !important;
+  }
+  .paper > *:last-child{margin-bottom:0 !important}
+  .paper h2{
+    font-size:1.2em !important;
+    text-align:center !important;
+    margin:0 0 1em !important;
+    text-decoration:underline !important;
+  }
+  .paper .to{
+    margin-bottom:1.1em !important;
+    line-height:1.65 !important;
+  }
+  .paper p{
+    margin:0 0 0.75em !important;
+    line-height:1.65 !important;
+    text-align:justify !important;
+  }
+  .paper .sig{
+    margin-top:1.6em !important;
+    line-height:1.75 !important;
+  }
+  .paper.fit-90{
+    padding:13mm 18mm 10mm 18mm !important;
+    font-size:12.6pt !important;
+    line-height:1.75 !important;
+  }
+  .paper.fit-90 p{margin:0 0 0.85em !important}
+  .paper.fit-90 .sig{margin-top:1.8em !important}
+  .paper.compact{
+    padding:11mm 16mm 9mm 16mm !important;
+    font-size:10.5pt !important;
+    line-height:1.5 !important;
+  }
+  .paper.compact h2{
+    margin:0 0 0.7em !important;
+    font-size:1.12em !important;
+  }
+  .paper.compact .to{
+    margin-bottom:0.7em !important;
+    line-height:1.45 !important;
+  }
+  .paper.compact p{
+    margin:0 0 0.45em !important;
+    line-height:1.5 !important;
+  }
+  .paper.compact .sig{
+    margin-top:1em !important;
+    line-height:1.5 !important;
+  }
+}
+</style>
+</head>
+<body>
+
+<main class="page-wrap">
+  <!-- 1. पेज परिचय एवं सुरक्षा सूचना (बैक बटन के साथ) -->
+  <section class="intro-card no-print" aria-label="आवेदन परिचय">
+    <div class="intro-top">
+      <div class="badge-group">
+        <span class="badge" id="bdgService">🏦 बैंकिंग सेवाएं (2026)</span>
+        <span class="badge badge-sec" id="bdgSec">🔒 100% सुरक्षित एवं निःशुल्क</span>
+      </div>
+      <div class="header-actions">
+        <!-- 1. बैक बटन -->
+        <a href="bank.html" class="back-btn" id="backBtn">← पीछे जाएं</a>
+        <button id="themeToggleBtn" type="button" class="theme-btn">
+          <span id="thIcon">🌙</span> <span id="thText">नाइट मोड</span>
+        </button>
+      </div>
+    </div>
+    <h1 class="intro-title" id="mainHeading">बैंक खाते में मोबाइल नंबर अपडेट कराने हेतु आवेदन पत्र</h1>
+    <p class="intro-desc" id="mainIntro">यदि आपका पुराना सिम बंद हो गया है या आप अपने बैंक खाते में नया मोबाइल नंबर लिंक कराना चाहते हैं, तो नीचे दिए गए फॉर्म में अपना विवरण भरें। आपका आवेदन पत्र तुरंत प्रिंट के लिए तैयार हो जाएगा।</p>
+    <div class="sec-note" id="secBanner">
+      <strong>गोपनीयता गारंटी:</strong> यह टूल पूरी तरह आपके मोबाइल/लैपटॉप ब्राउज़र में चलता है। आपका कोई भी डेटा किसी सर्वर पर सेव नहीं होता। जो जानकारी अभी नहीं भरना चाहते, उसे खाली छोड़ दें—प्रिंट में वहाँ पेन से भरने के लिए डॉटेड लाइन छूट जाएगी।
+    </div>
+  </section>
+
+  <!-- मोबाइल टैब बटन -->
+  <div class="mobile-tabs no-print" role="tablist">
+    <button type="button" id="tabFormBtn" class="active" role="tab" aria-selected="true">✍️ 1. फॉर्म भरें</button>
+    <button type="button" id="tabPreviewBtn" role="tab" aria-selected="false">📄 2. पत्र देखें व प्रिंट करें</button>
+  </div>
+
+  <!-- 2. मुख्य जनरेटर वर्कस्पेस -->
+  <div class="workspace show-form" id="workspaceGrid">
+    <section class="form-card no-print" aria-label="आवेदन फॉर्म">
+      <div class="form-head">
+        <h2 id="uiTitle">विवरण दर्ज करें</h2>
+        <!-- 2. टॉगल सैंपल बटन -->
+        <button type="button" class="sample-btn" id="sampleBtn">✨ सैंपल भरें</button>
+      </div>
+
+      <label style="margin-top:0" id="lblLang">भाषा चुनें / Choose Language</label>
+      <div class="seg" role="radiogroup" aria-label="Language">
+        <label><input type="radio" name="lang" value="hi" checked><span id="optLangHi">हिंदी (Hindi)</span></label>
+        <label><input type="radio" name="lang" value="en"><span id="optLangEn">English</span></label>
+      </div>
+
+      <label id="lblGender">आवेदक का चयन</label>
+      <div class="seg" role="radiogroup" aria-label="आवेदक" id="genderWrap">
+        <label><input type="radio" name="g" value="m" checked><span id="gMale">पुरुष</span></label>
+        <label><input type="radio" name="g" value="f"><span id="gFemale">महिला</span></label>
+      </div>
+
+      <div id="fields"></div>
+
+      <div class="btns">
+        <button class="action-btn primary-btn" id="print" type="button">🖨️ प्रिंट / PDF सेव करें</button>
+        <button class="action-btn ghost-btn" id="clear" type="button">🔄 साफ़ करें</button>
+      </div>
+
+      <!-- 3. व्हाट्सएप स्टिकर शेयर बटन -->
+      <a href="https://api.whatsapp.com/send?text=बैंक%20प्रार्थना%20पत्र%20आसानी%20से%20ऑनलाइन%20तैयार%20करने%20के%20लिए%20इस%20वेबसाइट%20पर%20आएं:%20https://applicationhelper.in" target="_blank" class="whatsapp-sticker-btn" id="waShareBtn">
+        <span>🟢 WhatsApp पर शेयर करें</span>
+      </a>
+
+      <label id="lblPageFit" style="margin-top:14px;">पेज भराव / प्रिंट फैलाव (A4 सेटिंग)</label>
+      <div class="seg" role="radiogroup" aria-label="Page Coverage" id="fitWrap">
+        <label><input type="radio" name="page_fit" value="fit80" checked><span id="optFit80">80% संतुलित</span></label>
+        <label><input type="radio" name="page_fit" value="fit90"><span id="optFit90">90% बड़ा</span></label>
+        <label><input type="radio" name="page_fit" value="compact"><span id="optFitCompact">कॉम्पैक्ट</span></label>
+      </div>
+
+      <p class="hint" id="uiHint">जो जानकारी नहीं भरेंगे, प्रिंट में वहाँ खाली जगह (.......) छूट जाएगी। आप सीधे पत्र पर क्लिक करके भी कोई शब्द संपादित (Edit) कर सकते हैं।</p>
+    </section>
+
+    <div class="preview-col">
+      <div class="preview-bar no-print">
+        <strong id="prevBarTitle">लाइव A4 पत्र प्रीव्यू (Editable)</strong>
+        <span id="prevBarHint">💡 पत्र पर सीधे क्लिक करके भी बदलाव कर सकते हैं</span>
+      </div>
+      <div class="sheetwrap">
+        <div class="print-url">https://applicationhelper.in</div>
+        <article class="paper" id="paper" contenteditable="true" spellcheck="false" aria-label="आवेदन पत्र पूर्वावलोकन"></article>
+      </div>
+      <div class="mobile-print-cta no-print">
+        <button type="button" class="action-btn primary-btn" id="mobilePrintBtn">🖨️ पत्र प्रिंट / PDF सेव करें</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. महत्वपूर्ण बिंदु एवं विस्तृत गाइड -->
+  <section class="guide-card no-print" aria-label="महत्वपूर्ण बिंदु एवं गाइड">
+    <div class="guide-header">
+      <div>
+        <span class="guide-tag">महत्वपूर्ण बिंदु एवं प्रक्रिया गाइड</span>
+        <h2>बैंक खाते में मोबाइल नंबर बदलने की पूरी जानकारी एवं महत्वपूर्ण बिंदु</h2>
+      </div>
+    </div>
+    <p class="guide-overview">बैंक खाते से मोबाइल नंबर जुड़ा होना अत्यंत आवश्यक है क्योंकि UPI, नेट बैंकिंग, OTP और लेन-देन के सभी SMS अलर्ट इसी नंबर पर आते हैं। यदि पुराना नंबर खो गया है या बंद हो गया है, तो शाखा में लिखित आवेदन देकर नया नंबर अपडेट कराया जा सकता है।</p>
+    <div class="guide-grid">
+      <div class="guide-box">
+        <h3>📋 1. आवश्यक दस्तावेज (Checklist)</h3>
+        <ul>
+          <li>आधार कार्ड की स्व-प्रमाणित (Self-Attested) फोटोकॉपी।</li>
+          <li>बैंक पासबुक के प्रथम पृष्ठ की फोटोकॉपी (जिस पर खाता संख्या और फोटो स्पष्ट हो)।</li>
+          <li>मूल पहचान पत्र (Original ID) मिलान के लिए साथ ले जाएं।</li>
+          <li>नया चालू मोबाइल नंबर (जिस पर तुरंत वेरिफिकेशन OTP प्राप्त हो सके)।</li>
+        </ul>
+      </div>
+      <div class="guide-box">
+        <h3>🏦 2. आवेदन जमा करने की प्रक्रिया</h3>
+        <ol>
+          <li>ऊपर दिए गए जनरेटर से अपना आवेदन पत्र प्रिंट करें और नीचे अपने वही हस्ताक्षर करें जो बैंक रिकॉर्ड में दर्ज हैं।</li>
+          <li>आवेदन पत्र के साथ आधार कार्ड और पासबुक की फोटोकॉपी नत्थी (Staple) करें।</li>
+          <li>अपनी होम ब्रांच के ग्राहक सेवा पटल (Customer Desk) पर फॉर्म जमा करें और पावती (Receiving) प्राप्त करें।</li>
+          <li>आमतौर पर 24 से 48 कार्य घंटों के भीतर नया मोबाइल नंबर खाते से लिंक हो जाता है।</li>
+        </ol>
+      </div>
+      <div class="guide-box">
+        <h3>⚠️ 3. महत्वपूर्ण सावधानियां व नियम</h3>
+        <ul>
+          <li>केवल वही मोबाइल नंबर दर्ज कराएं जो आपके स्वयं के या परिवार के स्थायी नाम पर चालू हो।</li>
+          <li>यदि आपके पास पुराना और नया दोनों नंबर चालू हैं, तो आप बैंक के ATM मशीन या नेट बैंकिंग से भी नंबर बदल सकते हैं।</li>
+          <li>मोबाइल नंबर बदलने का बैंक द्वारा कोई अतिरिक्त शुल्क नहीं लिया जाता है।</li>
+        </ul>
+      </div>
+      <div class="guide-box">
+        <h3>🛡️ 4. पावती (Receiving) एवं ग्राहक अधिकार</h3>
+        <ul>
+          <li>शाखा में आवेदन जमा करते समय इसकी दूसरी प्रति या फोटोकॉपी पर बैंक की <strong>प्राप्ति मुहर (Receiving Stamp) और दिनांक</strong> अवश्य लें।</li>
+          <li>निर्धारित समय-सीमा में समाधान न होने पर आप इस रिसीविंग के आधार पर बैंक के नोडल अधिकारी या <strong>बैंकिंग लोकपाल (RBI CMS Portal)</strong> में शिकायत दर्ज करा सकते हैं।</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script>
+var F_NAME=0, F_TYPE=1, F_WIDTH=2, F_MAX=3, F_NAME_EN=4, F_SAMPLE_HI=5, F_SAMPLE_EN=6;
+var SIG_LBL=0, SIG_KEY=1;
+var G_MALE=0, G_FEMALE=1;
+
+var F={
+  bank:["बैंक का नाम","b",18,0,"Bank Name","State Bank of India","State Bank of India"],
+  branch:["शाखा का नाम / पता","t",14,0,"Branch Name / Address","मुख्य शाखा, हजरतगंज","Main Branch, Hazratganj"],
+  city:["शहर / जिला","t",12,0,"City / District","लखीमपुर खीरी (उ.प्र.)","Lakhimpur Kheri (U.P.)"],
+  name:["आवेदक का नाम","t",22,0,"Applicant Name","राजेश कुमार शर्मा","Rajesh Kumar Sharma"],
+  acc:["खाता संख्या","n",20,20,"Account Number","32540098765","32540098765"],
+  newmob:["नया मोबाइल नंबर","n",12,10,"New Mobile Number","9876543210","9876543210"],
+  atm_info:["कार्ड विवरण (अंतिम 4 अंक)","t",16,0,"Card Details (Last 4 Digits)","XXXX-XXXX-XXXX-4582","XXXX-XXXX-XXXX-4582"],
+  lostdate:["कार्ड खोने की तारीख","d",11,0,"Date Card Lost","12/11/2026","12/11/2026"],
+  chq:["चेक नंबर","n",10,12,"Cheque Number","458921","458921"],
+  date:["दिनांक","d",11,0,"Date","14/11/2026","14/11/2026"],
+  aadhar:["आधार न०","n",14,12,"Aadhaar No.","458912369874","458912369874"],
+  chq_pages:["चेकबुक के पृष्ठों की संख्या","t",12,0,"Number of Cheque Leaves","20 पृष्ठ (20 Leaves)","20 Leaves"],
+  lost_pb_date:["पासबुक खोने की अनुमानित तारीख","d",11,0,"Estimated Date Passbook Lost","10/11/2026","10/11/2026"],
+  new_branch:["नई शाखा का नाम","t",16,0,"New Branch Name","गोमती नगर शाखा","Gomti Nagar Branch"],
+  new_city:["नई शाखा का शहर / जिला","t",14,0,"New Branch City / District","लखनऊ","Lucknow"],
+  transfer_reason:["स्थानांतरण का कारण","t",20,0,"Reason for Transfer","निवास स्थान बदलने के कारण","Relocation of residence"],
+  email:["ईमेल आईडी","t",22,0,"Email ID","rajesh.sharma@example.com","rajesh.sharma@example.com"],
+  mob:["मोबाइल नंबर","n",12,10,"Mobile Number","9876543210","9876543210"],
+  doc_name:["जमा किया जा रहा दस्तावेज","t",20,0,"Document Submitted","आधार कार्ड एवं पैन कार्ड","Aadhaar Card & PAN Card"],
+  chq_date:["चेक की तारीख","d",11,0,"Date on Cheque","05/11/2026","05/11/2026"],
+  stop_reason:["भुगतान रोकने का कारण","t",20,0,"Reason for Stop Payment","भुगतान पहले ही ऑनलाइन कर दिया गया है","Payment already settled online"],
+  close_reason:["खाता बंद करने का कारण","t",20,0,"Reason for Account Closure","अन्य शहर में स्थानांतरित होने के कारण","Shifting to another city"],
+  balance_mode:["शेष राशि प्राप्त करने का तरीका","t",18,0,"Mode of Balance Payout","नकद / दूसरे खाते में ट्रांसफर","Cash / NEFT Transfer"],
+  nom_name:["नॉमिनी का नाम","t",20,0,"Nominee Name","सुनीता शर्मा","Sunita Sharma"],
+  nom_rel:["खाताधारक से संबंध","t",14,0,"Relationship with Account Holder","पत्नी","Wife"],
+  nom_dob:["नॉमिनी की जन्मतिथि","d",11,0,"Nominee Date of Birth","15/08/1992","15/08/1992"],
+  nom_addr:["नॉमिनी का पूरा पता","t",24,0,"Nominee Full Address","मकान नं. 42, सिविल लाइन्स, लखीमपुर खीरी","H.No. 42, Civil Lines, Lakhimpur Kheri"],
+  nom_mob:["नॉमिनी का मोबाइल नंबर","n",12,10,"Nominee Mobile Number","9876501234","9876501234"],
+  old_nom_name:["पुराने नॉमिनी का नाम","t",20,0,"Existing Nominee Name","रमेश चंद्र शर्मा","Ramesh Chandra Sharma"],
+  notice_date:["जानकारी होने की तारीख / समय","t",16,0,"Date / Time Fraud Noticed","13/11/2026, शाम 4:30 बजे","13/11/2026, 4:30 PM"],
+  tx_date:["लेन-देन की तारीख","d",11,0,"Transaction Date","13/11/2026","13/11/2026"],
+  tx_time:["लेन-देन का समय","t",10,0,"Transaction Time","दोपहर 03:15 बजे","03:15 PM"],
+  tx_amt:["राशि (₹)","n",10,10,"Amount (₹)","15000","15000"],
+  tx_id:["Transaction ID / UTR","t",18,0,"Transaction ID / UTR","331815489621","331815489621"],
+  tx_mode:["लेन-देन का माध्यम (UPI/कार्ड आदि)","t",16,0,"Mode of Transaction (UPI/Card etc.)","UPI / डेबिट कार्ड","UPI / Debit Card"],
+  tx_desc:["अनधिकृत लेन-देन का विवरण","t",24,0,"Incident / Transaction Description","बिना OTP साझा किए अज्ञात खाते में राशि कट गई","Amount debited without sharing OTP"],
+  name1:["खाताधारक 1 का नाम","t",20,0,"Account Holder 1 Name","राजेश कुमार शर्मा","Rajesh Kumar Sharma"],
+  name2:["खाताधारक 2 का नाम","t",20,0,"Account Holder 2 Name","मोहन लाल शर्मा","Mohan Lal शर्मा"],
+  single_holder:["एकल खाताधारक के रूप में रखने वाले व्यक्ति का नाम","t",20,0,"Single Account Holder Name","राजेश कुमार शर्मा","Rajesh Kumar Sharma"],
+  loan_acc:["Loan Account Number (ऋण खाता संख्या)","t",20,0,"Loan Account Number","LN4008921547","LN4008921547"],
+  loan_type:["ऋण का प्रकार (होम/पर्सनल/वाहन आदि)","t",18,0,"Loan Type (Home/Personal/Auto etc.)","वाहन ऋण (Vehicle Loan)","Vehicle Loan"],
+  loan_paid_date:["ऋण पूर्ण चुकता करने की तारीख","d",11,0,"Date Loan Fully Repaid","01/11/2026","01/11/2026"],
+  place:["स्थान","t",14,0,"Place","लखीमपुर खीरी","Lakhimpur Kheri"],
+  freeze_reason:["खाता फ्रीज/होल्ड होने का कारण","t",22,0,"Reason for Account Freeze/Hold","KYC अद्यतन न होने या तकनीकी होल्ड के कारण","Pending KYC update or technical hold"]
+};
+var T_HI = {"t": "बैंक खाते में मोबाइल नंबर अपडेट कराने हेतु आवेदन पत्र", "s": "बैंक खाते में मोबाइल नंबर अपडेट कराने हेतु आवेदन पत्र।", "p": ["सविनय निवेदन है कि मेरा नाम {name} है और मेरा आपके बैंक की {branch} शाखा में {acc} खाता संचालित है।", "मैं अपने बैंक खाते में पंजीकृत मोबाइल नंबर को बदलकर नया मोबाइल नंबर {newmob} अपडेट कराना चाहता/चाहती हूँ। अतः आपसे अनुरोध है कि मेरे बैंक खाते में यह मोबाइल नंबर पंजीकृत करने की कृपा करें, ताकि मुझे बैंक खाते से संबंधित लेन-देन एवं अन्य आवश्यक सूचनाएं समय पर प्राप्त हो सकें।", "आवश्यक दस्तावेज आवेदन के साथ संलग्न हैं। कृपया आवश्यक प्रक्रिया पूरी कर मेरे खाते में नया मोबाइल नंबर अपडेट करने की कृपा करें।"], "sig": [["नाम", "name"], ["खाता संख्या", "acc"], ["नया मोबाइल नंबर", "newmob"], ["दिनांक", "date"], ["आधार न०", "aadhar"]]};
+var T_EN = {"t": "Application for Updating Mobile Number in Bank Account", "s": "Application for updating mobile number in bank account.", "p": ["I respectfully state that my name is {name} and I maintain bank account number {acc} with your {branch} branch.", "I wish to update the registered mobile number associated with my bank account to my new mobile number {newmob}. I kindly request you to register this new mobile number in my account records so that I can regularly receive transaction alerts and essential banking notifications.", "Required supporting documents are enclosed with this application. Kindly complete the update process at your earliest convenience."], "sig": [["Name", "name"], ["Account No.", "acc"], ["New Mobile No.", "newmob"], ["Date", "date"], ["Aadhaar No.", "aadhar"]]};
+var IS_LONG_DEFAULT = 0;
+var BANKS = "Airtel Payments Bank|Andhra Pradesh Grameena Bank|AU Small Finance Bank|Axis Bank|Bandhan Bank|Bank of Baroda|Bank of India|Bank of Maharashtra|Baroda Gujarat Gramin Bank|Bihar Gramin Bank|Canara Bank|Central Bank of India|City Union Bank|Equitas Small Finance Bank|Federal Bank|Fino Payments Bank|HDFC Bank|ICICI Bank|IDFC FIRST Bank|India Post Payments Bank|Indian Bank|Indian Overseas Bank|IndusInd Bank|Jana Small Finance Bank|Karnataka Grameena Bank|Karur Vysya Bank|Kotak Mahindra Bank|Madhya Pradesh Gramin Bank|Maharashtra Gramin Bank|NSDL Payments Bank|Punjab & Sind Bank|Punjab Gramin Bank|Punjab National Bank|Rajasthan Gramin Bank|RBL Bank|South Indian Bank|State Bank of India|Telangana Grameena Bank|UCO Bank|Ujjivan Small Finance Bank|Union Bank of India|Uttar Pradesh Gramin Bank|West Bengal Gramin Bank|Yes Bank".split("|");
+
+(function(){
+  var $ = function(i){ return document.getElementById(i); };
+  var curLang = "hi";
+  try {
+    var savedLang = localStorage.getItem("app_lang");
+    if(savedLang === "en" || savedLang === "hi") curLang = savedLang;
+  } catch(e){}
+
+  var dark = false;
+  try {
+    dark = localStorage.getItem("app_theme") === "dark";
+  } catch(e){}
+  document.documentElement.setAttribute("data-theme", dark ? "dark" : "light");
+
+  var V = {};
+  var GEN = [["चाहता","चाहती"],["रहा","रही"]];
+
+  function updateThemeUI(){
+    var icon = $("thIcon"), txt = $("thText");
+    if(!icon || !txt) return;
+    icon.textContent = dark ? "☀️" : "🌙";
+    txt.textContent = dark ? (curLang === "en" ? "Light Mode" : "लाइट मोड") : (curLang === "en" ? "Night Mode" : "नाइट मोड");
+  }
+
+  var thBtn = $("themeToggleBtn");
+  if(thBtn){
+    thBtn.addEventListener("click", function(){
+      dark = !dark;
+      document.documentElement.setAttribute("data-theme", dark ? "dark" : "light");
+      try { localStorage.setItem("app_theme", dark ? "dark" : "light"); } catch(e){}
+      updateThemeUI();
+    });
+  }
+
+  function setTab(mode){
+    var ws = $("workspaceGrid"), bF = $("tabFormBtn"), bP = $("tabPreviewBtn");
+    if(!ws || !bF || !bP) return;
+    if(mode === "preview"){
+      ws.classList.remove("show-form");
+      ws.classList.add("show-preview");
+      bP.classList.add("active");
+      bF.classList.remove("active");
+      bP.setAttribute("aria-selected", "true");
+      bF.setAttribute("aria-selected", "false");
+    } else {
+      ws.classList.remove("show-preview");
+      ws.classList.add("show-form");
+      bF.classList.add("active");
+      bP.classList.remove("active");
+      bF.setAttribute("aria-selected", "true");
+      bP.setAttribute("aria-selected", "false");
+    }
+  }
+  if($("tabFormBtn")) $("tabFormBtn").addEventListener("click", function(){ setTab("form"); });
+  if($("tabPreviewBtn")) $("tabPreviewBtn").addEventListener("click", function(){ setTab("preview"); });
+
+  function getTpl(){ return curLang === "en" ? T_EN : T_HI; }
+  function esc(s){ return String(s).replace(/[&<>"]/g, function(c){ return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]; }); }
+
+  function val(k){
+    var v = k === "bank" ? (V.bank === "custom" ? (V.bankc || "") : (V.bank || "")) : (V[k] || "");
+    v = v.trim();
+    if(v && F[k][F_TYPE] === "d" && v.indexOf("-") > -1){ v = v.split("-").reverse().join("/"); }
+    return v;
+  }
+
+  function f(k){
+    var v = val(k);
+    return v ? esc(v) : '<span class="blank" style="min-width:' + F[k][F_WIDTH] + 'ch"></span>';
+  }
+
+  function gen(s){
+    var fem = document.querySelector("input[name=g]:checked").value === "f";
+    if(curLang === "hi"){
+      GEN.forEach(function(g){ s = s.split(g[G_MALE] + "/" + g[G_FEMALE]).join(fem ? g[G_FEMALE] : g[G_MALE]); });
+    }
+    return s.replace(/\{(\w+)\}/g, function(_, k){ return f(k); });
+  }
+
+  function keys(t){
+    var k = ["bank","branch","city"], s = t.p.join(" ") + " " + t.sig.map(function(x){ return "{" + x[SIG_KEY] + "}"; }).join(" "), m, re = /\{(\w+)\}/g;
+    while((m = re.exec(s))) if(k.indexOf(m[SIG_KEY]) < 0) k.push(m[SIG_KEY]);
+    var endOrder = ["date","place","aadhar"];
+    var endKeys = endOrder.filter(function(x){ return t.sig.some(function(item){ return item[SIG_KEY] === x; }); });
+    return k.filter(function(x){ return endOrder.indexOf(x) < 0; }).concat(endKeys);
+  }
+
+  function updateStaticUI(){
+    var isEn = curLang === "en";
+    $("uiTitle").innerText = isEn ? "Enter Details" : "विवरण दर्ज करें";
+    if(!isSampleActive) {
+      $("sampleBtn").innerText = isEn ? "✨ Fill Sample" : "✨ सैंपल भरें";
+    } else {
+      $("sampleBtn").innerText = isEn ? "✨ Clear Sample" : "✨ सैंपल हटाएं";
+    }
+    $("lblLang").innerText = isEn ? "Choose Language" : "भाषा चुनें / Choose Language";
+    $("lblGender").innerText = isEn ? "Applicant Gender" : "आवेदक का चयन";
+    $("gMale").innerText = isEn ? "Male" : "पुरुष";
+    $("gFemale").innerText = isEn ? "Female" : "महिला";
+    $("print").innerText = isEn ? "🖨️ Print / Save PDF" : "🖨️ प्रिंट / PDF सेव करें";
+    if($("mobilePrintBtn")) $("mobilePrintBtn").innerText = isEn ? "🖨️ Print / Save PDF" : "🖨️ पत्र प्रिंट / PDF सेव करें";
+    $("clear").innerText = isEn ? "🔄 Clear" : "🔄 साफ़ करें";
+    $("lblPageFit").innerText = isEn ? "Page Coverage / A4 Size" : "पेज भराव / प्रिंट फैलाव (A4 सेटिंग)";
+    $("optFit80").innerText = isEn ? "80% Balanced" : "80% संतुलित";
+    $("optFit90").innerText = isEn ? "90% Large" : "90% बड़ा";
+    $("optFitCompact").innerText = isEn ? "Compact" : "कॉम्पैक्ट";
+    $("uiHint").innerText = isEn ?
+      "Fields left blank will print with dotted lines so you can fill them by pen. You can also click directly on the letter to edit any text." :
+      "जो जानकारी नहीं भरेंगे, प्रिंट में वहाँ खाली जगह (.......) छूट जाएगी। आप सीधे पत्र पर क्लिक करके भी कोई शब्द संपादित (Edit) कर सकते हैं।";
+    var langRadio = document.querySelector('input[name=lang][value="' + curLang + '"]');
+    if(langRadio) langRadio.checked = true;
+    updateThemeUI();
+  }
+
+  function render(){
+    var t = getTpl();
+    var fem = document.querySelector("input[name=g]:checked").value === "f";
+    var leftSig = [], rightSig = [];
+    t.sig.forEach(function(x){
+      if(x[SIG_KEY] === "date" || x[SIG_KEY] === "aadhar" || x[SIG_KEY] === "place") leftSig.push(x);
+      else rightSig.push(x);
+    });
+
+    var fitEl = document.querySelector("input[name=page_fit]:checked");
+    var fitVal = fitEl ? fitEl.value : "fit80";
+    $("paper").classList.remove("compact", "fit-90");
+    if(fitVal === "fit90") $("paper").classList.add("fit-90");
+    else if(fitVal === "compact") $("paper").classList.add("compact");
+    else if(IS_LONG_DEFAULT) $("paper").classList.add("compact");
+
+    var isEn = curLang === "en";
+    var toLine1 = isEn ? "To," : "सेवा में,";
+    var toLine2 = t.a ? t.a : (isEn ? "The Branch Manager," : "शाखा प्रबंधक महोदय/महोदया,");
+    var subjLbl = isEn ? "Subject:" : "विषय:";
+    var salutation = isEn ? "Respected Sir/Madam," : "महोदय/महोदया,";
+    var thanks = isEn ? "Thanking you," : "धन्यवाद।";
+    var closing = isEn ? "Yours faithfully," : (fem ? "भवदीया," : "भवदीय,");
+    var sigLbl = isEn ? "Signature:" : "हस्ताक्षर:";
+
+    $("paper").innerHTML =
+      "<h2>" + t.t + "</h2>" +
+      '<div class="to">' + toLine1 + "<br>" + toLine2 + "<br>" + f("bank") + "<br>" + f("branch") + ", " + f("city") + "</div>" +
+      "<p><b>" + subjLbl + "</b> " + t.s + "</p><p>" + salutation + "</p>" +
+      t.p.map(function(x){ return "<p>" + gen(x) + "</p>"; }).join("") +
+      "<p>" + thanks + "</p>" +
+      '<div class="sig">' +
+        '<div class="left">' +
+          leftSig.map(function(x){ return x[SIG_LBL] + ": " + f(x[SIG_KEY]) + "<br>"; }).join("") +
+        "</div>" +
+        '<div class="b">' + closing + "<br>" +
+          rightSig.map(function(x){ return x[SIG_LBL] + ": " + f(x[SIG_KEY]) + "<br>"; }).join("") +
+          sigLbl + ' <span class="blank" style="min-width:16ch"></span>' +
+        "</div>" +
+      "</div>";
+  }
+
+  function build(){
+    var h = "";
+    var t = getTpl();
+    var isEn = curLang === "en";
+    keys(t).forEach(function(k){
+      var d = F[k], id = "f_" + k, v = V[k] || "";
+      var lbl = isEn ? (d[F_NAME_EN] || d[F_NAME]) : d[F_NAME];
+      if(k === "bank"){
+        var optDefault = isEn ? "-- Select Bank --" : "-- बैंक चुनें --";
+        var optCustom = isEn ? "Other — Write Bank Name Manually" : "अन्य — बैंक का नाम खुद लिखें";
+        var phCustom = isEn ? "Write Bank Name" : "बैंक का नाम लिखें";
+        h += '<label for="bankSel">' + lbl + '</label><select id="bankSel"><option value="">' + optDefault + '</option>' +
+          BANKS.map(function(b){ return '<option value="' + esc(b) + '"' + (V.bank === b ? " selected" : "") + ">" + esc(b) + "</option>"; }).join("") +
+          '<option value="custom"' + (V.bank === "custom" ? " selected" : "") + '>' + optCustom + '</option></select>' +
+          '<input id="f_bankc" type="text" placeholder="' + phCustom + '" style="margin-top:8px" value="' + esc(V.bankc || "") + '"' + (V.bank === "custom" ? "" : " hidden") + ">";
+        return;
+      }
+      if(d[F_TYPE] === "d"){
+        h += '<label for="' + id + '">' + lbl + '</label><input id="' + id + '" type="text" inputmode="numeric" placeholder="DD/MM/YYYY" maxlength="10" autocomplete="off" value="' + esc(v) + '">';
+      } else {
+        h += '<label for="' + id + '">' + lbl + '</label><input id="' + id + '" type="' + (d[F_TYPE] === "n" ? "tel" : "text") + '"' + (d[F_TYPE] === "n" ? ' inputmode="numeric" maxlength="' + d[F_MAX] + '"' : "") + ' autocomplete="off" value="' + esc(v) + '">';
+      }
+    });
+    $("fields").innerHTML = h;
+  }
+
+  $("fields").addEventListener("input", function(e){
+    var id = e.target.id; if(!id || id === "bankSel") return;
+    var k = id.slice(2);
+    if(k !== "bankc" && F[k]){
+      if(F[k][F_TYPE] === "n") e.target.value = e.target.value.replace(/\D/g, "");
+      if(F[k][F_TYPE] === "d"){
+        var digits = e.target.value.replace(/\D/g, "").slice(0, 8);
+        if(digits.length > 4) e.target.value = digits.slice(0,2) + "/" + digits.slice(2,4) + "/" + digits.slice(4);
+        else if(digits.length > 2) e.target.value = digits.slice(0,2) + "/" + digits.slice(2);
+        else e.target.value = digits;
+      }
+    }
+    V[k] = e.target.value;
+    render();
+  });
+
+  $("fields").addEventListener("change", function(e){
+    if(e.target.id !== "bankSel") return;
+    V.bank = e.target.value;
+    var c = $("f_bankc");
+    if(c){
+      c.hidden = V.bank !== "custom";
+      if(!c.hidden) c.focus();
+    }
+    render();
+  });
+
+  /* टॉगल सैंपल डेटा लॉजिक */
+  var isSampleActive = false;
+  $("sampleBtn").addEventListener("click", function(){
+    var t = getTpl();
+    var isEn = curLang === "en";
+    if(!isSampleActive){
+      keys(t).forEach(function(k){
+        if(F[k]) V[k] = isEn ? F[k][F_SAMPLE_EN] : F[k][F_SAMPLE_HI];
+      });
+      isSampleActive = true;
+      this.innerText = isEn ? "✨ Clear Sample" : "✨ सैंपल हटाएं";
+    } else {
+      V = {};
+      isSampleActive = false;
+      this.innerText = isEn ? "✨ Fill Sample" : "✨ सैंपल भरें";
+    }
+    build();
+    render();
+  });
+
+  document.querySelectorAll("input[name=g]").forEach(function(r){ r.addEventListener("change", render); });
+  document.querySelectorAll("input[name=page_fit]").forEach(function(r){ r.addEventListener("change", render); });
+  document.querySelectorAll("input[name=lang]").forEach(function(r){
+    r.addEventListener("change", function(){
+      curLang = document.querySelector("input[name=lang]:checked").value;
+      try { localStorage.setItem("app_lang", curLang); } catch(e){}
+      updateStaticUI();
+      build();
+      render();
+    });
+  });
+
+  function doPrint(){
+    var h2 = $("paper") ? $("paper").querySelector("h2") : null;
+    if(h2 && h2.innerText && h2.innerText.trim()) document.title = h2.innerText.trim();
+    window.print();
+  }
+  window.addEventListener("beforeprint", function(){
+    var h2 = $("paper") ? $("paper").querySelector("h2") : null;
+    if(h2 && h2.innerText && h2.innerText.trim()) document.title = h2.innerText.trim();
+  });
+  $("print").addEventListener("click", doPrint);
+  if($("mobilePrintBtn")) $("mobilePrintBtn").addEventListener("click", doPrint);
+  $("clear").addEventListener("click", function(){ 
+    V = {}; 
+    isSampleActive = false; 
+    updateStaticUI();
+    build(); 
+    render(); 
+  });
+
+  updateStaticUI();
+  build();
+  render();
+})();
+</script>
+</body>
+</html>
