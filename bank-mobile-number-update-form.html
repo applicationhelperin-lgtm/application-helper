@@ -665,28 +665,6 @@ button.action-btn{
 .faq-a p{margin:0}
 .faq-a strong{color:var(--ink)}
 
-/* संबंधित आवेदन */
-.rel-grid{
-  display:grid;
-  grid-template-columns:1fr;
-  gap:8px;
-}
-@media(min-width:768px){
-  .rel-grid{grid-template-columns:repeat(2,1fr)}
-}
-.rel-grid a{
-  display:block;
-  padding:11px 14px;
-  background:var(--panel-alt);
-  border:1px solid var(--line);
-  border-radius:10px;
-  color:var(--ink);
-  text-decoration:none;
-  font-size:.88rem;
-  font-weight:600;
-}
-.rel-grid a:hover{border-color:var(--accent);color:var(--accent)}
-
 /* फुटर */
 .site-footer{
   text-align:center;
@@ -705,7 +683,7 @@ button.action-btn{
 .site-footer a:hover{color:var(--accent);text-decoration:underline}
 .site-footer p{margin:4px 0}
 
-/* प्रिंट नियम — A4 पर प्रिंट (पत्र बहुत लंबा हो तो कटेगा नहीं, अगले पेज पर जाएगा) */
+/* प्रिंट नियम — A4 पर प्रिंट */
 @media print{
   @page{
     size:A4 portrait;
@@ -842,28 +820,12 @@ button.action-btn{
  "@context": "https://schema.org",
  "@type": "FAQPage",
  "mainEntity": [
-  {
-   "@type": "Question",
-   "name": "बैंक खाते में मोबाइल नंबर बदलने के लिए कौन से दस्तावेज़ चाहिए?",
-   "acceptedAnswer": {
-    "@type": "Answer",
-    "text": "आमतौर पर ये दस्तावेज़ लगते हैं: आवेदन पत्र, आधार कार्ड की स्व-प्रमाणित फोटोकॉपी और बैंक पासबुक के पहले पृष्ठ की फोटोकॉपी। कुछ शाखाएँ मिलान के लिए मूल पहचान पत्र भी माँग सकती हैं, इसलिए उसे साथ रखें।"
-   }
-  },
-  {
+    {
    "@type": "Question",
    "name": "क्या मोबाइल नंबर बदलवाने के लिए बैंक शाखा जाना ज़रूरी है?",
    "acceptedAnswer": {
     "@type": "Answer",
     "text": "अक्सर हाँ, खासकर तब जब पुराना नंबर बंद हो चुका हो। कुछ बैंकों में पुराना नंबर चालू होने पर ATM, नेट बैंकिंग या मोबाइल ऐप से भी नंबर बदला जा सकता है। यह सुविधा हर बैंक में नहीं होती, इसलिए अपने बैंक की जानकारी देख लें।"
-   }
-  },
-  {
-   "@type": "Question",
-   "name": "पुराना सिम बंद हो गया है, अब क्या करें?",
-   "acceptedAnswer": {
-    "@type": "Answer",
-    "text": "पुराने नंबर पर OTP नहीं आएगा, इसलिए ऑनलाइन बदलाव मुश्किल होता है। ऐसे में ऊपर के फॉर्म से आवेदन पत्र बनाएं, प्रिंट करें और पहचान के दस्तावेज़ों के साथ अपनी होम ब्रांच में जमा करें।"
    }
   },
   {
@@ -876,58 +838,10 @@ button.action-btn{
   },
   {
    "@type": "Question",
-   "name": "क्या मोबाइल नंबर बदलने का कोई शुल्क लगता है?",
-   "acceptedAnswer": {
-    "@type": "Answer",
-    "text": "आमतौर पर बैंक इसके लिए शुल्क नहीं लेते। फिर भी नियम बैंक के अनुसार अलग हो सकते हैं, इसलिए आवेदन जमा करते समय शाखा में एक बार पूछ लेना बेहतर है।"
-   }
-  },
-  {
-   "@type": "Question",
-   "name": "क्या प्रिंट किया हुआ आवेदन पत्र बैंक में चल जाएगा?",
-   "acceptedAnswer": {
-    "@type": "Answer",
-    "text": "आमतौर पर प्रिंट किया हुआ पत्र स्वीकार हो जाता है, बस उस पर हस्ताक्षर पेन से खुद करें। कुछ शाखाएँ अपना निर्धारित फॉर्म भी भरवाती हैं। ऐसे में यह पत्र साथ में लगा दें और बैंक का फॉर्म भी भर दें।"
-   }
-  },
-  {
-   "@type": "Question",
-   "name": "आवेदन पर हस्ताक्षर कैसे करें?",
-   "acceptedAnswer": {
-    "@type": "Answer",
-    "text": "प्रिंट के बाद नीचे हस्ताक्षर की जगह पर वही हस्ताक्षर करें जो बैंक के रिकॉर्ड में दर्ज हैं। हस्ताक्षर मेल न खाने पर बैंक आवेदन रोक सकता है।"
-   }
-  },
-  {
-   "@type": "Question",
    "name": "क्या एक मोबाइल नंबर कई बैंक खातों से जुड़ सकता है?",
    "acceptedAnswer": {
     "@type": "Answer",
     "text": "अधिकतर बैंक एक ही नंबर को एक से ज़्यादा खातों से जोड़ने देते हैं, जैसे परिवार के खाते। कुछ बैंकों में इसकी सीमा हो सकती है, इसलिए शाखा से पुष्टि कर लें।"
-   }
-  },
-  {
-   "@type": "Question",
-   "name": "आवेदन जमा करने पर पावती (रसीद) क्यों ज़रूरी है?",
-   "acceptedAnswer": {
-    "@type": "Answer",
-    "text": "पावती इस बात का सबूत है कि आपने आवेदन किस तारीख को जमा किया। पत्र की एक अतिरिक्त प्रति पर बैंक की मुहर और तारीख ज़रूर लगवाएं। काम न होने पर पहले शाखा या बैंक के शिकायत अधिकारी से मिलें, फिर भी हल न निकले तो RBI के शिकायत पोर्टल (cms.rbi.org.in) का रास्ता है।"
-   }
-  },
-  {
-   "@type": "Question",
-   "name": "पत्र को PDF में कैसे सेव करें?",
-   "acceptedAnswer": {
-    "@type": "Answer",
-    "text": "फॉर्म भरकर प्रिंट / PDF सेव करें बटन दबाएं। प्रिंट विंडो में प्रिंटर की जगह Save as PDF चुनें। Paper size A4 और Scale 100% रखें। मोबाइल के Chrome में भी यही विकल्प मिलता है।"
-   }
-  },
-  {
-   "@type": "Question",
-   "name": "क्या यह टूल मेरी जानकारी सेव करता है?",
-   "acceptedAnswer": {
-    "@type": "Answer",
-    "text": "नहीं। पूरा काम आपके ब्राउज़र में होता है और आपका भरा हुआ नाम, खाता संख्या या नंबर किसी सर्वर पर नहीं भेजा जाता। सिर्फ आपकी भाषा और नाइट/लाइट मोड की पसंद ब्राउज़र में याद रखी जाती है।"
    }
   },
   {
@@ -949,18 +863,18 @@ button.action-btn{
   <section class="intro-card no-print" aria-label="आवेदन परिचय">
     <div class="intro-top">
       <div class="badge-group">
-        <span class="badge" id="bdgService">🏦 बैंकिंग सेवाएं (2026)</span>
+        <span class="badge" id="bdgService">🏦 बैंकिंग सेवाएं</span>
         <span class="badge badge-sec" id="bdgSec">🔒 100% सुरक्षित एवं निःशुल्क</span>
       </div>
       <div class="header-actions">
-        <a href="bank.html" class="back-btn" id="backBtn">← पीछे जाएं</a>
+        <a href="index.html" class="back-btn" id="backBtn">← पीछे जाएं</a>
         <button id="themeToggleBtn" type="button" class="theme-btn">
           <span id="thIcon">🌙</span> <span id="thText">नाइट मोड</span>
         </button>
       </div>
     </div>
     <h1 class="intro-title" id="mainHeading">बैंक खाते में मोबाइल नंबर अपडेट कराने हेतु आवेदन पत्र</h1>
-    <p class="intro-desc" id="mainIntro">यदि आपका पुराना सिम बंद हो गया है या आप अपने बैंक खाते में नया मोबाइल नंबर लिंक कराना चाहते हैं, तो नीचे दिए गए फॉर्म में अपना विवरण भरें। आपका आवेदन पत्र तुरंत प्रिंट के लिए तैयार हो जाएगा।</p>
+    <p class="intro-desc" id="mainIntro">यदि आपका बैंक के साथ लिंक मोबाइल नंबर खो गया है या बंद हो गया है और अब आप अपना नया मोबाइल नंबर अपने बैंक खाते में लिंक करना चाहते तो नीचे दिए गए फार्म में अपनी बेसिक जानकारी दर्ज करके तुरंत प्रिंट निकाल सकते हैं। </p>
     <div class="sec-note" id="secBanner">
       <strong>Note:</strong> जो जानकारी नहीं भरना चाहते, उसे खाली छोड़ दें—प्रिंट में वहाँ पेन से भरने के लिए डॉटेड लाइन छूट जाएगी।
     </div>
@@ -994,16 +908,6 @@ button.action-btn{
 
       <div id="fields"></div>
 
-      <div class="btns">
-        <button class="action-btn primary-btn" id="print" type="button">🖨️ प्रिंट / PDF सेव करें</button>
-        <button class="action-btn ghost-btn" id="clear" type="button">🔄 साफ़ करें</button>
-      </div>
-
-      <!-- व्हाट्सएप शेयर बटन (लिंक JS से इसी पेज के canonical URL पर सेट होता है) -->
-      <a href="https://wa.me/?text=https%3A%2F%2Fapplicationhelper.in%2Fbank-mobile-number-update-form.html" target="_blank" rel="noopener noreferrer" class="whatsapp-sticker-btn" id="waShareBtn">
-        <span id="waText">🟢 WhatsApp पर शेयर करें</span>
-      </a>
-
       <label id="lblPageFit" style="margin-top:14px;">पेज भराव / प्रिंट फैलाव (A4 सेटिंग)</label>
       <div class="seg" role="radiogroup" aria-label="Page Coverage" id="fitWrap">
         <label><input type="radio" name="page_fit" value="fit80" checked><span id="optFit80">80% संतुलित</span></label>
@@ -1011,7 +915,17 @@ button.action-btn{
         <label><input type="radio" name="page_fit" value="compact"><span id="optFitCompact">कॉम्पैक्ट</span></label>
       </div>
 
-      <p class="hint" id="uiHint">जो जानकारी नहीं भरेंगे, प्रिंट में वहाँ खाली जगह (.......) छूट जाएगी। आप सीधे पत्र पर क्लिक करके भी शब्द बदल सकते हैं, पर ध्यान रखें: उसके बाद फॉर्म बदलने पर पत्र दोबारा बनेगा और सीधे किए बदलाव हट जाएंगे। इसलिए पहले फॉर्म पूरा भरें, फिर अंत में पत्र एडिट करें।</p>
+      <div class="btns">
+        <button class="action-btn primary-btn" id="print" type="button">🖨️ प्रिंट / PDF सेव करें</button>
+        <button class="action-btn ghost-btn" id="clear" type="button">🔄 साफ़ करें</button>
+      </div>
+
+      <!-- व्हाट्सएप शेयर बटन -->
+      <a href="https://wa.me/?text=https%3A%2F%2Fapplicationhelper.in%2Fbank-mobile-number-update-form.html" target="_blank" rel="noopener noreferrer" class="whatsapp-sticker-btn" id="waShareBtn">
+        <span id="waText">🟢 WhatsApp पर शेयर करें</span>
+      </a>
+
+      <p class="hint" id="uiHint"></p>
     </section>
 
     <div class="preview-col">
@@ -1035,27 +949,27 @@ button.action-btn{
   <section class="guide-card no-print" aria-label="महत्वपूर्ण बिंदु एवं गाइड">
     <div class="guide-header">
       <div>
-        <span class="guide-tag">महत्वपूर्ण बिंदु एवं प्रक्रिया गाइड</span>
         <h2>बैंक खाते में मोबाइल नंबर बदलने की पूरी जानकारी एवं महत्वपूर्ण बिंदु</h2>
       </div>
     </div>
     <p class="guide-overview">बैंक खाते से मोबाइल नंबर जुड़ा होना अत्यंत आवश्यक है क्योंकि UPI, नेट बैंकिंग, OTP और लेन-देन के सभी SMS अलर्ट इसी नंबर पर आते हैं। यदि पुराना नंबर खो गया है या बंद हो गया है, तो शाखा में लिखित आवेदन देकर नया नंबर अपडेट कराया जा सकता है।</p>
     <div class="guide-grid">
       <div class="guide-box">
-        <h3>📋 1. आवश्यक दस्तावेज (Checklist)</h3>
+        <h3>📋 1. आवश्यक दस्तावेज </h3>
         <ul>
-          <li>आधार कार्ड की स्व-प्रमाणित (Self-Attested) फोटोकॉपी।</li>
+          <li>आधार कार्ड की स्व-प्रमाणित फोटोकॉपी।</li>
           <li>बैंक पासबुक के प्रथम पृष्ठ की फोटोकॉपी (जिस पर खाता संख्या और फोटो स्पष्ट हो)।</li>
           <li>नया चालू मोबाइल नंबर (जिस पर तुरंत वेरिफिकेशन OTP प्राप्त हो सके)।</li>
+          <li>सभी Original दस्तावेज भी साथ रखें।  </li>
         </ul>
       </div>
       <div class="guide-box">
         <h3>🏦 2. आवेदन जमा करने की प्रक्रिया</h3>
         <ol>
-          <li>ऊपर दिए गए जनरेटर से अपना आवेदन पत्र प्रिंट करें और नीचे अपने वही हस्ताक्षर करें जो बैंक रिकॉर्ड में दर्ज हैं।</li>
-          <li>आवेदन पत्र के साथ आधार कार्ड और पासबुक की फोटोकॉपी नत्थी करें।</li>
+          <li>ऊपर दिए गए जनरेटर से अपना आवेदन पत्र प्रिंट करें और अपने वही हस्ताक्षर करें जो बैंक रिकॉर्ड में दर्ज हैं।</li>
+          <li>आवेदन पत्र के साथ आधार कार्ड और पासबुक की फोटोकॉपी संलग्न करें।</li>
           <li>अपनी होम ब्रांच सारे दस्तावेज लेकर जाएं।</li>
-          <li>आमतौर पर कुछ कार्य-दिवसों (अक्सर 1 से 3 दिन) में नया मोबाइल नंबर खाते से लिंक हो जाता है। समय बैंक के अनुसार अलग-अलग हो सकता है।</li>
+          <li> अधिकतर बैंकों में मोबाइल नंबर 24-48 घंटों में अपडेट हो जाता है। यह आपकी बैंक पर निर्भर करता है।</li>
         </ol>
       </div>
     </div>
@@ -1065,96 +979,18 @@ button.action-btn{
   <section class="guide-card no-print" id="toolGuide" aria-label="टूल का उपयोग कैसे करें">
     <div class="guide-header">
       <div>
-        <span class="guide-tag">टूल गाइड</span>
         <h2>इस पेज के बटन और टूल का उपयोग कैसे करें</h2>
       </div>
     </div>
-
     <div class="guide-grid">
       <div class="guide-box">
-        <h3>🚀 यह टूल कैसे काम करता है (3 चरण)</h3>
+        <h3> यह टूल कैसे काम करता है।</h3>
         <ol>
           <li><strong>फॉर्म भरें:</strong> बैंक चुनें और नाम, खाता संख्या, नया मोबाइल नंबर आदि लिखें।</li>
           <li><strong>पत्र अपने आप बनता है:</strong> आप जैसे ही कुछ टाइप करते हैं, A4 पत्र उसी समय बदल जाता है (कंप्यूटर पर दाईं ओर, मोबाइल पर दूसरे टैब में)।</li>
-          <li><strong>प्रिंट या PDF लें:</strong> पत्र जाँचकर प्रिंट / PDF बटन दबाएं। प्रिंट के बाद नीचे पेन से अपने हस्ताक्षर करें।</li>
+          <li><strong>प्रिंट निकालें:</strong> पत्र जाँचकर प्रिंट / PDF बटन दबाएं। </li>
         </ol>
       </div>
-      <div class="guide-box">
-        <h3>🔒 आपकी जानकारी का क्या होता है</h3>
-        <p>पूरा काम आपके अपने ब्राउज़र में होता है। आपके द्वारा भरा गया नाम, खाता संख्या, मोबाइल या आधार नंबर किसी सर्वर पर नहीं भेजा जाता और न सेव किया जाता है। केवल आपकी <strong>भाषा</strong> और <strong>नाइट/लाइट मोड</strong> की पसंद आपके ब्राउज़र में याद रखी जाती है। पेज बंद करने या रिफ्रेश करने पर भरी हुई जानकारी हट जाती है, इसलिए प्रिंट या PDF पहले ही ले लें।</p>
-      </div>
-    </div>
-
-    <h3 class="guide-sub">🔘 हर बटन और विकल्प का काम</h3>
-    <div class="btn-guide">
-
-      <div class="row">
-        <div><span class="chip">← पीछे जाएं</span></div>
-        <p>बैंकिंग आवेदनों की सूची वाले पेज पर वापस ले जाता है। इसे दबाने से भरी हुई जानकारी हट जाती है, इसलिए पहले प्रिंट या PDF ले लें।</p>
-      </div>
-
-      <div class="row">
-        <div><span class="chip">🌙 नाइट मोड / ☀️ लाइट मोड</span></div>
-        <p>स्क्रीन का रंग गहरा या हल्का करता है, ताकि रात में आँखों पर ज़ोर न पड़े। इसका प्रिंट पर कोई असर नहीं होता, पत्र हमेशा सफेद कागज़ पर काले अक्षरों में ही निकलता है। आपकी पसंद अगली बार के लिए याद रहती है।</p>
-      </div>
-
-      <div class="row">
-        <div><span class="chip">✍️ 1. फॉर्म भरें &nbsp;|&nbsp; 📄 2. पत्र देखें व प्रिंट करें</span></div>
-        <p><strong>सिर्फ मोबाइल पर दिखने वाले दो टैब।</strong> छोटी स्क्रीन पर फॉर्म और पत्र एक साथ नहीं आते, इसलिए इन टैब से दोनों के बीच बदलें। कंप्यूटर पर फॉर्म बाईं ओर और पत्र दाईं ओर एक साथ दिखता है।</p>
-      </div>
-
-      <div class="row">
-        <div><span class="chip">✨ सैंपल भरें / सैंपल हटाएं</span></div>
-        <p>एक उदाहरण जानकारी भर देता है ताकि आप देख सकें कि पत्र कैसा बनेगा। दोबारा दबाने पर सैंपल हट जाता है। सैंपल का नाम, नंबर आदि काल्पनिक हैं, प्रिंट से पहले अपनी असली जानकारी ज़रूर भरें।</p>
-      </div>
-
-      <div class="row">
-        <div><span class="chip">भाषा चुनें: हिंदी / English</span></div>
-        <p>तय करता है कि पत्र किस भाषा में बनेगा। भाषा बदलने पर फॉर्म के फील्ड के नाम भी बदल जाते हैं। आपने जो खुद टाइप किया है वह वैसा ही रहता है। बैंक में अंग्रेज़ी पत्र माँगा जाए तो English चुनें।</p>
-      </div>
-
-      <div class="row">
-        <div><span class="chip">आवेदक का चयन: पुरुष / महिला</span></div>
-        <p>हिंदी पत्र में "चाहता/चाहती" और "भवदीय/भवदीया" जैसे शब्दों को सही रूप में बदल देता है, ताकि पत्र में व्याकरण की गलती न रहे।</p>
-      </div>
-
-      <div class="row">
-        <div><span class="chip">बैंक का नाम (ड्रॉपडाउन)</span></div>
-        <p>सूची से अपना बैंक चुनें। आपका बैंक सूची में न हो तो सबसे नीचे <strong>"अन्य — बैंक का नाम खुद लिखें"</strong> चुनें, फिर नीचे खुलने वाले खाने में नाम लिखें।</p>
-      </div>
-
-      <div class="row">
-        <div><span class="chip">नंबर व दिनांक वाले फील्ड</span></div>
-        <p><strong>तारीख:</strong> केवल अंक लिखें, "/" अपने आप लग जाता है (14112026 लिखने पर 14/11/2026)। <strong>नंबर वाले फील्ड</strong> में सिर्फ अंक चलते हैं। मोबाइल नंबर 10 अंकों का और 6 से 9 के बीच के अंक से शुरू होना चाहिए, आधार नंबर 12 अंकों का। गलत होने पर फील्ड के नीचे लाल सूचना दिखती है।</p>
-      </div>
-
-      <div class="row">
-        <div><span class="chip">खाली छोड़े गए फील्ड</span></div>
-        <p>जो जानकारी नहीं भरेंगे, पत्र में वहाँ डॉटेड खाली रेखा (.......) रहेगी, जिसे प्रिंट के बाद पेन से भर सकते हैं।</p>
-      </div>
-
-      <div class="row">
-        <div><span class="chip">🖨️ प्रिंट / PDF सेव करें</span></div>
-        <p>ब्राउज़र की प्रिंट विंडो खोलता है, जिसमें केवल पत्र दिखता है। <strong>कागज़ पर निकालने के लिए</strong> अपना प्रिंटर चुनें। <strong>PDF बनाने के लिए</strong> प्रिंटर की जगह "Save as PDF" चुनें (मोबाइल Chrome में भी यही विकल्प मिलता है)। सेटिंग में Paper size: <strong>A4</strong>, Scale: <strong>100%</strong> रखें और "Headers and footers" बंद करें। PDF का नाम पत्र के शीर्षक से अपने आप बन जाता है।</p>
-      </div>
-
-      <div class="row">
-        <div><span class="chip">🔄 साफ़ करें</span></div>
-        <p>भरी हुई सारी जानकारी हटाकर फॉर्म और पत्र को खाली कर देता है, ताकि नया आवेदन शुरू कर सकें। पत्र में सीधे किए गए बदलाव भी हट जाते हैं।</p>
-      </div>
-
-
-      <div class="row">
-        <div><span class="chip">पेज भराव: 80% संतुलित / 90% बड़ा / कॉम्पैक्ट</span></div>
-        <p>पत्र के अक्षरों का आकार और पंक्तियों की दूरी तय करता है। <strong>80% संतुलित</strong> सामान्य विकल्प है। <strong>90% बड़ा</strong> छोटे पत्र को पूरे पेज में फैलाकर बड़ा दिखाता है। <strong>कॉम्पैक्ट</strong> लंबे पत्र को एक पेज में समेटता है। पत्र एक A4 पेज से लंबा हो जाए तो पत्र के ऊपर पीली चेतावनी आ जाती है।</p>
-      </div>
-
-      <div class="row">
-        <div><span class="chip">🟢 WhatsApp पर शेयर करें</span></div>
-        <p>WhatsApp खोलता है जिसमें इस पेज का लिंक पहले से लिखा होता है। जिसे भेजना है उसे चुनें। केवल पेज का लिंक जाता है, आपकी भरी हुई जानकारी नहीं।</p>
-      </div>
-
-
     </div>
   </section>
 
@@ -1162,58 +998,25 @@ button.action-btn{
   <section class="guide-card no-print" id="faq" aria-label="अक्सर पूछे जाने वाले प्रश्न">
     <div class="guide-header">
       <div>
-        <span class="guide-tag">FAQ</span>
         <h2>अक्सर पूछे जाने वाले प्रश्न</h2>
       </div>
     </div>
     <div class="faq-list">
-      <details class="faq-item" name="faq" open>
-        <summary>बैंक खाते में मोबाइल नंबर बदलने के लिए कौन से दस्तावेज़ चाहिए?</summary>
-        <div class="faq-a"><p>आमतौर पर ये दस्तावेज़ लगते हैं: <strong>आवेदन पत्र</strong>, आधार कार्ड की स्व-प्रमाणित फोटोकॉपी और बैंक पासबुक के पहले पृष्ठ की फोटोकॉपी। कुछ शाखाएँ मिलान के लिए मूल पहचान पत्र भी माँग सकती हैं, इसलिए उसे साथ रखें।</p></div>
-      </details>
       <details class="faq-item" name="faq">
         <summary>क्या मोबाइल नंबर बदलवाने के लिए बैंक शाखा जाना ज़रूरी है?</summary>
-        <div class="faq-a"><p>अक्सर हाँ, खासकर तब जब पुराना नंबर बंद हो चुका हो। कुछ बैंकों में पुराना नंबर चालू होने पर ATM, नेट बैंकिंग या मोबाइल ऐप से भी नंबर बदला जा सकता है। यह सुविधा हर बैंक में नहीं होती, इसलिए अपने बैंक की जानकारी देख लें।</p></div>
-      </details>
-      <details class="faq-item" name="faq">
-        <summary>पुराना सिम बंद हो गया है, अब क्या करें?</summary>
-        <div class="faq-a"><p>पुराने नंबर पर OTP नहीं आएगा, इसलिए ऑनलाइन बदलाव मुश्किल होता है। ऐसे में ऊपर के फॉर्म से आवेदन पत्र बनाएं, प्रिंट करें और पहचान के दस्तावेज़ों के साथ अपनी होम ब्रांच में जमा करें।</p></div>
+        <div class="faq-a"><p>अक्सर हाँ, खासकर तब जब पुराना नंबर बंद हो चुका हो। कुछ बैंकों में पुराना नंबर चालू होने पर ATM, नेट बैंकिंग या मोबाइल ऐप से भी नंबर बदला जा सकता है। यह सुविधा हर बैंक में नहीं होती, इसलिए अपने बैंक की जानकारी देख लें</p></div>
       </details>
       <details class="faq-item" name="faq">
         <summary>नया मोबाइल नंबर खाते में जुड़ने में कितना समय लगता है?</summary>
-        <div class="faq-a"><p>आमतौर पर कुछ कार्य-दिवसों में, अक्सर 1 से 3 दिन में। यह बैंक और शाखा पर निर्भर करता है। नंबर जुड़ने के बाद अक्सर पुष्टि का SMS आता है। कुछ दिन बाद भी कोई सूचना न मिले तो शाखा में जाकर स्थिति पूछें।</p></div>
-      </details>
-      <details class="faq-item" name="faq">
-        <summary>क्या मोबाइल नंबर बदलने का कोई शुल्क लगता है?</summary>
-        <div class="faq-a"><p>आमतौर पर बैंक इसके लिए शुल्क नहीं लेते। फिर भी नियम बैंक के अनुसार अलग हो सकते हैं, इसलिए आवेदन जमा करते समय शाखा में एक बार पूछ लेना बेहतर है।</p></div>
-      </details>
-      <details class="faq-item" name="faq">
-        <summary>क्या प्रिंट किया हुआ आवेदन पत्र बैंक में चल जाएगा?</summary>
-        <div class="faq-a"><p>आमतौर पर प्रिंट किया हुआ पत्र स्वीकार हो जाता है, बस उस पर <strong>हस्ताक्षर पेन से खुद करें</strong>। कुछ शाखाएँ अपना निर्धारित फॉर्म भी भरवाती हैं। ऐसे में यह पत्र साथ में लगा दें और बैंक का फॉर्म भी भर दें।</p></div>
-      </details>
-      <details class="faq-item" name="faq">
-        <summary>आवेदन पर हस्ताक्षर कैसे करें?</summary>
-        <div class="faq-a"><p>प्रिंट के बाद नीचे हस्ताक्षर की जगह पर वही हस्ताक्षर करें जो बैंक के रिकॉर्ड में दर्ज हैं। हस्ताक्षर मेल न खाने पर बैंक आवेदन रोक सकता है।</p></div>
+        <div class="faq-a"><p>अधिकतर बैंकों में मोबाइल नंबर 24-48 घंटों में अपडेट हो जाता है। यह आपकी बैंक पर निर्भर करता है। नंबर जुड़ने के बाद अक्सर पुष्टि का SMS आता है। कुछ दिन बाद भी कोई सूचना न मिले तो शाखा में जाकर स्थिति पूछें</p></div>
       </details>
       <details class="faq-item" name="faq">
         <summary>क्या एक मोबाइल नंबर कई बैंक खातों से जुड़ सकता है?</summary>
-        <div class="faq-a"><p>अधिकतर बैंक एक ही नंबर को एक से ज़्यादा खातों से जोड़ने देते हैं, जैसे परिवार के खाते। कुछ बैंकों में इसकी सीमा हो सकती है, इसलिए शाखा से पुष्टि कर लें।</p></div>
-      </details>
-      <details class="faq-item" name="faq">
-        <summary>आवेदन जमा करने पर पावती (रसीद) क्यों ज़रूरी है?</summary>
-        <div class="faq-a"><p>पावती इस बात का सबूत है कि आपने आवेदन किस तारीख को जमा किया। पत्र की एक अतिरिक्त प्रति पर बैंक की मुहर और तारीख ज़रूर लगवाएं। काम न होने पर पहले शाखा या बैंक के शिकायत अधिकारी से मिलें, फिर भी हल न निकले तो RBI के शिकायत पोर्टल (cms.rbi.org.in) का रास्ता है।</p></div>
-      </details>
-      <details class="faq-item" name="faq">
-        <summary>पत्र को PDF में कैसे सेव करें?</summary>
-        <div class="faq-a"><p>फॉर्म भरकर <strong>प्रिंट / PDF सेव करें</strong> बटन दबाएं। प्रिंट विंडो में प्रिंटर की जगह <strong>Save as PDF</strong> चुनें। Paper size A4 और Scale 100% रखें। मोबाइल के Chrome में भी यही विकल्प मिलता है।</p></div>
-      </details>
-      <details class="faq-item" name="faq">
-        <summary>क्या यह टूल मेरी जानकारी सेव करता है?</summary>
-        <div class="faq-a"><p>नहीं। पूरा काम आपके ब्राउज़र में होता है और आपका भरा हुआ नाम, खाता संख्या या नंबर किसी सर्वर पर नहीं भेजा जाता। सिर्फ आपकी भाषा और नाइट/लाइट मोड की पसंद ब्राउज़र में याद रखी जाती है।</p></div>
+        <div class="faq-a"><p> एक बैंक में केवल एक ही मोबाइल नंबर लिंक कर सकते हैं। अलग-अलग बैंकों में एक ही मोबाइल नंबर लिंक कर सकते हैं। /p></div>
       </details>
       <details class="faq-item" name="faq">
         <summary>पत्र एक पेज से लंबा हो जाए तो क्या करें?</summary>
-        <div class="faq-a"><p><strong>पेज भराव</strong> में “कॉम्पैक्ट” चुनें, इससे अक्षर थोड़े छोटे होकर पत्र एक पेज में आ जाता है। फिर भी न आए तो कुछ टेक्स्ट छोटा कर लें।</p></div>
+        <div class="faq-a"><p><strong>पेज भराव</strong> में “कॉम्पैक्ट” चुनें, इससे अक्षर थोड़े छोटे होकर पत्र एक पेज में आ जाता है।</p></div>
       </details>
     </div>
   </section>
@@ -1231,7 +1034,7 @@ button.action-btn{
       <a href="copyright.html">Copyright</a>
     </nav>
     <p>यह टूल केवल सामान्य जानकारी और पत्र-लेखन में सहायता के लिए है। बैंक के नियम और प्रक्रिया अलग-अलग हो सकती है, अंतिम जानकारी अपनी बैंक शाखा से ज़रूर पूछें।</p>
-    <p>© Application Helper — सभी अधिकार सुरक्षित।</p>
+    <p>© Application Helper — सभी अधिकार सुरक्षित</p>
   </footer>
 </main>
 
@@ -1240,51 +1043,16 @@ var F_NAME=0, F_TYPE=1, F_WIDTH=2, F_MAX=3, F_NAME_EN=4, F_SAMPLE_HI=5, F_SAMPLE
 var SIG_LBL=0, SIG_KEY=1;
 var G_MALE=0, G_FEMALE=1;
 
+/* केवल इस पेज (मोबाइल नंबर अपडेट) से जुड़े जरूरी फ़ील्ड्स रखे गए हैं */
 var F={
   bank:["बैंक का नाम","b",18,0,"Bank Name","State Bank of India","State Bank of India"],
   branch:["शाखा का नाम / पता","t",14,0,"Branch Name / Address","मुख्य शाखा, हजरतगंज","Main Branch, Hazratganj"],
-  city:["शहर / जिला","t",12,0,"City / District","लखीमपुर खीरी (उ.प्र.)","Lakhimpur Kheri (U.P.)"],
+  city:["शहर / जिला","t",12,0,"City / District","लखीमपुर (उ.प्र.)","Lakhimpur (U.P.)"],
   name:["आवेदक का नाम","t",22,0,"Applicant Name","राजेश कुमार शर्मा","Rajesh Kumar Sharma"],
   acc:["खाता संख्या","n",20,20,"Account Number","32540098765","32540098765"],
   newmob:["नया मोबाइल नंबर","n",12,10,"New Mobile Number","9876543210","9876543210"],
-  atm_info:["कार्ड विवरण (अंतिम 4 अंक)","t",16,0,"Card Details (Last 4 Digits)","XXXX-XXXX-XXXX-4582","XXXX-XXXX-XXXX-4582"],
-  lostdate:["कार्ड खोने की तारीख","d",11,0,"Date Card Lost","12/11/2026","12/11/2026"],
-  chq:["चेक नंबर","n",10,12,"Cheque Number","458921","458921"],
   date:["दिनांक","d",11,0,"Date","14/11/2026","14/11/2026"],
-  aadhar:["आधार नं.","n",14,12,"Aadhaar No.","458912369874","458912369874"],
-  chq_pages:["चेकबुक के पृष्ठों की संख्या","t",12,0,"Number of Cheque Leaves","20 पृष्ठ (20 Leaves)","20 Leaves"],
-  lost_pb_date:["पासबुक खोने की अनुमानित तारीख","d",11,0,"Estimated Date Passbook Lost","10/11/2026","10/11/2026"],
-  new_branch:["नई शाखा का नाम","t",16,0,"New Branch Name","गोमती नगर शाखा","Gomti Nagar Branch"],
-  new_city:["नई शाखा का शहर / जिला","t",14,0,"New Branch City / District","लखनऊ","Lucknow"],
-  transfer_reason:["स्थानांतरण का कारण","t",20,0,"Reason for Transfer","निवास स्थान बदलने के कारण","Relocation of residence"],
-  email:["ईमेल आईडी","t",22,0,"Email ID","rajesh.sharma@example.com","rajesh.sharma@example.com"],
-  mob:["मोबाइल नंबर","n",12,10,"Mobile Number","9876543210","9876543210"],
-  doc_name:["जमा किया जा रहा दस्तावेज","t",20,0,"Document Submitted","आधार कार्ड एवं पैन कार्ड","Aadhaar Card & PAN Card"],
-  chq_date:["चेक की तारीख","d",11,0,"Date on Cheque","05/11/2026","05/11/2026"],
-  stop_reason:["भुगतान रोकने का कारण","t",20,0,"Reason for Stop Payment","भुगतान पहले ही ऑनलाइन कर दिया गया है","Payment already settled online"],
-  close_reason:["खाता बंद करने का कारण","t",20,0,"Reason for Account Closure","अन्य शहर में स्थानांतरित होने के कारण","Shifting to another city"],
-  balance_mode:["शेष राशि प्राप्त करने का तरीका","t",18,0,"Mode of Balance Payout","नकद / दूसरे खाते में ट्रांसफर","Cash / NEFT Transfer"],
-  nom_name:["नॉमिनी का नाम","t",20,0,"Nominee Name","सुनीता शर्मा","Sunita Sharma"],
-  nom_rel:["खाताधारक से संबंध","t",14,0,"Relationship with Account Holder","पत्नी","Wife"],
-  nom_dob:["नॉमिनी की जन्मतिथि","d",11,0,"Nominee Date of Birth","15/08/1992","15/08/1992"],
-  nom_addr:["नॉमिनी का पूरा पता","t",24,0,"Nominee Full Address","मकान नं. 42, सिविल लाइन्स, लखीमपुर खीरी","H.No. 42, Civil Lines, Lakhimpur Kheri"],
-  nom_mob:["नॉमिनी का मोबाइल नंबर","n",12,10,"Nominee Mobile Number","9876501234","9876501234"],
-  old_nom_name:["पुराने नॉमिनी का नाम","t",20,0,"Existing Nominee Name","रमेश चंद्र शर्मा","Ramesh Chandra Sharma"],
-  notice_date:["जानकारी होने की तारीख / समय","t",16,0,"Date / Time Fraud Noticed","13/11/2026, शाम 4:30 बजे","13/11/2026, 4:30 PM"],
-  tx_date:["लेन-देन की तारीख","d",11,0,"Transaction Date","13/11/2026","13/11/2026"],
-  tx_time:["लेन-देन का समय","t",10,0,"Transaction Time","दोपहर 03:15 बजे","03:15 PM"],
-  tx_amt:["राशि (₹)","n",10,10,"Amount (₹)","15000","15000"],
-  tx_id:["Transaction ID / UTR","t",18,0,"Transaction ID / UTR","331815489621","331815489621"],
-  tx_mode:["लेन-देन का माध्यम (UPI/कार्ड आदि)","t",16,0,"Mode of Transaction (UPI/Card etc.)","UPI / डेबिट कार्ड","UPI / Debit Card"],
-  tx_desc:["अनधिकृत लेन-देन का विवरण","t",24,0,"Incident / Transaction Description","बिना OTP साझा किए अज्ञात खाते में राशि कट गई","Amount debited without sharing OTP"],
-  name1:["खाताधारक 1 का नाम","t",20,0,"Account Holder 1 Name","राजेश कुमार शर्मा","Rajesh Kumar Sharma"],
-  name2:["खाताधारक 2 का नाम","t",20,0,"Account Holder 2 Name","मोहन लाल शर्मा","Mohan Lal Sharma"],
-  single_holder:["एकल खाताधारक के रूप में रखने वाले व्यक्ति का नाम","t",20,0,"Single Account Holder Name","राजेश कुमार शर्मा","Rajesh Kumar Sharma"],
-  loan_acc:["Loan Account Number (ऋण खाता संख्या)","t",20,0,"Loan Account Number","LN4008921547","LN4008921547"],
-  loan_type:["ऋण का प्रकार (होम/पर्सनल/वाहन आदि)","t",18,0,"Loan Type (Home/Personal/Auto etc.)","वाहन ऋण (Vehicle Loan)","Vehicle Loan"],
-  loan_paid_date:["ऋण पूर्ण चुकता करने की तारीख","d",11,0,"Date Loan Fully Repaid","01/11/2026","01/11/2026"],
-  place:["स्थान","t",14,0,"Place","लखीमपुर खीरी","Lakhimpur Kheri"],
-  freeze_reason:["खाता फ्रीज/होल्ड होने का कारण","t",22,0,"Reason for Account Freeze/Hold","KYC अद्यतन न होने या तकनीकी होल्ड के कारण","Pending KYC update or technical hold"]
+  aadhar:["आधार नं.","n",14,12,"Aadhaar No.","XXXXXXXXXXXX","XXXXXXXXXXXX"]
 };
 
 var T_HI = {
@@ -1313,7 +1081,7 @@ var BANKS = "Airtel Payments Bank|Andhra Pradesh Grameena Bank|AU Small Finance 
 
 (function(){
   var $ = function(i){ return document.getElementById(i); };
-  var MOBILE_KEYS = {newmob:1, mob:1, nom_mob:1};
+  var MOBILE_KEYS = {newmob:1};
 
   var curLang = "hi";
   try {
@@ -1321,7 +1089,6 @@ var BANKS = "Airtel Payments Bank|Andhra Pradesh Grameena Bank|AU Small Finance 
     if(savedLang === "en" || savedLang === "hi") curLang = savedLang;
   } catch(e){}
 
-  /* थीम: सेव की हुई पसंद न हो तो फोन/ब्राउज़र की सेटिंग मानें */
   var dark = !!(window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches);
   try {
     var savedTheme = localStorage.getItem("app_theme");
@@ -1382,7 +1149,6 @@ var BANKS = "Airtel Payments Bank|Andhra Pradesh Grameena Bank|AU Small Finance 
   function getTpl(){ return curLang === "en" ? T_EN : T_HI; }
   function esc(s){ return String(s).replace(/[&<>"]/g, function(c){ return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]; }); }
 
-  /* पत्र में सीधे किए बदलावों की सुरक्षा */
   function setDirty(d){
     paperDirty = d;
     var n = $("dirtyNote");
@@ -1454,9 +1220,6 @@ var BANKS = "Airtel Payments Bank|Andhra Pradesh Grameena Bank|AU Small Finance 
     $("optFit80").innerText = isEn ? "80% Balanced" : "80% संतुलित";
     $("optFit90").innerText = isEn ? "90% Large" : "90% बड़ा";
     $("optFitCompact").innerText = isEn ? "Compact" : "कॉम्पैक्ट";
-    $("uiHint").innerText = isEn
-      ? "Fields left blank will print with dotted lines so you can fill them by pen. You can also click directly on the letter to edit any text, but note: changing the form afterwards rebuilds the letter and removes those direct edits. So fill the form first, then edit the letter at the end."
-      : "जो जानकारी नहीं भरेंगे, प्रिंट में वहाँ खाली जगह (.......) छूट जाएगी। आप सीधे पत्र पर क्लिक करके भी शब्द बदल सकते हैं, पर ध्यान रखें: उसके बाद फॉर्म बदलने पर पत्र दोबारा बनेगा और सीधे किए बदलाव हट जाएंगे। इसलिए पहले फॉर्म पूरा भरें, फिर अंत में पत्र एडिट करें।";
     $("prevBarTitle").innerText = isEn ? "Live A4 Letter Preview (Editable)" : "लाइव A4 पत्र प्रीव्यू (Editable)";
     $("prevBarHint").innerText = isEn ? "💡 You can also click on the letter to edit it" : "💡 पत्र पर सीधे क्लिक करके भी बदलाव कर सकते हैं";
     $("dirtyNote").innerText = isEn
@@ -1479,7 +1242,6 @@ var BANKS = "Airtel Payments Bank|Andhra Pradesh Grameena Bank|AU Small Finance 
     else if(IS_LONG_DEFAULT) p.classList.add("compact");
   }
 
-  /* पत्र एक A4 पेज से लंबा हो तो चेतावनी दिखाएं */
   function checkFit(){
     var p = $("paper"), w = $("fitWarn");
     if(!p || !w) return;
@@ -1575,7 +1337,6 @@ var BANKS = "Airtel Payments Bank|Andhra Pradesh Grameena Bank|AU Small Finance 
     Object.keys(MOBILE_KEYS).concat(["aadhar"]).forEach(function(k){ validateField(k, false); });
   }
 
-  /* मोबाइल (10 अंक, 6-9 से शुरू) और आधार (12 अंक) की जाँच */
   function validateField(k, final){
     var el = $("err_" + k);
     if(!el) return;
@@ -1630,7 +1391,6 @@ var BANKS = "Airtel Payments Bank|Andhra Pradesh Grameena Bank|AU Small Finance 
     render();
   });
 
-  /* टॉगल सैंपल डेटा */
   $("sampleBtn").addEventListener("click", function(){
     if(!confirmLoss()) return;
     var t = getTpl();
@@ -1649,7 +1409,6 @@ var BANKS = "Airtel Payments Bank|Andhra Pradesh Grameena Bank|AU Small Finance 
     render();
   });
 
-  /* आवेदक (पुरुष/महिला) बदलना: सीधे बदलाव हटने से पहले पूछें */
   document.querySelectorAll("input[name=g]").forEach(function(r){
     r.addEventListener("change", function(){
       if(!confirmLoss()){
@@ -1662,7 +1421,6 @@ var BANKS = "Airtel Payments Bank|Andhra Pradesh Grameena Bank|AU Small Finance 
     });
   });
 
-  /* पेज भराव बदलना: पत्र की सामग्री नहीं बदलती, इसलिए सीधे बदलाव सुरक्षित रहते हैं */
   document.querySelectorAll("input[name=page_fit]").forEach(function(r){
     r.addEventListener("change", function(){ applyFit(); checkFit(); });
   });
