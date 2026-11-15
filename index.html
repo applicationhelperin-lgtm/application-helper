@@ -39,12 +39,12 @@
 <meta property="og:type" content="website">
 <meta property="og:image" content="https://applicationhelper.in/favicon.png">
 
-<!-- 2. गूगल सर्च और ब्राउज़र के लिए फेविकॉन (Favicon) -->
+<!-- 2. फेविकॉन -->
 <link rel="icon" type="image/png" sizes="192x192" href="https://applicationhelper.in/favicon.png">
 <link rel="shortcut icon" href="https://applicationhelper.in/favicon.png" type="image/png">
 <link rel="apple-touch-icon" href="https://applicationhelper.in/favicon.png">
 
-<!-- 3. गूगल आधिकारिक साइट नेम व ऑर्गनाइजेशन स्कीमा (Structured Data) -->
+<!-- 3. साइट नेम व ऑर्गनाइजेशन स्कीमा -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -110,7 +110,7 @@
 *,*::before,*::after{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--ink);font-family:"Noto Sans Devanagari","Inter",sans-serif;line-height:1.6;transition:background .25s,color .25s}
 
-/* रिस्पॉन्सिव हेडर (Header) - एक ही लाइन में सभी एलिमेंट्स */
+/* हेडर */
 header.site{position:sticky;top:0;z-index:1000;background:var(--panel);border-bottom:1px solid var(--line);box-shadow:var(--sh);margin-bottom:30px;}
 .bar{max-width:1300px;margin:0 auto;padding:12px 20px;display:flex;align-items:center;justify-content:space-between;gap:16px;position:relative}
 
@@ -120,7 +120,6 @@ header.site{position:sticky;top:0;z-index:1000;background:var(--panel);border-bo
 .brand strong{font-size:1.1rem;line-height:1.2;font-weight:700}
 .brand span{font-size:.72rem;color:var(--muted)}
 
-/* मेनू लिंक्स (एक लाइन में) */
 nav.main{display:flex;gap:6px;align-items:center;flex-wrap:nowrap}
 nav.main a{background:none;border:0;cursor:pointer;font-family:inherit;font-size:0.88rem;color:var(--muted);padding:6px 10px;border-radius:6px;transition:.2s;text-decoration:none;display:inline-flex;align-items:center;white-space:nowrap}
 nav.main a:hover, nav.main a[aria-current]{color:var(--accent);background:var(--bg);font-weight:600}
@@ -131,7 +130,6 @@ nav.main a:hover, nav.main a[aria-current]{color:var(--accent);background:var(--
 
 .tg{display:none}
 
-/* मोबाइल और टैबलेट व्यू (जब स्क्रीन छोटी हो) */
 @media(max-width:1100px){
   .tg{display:inline-flex}
   nav.main{display:none;position:absolute;top:100%;left:0;width:100%;background:var(--panel);flex-direction:column;gap:4px;padding:12px 20px;border-bottom:1px solid var(--line);box-shadow:var(--sh)}
@@ -144,24 +142,23 @@ nav.main a:hover, nav.main a[aria-current]{color:var(--accent);background:var(--
 .hero h1{font-size:1.6rem;color:var(--accent);margin:0 0 10px}
 .hero p{font-size:0.95rem;color:var(--muted);max-width:650px;margin:0 auto}
 
-/* कंटेनर */
 .container{max-width:1200px;margin:0 auto;padding:0 16px}
 
-/* सबसे ज्यादा उपयोग किए जाने वाले प्रार्थना पत्र (Trending Section) */
+/* लोकप्रिय पत्र */
 .popular-section{margin-bottom:30px}
 .section-title{font-size:1.2rem;color:var(--accent);margin:0 0 16px 0;display:flex;align-items:center;gap:8px;}
-.popular-grid{display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(320px,1fr))}
+.popular-grid{display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(min(320px,100%),1fr))}
 .pop-card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:18px;display:flex;flex-direction:column;justify-content:space-between;text-decoration:none;color:var(--ink);transition:transform .2s, box-shadow .2s;}
 .pop-card:hover{transform:translateY(-2px);box-shadow:var(--sh);}
 .pop-card h3{font-size:1.1rem;color:var(--accent);margin:0 0 8px;}
 .pop-card p{font-size:0.85rem;color:var(--muted);margin:0;}
 
-/* कैटेगरी सेक्शन ग्रिड */
-.categories-grid{display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(320px,1fr))}
+/* कैटेगरी ग्रिड */
+.categories-grid{display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(min(320px,100%),1fr))}
 .cat-card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:18px;display:flex;flex-direction:column;justify-content:space-between}
 .cat-card h2{font-size:1.1rem;color:var(--accent);margin:0 0 12px;border-bottom:1px solid var(--line);padding-bottom:8px}
 
-/* फॉर्म लिस्ट (टॉप 5) */
+/* फॉर्म लिस्ट */
 .form-list{list-style:none;padding:0;margin:0 0 16px 0;display:grid;gap:8px}
 .form-list li a{color:var(--ink);text-decoration:none;font-size:0.9rem;display:block;padding:8px 10px;border-radius:6px;background:var(--bg);transition:background .2s, color .2s}
 .form-list li a:hover{background:var(--accent);color:var(--accent-ink)}
@@ -171,7 +168,7 @@ nav.main a:hover, nav.main a[aria-current]{color:var(--accent);background:var(--
 .view-all-btn a{display:inline-block;background:transparent;color:var(--accent);border:1px solid var(--accent);padding:6px 14px;border-radius:6px;font-size:0.85rem;font-weight:600;text-decoration:none;transition:background .2s, color .2s}
 .view-all-btn a:hover{background:var(--accent);color:var(--accent-ink)}
 
-/* रिस्पॉन्सिव फुटर (Footer) */
+/* फुटर */
 footer{border-top:1px solid var(--line);padding:26px 0;color:var(--muted);font-size:.88rem;margin-top:40px;background:var(--panel)}
 .fg{display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap;max-width:1200px;margin:0 auto;padding:0 20px}
 .fl{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
@@ -182,23 +179,29 @@ footer{border-top:1px solid var(--line);padding:26px 0;color:var(--muted);font-s
   .fg{flex-direction:column;text-align:center;gap:12px}
   .fl{justify-content:center;gap:8px 14px}
 }
+
+/* ===== Coming Soon संदेश ===== */
+.soon-toast{position:fixed;left:50%;bottom:30px;transform:translateX(-50%) translateY(20px);background:var(--accent);color:var(--accent-ink);padding:12px 22px;border-radius:30px;font-size:.95rem;font-weight:600;box-shadow:var(--sh);opacity:0;pointer-events:none;transition:.3s;z-index:2000;max-width:90vw;text-align:center}
+.soon-toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+.is-soon{cursor:pointer}
 </style>
 
-<!-- तुरंत थीम सेट करने की स्क्रिप्ट (फ्लिकर रोकने के लिए) -->
+<!-- थीम फ्लिकर रोकने की स्क्रिप्ट -->
 <script>
   (function() {
-    const savedTheme = localStorage.getItem('app_theme') || 'light';
-    document.documentElement.setAttribute('data-theme', savedTheme);
+    try {
+      const savedTheme = localStorage.getItem('app_theme') || 'light';
+      document.documentElement.setAttribute('data-theme', savedTheme);
+    } catch(e) {}
   })();
 </script>
 </head>
 <body>
 
-<!-- एडवांस हेडर (Header) - एक ही लाइन में लोगो, मेनू और नाईट मोड बटन -->
 <header class="site">
   <div class="bar">
     <a class="brand" href="/">
-      <img src="favicon.png" alt="Application Helper Logo">
+      <img src="/favicon.png" alt="Application Helper Logo">
       <div class="brand-text">
         <strong>Application Helper</strong>
         <span>औपचारिक पत्र, तुरंत तैयार करें</span>
@@ -218,7 +221,7 @@ footer{border-top:1px solid var(--line);padding:26px 0;color:var(--muted);font-s
 
     <div class="acts no-print">
       <button class="theme-btn" id="themeToggle" type="button"><span id="thI">🌙</span> <span id="thT">नाइट मोड</span></button>
-      <button class="ab tg" id="navToggle" type="button">☰</button>
+      <button class="ab tg" id="navToggle" type="button" aria-label="मेनू">☰</button>
     </div>
   </div>
 </header>
@@ -229,11 +232,11 @@ footer{border-top:1px solid var(--line);padding:26px 0;color:var(--muted);font-s
     <p>अपनी जरूरत की कैटेगरी चुनें, टॉप आवेदन देखें या 'View All' पर क्लिक करके सभी फॉर्म प्राप्त करें।</p>
   </section>
 
-  <!-- 🔥 आज सबसे ज्यादा उपयोग किए जाने वाले प्रार्थना पत्र -->
+  <!-- 🔥 लोकप्रिय प्रार्थना पत्र -->
   <div class="popular-section" id="cats">
     <h2 class="section-title">🔥 आज सबसे ज्यादा उपयोग किए जाने वाले प्रार्थना पत्र</h2>
     <div class="popular-grid">
-      
+
       <a href="bank-reactivate-dormant-account.html" class="pop-card">
         <div>
           <h3>👉 Dormant बैंक खाता पुनः सक्रिय कराने हेतु आवेदन पत्र</h3>
@@ -255,10 +258,10 @@ footer{border-top:1px solid var(--line);padding:26px 0;color:var(--muted);font-s
     </div>
   </div>
 
-  <!-- कैटेगरी सेक्शन ग्रिड -->
+  <!-- कैटेगरी ग्रिड -->
   <div class="categories-grid">
 
-    <!-- 1. बैंकिंग सेवाएं (Banking Services) -->
+    <!-- 1. बैंकिंग -->
     <div class="cat-card">
       <div>
         <h2>🏦 1. बैंकिंग सेवाएं (Banking Services)</h2>
@@ -275,7 +278,7 @@ footer{border-top:1px solid var(--line);padding:26px 0;color:var(--muted);font-s
       </div>
     </div>
 
-    <!-- 2. बिजली विभाग (Electricity Department) -->
+    <!-- 2. बिजली -->
     <div class="cat-card">
       <div>
         <h2>⚡ 2. बिजली विभाग (Electricity Department)</h2>
@@ -292,7 +295,7 @@ footer{border-top:1px solid var(--line);padding:26px 0;color:var(--muted);font-s
       </div>
     </div>
 
-    <!-- 3. राजस्व एवं तहसील (Revenue & Tehsil) -->
+    <!-- 3. तहसील -->
     <div class="cat-card">
       <div>
         <h2>📜 3. राजस्व एवं तहसील (Revenue & Tehsil)</h2>
@@ -309,7 +312,7 @@ footer{border-top:1px solid var(--line);padding:26px 0;color:var(--muted);font-s
       </div>
     </div>
 
-    <!-- 4. DAFTER (कार्यालय/नौकरी - Office & Job) -->
+    <!-- 4. दफ्तर -->
     <div class="cat-card">
       <div>
         <h2>💼 4. DAFTER (कार्यालय/नौकरी)</h2>
@@ -326,7 +329,7 @@ footer{border-top:1px solid var(--line);padding:26px 0;color:var(--muted);font-s
       </div>
     </div>
 
-    <!-- 5. DAK-PRIVAHAN (परिवहन एवं डाकघर) -->
+    <!-- 5. परिवहन -->
     <div class="cat-card">
       <div>
         <h2>🚚 5. DAK-PRIVAHAN (परिवहन एवं डाकघर)</h2>
@@ -343,7 +346,7 @@ footer{border-top:1px solid var(--line);padding:26px 0;color:var(--muted);font-s
       </div>
     </div>
 
-    <!-- 6. PANCHAYAT (ग्राम पंचायत) -->
+    <!-- 6. पंचायत -->
     <div class="cat-card">
       <div>
         <h2>🏡 6. PANCHAYAT (ग्राम पंचायत)</h2>
@@ -360,7 +363,7 @@ footer{border-top:1px solid var(--line);padding:26px 0;color:var(--muted);font-s
       </div>
     </div>
 
-    <!-- 7. POLICE (पुलिस) -->
+    <!-- 7. पुलिस -->
     <div class="cat-card">
       <div>
         <h2>🚨 7. POLICE (पुलिस)</h2>
@@ -377,7 +380,7 @@ footer{border-top:1px solid var(--line);padding:26px 0;color:var(--muted);font-s
       </div>
     </div>
 
-    <!-- 8. RTI (सूचना का अधिकार) -->
+    <!-- 8. RTI -->
     <div class="cat-card">
       <div>
         <h2>ℹ️ 8. RTI (सूचना का अधिकार)</h2>
@@ -394,7 +397,7 @@ footer{border-top:1px solid var(--line);padding:26px 0;color:var(--muted);font-s
       </div>
     </div>
 
-    <!-- 9. SHIKSHA (शिक्षा एवं विद्यालय) -->
+    <!-- 9. शिक्षा -->
     <div class="cat-card">
       <div>
         <h2>📚 9. SHIKSHA (शिक्षा एवं विद्यालय)</h2>
@@ -411,7 +414,7 @@ footer{border-top:1px solid var(--line);padding:26px 0;color:var(--muted);font-s
       </div>
     </div>
 
-    <!-- 10. SWASTHYA (स्वास्थ्य एवं चिकित्सा) -->
+    <!-- 10. स्वास्थ्य -->
     <div class="cat-card">
       <div>
         <h2>🏥 10. SWASTHYA (स्वास्थ्य एवं चिकित्सा)</h2>
@@ -431,7 +434,6 @@ footer{border-top:1px solid var(--line);padding:26px 0;color:var(--muted);font-s
   </div>
 </div>
 
-<!-- एडवांस फुटर (Footer) -->
 <footer>
   <div class="fg">
     <div>&copy; <span id="yr"></span> ApplicationHelper.in — सभी अधिकार सुरक्षित।</div>
@@ -440,7 +442,7 @@ footer{border-top:1px solid var(--line);padding:26px 0;color:var(--muted);font-s
       <a href="contact.html">Contact Us</a>
       <a href="faq.html">FAQ</a>
       <a href="privacy-policy.html">Privacy Policy</a>
-      <a href="terms.html">Terms & Conditions</a>
+      <a href="terms.html">Terms &amp; Conditions</a>
       <a href="disclaimer.html">Disclaimer</a>
       <a href="cookie-policy.html">Cookie Policy</a>
       <a href="copyright.html">Copyright</a>
@@ -448,6 +450,7 @@ footer{border-top:1px solid var(--line);padding:26px 0;color:var(--muted);font-s
   </div>
 </footer>
 
+<!-- थीम और मेनू -->
 <script>
 (function(){
   document.getElementById('yr').textContent = new Date().getFullYear();
@@ -457,25 +460,19 @@ footer{border-top:1px solid var(--line);padding:26px 0;color:var(--muted);font-s
   const thT = document.getElementById('thT');
 
   function updateButton(isDark) {
-    if (isDark) {
-      thI.textContent = '☀️';
-      thT.textContent = 'लाइट मोड';
-    } else {
-      thI.textContent = '🌙';
-      thT.textContent = 'नाइट मोड';
-    }
+    thI.textContent = isDark ? '☀️' : '🌙';
+    thT.textContent = isDark ? 'लाइट मोड' : 'नाइट मोड';
   }
 
-  // इनिशियलाइज़ेशन
-  let currentTheme = localStorage.getItem('app_theme') || 'light';
+  let currentTheme = 'light';
+  try { currentTheme = localStorage.getItem('app_theme') || 'light'; } catch(e) {}
   updateButton(currentTheme === 'dark');
 
   themeBtn.addEventListener('click', () => {
-    let currentTheme = document.documentElement.getAttribute('data-theme');
-    let newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-    
+    const now = document.documentElement.getAttribute('data-theme');
+    const newTheme = now === 'dark' ? 'light' : 'dark';
     document.documentElement.setAttribute('data-theme', newTheme);
-    localStorage.setItem('app_theme', newTheme);
+    try { localStorage.setItem('app_theme', newTheme); } catch(e) {}
     updateButton(newTheme === 'dark');
   });
 
@@ -487,5 +484,43 @@ footer{border-top:1px solid var(--line);padding:26px 0;color:var(--muted);font-s
 })();
 </script>
 
+<!-- ===== Coming Soon: जो पेज अभी पब्लिश नहीं हुए ===== -->
+<script>
+(function(){
+  /*
+    जो पेज पब्लिश हो जाए, उसकी फ़ाइल का नाम नीचे LIVE सूची में जोड़ दें।
+    उदाहरण:  'bank-block-atm-debit-card.html',
+    सूची में जुड़ते ही वह लिंक सामान्य रूप से काम करेगा।
+  */
+  const LIVE = [
+   'bank-mobile-number-update-form.html',
+  ];
+
+  const toast = document.createElement('div');
+  toast.className = 'soon-toast';
+  toast.setAttribute('role', 'status');
+  toast.textContent = '🚧 यह पत्र जल्द आ रहा है (Coming Soon)';
+  document.body.appendChild(toast);
+
+  let timer;
+  const show = () => {
+    toast.classList.add('show');
+    clearTimeout(timer);
+    timer = setTimeout(() => toast.classList.remove('show'), 2200);
+  };
+
+  document.querySelectorAll('.form-list a, .pop-card, .view-all-btn a').forEach(a => {
+    const file = (a.getAttribute('href') || '').split('/').pop();
+    if (LIVE.includes(file)) return;
+    a.removeAttribute('href');
+    a.setAttribute('role', 'button');
+    a.setAttribute('tabindex', '0');
+    a.classList.add('is-soon');
+    a.addEventListener('click', show);
+    a.addEventListener('keydown', e => { if (e.key === 'Enter') show(); });
+  });
+})();
+</script>
+ 
 </body>
 </html>
