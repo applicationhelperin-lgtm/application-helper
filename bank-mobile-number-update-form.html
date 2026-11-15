@@ -3,9 +3,16 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>बैंक खाते में मोबाइल नंबर अपडेट कराने हेतु आवेदन पत्र - ApplicationHelper.in</title>
+<title>बैंक खाते में मोबाइल नंबर अपडेट कराने हेतु आवेदन पत्र - Application Helper</title>
 <meta name="description" content="बैंक खाते में नया मोबाइल नंबर जोड़ने या बदलने के लिए ऑनलाइन आवेदन पत्र भरें और 1 क्लिक में A4 PDF प्रिंट करें। जानिए आवश्यक दस्तावेज और प्रक्रिया।">
 <link rel="canonical" href="https://applicationhelper.in/bank-mobile-number-update-form.html">
+<link rel="icon" href="favicon.png" type="image/png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Application Helper">
+<meta property="og:title" content="बैंक खाते में मोबाइल नंबर अपडेट कराने हेतु आवेदन पत्र">
+<meta property="og:description" content="बैंक खाते में नया मोबाइल नंबर जोड़ने या बदलने का आवेदन पत्र ऑनलाइन भरें और A4 PDF प्रिंट करें।">
+<meta property="og:url" content="https://applicationhelper.in/bank-mobile-number-update-form.html">
+<meta property="og:image" content="https://applicationhelper.in/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;600;700&amp;family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet">
@@ -26,6 +33,7 @@
   --emerald-soft:#ecfdf5;
   --amber:#b45309;
   --amber-soft:#fffbeb;
+  --err:#b91c1c;
   box-sizing:border-box;
   padding-top:env(safe-area-inset-top,0px);
   padding-bottom:env(safe-area-inset-bottom,0px);
@@ -47,6 +55,7 @@
     --emerald-soft:#064e3b;
     --amber:#fbbf24;
     --amber-soft:#451a03;
+    --err:#f87171;
   }
 }
 :root[data-theme="dark"]{
@@ -65,9 +74,11 @@
   --emerald-soft:#064e3b;
   --amber:#fbbf24;
   --amber-soft:#451a03;
+  --err:#f87171;
 }
 html{scroll-padding-top:env(safe-area-inset-top,0px)}
 *{box-sizing:border-box}
+[hidden]{display:none !important}
 body{
   margin:0;
   background:var(--bg);
@@ -122,10 +133,10 @@ body{
   color:var(--emerald);
   border-color:transparent;
 }
-.header-actions {
-  display: flex;
-  gap: 8px;
-  align-items: center;
+.header-actions{
+  display:flex;
+  gap:8px;
+  align-items:center;
 }
 .back-btn{
   background:var(--panel-alt);
@@ -183,30 +194,30 @@ body{
 }
 .sec-note strong{color:var(--ink)}
 
-/* व्हाट्सएप स्टिकर बटन स्टाइल */
-.whatsapp-sticker-btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  background: #25d366;
-  color: #ffffff;
-  padding: 10px 14px;
-  border-radius: 50px;
-  font-weight: 700;
-  font-size: .88rem;
-  text-decoration: none;
-  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.35);
-  border: 2px dashed #ffffff;
-  transform: rotate(-1deg);
-  transition: transform 0.2s, background 0.2s;
-  margin-top: 12px;
-  width: 100%;
-  text-align: center;
+/* व्हाट्सएप शेयर बटन */
+.whatsapp-sticker-btn{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  background:#25d366;
+  color:#ffffff;
+  padding:10px 14px;
+  border-radius:50px;
+  font-weight:700;
+  font-size:.88rem;
+  text-decoration:none;
+  box-shadow:0 4px 12px rgba(37,211,102,.35);
+  border:2px dashed #ffffff;
+  transform:rotate(-1deg);
+  transition:transform .2s, background .2s;
+  margin-top:12px;
+  width:100%;
+  text-align:center;
 }
-.whatsapp-sticker-btn:hover {
-  transform: rotate(0deg) scale(1.02);
-  background: #20ba5a;
+.whatsapp-sticker-btn:hover{
+  transform:rotate(0deg) scale(1.02);
+  background:#20ba5a;
 }
 
 /* मोबाइल टैब स्विचर */
@@ -314,6 +325,13 @@ input:focus-visible,select:focus-visible,button:focus-visible{
   outline:2px solid var(--accent);
   outline-offset:1px;
 }
+.field-err{
+  display:block;
+  color:var(--err);
+  font-size:.76rem;
+  margin-top:3px;
+  line-height:1.4;
+}
 
 .seg{display:flex;gap:6px;margin-top:6px}
 .seg label{flex:1;margin:0;font-weight:400}
@@ -334,6 +352,10 @@ input:focus-visible,select:focus-visible,button:focus-visible{
   color:var(--accent-ink);
   border-color:var(--accent);
   font-weight:700;
+}
+.seg input:focus-visible+span{
+  outline:2px solid var(--accent);
+  outline-offset:1px;
 }
 
 .btns{
@@ -388,6 +410,15 @@ button.action-btn{
   letter-spacing:.4px;
   font-size:.76rem;
 }
+.fit-warn,.dirty-note{
+  background:var(--amber-soft);
+  color:var(--amber);
+  border:1px solid var(--amber);
+  border-radius:8px;
+  padding:8px 12px;
+  font-size:.82rem;
+  line-height:1.5;
+}
 
 .sheetwrap{
   container-type:inline-size;
@@ -409,7 +440,7 @@ button.action-btn{
   box-shadow:0 4px 18px rgba(0,0,0,.14);
   border-radius:4px;
   font-family:"Noto Sans Devanagari","Inter","Mangal","Nirmala UI",sans-serif;
-  overflow:hidden;
+  overflow:visible;
 }
 .paper h2{
   font-size:1.15em;
@@ -434,6 +465,7 @@ button.action-btn{
 }
 .paper .sig .left{width:44%;text-align:left}
 .paper .sig .b{width:52%;text-align:left;margin-left:auto}
+.paper .enc{margin:.9em 0 0;font-size:.94em}
 .blank{
   display:inline-block;
   border-bottom:1px dotted #000;
@@ -464,7 +496,7 @@ button.action-btn{
   }
 }
 
-/* महत्वपूर्ण बिंदु एवं SEO गाइड सेक्शन */
+/* महत्वपूर्ण बिंदु एवं गाइड सेक्शन */
 .guide-card{
   background:var(--panel);
   border:1px solid var(--line);
@@ -536,8 +568,144 @@ button.action-btn{
   gap:7px;
 }
 .guide-box li{line-height:1.5}
+.guide-box p{
+  margin:0;
+  font-size:.86rem;
+  color:var(--muted);
+  line-height:1.6;
+}
+.guide-sub{
+  font-size:1.02rem;
+  font-weight:700;
+  margin:22px 0 10px;
+}
 
-/* प्रिंट नियम — 100% एक पेज A4 गारंटी */
+/* बटन गाइड सूची */
+.btn-guide{display:grid;gap:10px}
+.btn-guide .row{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:8px;
+  background:var(--panel-alt);
+  border:1px solid var(--line);
+  border-radius:12px;
+  padding:12px 14px;
+}
+@media(min-width:768px){
+  .btn-guide .row{
+    grid-template-columns:250px 1fr;
+    align-items:start;
+    gap:14px;
+  }
+}
+.btn-guide .chip{
+  display:inline-block;
+  background:var(--accent-soft);
+  color:var(--accent);
+  border:1px solid var(--accent-border);
+  border-radius:8px;
+  padding:4px 10px;
+  font-weight:700;
+  font-size:.84rem;
+  line-height:1.45;
+}
+.btn-guide .row p{
+  margin:0;
+  font-size:.87rem;
+  color:var(--muted);
+  line-height:1.65;
+}
+.btn-guide .row p strong{color:var(--ink)}
+
+/* FAQ (क्लिक करने पर उत्तर खुलता है) */
+.faq-list{display:grid;gap:10px}
+.faq-item{
+  background:var(--panel-alt);
+  border:1px solid var(--line);
+  border-radius:12px;
+  overflow:hidden;
+}
+.faq-item[open]{border-color:var(--accent-border)}
+.faq-item summary{
+  cursor:pointer;
+  list-style:none;
+  padding:13px 16px;
+  font-weight:700;
+  font-size:.93rem;
+  line-height:1.5;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+}
+.faq-item summary::-webkit-details-marker{display:none}
+.faq-item summary::after{
+  content:"+";
+  flex:none;
+  width:26px;
+  height:26px;
+  border-radius:50%;
+  background:var(--accent-soft);
+  color:var(--accent);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:1.15rem;
+  font-weight:700;
+}
+.faq-item[open] summary::after{content:"\2212"}
+.faq-item summary:hover{color:var(--accent)}
+.faq-item summary:focus-visible{outline:2px solid var(--accent);outline-offset:-2px}
+.faq-a{
+  padding:0 16px 14px;
+  font-size:.88rem;
+  color:var(--muted);
+  line-height:1.7;
+}
+.faq-a p{margin:0}
+.faq-a strong{color:var(--ink)}
+
+/* संबंधित आवेदन */
+.rel-grid{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:8px;
+}
+@media(min-width:768px){
+  .rel-grid{grid-template-columns:repeat(2,1fr)}
+}
+.rel-grid a{
+  display:block;
+  padding:11px 14px;
+  background:var(--panel-alt);
+  border:1px solid var(--line);
+  border-radius:10px;
+  color:var(--ink);
+  text-decoration:none;
+  font-size:.88rem;
+  font-weight:600;
+}
+.rel-grid a:hover{border-color:var(--accent);color:var(--accent)}
+
+/* फुटर */
+.site-footer{
+  text-align:center;
+  padding:8px 4px 18px;
+  font-size:.8rem;
+  color:var(--muted);
+}
+.site-footer nav{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:6px 14px;
+  margin-bottom:8px;
+}
+.site-footer a{color:var(--muted);text-decoration:none}
+.site-footer a:hover{color:var(--accent);text-decoration:underline}
+.site-footer p{margin:4px 0}
+
+/* प्रिंट नियम — A4 पर प्रिंट (पत्र बहुत लंबा हो तो कटेगा नहीं, अगले पेज पर जाएगा) */
 @media print{
   @page{
     size:A4 portrait;
@@ -561,7 +729,7 @@ button.action-btn{
     padding-top:0 !important;
     padding-bottom:0 !important;
   }
-  .no-print, .intro-card, .form-card, .mobile-tabs, .preview-bar, .mobile-print-cta, .guide-card{
+  .no-print, .intro-card, .form-card, .mobile-tabs, .preview-bar, .mobile-print-cta, .guide-card, .site-footer, .fit-warn, .dirty-note{
     display:none !important;
   }
   .page-wrap, .workspace, .preview-col{
@@ -595,9 +763,8 @@ button.action-btn{
   .paper{
     width:210mm !important;
     max-width:210mm !important;
-    min-height:auto !important;
+    min-height:0 !important;
     height:auto !important;
-    max-height:292mm !important;
     box-sizing:border-box !important;
     aspect-ratio:auto !important;
     padding:15mm 20mm 12mm 20mm !important;
@@ -606,16 +773,16 @@ button.action-btn{
     box-shadow:none !important;
     border-radius:0 !important;
     margin:0 auto !important;
-    overflow:hidden !important;
-    page-break-before:avoid !important;
-    page-break-after:avoid !important;
-    page-break-inside:avoid !important;
-    break-before:avoid !important;
-    break-after:avoid !important;
-    break-inside:avoid !important;
+    overflow:visible !important;
+    -webkit-box-decoration-break:clone;
+    box-decoration-break:clone;
     outline:none !important;
   }
   .paper > *:last-child{margin-bottom:0 !important}
+  .paper .sig, .paper .enc{
+    break-inside:avoid !important;
+    page-break-inside:avoid !important;
+  }
   .paper h2{
     font-size:1.2em !important;
     text-align:center !important;
@@ -634,6 +801,10 @@ button.action-btn{
   .paper .sig{
     margin-top:1.6em !important;
     line-height:1.75 !important;
+  }
+  .paper .enc{
+    margin-top:1.2em !important;
+    font-size:.94em !important;
   }
   .paper.fit-90{
     padding:13mm 18mm 10mm 18mm !important;
@@ -663,13 +834,118 @@ button.action-btn{
     margin-top:1em !important;
     line-height:1.5 !important;
   }
+  .paper.compact .enc{margin-top:.8em !important}
 }
 </style>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+  {
+   "@type": "Question",
+   "name": "बैंक खाते में मोबाइल नंबर बदलने के लिए कौन से दस्तावेज़ चाहिए?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "आमतौर पर ये दस्तावेज़ लगते हैं: आवेदन पत्र, आधार कार्ड की स्व-प्रमाणित फोटोकॉपी और बैंक पासबुक के पहले पृष्ठ की फोटोकॉपी। कुछ शाखाएँ मिलान के लिए मूल पहचान पत्र भी माँग सकती हैं, इसलिए उसे साथ रखें।"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "क्या मोबाइल नंबर बदलवाने के लिए बैंक शाखा जाना ज़रूरी है?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "अक्सर हाँ, खासकर तब जब पुराना नंबर बंद हो चुका हो। कुछ बैंकों में पुराना नंबर चालू होने पर ATM, नेट बैंकिंग या मोबाइल ऐप से भी नंबर बदला जा सकता है। यह सुविधा हर बैंक में नहीं होती, इसलिए अपने बैंक की जानकारी देख लें।"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "पुराना सिम बंद हो गया है, अब क्या करें?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "पुराने नंबर पर OTP नहीं आएगा, इसलिए ऑनलाइन बदलाव मुश्किल होता है। ऐसे में ऊपर के फॉर्म से आवेदन पत्र बनाएं, प्रिंट करें और पहचान के दस्तावेज़ों के साथ अपनी होम ब्रांच में जमा करें।"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "नया मोबाइल नंबर खाते में जुड़ने में कितना समय लगता है?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "आमतौर पर कुछ कार्य-दिवसों में, अक्सर 1 से 3 दिन में। यह बैंक और शाखा पर निर्भर करता है। नंबर जुड़ने के बाद अक्सर पुष्टि का SMS आता है। कुछ दिन बाद भी कोई सूचना न मिले तो शाखा में जाकर स्थिति पूछें।"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "क्या मोबाइल नंबर बदलने का कोई शुल्क लगता है?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "आमतौर पर बैंक इसके लिए शुल्क नहीं लेते। फिर भी नियम बैंक के अनुसार अलग हो सकते हैं, इसलिए आवेदन जमा करते समय शाखा में एक बार पूछ लेना बेहतर है।"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "क्या प्रिंट किया हुआ आवेदन पत्र बैंक में चल जाएगा?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "आमतौर पर प्रिंट किया हुआ पत्र स्वीकार हो जाता है, बस उस पर हस्ताक्षर पेन से खुद करें। कुछ शाखाएँ अपना निर्धारित फॉर्म भी भरवाती हैं। ऐसे में यह पत्र साथ में लगा दें और बैंक का फॉर्म भी भर दें।"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "आवेदन पर हस्ताक्षर कैसे करें?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "प्रिंट के बाद नीचे हस्ताक्षर की जगह पर वही हस्ताक्षर करें जो बैंक के रिकॉर्ड में दर्ज हैं। हस्ताक्षर मेल न खाने पर बैंक आवेदन रोक सकता है।"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "क्या एक मोबाइल नंबर कई बैंक खातों से जुड़ सकता है?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "अधिकतर बैंक एक ही नंबर को एक से ज़्यादा खातों से जोड़ने देते हैं, जैसे परिवार के खाते। कुछ बैंकों में इसकी सीमा हो सकती है, इसलिए शाखा से पुष्टि कर लें।"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "आवेदन जमा करने पर पावती (रसीद) क्यों ज़रूरी है?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "पावती इस बात का सबूत है कि आपने आवेदन किस तारीख को जमा किया। पत्र की एक अतिरिक्त प्रति पर बैंक की मुहर और तारीख ज़रूर लगवाएं। काम न होने पर पहले शाखा या बैंक के शिकायत अधिकारी से मिलें, फिर भी हल न निकले तो RBI के शिकायत पोर्टल (cms.rbi.org.in) का रास्ता है।"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "पत्र को PDF में कैसे सेव करें?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "फॉर्म भरकर प्रिंट / PDF सेव करें बटन दबाएं। प्रिंट विंडो में प्रिंटर की जगह Save as PDF चुनें। Paper size A4 और Scale 100% रखें। मोबाइल के Chrome में भी यही विकल्प मिलता है।"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "क्या यह टूल मेरी जानकारी सेव करता है?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "नहीं। पूरा काम आपके ब्राउज़र में होता है और आपका भरा हुआ नाम, खाता संख्या या नंबर किसी सर्वर पर नहीं भेजा जाता। सिर्फ आपकी भाषा और नाइट/लाइट मोड की पसंद ब्राउज़र में याद रखी जाती है।"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "पत्र एक पेज से लंबा हो जाए तो क्या करें?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "पेज भराव में “कॉम्पैक्ट” चुनें, इससे अक्षर थोड़े छोटे होकर पत्र एक पेज में आ जाता है। फिर भी न आए तो कुछ टेक्स्ट छोटा कर लें।"
+   }
+  }
+ ]
+}
+</script>
 </head>
 <body>
 
 <main class="page-wrap">
-  <!-- 1. पेज परिचय एवं सुरक्षा सूचना (बैक बटन के साथ) -->
+  <!-- 1. पेज परिचय एवं सुरक्षा सूचना -->
   <section class="intro-card no-print" aria-label="आवेदन परिचय">
     <div class="intro-top">
       <div class="badge-group">
@@ -677,7 +953,6 @@ button.action-btn{
         <span class="badge badge-sec" id="bdgSec">🔒 100% सुरक्षित एवं निःशुल्क</span>
       </div>
       <div class="header-actions">
-        <!-- 1. बैक बटन -->
         <a href="bank.html" class="back-btn" id="backBtn">← पीछे जाएं</a>
         <button id="themeToggleBtn" type="button" class="theme-btn">
           <span id="thIcon">🌙</span> <span id="thText">नाइट मोड</span>
@@ -687,7 +962,7 @@ button.action-btn{
     <h1 class="intro-title" id="mainHeading">बैंक खाते में मोबाइल नंबर अपडेट कराने हेतु आवेदन पत्र</h1>
     <p class="intro-desc" id="mainIntro">यदि आपका पुराना सिम बंद हो गया है या आप अपने बैंक खाते में नया मोबाइल नंबर लिंक कराना चाहते हैं, तो नीचे दिए गए फॉर्म में अपना विवरण भरें। आपका आवेदन पत्र तुरंत प्रिंट के लिए तैयार हो जाएगा।</p>
     <div class="sec-note" id="secBanner">
-      <strong>गोपनीयता गारंटी:</strong> यह टूल पूरी तरह आपके मोबाइल/लैपटॉप ब्राउज़र में चलता है। आपका कोई भी डेटा किसी सर्वर पर सेव नहीं होता। जो जानकारी अभी नहीं भरना चाहते, उसे खाली छोड़ दें—प्रिंट में वहाँ पेन से भरने के लिए डॉटेड लाइन छूट जाएगी।
+      <strong>Note:</strong> जो जानकारी नहीं भरना चाहते, उसे खाली छोड़ दें—प्रिंट में वहाँ पेन से भरने के लिए डॉटेड लाइन छूट जाएगी।
     </div>
   </section>
 
@@ -702,7 +977,6 @@ button.action-btn{
     <section class="form-card no-print" aria-label="आवेदन फॉर्म">
       <div class="form-head">
         <h2 id="uiTitle">विवरण दर्ज करें</h2>
-        <!-- 2. टॉगल सैंपल बटन -->
         <button type="button" class="sample-btn" id="sampleBtn">✨ सैंपल भरें</button>
       </div>
 
@@ -725,9 +999,9 @@ button.action-btn{
         <button class="action-btn ghost-btn" id="clear" type="button">🔄 साफ़ करें</button>
       </div>
 
-      <!-- 3. व्हाट्सएप स्टिकर शेयर बटन -->
-      <a href="https://api.whatsapp.com/send?text=बैंक%20प्रार्थना%20पत्र%20आसानी%20से%20ऑनलाइन%20तैयार%20करने%20के%20लिए%20इस%20वेबसाइट%20पर%20आएं:%20https://applicationhelper.in" target="_blank" class="whatsapp-sticker-btn" id="waShareBtn">
-        <span>🟢 WhatsApp पर शेयर करें</span>
+      <!-- व्हाट्सएप शेयर बटन (लिंक JS से इसी पेज के canonical URL पर सेट होता है) -->
+      <a href="https://wa.me/?text=https%3A%2F%2Fapplicationhelper.in%2Fbank-mobile-number-update-form.html" target="_blank" rel="noopener noreferrer" class="whatsapp-sticker-btn" id="waShareBtn">
+        <span id="waText">🟢 WhatsApp पर शेयर करें</span>
       </a>
 
       <label id="lblPageFit" style="margin-top:14px;">पेज भराव / प्रिंट फैलाव (A4 सेटिंग)</label>
@@ -737,7 +1011,7 @@ button.action-btn{
         <label><input type="radio" name="page_fit" value="compact"><span id="optFitCompact">कॉम्पैक्ट</span></label>
       </div>
 
-      <p class="hint" id="uiHint">जो जानकारी नहीं भरेंगे, प्रिंट में वहाँ खाली जगह (.......) छूट जाएगी। आप सीधे पत्र पर क्लिक करके भी कोई शब्द संपादित (Edit) कर सकते हैं।</p>
+      <p class="hint" id="uiHint">जो जानकारी नहीं भरेंगे, प्रिंट में वहाँ खाली जगह (.......) छूट जाएगी। आप सीधे पत्र पर क्लिक करके भी शब्द बदल सकते हैं, पर ध्यान रखें: उसके बाद फॉर्म बदलने पर पत्र दोबारा बनेगा और सीधे किए बदलाव हट जाएंगे। इसलिए पहले फॉर्म पूरा भरें, फिर अंत में पत्र एडिट करें।</p>
     </section>
 
     <div class="preview-col">
@@ -745,6 +1019,8 @@ button.action-btn{
         <strong id="prevBarTitle">लाइव A4 पत्र प्रीव्यू (Editable)</strong>
         <span id="prevBarHint">💡 पत्र पर सीधे क्लिक करके भी बदलाव कर सकते हैं</span>
       </div>
+      <div class="fit-warn no-print" id="fitWarn" role="alert" hidden></div>
+      <div class="dirty-note no-print" id="dirtyNote" hidden>✏️ आपने पत्र में सीधे बदलाव किए हैं। अब फॉर्म में कुछ बदलेंगे तो ये बदलाव हट जाएंगे (पहले आपसे पूछा जाएगा)।</div>
       <div class="sheetwrap">
         <div class="print-url">https://applicationhelper.in</div>
         <article class="paper" id="paper" contenteditable="true" spellcheck="false" aria-label="आवेदन पत्र पूर्वावलोकन"></article>
@@ -770,7 +1046,6 @@ button.action-btn{
         <ul>
           <li>आधार कार्ड की स्व-प्रमाणित (Self-Attested) फोटोकॉपी।</li>
           <li>बैंक पासबुक के प्रथम पृष्ठ की फोटोकॉपी (जिस पर खाता संख्या और फोटो स्पष्ट हो)।</li>
-          <li>मूल पहचान पत्र (Original ID) मिलान के लिए साथ ले जाएं।</li>
           <li>नया चालू मोबाइल नंबर (जिस पर तुरंत वेरिफिकेशन OTP प्राप्त हो सके)।</li>
         </ul>
       </div>
@@ -778,28 +1053,186 @@ button.action-btn{
         <h3>🏦 2. आवेदन जमा करने की प्रक्रिया</h3>
         <ol>
           <li>ऊपर दिए गए जनरेटर से अपना आवेदन पत्र प्रिंट करें और नीचे अपने वही हस्ताक्षर करें जो बैंक रिकॉर्ड में दर्ज हैं।</li>
-          <li>आवेदन पत्र के साथ आधार कार्ड और पासबुक की फोटोकॉपी नत्थी (Staple) करें।</li>
-          <li>अपनी होम ब्रांच के ग्राहक सेवा पटल (Customer Desk) पर फॉर्म जमा करें और पावती (Receiving) प्राप्त करें।</li>
-          <li>आमतौर पर 24 से 48 कार्य घंटों के भीतर नया मोबाइल नंबर खाते से लिंक हो जाता है।</li>
+          <li>आवेदन पत्र के साथ आधार कार्ड और पासबुक की फोटोकॉपी नत्थी करें।</li>
+          <li>अपनी होम ब्रांच सारे दस्तावेज लेकर जाएं।</li>
+          <li>आमतौर पर कुछ कार्य-दिवसों (अक्सर 1 से 3 दिन) में नया मोबाइल नंबर खाते से लिंक हो जाता है। समय बैंक के अनुसार अलग-अलग हो सकता है।</li>
         </ol>
-      </div>
-      <div class="guide-box">
-        <h3>⚠️ 3. महत्वपूर्ण सावधानियां व नियम</h3>
-        <ul>
-          <li>केवल वही मोबाइल नंबर दर्ज कराएं जो आपके स्वयं के या परिवार के स्थायी नाम पर चालू हो।</li>
-          <li>यदि आपके पास पुराना और नया दोनों नंबर चालू हैं, तो आप बैंक के ATM मशीन या नेट बैंकिंग से भी नंबर बदल सकते हैं।</li>
-          <li>मोबाइल नंबर बदलने का बैंक द्वारा कोई अतिरिक्त शुल्क नहीं लिया जाता है।</li>
-        </ul>
-      </div>
-      <div class="guide-box">
-        <h3>🛡️ 4. पावती (Receiving) एवं ग्राहक अधिकार</h3>
-        <ul>
-          <li>शाखा में आवेदन जमा करते समय इसकी दूसरी प्रति या फोटोकॉपी पर बैंक की <strong>प्राप्ति मुहर (Receiving Stamp) और दिनांक</strong> अवश्य लें।</li>
-          <li>निर्धारित समय-सीमा में समाधान न होने पर आप इस रिसीविंग के आधार पर बैंक के नोडल अधिकारी या <strong>बैंकिंग लोकपाल (RBI CMS Portal)</strong> में शिकायत दर्ज करा सकते हैं।</li>
-        </ul>
       </div>
     </div>
   </section>
+
+  <!-- 4. बटन एवं टूल गाइड -->
+  <section class="guide-card no-print" id="toolGuide" aria-label="टूल का उपयोग कैसे करें">
+    <div class="guide-header">
+      <div>
+        <span class="guide-tag">टूल गाइड</span>
+        <h2>इस पेज के बटन और टूल का उपयोग कैसे करें</h2>
+      </div>
+    </div>
+
+    <div class="guide-grid">
+      <div class="guide-box">
+        <h3>🚀 यह टूल कैसे काम करता है (3 चरण)</h3>
+        <ol>
+          <li><strong>फॉर्म भरें:</strong> बैंक चुनें और नाम, खाता संख्या, नया मोबाइल नंबर आदि लिखें।</li>
+          <li><strong>पत्र अपने आप बनता है:</strong> आप जैसे ही कुछ टाइप करते हैं, A4 पत्र उसी समय बदल जाता है (कंप्यूटर पर दाईं ओर, मोबाइल पर दूसरे टैब में)।</li>
+          <li><strong>प्रिंट या PDF लें:</strong> पत्र जाँचकर प्रिंट / PDF बटन दबाएं। प्रिंट के बाद नीचे पेन से अपने हस्ताक्षर करें।</li>
+        </ol>
+      </div>
+      <div class="guide-box">
+        <h3>🔒 आपकी जानकारी का क्या होता है</h3>
+        <p>पूरा काम आपके अपने ब्राउज़र में होता है। आपके द्वारा भरा गया नाम, खाता संख्या, मोबाइल या आधार नंबर किसी सर्वर पर नहीं भेजा जाता और न सेव किया जाता है। केवल आपकी <strong>भाषा</strong> और <strong>नाइट/लाइट मोड</strong> की पसंद आपके ब्राउज़र में याद रखी जाती है। पेज बंद करने या रिफ्रेश करने पर भरी हुई जानकारी हट जाती है, इसलिए प्रिंट या PDF पहले ही ले लें।</p>
+      </div>
+    </div>
+
+    <h3 class="guide-sub">🔘 हर बटन और विकल्प का काम</h3>
+    <div class="btn-guide">
+
+      <div class="row">
+        <div><span class="chip">← पीछे जाएं</span></div>
+        <p>बैंकिंग आवेदनों की सूची वाले पेज पर वापस ले जाता है। इसे दबाने से भरी हुई जानकारी हट जाती है, इसलिए पहले प्रिंट या PDF ले लें।</p>
+      </div>
+
+      <div class="row">
+        <div><span class="chip">🌙 नाइट मोड / ☀️ लाइट मोड</span></div>
+        <p>स्क्रीन का रंग गहरा या हल्का करता है, ताकि रात में आँखों पर ज़ोर न पड़े। इसका प्रिंट पर कोई असर नहीं होता, पत्र हमेशा सफेद कागज़ पर काले अक्षरों में ही निकलता है। आपकी पसंद अगली बार के लिए याद रहती है।</p>
+      </div>
+
+      <div class="row">
+        <div><span class="chip">✍️ 1. फॉर्म भरें &nbsp;|&nbsp; 📄 2. पत्र देखें व प्रिंट करें</span></div>
+        <p><strong>सिर्फ मोबाइल पर दिखने वाले दो टैब।</strong> छोटी स्क्रीन पर फॉर्म और पत्र एक साथ नहीं आते, इसलिए इन टैब से दोनों के बीच बदलें। कंप्यूटर पर फॉर्म बाईं ओर और पत्र दाईं ओर एक साथ दिखता है।</p>
+      </div>
+
+      <div class="row">
+        <div><span class="chip">✨ सैंपल भरें / सैंपल हटाएं</span></div>
+        <p>एक उदाहरण जानकारी भर देता है ताकि आप देख सकें कि पत्र कैसा बनेगा। दोबारा दबाने पर सैंपल हट जाता है। सैंपल का नाम, नंबर आदि काल्पनिक हैं, प्रिंट से पहले अपनी असली जानकारी ज़रूर भरें।</p>
+      </div>
+
+      <div class="row">
+        <div><span class="chip">भाषा चुनें: हिंदी / English</span></div>
+        <p>तय करता है कि पत्र किस भाषा में बनेगा। भाषा बदलने पर फॉर्म के फील्ड के नाम भी बदल जाते हैं। आपने जो खुद टाइप किया है वह वैसा ही रहता है। बैंक में अंग्रेज़ी पत्र माँगा जाए तो English चुनें।</p>
+      </div>
+
+      <div class="row">
+        <div><span class="chip">आवेदक का चयन: पुरुष / महिला</span></div>
+        <p>हिंदी पत्र में "चाहता/चाहती" और "भवदीय/भवदीया" जैसे शब्दों को सही रूप में बदल देता है, ताकि पत्र में व्याकरण की गलती न रहे।</p>
+      </div>
+
+      <div class="row">
+        <div><span class="chip">बैंक का नाम (ड्रॉपडाउन)</span></div>
+        <p>सूची से अपना बैंक चुनें। आपका बैंक सूची में न हो तो सबसे नीचे <strong>"अन्य — बैंक का नाम खुद लिखें"</strong> चुनें, फिर नीचे खुलने वाले खाने में नाम लिखें।</p>
+      </div>
+
+      <div class="row">
+        <div><span class="chip">नंबर व दिनांक वाले फील्ड</span></div>
+        <p><strong>तारीख:</strong> केवल अंक लिखें, "/" अपने आप लग जाता है (14112026 लिखने पर 14/11/2026)। <strong>नंबर वाले फील्ड</strong> में सिर्फ अंक चलते हैं। मोबाइल नंबर 10 अंकों का और 6 से 9 के बीच के अंक से शुरू होना चाहिए, आधार नंबर 12 अंकों का। गलत होने पर फील्ड के नीचे लाल सूचना दिखती है।</p>
+      </div>
+
+      <div class="row">
+        <div><span class="chip">खाली छोड़े गए फील्ड</span></div>
+        <p>जो जानकारी नहीं भरेंगे, पत्र में वहाँ डॉटेड खाली रेखा (.......) रहेगी, जिसे प्रिंट के बाद पेन से भर सकते हैं।</p>
+      </div>
+
+      <div class="row">
+        <div><span class="chip">🖨️ प्रिंट / PDF सेव करें</span></div>
+        <p>ब्राउज़र की प्रिंट विंडो खोलता है, जिसमें केवल पत्र दिखता है। <strong>कागज़ पर निकालने के लिए</strong> अपना प्रिंटर चुनें। <strong>PDF बनाने के लिए</strong> प्रिंटर की जगह "Save as PDF" चुनें (मोबाइल Chrome में भी यही विकल्प मिलता है)। सेटिंग में Paper size: <strong>A4</strong>, Scale: <strong>100%</strong> रखें और "Headers and footers" बंद करें। PDF का नाम पत्र के शीर्षक से अपने आप बन जाता है।</p>
+      </div>
+
+      <div class="row">
+        <div><span class="chip">🔄 साफ़ करें</span></div>
+        <p>भरी हुई सारी जानकारी हटाकर फॉर्म और पत्र को खाली कर देता है, ताकि नया आवेदन शुरू कर सकें। पत्र में सीधे किए गए बदलाव भी हट जाते हैं।</p>
+      </div>
+
+
+      <div class="row">
+        <div><span class="chip">पेज भराव: 80% संतुलित / 90% बड़ा / कॉम्पैक्ट</span></div>
+        <p>पत्र के अक्षरों का आकार और पंक्तियों की दूरी तय करता है। <strong>80% संतुलित</strong> सामान्य विकल्प है। <strong>90% बड़ा</strong> छोटे पत्र को पूरे पेज में फैलाकर बड़ा दिखाता है। <strong>कॉम्पैक्ट</strong> लंबे पत्र को एक पेज में समेटता है। पत्र एक A4 पेज से लंबा हो जाए तो पत्र के ऊपर पीली चेतावनी आ जाती है।</p>
+      </div>
+
+      <div class="row">
+        <div><span class="chip">🟢 WhatsApp पर शेयर करें</span></div>
+        <p>WhatsApp खोलता है जिसमें इस पेज का लिंक पहले से लिखा होता है। जिसे भेजना है उसे चुनें। केवल पेज का लिंक जाता है, आपकी भरी हुई जानकारी नहीं।</p>
+      </div>
+
+
+    </div>
+  </section>
+
+  <!-- 5. अक्सर पूछे जाने वाले प्रश्न (FAQ) -->
+  <section class="guide-card no-print" id="faq" aria-label="अक्सर पूछे जाने वाले प्रश्न">
+    <div class="guide-header">
+      <div>
+        <span class="guide-tag">FAQ</span>
+        <h2>अक्सर पूछे जाने वाले प्रश्न</h2>
+      </div>
+    </div>
+    <div class="faq-list">
+      <details class="faq-item" name="faq" open>
+        <summary>बैंक खाते में मोबाइल नंबर बदलने के लिए कौन से दस्तावेज़ चाहिए?</summary>
+        <div class="faq-a"><p>आमतौर पर ये दस्तावेज़ लगते हैं: <strong>आवेदन पत्र</strong>, आधार कार्ड की स्व-प्रमाणित फोटोकॉपी और बैंक पासबुक के पहले पृष्ठ की फोटोकॉपी। कुछ शाखाएँ मिलान के लिए मूल पहचान पत्र भी माँग सकती हैं, इसलिए उसे साथ रखें।</p></div>
+      </details>
+      <details class="faq-item" name="faq">
+        <summary>क्या मोबाइल नंबर बदलवाने के लिए बैंक शाखा जाना ज़रूरी है?</summary>
+        <div class="faq-a"><p>अक्सर हाँ, खासकर तब जब पुराना नंबर बंद हो चुका हो। कुछ बैंकों में पुराना नंबर चालू होने पर ATM, नेट बैंकिंग या मोबाइल ऐप से भी नंबर बदला जा सकता है। यह सुविधा हर बैंक में नहीं होती, इसलिए अपने बैंक की जानकारी देख लें।</p></div>
+      </details>
+      <details class="faq-item" name="faq">
+        <summary>पुराना सिम बंद हो गया है, अब क्या करें?</summary>
+        <div class="faq-a"><p>पुराने नंबर पर OTP नहीं आएगा, इसलिए ऑनलाइन बदलाव मुश्किल होता है। ऐसे में ऊपर के फॉर्म से आवेदन पत्र बनाएं, प्रिंट करें और पहचान के दस्तावेज़ों के साथ अपनी होम ब्रांच में जमा करें।</p></div>
+      </details>
+      <details class="faq-item" name="faq">
+        <summary>नया मोबाइल नंबर खाते में जुड़ने में कितना समय लगता है?</summary>
+        <div class="faq-a"><p>आमतौर पर कुछ कार्य-दिवसों में, अक्सर 1 से 3 दिन में। यह बैंक और शाखा पर निर्भर करता है। नंबर जुड़ने के बाद अक्सर पुष्टि का SMS आता है। कुछ दिन बाद भी कोई सूचना न मिले तो शाखा में जाकर स्थिति पूछें।</p></div>
+      </details>
+      <details class="faq-item" name="faq">
+        <summary>क्या मोबाइल नंबर बदलने का कोई शुल्क लगता है?</summary>
+        <div class="faq-a"><p>आमतौर पर बैंक इसके लिए शुल्क नहीं लेते। फिर भी नियम बैंक के अनुसार अलग हो सकते हैं, इसलिए आवेदन जमा करते समय शाखा में एक बार पूछ लेना बेहतर है।</p></div>
+      </details>
+      <details class="faq-item" name="faq">
+        <summary>क्या प्रिंट किया हुआ आवेदन पत्र बैंक में चल जाएगा?</summary>
+        <div class="faq-a"><p>आमतौर पर प्रिंट किया हुआ पत्र स्वीकार हो जाता है, बस उस पर <strong>हस्ताक्षर पेन से खुद करें</strong>। कुछ शाखाएँ अपना निर्धारित फॉर्म भी भरवाती हैं। ऐसे में यह पत्र साथ में लगा दें और बैंक का फॉर्म भी भर दें।</p></div>
+      </details>
+      <details class="faq-item" name="faq">
+        <summary>आवेदन पर हस्ताक्षर कैसे करें?</summary>
+        <div class="faq-a"><p>प्रिंट के बाद नीचे हस्ताक्षर की जगह पर वही हस्ताक्षर करें जो बैंक के रिकॉर्ड में दर्ज हैं। हस्ताक्षर मेल न खाने पर बैंक आवेदन रोक सकता है।</p></div>
+      </details>
+      <details class="faq-item" name="faq">
+        <summary>क्या एक मोबाइल नंबर कई बैंक खातों से जुड़ सकता है?</summary>
+        <div class="faq-a"><p>अधिकतर बैंक एक ही नंबर को एक से ज़्यादा खातों से जोड़ने देते हैं, जैसे परिवार के खाते। कुछ बैंकों में इसकी सीमा हो सकती है, इसलिए शाखा से पुष्टि कर लें।</p></div>
+      </details>
+      <details class="faq-item" name="faq">
+        <summary>आवेदन जमा करने पर पावती (रसीद) क्यों ज़रूरी है?</summary>
+        <div class="faq-a"><p>पावती इस बात का सबूत है कि आपने आवेदन किस तारीख को जमा किया। पत्र की एक अतिरिक्त प्रति पर बैंक की मुहर और तारीख ज़रूर लगवाएं। काम न होने पर पहले शाखा या बैंक के शिकायत अधिकारी से मिलें, फिर भी हल न निकले तो RBI के शिकायत पोर्टल (cms.rbi.org.in) का रास्ता है।</p></div>
+      </details>
+      <details class="faq-item" name="faq">
+        <summary>पत्र को PDF में कैसे सेव करें?</summary>
+        <div class="faq-a"><p>फॉर्म भरकर <strong>प्रिंट / PDF सेव करें</strong> बटन दबाएं। प्रिंट विंडो में प्रिंटर की जगह <strong>Save as PDF</strong> चुनें। Paper size A4 और Scale 100% रखें। मोबाइल के Chrome में भी यही विकल्प मिलता है।</p></div>
+      </details>
+      <details class="faq-item" name="faq">
+        <summary>क्या यह टूल मेरी जानकारी सेव करता है?</summary>
+        <div class="faq-a"><p>नहीं। पूरा काम आपके ब्राउज़र में होता है और आपका भरा हुआ नाम, खाता संख्या या नंबर किसी सर्वर पर नहीं भेजा जाता। सिर्फ आपकी भाषा और नाइट/लाइट मोड की पसंद ब्राउज़र में याद रखी जाती है।</p></div>
+      </details>
+      <details class="faq-item" name="faq">
+        <summary>पत्र एक पेज से लंबा हो जाए तो क्या करें?</summary>
+        <div class="faq-a"><p><strong>पेज भराव</strong> में “कॉम्पैक्ट” चुनें, इससे अक्षर थोड़े छोटे होकर पत्र एक पेज में आ जाता है। फिर भी न आए तो कुछ टेक्स्ट छोटा कर लें।</p></div>
+      </details>
+    </div>
+  </section>
+
+  <footer class="site-footer no-print">
+    <nav aria-label="फुटर लिंक">
+      <a href="index.html">Home</a>
+      <a href="about.html">About Us</a>
+      <a href="contact.html">Contact Us</a>
+      <a href="faq.html">FAQ</a>
+      <a href="privacy-policy.html">Privacy Policy</a>
+      <a href="terms.html">Terms &amp; Conditions</a>
+      <a href="disclaimer.html">Disclaimer</a>
+      <a href="cookie-policy.html">Cookie Policy</a>
+      <a href="copyright.html">Copyright</a>
+    </nav>
+    <p>यह टूल केवल सामान्य जानकारी और पत्र-लेखन में सहायता के लिए है। बैंक के नियम और प्रक्रिया अलग-अलग हो सकती है, अंतिम जानकारी अपनी बैंक शाखा से ज़रूर पूछें।</p>
+    <p>© Application Helper — सभी अधिकार सुरक्षित।</p>
+  </footer>
 </main>
 
 <script>
@@ -818,7 +1251,7 @@ var F={
   lostdate:["कार्ड खोने की तारीख","d",11,0,"Date Card Lost","12/11/2026","12/11/2026"],
   chq:["चेक नंबर","n",10,12,"Cheque Number","458921","458921"],
   date:["दिनांक","d",11,0,"Date","14/11/2026","14/11/2026"],
-  aadhar:["आधार न०","n",14,12,"Aadhaar No.","458912369874","458912369874"],
+  aadhar:["आधार नं.","n",14,12,"Aadhaar No.","458912369874","458912369874"],
   chq_pages:["चेकबुक के पृष्ठों की संख्या","t",12,0,"Number of Cheque Leaves","20 पृष्ठ (20 Leaves)","20 Leaves"],
   lost_pb_date:["पासबुक खोने की अनुमानित तारीख","d",11,0,"Estimated Date Passbook Lost","10/11/2026","10/11/2026"],
   new_branch:["नई शाखा का नाम","t",16,0,"New Branch Name","गोमती नगर शाखा","Gomti Nagar Branch"],
@@ -845,7 +1278,7 @@ var F={
   tx_mode:["लेन-देन का माध्यम (UPI/कार्ड आदि)","t",16,0,"Mode of Transaction (UPI/Card etc.)","UPI / डेबिट कार्ड","UPI / Debit Card"],
   tx_desc:["अनधिकृत लेन-देन का विवरण","t",24,0,"Incident / Transaction Description","बिना OTP साझा किए अज्ञात खाते में राशि कट गई","Amount debited without sharing OTP"],
   name1:["खाताधारक 1 का नाम","t",20,0,"Account Holder 1 Name","राजेश कुमार शर्मा","Rajesh Kumar Sharma"],
-  name2:["खाताधारक 2 का नाम","t",20,0,"Account Holder 2 Name","मोहन लाल शर्मा","Mohan Lal शर्मा"],
+  name2:["खाताधारक 2 का नाम","t",20,0,"Account Holder 2 Name","मोहन लाल शर्मा","Mohan Lal Sharma"],
   single_holder:["एकल खाताधारक के रूप में रखने वाले व्यक्ति का नाम","t",20,0,"Single Account Holder Name","राजेश कुमार शर्मा","Rajesh Kumar Sharma"],
   loan_acc:["Loan Account Number (ऋण खाता संख्या)","t",20,0,"Loan Account Number","LN4008921547","LN4008921547"],
   loan_type:["ऋण का प्रकार (होम/पर्सनल/वाहन आदि)","t",18,0,"Loan Type (Home/Personal/Auto etc.)","वाहन ऋण (Vehicle Loan)","Vehicle Loan"],
@@ -853,27 +1286,57 @@ var F={
   place:["स्थान","t",14,0,"Place","लखीमपुर खीरी","Lakhimpur Kheri"],
   freeze_reason:["खाता फ्रीज/होल्ड होने का कारण","t",22,0,"Reason for Account Freeze/Hold","KYC अद्यतन न होने या तकनीकी होल्ड के कारण","Pending KYC update or technical hold"]
 };
-var T_HI = {"t": "बैंक खाते में मोबाइल नंबर अपडेट कराने हेतु आवेदन पत्र", "s": "बैंक खाते में मोबाइल नंबर अपडेट कराने हेतु आवेदन पत्र।", "p": ["सविनय निवेदन है कि मेरा नाम {name} है और मेरा आपके बैंक की {branch} शाखा में {acc} खाता संचालित है।", "मैं अपने बैंक खाते में पंजीकृत मोबाइल नंबर को बदलकर नया मोबाइल नंबर {newmob} अपडेट कराना चाहता/चाहती हूँ। अतः आपसे अनुरोध है कि मेरे बैंक खाते में यह मोबाइल नंबर पंजीकृत करने की कृपा करें, ताकि मुझे बैंक खाते से संबंधित लेन-देन एवं अन्य आवश्यक सूचनाएं समय पर प्राप्त हो सकें।", "आवश्यक दस्तावेज आवेदन के साथ संलग्न हैं। कृपया आवश्यक प्रक्रिया पूरी कर मेरे खाते में नया मोबाइल नंबर अपडेट करने की कृपा करें।"], "sig": [["नाम", "name"], ["खाता संख्या", "acc"], ["नया मोबाइल नंबर", "newmob"], ["दिनांक", "date"], ["आधार न०", "aadhar"]]};
-var T_EN = {"t": "Application for Updating Mobile Number in Bank Account", "s": "Application for updating mobile number in bank account.", "p": ["I respectfully state that my name is {name} and I maintain bank account number {acc} with your {branch} branch.", "I wish to update the registered mobile number associated with my bank account to my new mobile number {newmob}. I kindly request you to register this new mobile number in my account records so that I can regularly receive transaction alerts and essential banking notifications.", "Required supporting documents are enclosed with this application. Kindly complete the update process at your earliest convenience."], "sig": [["Name", "name"], ["Account No.", "acc"], ["New Mobile No.", "newmob"], ["Date", "date"], ["Aadhaar No.", "aadhar"]]};
+
+var T_HI = {
+  "t": "बैंक खाते में मोबाइल नंबर अपडेट कराने हेतु आवेदन पत्र",
+  "s": "बैंक खाते में मोबाइल नंबर अपडेट कराने हेतु आवेदन पत्र।",
+  "p": [
+    "सविनय निवेदन है कि मेरा नाम {name} है और आपके बैंक की {branch} शाखा में मेरा खाता (खाता संख्या {acc}) संचालित है।",
+    "मैं अपने बैंक खाते में पंजीकृत मोबाइल नंबर को बदलकर नया मोबाइल नंबर {newmob} अपडेट कराना चाहता/चाहती हूँ। अतः आपसे अनुरोध है कि मेरे बैंक खाते में यह मोबाइल नंबर पंजीकृत करने की कृपा करें, ताकि मुझे बैंक खाते से संबंधित लेन-देन एवं अन्य आवश्यक सूचनाएं समय पर प्राप्त हो सकें।",
+    "आवश्यक दस्तावेज आवेदन के साथ संलग्न हैं। कृपया आवश्यक प्रक्रिया पूरी कर मेरे खाते में नया मोबाइल नंबर अपडेट करने की कृपा करें।"
+  ],
+  "sig": [["नाम", "name"], ["खाता संख्या", "acc"], ["नया मोबाइल नंबर", "newmob"], ["दिनांक", "date"], ["आधार नं.", "aadhar"]],
+};
+var T_EN = {
+  "t": "Application for Updating Mobile Number in Bank Account",
+  "s": "Application for updating mobile number in bank account.",
+  "p": [
+    "I respectfully state that my name is {name} and I maintain bank account number {acc} with your {branch} branch.",
+    "I wish to update the registered mobile number associated with my bank account to my new mobile number {newmob}. I kindly request you to register this new mobile number in my account records so that I can regularly receive transaction alerts and essential banking notifications.",
+    "Required supporting documents are enclosed with this application. Kindly complete the update process at your earliest convenience."
+  ],
+  "sig": [["Name", "name"], ["Account No.", "acc"], ["New Mobile No.", "newmob"], ["Date", "date"], ["Aadhaar No.", "aadhar"]],
+  "enc": ["Enclosures:", ["Self-attested copy of Aadhaar card", "Copy of first page of bank passbook"]]
+};
 var IS_LONG_DEFAULT = 0;
 var BANKS = "Airtel Payments Bank|Andhra Pradesh Grameena Bank|AU Small Finance Bank|Axis Bank|Bandhan Bank|Bank of Baroda|Bank of India|Bank of Maharashtra|Baroda Gujarat Gramin Bank|Bihar Gramin Bank|Canara Bank|Central Bank of India|City Union Bank|Equitas Small Finance Bank|Federal Bank|Fino Payments Bank|HDFC Bank|ICICI Bank|IDFC FIRST Bank|India Post Payments Bank|Indian Bank|Indian Overseas Bank|IndusInd Bank|Jana Small Finance Bank|Karnataka Grameena Bank|Karur Vysya Bank|Kotak Mahindra Bank|Madhya Pradesh Gramin Bank|Maharashtra Gramin Bank|NSDL Payments Bank|Punjab & Sind Bank|Punjab Gramin Bank|Punjab National Bank|Rajasthan Gramin Bank|RBL Bank|South Indian Bank|State Bank of India|Telangana Grameena Bank|UCO Bank|Ujjivan Small Finance Bank|Union Bank of India|Uttar Pradesh Gramin Bank|West Bengal Gramin Bank|Yes Bank".split("|");
 
 (function(){
   var $ = function(i){ return document.getElementById(i); };
+  var MOBILE_KEYS = {newmob:1, mob:1, nom_mob:1};
+
   var curLang = "hi";
   try {
     var savedLang = localStorage.getItem("app_lang");
     if(savedLang === "en" || savedLang === "hi") curLang = savedLang;
   } catch(e){}
 
-  var dark = false;
+  /* थीम: सेव की हुई पसंद न हो तो फोन/ब्राउज़र की सेटिंग मानें */
+  var dark = !!(window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches);
   try {
-    dark = localStorage.getItem("app_theme") === "dark";
+    var savedTheme = localStorage.getItem("app_theme");
+    if(savedTheme === "dark" || savedTheme === "light"){
+      dark = savedTheme === "dark";
+      document.documentElement.setAttribute("data-theme", savedTheme);
+    }
   } catch(e){}
-  document.documentElement.setAttribute("data-theme", dark ? "dark" : "light");
 
   var V = {};
   var GEN = [["चाहता","चाहती"],["रहा","रही"]];
+  var isSampleActive = false;
+  var paperDirty = false;
+  var lastGender = "m";
+  var lastLang = curLang;
 
   function updateThemeUI(){
     var icon = $("thIcon"), txt = $("thText");
@@ -886,8 +1349,9 @@ var BANKS = "Airtel Payments Bank|Andhra Pradesh Grameena Bank|AU Small Finance 
   if(thBtn){
     thBtn.addEventListener("click", function(){
       dark = !dark;
-      document.documentElement.setAttribute("data-theme", dark ? "dark" : "light");
-      try { localStorage.setItem("app_theme", dark ? "dark" : "light"); } catch(e){}
+      var mode = dark ? "dark" : "light";
+      document.documentElement.setAttribute("data-theme", mode);
+      try { localStorage.setItem("app_theme", mode); } catch(e){}
       updateThemeUI();
     });
   }
@@ -902,6 +1366,7 @@ var BANKS = "Airtel Payments Bank|Andhra Pradesh Grameena Bank|AU Small Finance 
       bF.classList.remove("active");
       bP.setAttribute("aria-selected", "true");
       bF.setAttribute("aria-selected", "false");
+      checkFit();
     } else {
       ws.classList.remove("show-preview");
       ws.classList.add("show-form");
@@ -916,6 +1381,22 @@ var BANKS = "Airtel Payments Bank|Andhra Pradesh Grameena Bank|AU Small Finance 
 
   function getTpl(){ return curLang === "en" ? T_EN : T_HI; }
   function esc(s){ return String(s).replace(/[&<>"]/g, function(c){ return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]; }); }
+
+  /* पत्र में सीधे किए बदलावों की सुरक्षा */
+  function setDirty(d){
+    paperDirty = d;
+    var n = $("dirtyNote");
+    if(n) n.hidden = !d;
+  }
+  function confirmLoss(){
+    if(!paperDirty) return true;
+    var msg = curLang === "en"
+      ? "You have edited the letter directly. Changing the form will rebuild the letter and remove those edits. Continue?"
+      : "आपने पत्र में सीधे बदलाव किए हैं। फॉर्म में बदलाव करने पर पत्र दोबारा बनेगा और वे बदलाव हट जाएंगे। क्या आप जारी रखना चाहते हैं?";
+    if(window.confirm(msg)){ setDirty(false); return true; }
+    return false;
+  }
+  $("paper").addEventListener("input", function(){ setDirty(true); });
 
   function val(k){
     var v = k === "bank" ? (V.bank === "custom" ? (V.bankc || "") : (V.bank || "")) : (V[k] || "");
@@ -939,20 +1420,29 @@ var BANKS = "Airtel Payments Bank|Andhra Pradesh Grameena Bank|AU Small Finance 
 
   function keys(t){
     var k = ["bank","branch","city"], s = t.p.join(" ") + " " + t.sig.map(function(x){ return "{" + x[SIG_KEY] + "}"; }).join(" "), m, re = /\{(\w+)\}/g;
-    while((m = re.exec(s))) if(k.indexOf(m[SIG_KEY]) < 0) k.push(m[SIG_KEY]);
+    while((m = re.exec(s))) if(k.indexOf(m[1]) < 0) k.push(m[1]);
     var endOrder = ["date","place","aadhar"];
     var endKeys = endOrder.filter(function(x){ return t.sig.some(function(item){ return item[SIG_KEY] === x; }); });
     return k.filter(function(x){ return endOrder.indexOf(x) < 0; }).concat(endKeys);
   }
 
+  function updateWaLink(){
+    var wa = $("waShareBtn");
+    if(!wa) return;
+    var can = document.querySelector('link[rel="canonical"]');
+    var url = can && can.href ? can.href : location.href.split("#")[0];
+    var txt = curLang === "en"
+      ? "Create this application letter online for free: "
+      : "यह आवेदन पत्र ऑनलाइन निःशुल्क तैयार करें: ";
+    wa.href = "https://wa.me/?text=" + encodeURIComponent(txt + url);
+  }
+
   function updateStaticUI(){
     var isEn = curLang === "en";
     $("uiTitle").innerText = isEn ? "Enter Details" : "विवरण दर्ज करें";
-    if(!isSampleActive) {
-      $("sampleBtn").innerText = isEn ? "✨ Fill Sample" : "✨ सैंपल भरें";
-    } else {
-      $("sampleBtn").innerText = isEn ? "✨ Clear Sample" : "✨ सैंपल हटाएं";
-    }
+    $("sampleBtn").innerText = isSampleActive
+      ? (isEn ? "✨ Clear Sample" : "✨ सैंपल हटाएं")
+      : (isEn ? "✨ Fill Sample" : "✨ सैंपल भरें");
     $("lblLang").innerText = isEn ? "Choose Language" : "भाषा चुनें / Choose Language";
     $("lblGender").innerText = isEn ? "Applicant Gender" : "आवेदक का चयन";
     $("gMale").innerText = isEn ? "Male" : "पुरुष";
@@ -964,12 +1454,49 @@ var BANKS = "Airtel Payments Bank|Andhra Pradesh Grameena Bank|AU Small Finance 
     $("optFit80").innerText = isEn ? "80% Balanced" : "80% संतुलित";
     $("optFit90").innerText = isEn ? "90% Large" : "90% बड़ा";
     $("optFitCompact").innerText = isEn ? "Compact" : "कॉम्पैक्ट";
-    $("uiHint").innerText = isEn ?
-      "Fields left blank will print with dotted lines so you can fill them by pen. You can also click directly on the letter to edit any text." :
-      "जो जानकारी नहीं भरेंगे, प्रिंट में वहाँ खाली जगह (.......) छूट जाएगी। आप सीधे पत्र पर क्लिक करके भी कोई शब्द संपादित (Edit) कर सकते हैं।";
+    $("uiHint").innerText = isEn
+      ? "Fields left blank will print with dotted lines so you can fill them by pen. You can also click directly on the letter to edit any text, but note: changing the form afterwards rebuilds the letter and removes those direct edits. So fill the form first, then edit the letter at the end."
+      : "जो जानकारी नहीं भरेंगे, प्रिंट में वहाँ खाली जगह (.......) छूट जाएगी। आप सीधे पत्र पर क्लिक करके भी शब्द बदल सकते हैं, पर ध्यान रखें: उसके बाद फॉर्म बदलने पर पत्र दोबारा बनेगा और सीधे किए बदलाव हट जाएंगे। इसलिए पहले फॉर्म पूरा भरें, फिर अंत में पत्र एडिट करें।";
+    $("prevBarTitle").innerText = isEn ? "Live A4 Letter Preview (Editable)" : "लाइव A4 पत्र प्रीव्यू (Editable)";
+    $("prevBarHint").innerText = isEn ? "💡 You can also click on the letter to edit it" : "💡 पत्र पर सीधे क्लिक करके भी बदलाव कर सकते हैं";
+    $("dirtyNote").innerText = isEn
+      ? "✏️ You have edited the letter directly. If you change the form now, those edits will be removed (you will be asked first)."
+      : "✏️ आपने पत्र में सीधे बदलाव किए हैं। अब फॉर्म में कुछ बदलेंगे तो ये बदलाव हट जाएंगे (पहले आपसे पूछा जाएगा)।";
+    if($("waText")) $("waText").innerText = isEn ? "🟢 Share on WhatsApp" : "🟢 WhatsApp पर शेयर करें";
     var langRadio = document.querySelector('input[name=lang][value="' + curLang + '"]');
     if(langRadio) langRadio.checked = true;
+    updateWaLink();
     updateThemeUI();
+  }
+
+  function applyFit(){
+    var p = $("paper");
+    p.classList.remove("compact", "fit-90");
+    var fitEl = document.querySelector("input[name=page_fit]:checked");
+    var fitVal = fitEl ? fitEl.value : "fit80";
+    if(fitVal === "fit90") p.classList.add("fit-90");
+    else if(fitVal === "compact") p.classList.add("compact");
+    else if(IS_LONG_DEFAULT) p.classList.add("compact");
+  }
+
+  /* पत्र एक A4 पेज से लंबा हो तो चेतावनी दिखाएं */
+  function checkFit(){
+    var p = $("paper"), w = $("fitWarn");
+    if(!p || !w) return;
+    var width = p.offsetWidth, over = false;
+    if(width > 0) over = p.offsetHeight > width * 297 / 210 + 3;
+    if(!over){ w.hidden = true; return; }
+    var en = curLang === "en", compact = p.classList.contains("compact");
+    if(compact){
+      w.textContent = en
+        ? "⚠️ The letter is still longer than one A4 page. Please shorten some text, otherwise it will print on 2 pages."
+        : "⚠️ पत्र कॉम्पैक्ट में भी एक A4 पेज से लंबा है। कृपया कुछ टेक्स्ट छोटा करें, वरना प्रिंट 2 पेज में जाएगा।";
+    } else {
+      w.textContent = en
+        ? "⚠️ The letter is longer than one A4 page. Choose “Compact” under Page Coverage or shorten some text."
+        : "⚠️ पत्र एक A4 पेज से लंबा हो रहा है। “पेज भराव” में “कॉम्पैक्ट” चुनें या कुछ टेक्स्ट छोटा करें।";
+    }
+    w.hidden = false;
   }
 
   function render(){
@@ -981,12 +1508,7 @@ var BANKS = "Airtel Payments Bank|Andhra Pradesh Grameena Bank|AU Small Finance 
       else rightSig.push(x);
     });
 
-    var fitEl = document.querySelector("input[name=page_fit]:checked");
-    var fitVal = fitEl ? fitEl.value : "fit80";
-    $("paper").classList.remove("compact", "fit-90");
-    if(fitVal === "fit90") $("paper").classList.add("fit-90");
-    else if(fitVal === "compact") $("paper").classList.add("compact");
-    else if(IS_LONG_DEFAULT) $("paper").classList.add("compact");
+    applyFit();
 
     var isEn = curLang === "en";
     var toLine1 = isEn ? "To," : "सेवा में,";
@@ -996,6 +1518,12 @@ var BANKS = "Airtel Payments Bank|Andhra Pradesh Grameena Bank|AU Small Finance 
     var thanks = isEn ? "Thanking you," : "धन्यवाद।";
     var closing = isEn ? "Yours faithfully," : (fem ? "भवदीया," : "भवदीय,");
     var sigLbl = isEn ? "Signature:" : "हस्ताक्षर:";
+
+    var encHtml = "";
+    if(t.enc){
+      encHtml = '<p class="enc"><b>' + t.enc[0] + "</b> " +
+        t.enc[1].map(function(x, i){ return (i + 1) + ". " + x; }).join(isEn ? "; " : "; ") + "</p>";
+    }
 
     $("paper").innerHTML =
       "<h2>" + t.t + "</h2>" +
@@ -1011,7 +1539,10 @@ var BANKS = "Airtel Payments Bank|Andhra Pradesh Grameena Bank|AU Small Finance 
           rightSig.map(function(x){ return x[SIG_LBL] + ": " + f(x[SIG_KEY]) + "<br>"; }).join("") +
           sigLbl + ' <span class="blank" style="min-width:16ch"></span>' +
         "</div>" +
-      "</div>";
+      "</div>" + encHtml;
+
+    setDirty(false);
+    checkFit();
   }
 
   function build(){
@@ -1036,13 +1567,38 @@ var BANKS = "Airtel Payments Bank|Andhra Pradesh Grameena Bank|AU Small Finance 
       } else {
         h += '<label for="' + id + '">' + lbl + '</label><input id="' + id + '" type="' + (d[F_TYPE] === "n" ? "tel" : "text") + '"' + (d[F_TYPE] === "n" ? ' inputmode="numeric" maxlength="' + d[F_MAX] + '"' : "") + ' autocomplete="off" value="' + esc(v) + '">';
       }
+      if(MOBILE_KEYS[k] || k === "aadhar"){
+        h += '<small class="field-err" id="err_' + k + '" role="alert" hidden></small>';
+      }
     });
     $("fields").innerHTML = h;
+    Object.keys(MOBILE_KEYS).concat(["aadhar"]).forEach(function(k){ validateField(k, false); });
+  }
+
+  /* मोबाइल (10 अंक, 6-9 से शुरू) और आधार (12 अंक) की जाँच */
+  function validateField(k, final){
+    var el = $("err_" + k);
+    if(!el) return;
+    var v = (V[k] || "").trim(), msg = "", en = curLang === "en";
+    if(v){
+      if(MOBILE_KEYS[k]){
+        if(v.length >= 1 && !/^[6-9]/.test(v)){
+          msg = en ? "Mobile number should start with 6, 7, 8 or 9." : "मोबाइल नंबर 6, 7, 8 या 9 से शुरू होना चाहिए।";
+        } else if(final && v.length < 10){
+          msg = en ? "Mobile number must be 10 digits." : "मोबाइल नंबर 10 अंकों का होना चाहिए।";
+        }
+      } else if(k === "aadhar" && final && v.length !== 12){
+        msg = en ? "Aadhaar number must be 12 digits." : "आधार नंबर 12 अंकों का होना चाहिए।";
+      }
+    }
+    el.textContent = msg;
+    el.hidden = !msg;
   }
 
   $("fields").addEventListener("input", function(e){
     var id = e.target.id; if(!id || id === "bankSel") return;
     var k = id.slice(2);
+    if(paperDirty && !confirmLoss()){ e.target.value = V[k] || ""; return; }
     if(k !== "bankc" && F[k]){
       if(F[k][F_TYPE] === "n") e.target.value = e.target.value.replace(/\D/g, "");
       if(F[k][F_TYPE] === "d"){
@@ -1053,11 +1609,18 @@ var BANKS = "Airtel Payments Bank|Andhra Pradesh Grameena Bank|AU Small Finance 
       }
     }
     V[k] = e.target.value;
+    validateField(k, false);
     render();
+  });
+
+  $("fields").addEventListener("focusout", function(e){
+    var id = e.target.id;
+    if(id && id.indexOf("f_") === 0) validateField(id.slice(2), true);
   });
 
   $("fields").addEventListener("change", function(e){
     if(e.target.id !== "bankSel") return;
+    if(paperDirty && !confirmLoss()){ e.target.value = V.bank || ""; return; }
     V.bank = e.target.value;
     var c = $("f_bankc");
     if(c){
@@ -1067,9 +1630,9 @@ var BANKS = "Airtel Payments Bank|Andhra Pradesh Grameena Bank|AU Small Finance 
     render();
   });
 
-  /* टॉगल सैंपल डेटा लॉजिक */
-  var isSampleActive = false;
+  /* टॉगल सैंपल डेटा */
   $("sampleBtn").addEventListener("click", function(){
+    if(!confirmLoss()) return;
     var t = getTpl();
     var isEn = curLang === "en";
     if(!isSampleActive){
@@ -1077,21 +1640,42 @@ var BANKS = "Airtel Payments Bank|Andhra Pradesh Grameena Bank|AU Small Finance 
         if(F[k]) V[k] = isEn ? F[k][F_SAMPLE_EN] : F[k][F_SAMPLE_HI];
       });
       isSampleActive = true;
-      this.innerText = isEn ? "✨ Clear Sample" : "✨ सैंपल हटाएं";
     } else {
       V = {};
       isSampleActive = false;
-      this.innerText = isEn ? "✨ Fill Sample" : "✨ सैंपल भरें";
     }
+    updateStaticUI();
     build();
     render();
   });
 
-  document.querySelectorAll("input[name=g]").forEach(function(r){ r.addEventListener("change", render); });
-  document.querySelectorAll("input[name=page_fit]").forEach(function(r){ r.addEventListener("change", render); });
+  /* आवेदक (पुरुष/महिला) बदलना: सीधे बदलाव हटने से पहले पूछें */
+  document.querySelectorAll("input[name=g]").forEach(function(r){
+    r.addEventListener("change", function(){
+      if(!confirmLoss()){
+        var back = document.querySelector('input[name=g][value="' + lastGender + '"]');
+        if(back) back.checked = true;
+        return;
+      }
+      lastGender = this.value;
+      render();
+    });
+  });
+
+  /* पेज भराव बदलना: पत्र की सामग्री नहीं बदलती, इसलिए सीधे बदलाव सुरक्षित रहते हैं */
+  document.querySelectorAll("input[name=page_fit]").forEach(function(r){
+    r.addEventListener("change", function(){ applyFit(); checkFit(); });
+  });
+
   document.querySelectorAll("input[name=lang]").forEach(function(r){
     r.addEventListener("change", function(){
+      if(!confirmLoss()){
+        var back = document.querySelector('input[name=lang][value="' + lastLang + '"]');
+        if(back) back.checked = true;
+        return;
+      }
       curLang = document.querySelector("input[name=lang]:checked").value;
+      lastLang = curLang;
       try { localStorage.setItem("app_lang", curLang); } catch(e){}
       updateStaticUI();
       build();
@@ -1110,17 +1694,20 @@ var BANKS = "Airtel Payments Bank|Andhra Pradesh Grameena Bank|AU Small Finance 
   });
   $("print").addEventListener("click", doPrint);
   if($("mobilePrintBtn")) $("mobilePrintBtn").addEventListener("click", doPrint);
-  $("clear").addEventListener("click", function(){ 
-    V = {}; 
-    isSampleActive = false; 
+
+  $("clear").addEventListener("click", function(){
+    if(!confirmLoss()) return;
+    V = {};
+    isSampleActive = false;
     updateStaticUI();
-    build(); 
-    render(); 
+    build();
+    render();
   });
 
   updateStaticUI();
   build();
   render();
+  if(document.fonts && document.fonts.ready) document.fonts.ready.then(checkFit);
 })();
 </script>
 </body>
