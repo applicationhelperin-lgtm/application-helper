@@ -1,0 +1,1839 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>बैंक खाते की KYC/Re-KYC करने हेतु आवेदन पत्र - ApplicationHelper.in</title>
+<meta name="description" content="बैंक खाते की KYC / Re-KYC प्रक्रिया पूरी करने और दस्तावेज जमा करने के लिए शाखा प्रबंधक को आवेदन पत्र लिखें और प्रिंट करें।">
+<meta name="author" content="Vishal Raj">
+<link rel="canonical" href="https://applicationhelper.in/bank-kyc-rekyc-document-submission-application.html">
+<link rel="icon" href="favicon.png" type="image/png">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#151f32" media="(prefers-color-scheme: dark)">
+<script>try{var t=localStorage.getItem("app_theme");if(t==="dark"||t==="light")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
+
+<!-- Open Graph / Social Media Tags -->
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Application Helper">
+<meta property="og:title" content="बैंक खाते की KYC/Re-KYC करने हेतु आवेदन पत्र">
+<meta property="og:description" content="बैंक खाते की KYC / Re-KYC प्रक्रिया पूरी करने और दस्तावेज जमा करने के लिए शाखा प्रबंधक को आवेदन पत्र लिखें और प्रिंट करें।">
+<meta property="og:url" content="https://applicationhelper.in/bank-kyc-rekyc-document-submission-application.html">
+<meta property="og:image" content="https://applicationhelper.in/favicon.png">
+<meta property="article:published_time" content="2026-11-14T08:00:00+05:30">
+<meta property="article:modified_time" content="2026-11-16T09:00:00+05:30">
+
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+
+<style>
+:root, :root[data-theme="light"]{
+  color-scheme:light;
+  --bg:#eef2f6;
+  --panel:#ffffff;
+  --panel-alt:#f8fafc;
+  --stage:#e2e8f0;
+  --ink:#0f172a;
+  --body-ink:#1e293b;
+  --muted:#475569;
+  --line:#cbd5e1;
+  --accent:#1f4e8c;
+  --accent-hover:#173d6e;
+  --accent-soft:#eff6ff;
+  --accent-border:#bfdbfe;
+  --accent-ink:#ffffff;
+  --emerald:#047857;
+  --emerald-soft:#ecfdf5;
+  --amber:#b45309;
+  --amber-soft:#fffbeb;
+  --err:#b91c1c;
+  --sh:0 4px 20px rgba(15,23,42,.06);
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --bg:#0b1120;
+    --panel:#151f32;
+    --panel-alt:#1e293b;
+    --stage:#0f172a;
+    --ink:#f8fafc;
+    --body-ink:#e2e8f0;
+    --muted:#94a3b8;
+    --line:#2e3c51;
+    --accent:#60a5fa;
+    --accent-hover:#3b82f6;
+    --accent-soft:rgba(59,130,246,.16);
+    --accent-border:#1d4ed8;
+    --accent-ink:#0f172a;
+    --emerald:#34d399;
+    --emerald-soft:rgba(16,185,129,.15);
+    --amber:#fbbf24;
+    --amber-soft:#451a03;
+    --err:#f87171;
+    --sh:0 6px 24px rgba(0,0,0,.4);
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#0b1120;
+  --panel:#151f32;
+  --panel-alt:#1e293b;
+  --stage:#0f172a;
+  --ink:#f8fafc;
+  --body-ink:#e2e8f0;
+  --muted:#94a3b8;
+  --line:#2e3c51;
+  --accent:#60a5fa;
+  --accent-hover:#3b82f6;
+  --accent-soft:rgba(59,130,246,.16);
+  --accent-border:#1d4ed8;
+  --accent-ink:#0f172a;
+  --emerald:#34d399;
+  --emerald-soft:rgba(16,185,129,.15);
+  --amber:#fbbf24;
+  --amber-soft:#451a03;
+  --err:#f87171;
+  --sh:0 6px 24px rgba(0,0,0,.4);
+}
+
+html{
+  scroll-padding-top:calc(var(--hdr,58px) + 12px);
+  -webkit-text-size-adjust:100%;
+}
+*,*::before,*::after{box-sizing:border-box}
+[hidden]{display:none !important}
+
+/* Eye-Responsive Base Typography */
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--ink);
+  font-family:"Noto Sans Devanagari","Inter",system-ui,-apple-system,sans-serif;
+  font-size:clamp(0.98rem, 0.94rem + 0.25vw, 1.06rem);
+  line-height:1.72;
+  letter-spacing:0.01em;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+  transition:background-color .25s,color .25s;
+}
+
+/* ==================== PRO STICKY HEADER ==================== */
+header.site{
+  position:sticky;
+  top:env(safe-area-inset-top,0px);
+  z-index:50;
+  background:var(--panel);
+  border-bottom:1px solid var(--line);
+  transform:translateZ(0);
+  box-shadow:0 2px 10px rgba(0,0,0,.04);
+}
+.bar{
+  max-width:1200px;
+  margin:0 auto;
+  padding:10px 20px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  flex-wrap:wrap;
+}
+.brand{
+  display:flex;
+  flex-direction:row;
+  align-items:center;
+  gap:10px;
+  color:var(--accent);
+  text-decoration:none;
+  cursor:pointer;
+  flex-shrink:0;
+}
+.brand img{
+  width:38px;
+  height:38px;
+  border-radius:8px;
+  object-fit:contain;
+  flex-shrink:0;
+}
+.brand-text{
+  display:flex;
+  flex-direction:column;
+  min-width:0;
+}
+.brand strong{
+  font-size:1.15rem;
+  line-height:1.2;
+  font-weight:700;
+  color:var(--accent);
+}
+.brand span{
+  font-size:.76rem;
+  color:var(--muted);
+  line-height:1.3;
+}
+.acts{
+  display:flex;
+  gap:8px;
+  align-items:center;
+  flex-shrink:0;
+}
+.ab{
+  background:var(--panel-alt);
+  border:1px solid var(--line);
+  color:var(--ink);
+  border-radius:20px;
+  padding:6px 14px;
+  font-family:inherit;font-size:.84rem;font-weight:600;
+  cursor:pointer;
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  transition:border-color .2s,color .2s,background-color .2s;
+  white-space:nowrap;
+}
+.ab:hover{border-color:var(--accent);color:var(--accent)}
+nav.main{
+  display:flex;
+  gap:4px;
+  flex-wrap:wrap;
+  align-items:center;
+}
+nav.main a{
+  background:none;
+  border:0;
+  cursor:pointer;
+  font-family:inherit;
+  font-size:.9rem;
+  font-weight:500;
+  color:var(--muted);
+  padding:6px 10px;
+  border-radius:6px;
+  transition:color .2s,background-color .2s;
+  text-decoration:none;
+  display:inline-flex;
+  align-items:center;
+  white-space:nowrap;
+}
+nav.main a:hover, nav.main a[aria-current="page"]{
+  color:var(--accent);
+  background:var(--bg);
+}
+.tg{display:none}
+@media(max-width:980px){
+  .tg{display:inline-flex}
+  nav.main{
+    display:none;
+    width:100%;
+    flex-direction:column;
+    align-items:stretch;
+    padding-top:8px;
+    border-top:1px solid var(--line);
+    margin-top:4px;
+  }
+  nav.main.open{display:flex}
+}
+@media(max-width:520px){
+  .brand-text{min-width:0;overflow:hidden}
+  .brand strong{overflow:hidden;text-overflow:ellipsis}
+  #thText{display:none}
+  .ab{min-width:42px;min-height:42px;justify-content:center;padding:6px 10px}
+  .bar{padding:8px 12px;gap:6px}
+  .brand{gap:8px;min-width:0;flex:1}
+  .brand img{width:32px;height:32px}
+  .brand strong{font-size:1rem;white-space:nowrap}
+  .brand img{flex-shrink:0}
+  .brand span{font-size:.68rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .acts{gap:6px}
+  .ab{padding:5px 10px;font-size:.78rem}
+}
+
+/* ==================== MAIN WRAPPER ==================== */
+.page-wrap{
+  max-width:1200px;
+  margin:0 auto;
+  padding:20px 16px 32px;
+  display:flex;
+  flex-direction:column;
+  gap:20px;
+}
+@media(max-width:600px){
+  .page-wrap{padding:12px 12px 24px;gap:16px}
+}
+
+/* ==================== INTRO & ARTICLE META CARD ==================== */
+.intro-card{
+  background:var(--panel);
+  border:1px solid var(--line);
+  border-radius:16px;
+  padding:22px 26px;
+  box-shadow:var(--sh);
+}
+@media(max-width:600px){
+  .intro-card{padding:16px;border-radius:14px}
+}
+.intro-top{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-bottom:14px;
+}
+.breadcrumb{
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  gap:6px;
+  font-size:.85rem;
+  color:var(--muted);
+}
+.breadcrumb a{
+  color:var(--accent);
+  text-decoration:none;
+  font-weight:600;
+}
+.breadcrumb a:hover{text-decoration:underline}
+
+.badge-group{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  align-items:center;
+}
+.badge{
+  font-size:.78rem;
+  font-weight:700;
+  padding:4px 11px;
+  border-radius:20px;
+  background:var(--accent-soft);
+  color:var(--accent);
+  border:1px solid var(--accent-border);
+}
+.badge-sec{
+  background:var(--emerald-soft);
+  color:var(--emerald);
+  border-color:transparent;
+}
+
+.intro-title{
+  font-size:clamp(1.32rem, 2.5vw, 1.85rem);
+  font-weight:700;
+  margin:0 0 8px;
+  line-height:1.38;
+  color:var(--ink);
+}
+.art-meta-sub{
+  font-size:0.92rem;
+  color:var(--muted);
+  margin:0 0 14px 0;
+  padding-bottom:14px;
+  border-bottom:1px solid var(--line);
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  gap:8px;
+}
+.art-meta-sub strong{
+  color:var(--body-ink);
+  font-weight:600;
+}
+.intro-desc{
+  margin:0;
+  font-size:clamp(0.97rem, 0.94rem + 0.25vw, 1.05rem);
+  color:var(--body-ink);
+  line-height:1.75;
+}
+.sec-note{
+  margin-top:14px;
+  padding:11px 15px;
+  border-radius:10px;
+  background:var(--panel-alt);
+  border:1px solid var(--line);
+  border-left:4px solid var(--accent);
+  font-size:.9rem;
+  color:var(--body-ink);
+  line-height:1.65;
+}
+.sec-note strong{color:var(--ink)}
+
+/* ==================== MOBILE STICKY TABS ==================== */
+.mobile-tabs{
+  position:static;
+  display:flex;
+  background:var(--panel);
+  border:1px solid var(--line);
+  padding:5px;
+  border-radius:12px;
+  gap:6px;
+  box-shadow:var(--sh);
+}
+.mobile-tabs button{
+  flex:1;
+  border:none;
+  background:transparent;
+  color:var(--muted);
+  font-family:inherit;
+  font-size:.9rem;
+  font-weight:700;
+  padding:10px 8px;
+  border-radius:8px;
+  cursor:pointer;
+  transition:background-color .2s,color .2s;
+}
+.mobile-tabs button.active{
+  background:var(--accent);
+  color:var(--accent-ink);
+}
+@media(min-width:940px){
+  .mobile-tabs{display:none}
+}
+
+/* ==================== WORKSPACE (PC 2-COL & MOBILE TABS) ==================== */
+.workspace{
+  display:grid;
+  gap:22px;
+  align-items:start;
+}
+@media(min-width:940px){
+  .workspace{
+    grid-template-columns:410px 1fr;
+  }
+  .form-card{
+    position:sticky;
+    top:74px;
+    max-height:calc(100vh - 90px);
+    overflow-y:auto;
+    scrollbar-width:thin;
+  }
+}
+@media(max-width:939px){
+  .workspace.show-preview .form-card{display:none}
+  .workspace.show-form .preview-col{display:none}
+}
+
+/* Form Card */
+.form-card{
+  background:var(--panel);
+  border:1px solid var(--line);
+  border-radius:16px;
+  padding:20px 22px;
+  box-shadow:var(--sh);
+}
+@media(max-width:600px){
+  .form-card{padding:16px;border-radius:14px}
+}
+.form-head{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  border-bottom:1px solid var(--line);
+  padding-bottom:12px;
+  margin-bottom:14px;
+  gap:8px;
+}
+.form-head h2{
+  font-size:1.1rem;
+  margin:0;
+  font-weight:700;
+  color:var(--ink);
+}
+.sample-btn{
+  background:var(--accent-soft);
+  color:var(--accent);
+  border:1px solid var(--accent-border);
+  border-radius:8px;
+  padding:6px 12px;
+  font-size:.82rem;
+  font-weight:700;
+  cursor:pointer;
+  font-family:inherit;
+  transition:background-color .2s;
+}
+.sample-btn:hover{opacity:.9}
+
+label{
+  display:block;
+  font-size:.9rem;
+  margin:12px 0 5px;
+  font-weight:600;
+  color:var(--body-ink);
+}
+input[type=text],input[type=tel],input[type=date],select{
+  width:100%;
+  min-height:43px;
+  padding:9px 12px;
+  font:inherit;
+  font-size:.95rem;
+  color:var(--ink);
+  background:var(--panel-alt);
+  border:1px solid var(--line);
+  border-radius:8px;
+  transition:border-color .2s;
+}
+input:focus-visible,select:focus-visible,button:focus-visible{
+  outline:2px solid var(--accent);
+  outline-offset:1px;
+}
+.field-err{
+  display:block;
+  color:var(--err);
+  font-size:.8rem;
+  margin-top:4px;
+  line-height:1.4;
+}
+
+.seg{display:flex;gap:6px;margin-top:6px}
+.seg label{flex:1;margin:0;font-weight:400}
+.seg input{position:absolute;opacity:0;pointer-events:none}
+.seg span{
+  display:block;
+  text-align:center;
+  padding:8px 6px;
+  border:1px solid var(--line);
+  border-radius:8px;
+  cursor:pointer;
+  background:var(--panel-alt);
+  font-size:.86rem;
+  font-weight:500;
+  transition:background-color .15s,color .15s,border-color .15s;
+}
+.seg input:checked+span{
+  background:var(--accent);
+  color:var(--accent-ink);
+  border-color:var(--accent);
+  font-weight:700;
+}
+.seg input:focus-visible+span{
+  outline:2px solid var(--accent);
+  outline-offset:1px;
+}
+
+.btns{
+  display:grid;
+  grid-template-columns:1.35fr 1fr;
+  gap:10px;
+  margin-top:18px;
+}
+button.action-btn{
+  font:inherit;
+  font-size:.94rem;
+  padding:11px 12px;
+  border-radius:8px;
+  border:1px solid var(--accent);
+  cursor:pointer;
+  font-weight:700;
+  transition:background-color .2s,color .2s;
+}
+.primary-btn{
+  background:var(--accent);
+  color:var(--accent-ink);
+}
+.primary-btn:hover{background:var(--accent-hover)}
+.ghost-btn{
+  background:transparent;
+  color:var(--accent);
+}
+.ghost-btn:hover{background:var(--accent-soft)}
+
+/* WhatsApp Share Button */
+.whatsapp-sticker-btn{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  background:#25d366;
+  color:#ffffff;
+  padding:11px 14px;
+  border-radius:10px;
+  font-weight:700;
+  font-size:.92rem;
+  text-decoration:none;
+  box-shadow:0 4px 12px rgba(37,211,102,.25);
+  transition:transform .2s, background-color .2s;
+  margin-top:12px;
+  width:100%;
+  text-align:center;
+}
+.whatsapp-sticker-btn:hover{
+  transform:translateY(-1px);
+  background:#20ba5a;
+}
+.hint{
+  color:var(--muted);
+  font-size:.82rem;
+  margin:8px 0 0;
+  line-height:1.5;
+}
+
+/* ==================== PREVIEW COLUMN & PAPER STAGE ==================== */
+.preview-col{
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+  background:var(--panel);
+  border:1px solid var(--line);
+  border-radius:16px;
+  padding:18px 20px;
+  box-shadow:var(--sh);
+}
+@media(max-width:600px){
+  .preview-col{padding:14px 12px;border-radius:14px}
+}
+.preview-bar{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  gap:8px;
+  padding-bottom:10px;
+  border-bottom:1px solid var(--line);
+  font-size:.85rem;
+  color:var(--muted);
+}
+.preview-bar strong{
+  text-transform:uppercase;
+  letter-spacing:.4px;
+  font-size:.82rem;
+  color:var(--ink);
+}
+.fit-warn,.dirty-note{
+  background:var(--amber-soft);
+  color:var(--amber);
+  border:1px solid var(--amber);
+  border-radius:8px;
+  padding:9px 13px;
+  font-size:.86rem;
+  line-height:1.55;
+}
+
+.sheetwrap{
+  container-type:inline-size;
+  width:100%;
+  position:relative;
+  background:var(--stage);
+  padding:18px;
+  border-radius:10px;
+  border:1px solid var(--line);
+}
+@media(max-width:600px){
+  .sheetwrap{padding:8px;border-radius:8px}
+}
+.print-url{display:none}
+
+.paper{
+  background:#ffffff;
+  color:#000000;
+  width:100%;
+  max-width:210mm;
+  margin:0 auto;
+  aspect-ratio:210/297;
+  padding:6.5cqw 7.5cqw;
+  font-size:min(11.5pt,2.05cqw);
+  line-height:1.55;
+  box-shadow:0 6px 24px rgba(0,0,0,.18);
+  border-radius:4px;
+  font-family:"Noto Sans Devanagari","Inter","Mangal","Nirmala UI",sans-serif;
+  overflow:visible;
+}
+.paper h2{
+  font-size:1.15em;
+  text-align:center;
+  margin:0 0 .7em;
+  text-decoration:underline;
+  text-underline-offset:.25em;
+  font-weight:700;
+}
+.paper p{margin:0 0 .42em;text-align:justify}
+.paper[contenteditable="true"]:focus-visible{
+  outline:2px dashed var(--accent);
+  outline-offset:3px;
+}
+.paper .to{margin-bottom:.55em;line-height:1.48}
+.paper .sig{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-end;
+  margin-top:.75em;
+  line-height:1.55;
+}
+.paper .sig .left{width:44%;text-align:left}
+.paper .sig .b{width:52%;text-align:left;margin-left:auto}
+.paper .enc{margin:.9em 0 0;font-size:.94em}
+.blank{
+  display:inline-block;
+  border-bottom:1px dotted #000;
+  height:1em;
+  vertical-align:baseline;
+}
+
+.paper.fit-90{padding:5.2cqw 6.8cqw;font-size:min(12.5pt,2.25cqw);line-height:1.75}
+.paper.fit-90 p{margin:0 0 .65em}
+.paper.fit-90 .to{margin-bottom:.8em;line-height:1.6}
+.paper.fit-90 .sig{margin-top:1.5em;line-height:1.7}
+
+.paper.compact{padding:5cqw 6.5cqw;font-size:min(10.5pt,1.85cqw);line-height:1.42}
+.paper.compact p{margin:0 0 .32em}
+.paper.compact .to{margin-bottom:.4em;line-height:1.35}
+.paper.compact .sig{margin-top:.5em;line-height:1.4}
+
+.mobile-print-cta{display:none}
+@media(max-width:939px){
+  .mobile-print-cta{
+    display:block;
+    margin-top:4px;
+  }
+  .mobile-print-cta button{
+    width:100%;
+    padding:13px;
+    font-size:1rem;
+  }
+}
+
+/* ==================== GUIDE & CONTENT CARDS ==================== */
+.guide-card{
+  background:var(--panel);
+  border:1px solid var(--line);
+  border-radius:16px;
+  padding:24px 26px;
+  box-shadow:var(--sh);
+}
+@media(max-width:600px){
+  .guide-card{padding:18px 16px;border-radius:14px}
+}
+.guide-header{
+  border-bottom:1px solid var(--line);
+  padding-bottom:12px;
+  margin-bottom:16px;
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  gap:10px;
+}
+.guide-header h2{
+  font-size:clamp(1.18rem, 2.2vw, 1.48rem);
+  margin:0;
+  font-weight:700;
+  color:var(--ink);
+  line-height:1.4;
+}
+.guide-overview{
+  font-size:clamp(0.98rem, 0.95rem + 0.25vw, 1.06rem);
+  color:var(--body-ink);
+  margin:0 0 18px;
+  line-height:1.78;
+}
+.guide-grid{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:16px;
+}
+@media(min-width:768px){
+  .guide-grid{
+    grid-template-columns:repeat(2, 1fr);
+  }
+}
+.guide-tag{display:inline-block;font-size:.78rem;font-weight:700;color:var(--accent);background:var(--accent-soft);border:1px solid var(--accent-border);border-radius:20px;padding:3px 11px;margin-bottom:8px}
+@media(min-width:768px){.guide-grid .guide-box:nth-child(3):last-child{grid-column:1/-1}}
+.guide-box{
+  background:var(--panel-alt);
+  border:1px solid var(--line);
+  border-radius:12px;
+  padding:18px 20px;
+}
+.guide-box h3{
+  font-size:clamp(1.02rem, 1.8vw, 1.14rem);
+  margin:0 0 12px;
+  font-weight:700;
+  color:var(--ink);
+  display:flex;
+  align-items:center;
+  gap:8px;
+  line-height:1.4;
+}
+.guide-box ul, .guide-box ol{
+  margin:0;
+  padding-left:20px;
+  font-size:clamp(0.94rem, 0.91rem + 0.2vw, 1.01rem);
+  color:var(--body-ink);
+  display:flex;
+  flex-direction:column;
+  gap:9px;
+}
+.guide-box li{line-height:1.72}
+.guide-box p{
+  margin:0;
+  font-size:clamp(0.94rem, 0.91rem + 0.2vw, 1.01rem);
+  color:var(--body-ink);
+  line-height:1.72;
+}
+
+/* ==================== FAQ SECTION ==================== */
+.faq-list{display:grid;gap:12px}
+.faq-item{
+  background:var(--panel-alt);
+  border:1px solid var(--line);
+  border-radius:12px;
+  overflow:hidden;
+}
+.faq-item[open]{border-color:var(--accent-border)}
+.faq-item summary{
+  cursor:pointer;
+  list-style:none;
+  padding:15px 18px;
+  font-weight:700;
+  font-size:clamp(0.97rem, 0.93rem + 0.25vw, 1.05rem);
+  color:var(--ink);
+  line-height:1.55;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+}
+.faq-item summary::-webkit-details-marker{display:none}
+.faq-item summary::after{
+  content:"+";
+  flex:none;
+  width:28px;
+  height:28px;
+  border-radius:50%;
+  background:var(--accent-soft);
+  color:var(--accent);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:1.2rem;
+  font-weight:700;
+}
+.faq-item[open] summary::after{content:"\2212"}
+.faq-item summary:hover{color:var(--accent)}
+.faq-item summary:focus-visible{outline:2px solid var(--accent);outline-offset:-2px}
+.faq-a{
+  padding:0 18px 16px;
+  font-size:clamp(0.94rem, 0.91rem + 0.2vw, 1.01rem);
+  color:var(--body-ink);
+  line-height:1.78;
+}
+.faq-a p{margin:0}
+.faq-a strong{color:var(--ink)}
+
+/* ==================== CLEAN AUTHOR BOX ==================== */
+.clean-author-box {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 22px 26px;
+  box-shadow: var(--sh);
+}
+.clean-author-head {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 12px;
+}
+.clean-author-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--panel-alt);
+  border: 1px solid var(--line);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ink);
+  flex-shrink: 0;
+}
+.clean-author-icon svg {
+  width: 26px;
+  height: 26px;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  fill: none;
+}
+.clean-author-name {
+  font-size: 1.18rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin: 0 0 2px 0;
+  line-height: 1.3;
+}
+.clean-author-role {
+  font-size: 0.86rem;
+  color: var(--muted);
+  margin: 0;
+}
+.clean-author-bio {
+  font-size: clamp(0.95rem, 0.92rem + 0.2vw, 1.02rem);
+  color: var(--body-ink);
+  line-height: 1.75;
+  margin: 0 0 12px 0;
+}
+.clean-author-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.94rem;
+  font-weight: 600;
+  color: var(--accent);
+  text-decoration: none;
+}
+.clean-author-link:hover {
+  text-decoration: underline;
+}
+@media (max-width: 600px) {
+  .clean-author-box {
+    padding: 18px 16px;
+    border-radius: 14px;
+  }
+}
+
+/* ==================== PRO SITE FOOTER ==================== */
+footer.pro-footer{
+  background:#0b1120;
+  color:#e2e8f0;
+  padding:34px 18px 38px;
+  margin-top:20px;
+  text-align:center;
+}
+.footer-inner{max-width:760px;margin:0 auto;display:flex;flex-direction:column;gap:14px}
+.footer-copy{margin:0;font-size:.98rem;line-height:1.7;color:#e2e8f0}
+.footer-disc{margin:0;font-size:.9rem;line-height:1.7;color:#94a3b8}
+
+/* ==================== MOBILE READABILITY ==================== */
+@media screen and (max-width:600px){
+  body{font-size:1.02rem;line-height:1.78}
+  .page-wrap{padding:10px 10px 24px}
+  .intro-title{font-size:1.3rem;line-height:1.45}
+  .intro-desc,.guide-overview{font-size:1rem;line-height:1.8}
+  .art-meta-sub{font-size:.88rem}
+  .sec-note{font-size:.92rem}
+  .guide-box{padding:15px 14px}
+  .guide-box ul,.guide-box ol{padding-left:18px;font-size:.98rem}
+  .guide-box p,.faq-a{font-size:.98rem}
+  .faq-item summary{padding:14px;font-size:1rem}
+  .faq-a{padding:0 14px 14px}
+  .guide-card,.intro-card,.clean-author-box,.form-card,.preview-col{overflow-wrap:break-word}
+  label{font-size:.95rem}
+  input[type=text],input[type=tel],input[type=date],select{font-size:16px;min-height:48px}
+  .seg span{padding:11px 6px;font-size:.9rem}
+  .btns{grid-template-columns:1fr}
+  button.action-btn{min-height:48px;font-size:1rem}
+  .whatsapp-sticker-btn{min-height:48px}
+  .mobile-tabs button{font-size:.82rem;line-height:1.3;padding:11px 4px;white-space:nowrap}
+  .mobile-tabs .lbl-long{display:none}
+  footer.pro-footer{padding:28px 16px 32px}
+  .footer-copy{font-size:.95rem}
+  .footer-disc{font-size:.88rem}
+
+  .breadcrumb{font-size:.8rem;gap:4px}
+  .preview-bar span{font-size:.82rem}
+}
+
+/* ==================== A4 PRINT RULES ==================== */
+@media print{
+  @page{
+    size:A4 portrait;
+    margin:0;
+  }
+  *,*::before,*::after{
+    box-sizing:border-box !important;
+  }
+  html,body{
+    background:#fff !important;
+    margin:0 !important;
+    padding:0 !important;
+    width:100% !important;
+    height:auto !important;
+    min-height:0 !important;
+    overflow:visible !important;
+    -webkit-print-color-adjust:exact;
+    print-color-adjust:exact;
+  }
+  :root{
+    padding-top:0 !important;
+    padding-bottom:0 !important;
+  }
+  header.site, footer.pro-footer, .no-print, .intro-card, .form-card, .mobile-tabs, .preview-bar, .mobile-print-cta, .guide-card, .clean-author-box, .fit-warn, .dirty-note{
+    display:none !important;
+  }
+  .page-wrap, .workspace, .preview-col{
+    display:block !important;
+    padding:0 !important;
+    margin:0 !important;
+    max-width:none !important;
+    border:none !important;
+    background:transparent !important;
+    box-shadow:none !important;
+  }
+  .sheetwrap{
+    container-type:normal !important;
+    position:relative !important;
+    width:210mm !important;
+    max-width:210mm !important;
+    margin:0 auto !important;
+    padding:0 !important;
+    background:transparent !important;
+    border:none !important;
+  }
+  .print-url{
+    display:block !important;
+    position:absolute !important;
+    top:6mm !important;
+    right:18mm !important;
+    font-size:8.5pt !important;
+    font-family:"Inter",Arial,sans-serif !important;
+    color:#4b5563 !important;
+    font-weight:500 !important;
+    line-height:1 !important;
+    z-index:100 !important;
+    letter-spacing:0.2px !important;
+  }
+  .paper{
+    width:210mm !important;
+    max-width:210mm !important;
+    min-height:0 !important;
+    height:auto !important;
+    box-sizing:border-box !important;
+    aspect-ratio:auto !important;
+    padding:15mm 20mm 12mm 20mm !important;
+    font-size:11.8pt !important;
+    line-height:1.65 !important;
+    box-shadow:none !important;
+    border-radius:0 !important;
+    margin:0 auto !important;
+    overflow:visible !important;
+    -webkit-box-decoration-break:clone;
+    box-decoration-break:clone;
+    outline:none !important;
+  }
+  .paper > *:last-child{margin-bottom:0 !important}
+  .paper .sig, .paper .enc{
+    break-inside:avoid !important;
+    page-break-inside:avoid !important;
+  }
+  .paper h2{
+    font-size:1.2em !important;
+    text-align:center !important;
+    margin:0 0 1em !important;
+    text-decoration:underline !important;
+  }
+  .paper .to{
+    margin-bottom:1.1em !important;
+    line-height:1.65 !important;
+  }
+  .paper p{
+    margin:0 0 0.75em !important;
+    line-height:1.65 !important;
+    text-align:justify !important;
+  }
+  .paper .sig{
+    margin-top:1.6em !important;
+    line-height:1.75 !important;
+  }
+  .paper .enc{
+    margin-top:1.2em !important;
+    font-size:.94em !important;
+  }
+  .paper.fit-90{
+    padding:13mm 18mm 10mm 18mm !important;
+    font-size:12.6pt !important;
+    line-height:1.75 !important;
+  }
+  .paper.fit-90 p{margin:0 0 0.85em !important}
+  .paper.fit-90 .sig{margin-top:1.8em !important}
+  .paper.compact{
+    padding:11mm 16mm 9mm 16mm !important;
+    font-size:10.5pt !important;
+    line-height:1.5 !important;
+  }
+  .paper.compact h2{
+    margin:0 0 0.7em !important;
+    font-size:1.12em !important;
+  }
+  .paper.compact .to{
+    margin-bottom:0.7em !important;
+    line-height:1.45 !important;
+  }
+  .paper.compact p{
+    margin:0 0 0.45em !important;
+    line-height:1.5 !important;
+  }
+  .paper.compact .sig{
+    margin-top:1em !important;
+    line-height:1.5 !important;
+  }
+  .paper.compact .enc{margin-top:.8em !important}
+}
+</style>
+
+<!-- SEO Structured Data: Article + Breadcrumb + FAQPage -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "headline": "बैंक खाते की KYC/Re-KYC करने हेतु आवेदन पत्र",
+      "description": "बैंक खाते की KYC / Re-KYC प्रक्रिया पूरी करने और दस्तावेज जमा करने के लिए शाखा प्रबंधक को आवेदन पत्र लिखें और प्रिंट करें।",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://applicationhelper.in/bank-kyc-rekyc-document-submission-application.html"
+      },
+      "datePublished": "2026-11-14T08:00:00+05:30",
+      "dateModified": "2026-11-16T09:00:00+05:30",
+      "author": {
+        "@type": "Person",
+        "name": "Vishal Raj",
+        "url": "https://applicationhelper.in/about.html"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Application Helper",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://applicationhelper.in/favicon.png"
+        }
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "होम",
+          "item": "https://applicationhelper.in/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "बैंकिंग सेवाएं",
+          "item": "https://applicationhelper.in/bank.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "KYC / Re-KYC आवेदन फॉर्म",
+          "item": "https://applicationhelper.in/bank-kyc-rekyc-document-submission-application.html"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "बैंक में KYC अपडेट कराने के लिए कौन-कौन से दस्तावेज जरूरी होते हैं?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "बैंक में KYC अपडेट कराने के लिए आधार कार्ड, पैन कार्ड, पासपोर्ट, वोटर आईडी या अन्य मान्य पहचान और पते का प्रमाण मांगा जा सकता है। आवश्यक दस्तावेज बैंक के नियमों पर निर्भर करते हैं।"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "बैंक खाते की Re-KYC कितने समय बाद करानी पड़ती है?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Re-KYC की जरूरत ग्राहक की जोखिम श्रेणी के अनुसार होती है। सामान्यतः कम जोखिम वाले ग्राहकों के लिए 10 वर्ष, मध्यम जोखिम वाले ग्राहकों के लिए 8 वर्ष और उच्च जोखिम वाले ग्राहकों के लिए 2 वर्ष में अपडेट की आवश्यकता होती है।"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "क्या बैंक में KYC अपडेट कराने के लिए आवेदन पत्र देना जरूरी है?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "हर बार आवेदन पत्र देना जरूरी नहीं होता। कुछ बैंक निर्धारित KYC फॉर्म के माध्यम से और कुछ ऑनलाइन प्रक्रिया से KYC अपडेट करने की सुविधा देते हैं। यदि बैंक आवेदन पत्र मांगता है, तो उसके साथ आवश्यक दस्तावेज जमा करने चाहिए।"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "KYC दस्तावेज जमा करने के बाद बैंक खाते में KYC अपडेट होने में कितना समय लगता है?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "KYC अपडेट होने में लगने वाला समय बैंक की प्रक्रिया और दस्तावेजों के सत्यापन पर निर्भर करता है। दस्तावेज जमा करने के बाद बैंक से अपडेट की स्थिति की जानकारी ले सकते हैं।"
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<!-- ==================== PRO SITE HEADER ==================== -->
+<header class="site no-print">
+  <div class="bar">
+    <a class="brand" href="index.html">
+      <img src="favicon.png" alt="Application Helper Logo">
+      <div class="brand-text">
+        <strong>Application Helper</strong>
+        <span>औपचारिक पत्र, तुरंत तैयार करें</span>
+      </div>
+    </a>
+    <div class="acts">
+      <button class="ab" id="themeToggleBtn" type="button">
+        <span id="thIcon">🌙</span> <span id="thText">नाइट मोड</span>
+      </button>
+      <button class="ab tg" id="navToggle" type="button" aria-label="मेनू खोलें">☰</button>
+    </div>
+    <nav class="main" id="mainNav" aria-label="मुख्य नेविगेशन">
+      <a href="index.html">होम</a>
+      <a href="index.html#cats">पत्र लिखें</a>
+      <a href="articles.html">महत्वपूर्ण पेज</a>
+      <a href="about.html">हमारे बारे में</a>
+      <a href="contact.html">संपर्क करें</a>
+      <a href="privacy-policy.html">गोपनीयता नीति</a>
+      <a href="terms.html">नियम व शर्तें</a>
+      <a href="disclaimer.html">अस्वीकरण</a>
+    </nav>
+  </div>
+</header>
+
+<main class="page-wrap">
+  <!-- 1. पेज परिचय, SEO डेट एवं सुरक्षा सूचना (सही और बैलेंस्ड स्ट्रक्चर) -->
+  <section class="intro-card no-print" aria-label="आवेदन परिचय">
+    <div class="intro-top">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="index.html">होम</a> <span>›</span>
+        <a href="bank.html">बैंकिंग सेवाएं</a> <span>›</span>
+        <span>KYC / Re-KYC आवेदन फॉर्म</span>
+      </nav>
+      <div class="badge-group">
+        <span class="badge" id="bdgService">🏦 बैंकिंग सेवाएं (2026)</span>
+        <span class="badge badge-sec" id="bdgSec">🔒 100% सुरक्षित एवं निःशुल्क</span>
+      </div>
+    </div>
+
+    <h1 class="intro-title" id="mainHeading">बैंक खाते की KYC/Re-KYC करने हेतु आवेदन पत्र</h1>
+
+    <p class="art-meta-sub">
+      <span>लेखक: <strong>विशाल राज</strong></span>
+      <span>•</span>
+      <span>अपडेट: <time datetime="2026-11-16"><strong>16 नवंबर 2026</strong></time></span>
+    </p>
+
+    <p class="intro-desc" id="mainIntro">यदि बैंक की तरफ से फोन पर मैसेज आया है कि अपने बैंक खाते की केवाईसी या री-केवाईसी पूरी करें या केवाईसी ना होने के कारण पैसों का लेनदेन बंद हो गया है तो इस फॉर्म में अपनी बेसिक जानकारी दर्ज करके प्रिंट ले सकते हैं और अपने बैंक की केवाईसी या री-केवाईसी करने में यह फॉर्म आपकी मदद करेगा। </p>
+    
+    <div class="sec-note" id="secBanner">
+      <strong>NOTE:</strong> जो जानकारी आप ऑनलाइन नहीं भरना चाहते, उसे खाली छोड़ दें—प्रिंट में वहाँ हाथ से पेन द्वारा भरने के लिए अपने आप डॉटेड लाइन (......) छूट जाएगी।
+    </div>
+  </section>
+
+  <!-- मोबाइल टैब बटन -->
+  <div class="mobile-tabs no-print" role="tablist">
+    <button type="button" id="tabFormBtn" class="active" role="tab" aria-selected="true">✍️ 1. फॉर्म भरें</button>
+    <button type="button" id="tabPreviewBtn" role="tab" aria-selected="false">📄 2. पत्र देखें<span class="lbl-long"> व प्रिंट करें</span></button>
+  </div>
+
+  <!-- 2. मुख्य जनरेटर वर्कस्पेस -->
+  <div class="workspace show-form" id="workspaceGrid">
+    <section class="form-card no-print" aria-label="आवेदन फॉर्म">
+      <div class="form-head">
+        <h2 id="uiTitle">विवरण दर्ज करें</h2>
+        <button type="button" class="sample-btn" id="sampleBtn">✨ सैंपल भरें</button>
+      </div>
+
+      <label style="margin-top:0" id="lblLang">भाषा चुनें / Choose Language</label>
+      <div class="seg" role="radiogroup" aria-label="Language">
+        <label><input type="radio" name="lang" value="hi" checked><span id="optLangHi">हिंदी (Hindi)</span></label>
+        <label><input type="radio" name="lang" value="en"><span id="optLangEn">English</span></label>
+      </div>
+
+      <label id="lblGender">आवेदक का चयन</label>
+      <div class="seg" role="radiogroup" aria-label="आवेदक" id="genderWrap">
+        <label><input type="radio" name="g" value="m" checked><span id="gMale">पुरुष</span></label>
+        <label><input type="radio" name="g" value="f"><span id="gFemale">महिला</span></label>
+      </div>
+
+      <div id="fields"></div>
+
+      <label id="lblPageFit" style="margin-top:14px;">पेज भराव / प्रिंट फैलाव (A4 सेटिंग)</label>
+      <div class="seg" role="radiogroup" aria-label="Page Coverage" id="fitWrap">
+        <label><input type="radio" name="page_fit" value="fit80" checked><span id="optFit80">80% संतुलित</span></label>
+        <label><input type="radio" name="page_fit" value="fit90"><span id="optFit90">90% बड़ा</span></label>
+        <label><input type="radio" name="page_fit" value="compact"><span id="optFitCompact">कॉम्पैक्ट</span></label>
+      </div>
+
+      <div class="btns">
+        <button class="action-btn primary-btn" id="print" type="button">🖨️ प्रिंट / PDF सेव करें</button>
+        <button class="action-btn ghost-btn" id="clear" type="button">🔄 साफ़ करें</button>
+      </div>
+
+      <!-- व्हाट्सएप शेयर बटन -->
+      <a href="https://wa.me/?text=https%3A%2F%2Fapplicationhelper.in%2Fbank-kyc-rekyc-document-submission-application.html" target="_blank" rel="noopener noreferrer" class="whatsapp-sticker-btn" id="waShareBtn">
+        <span id="waText">🟢 WhatsApp पर शेयर करें</span>
+      </a>
+
+      <p class="hint" id="uiHint"></p>
+    </section>
+
+    <div class="preview-col">
+      <div class="preview-bar no-print">
+        <strong id="prevBarTitle">लाइव A4 पत्र प्रीव्यू (Editable)</strong>
+        <span id="prevBarHint">💡 पत्र पर सीधे क्लिक करके भी बदलाव कर सकते हैं</span>
+      </div>
+      <div class="fit-warn no-print" id="fitWarn" role="alert" hidden></div>
+      <div class="dirty-note no-print" id="dirtyNote" hidden>✏️ आपने पत्र में सीधे बदलाव किए हैं। अब फॉर्म में कुछ बदलेंगे तो ये बदलाव हट जाएंगे (पहले आपसे पूछा जाएगा)।</div>
+      <div class="sheetwrap">
+        <div class="print-url">https://applicationhelper.in</div>
+        <article class="paper" id="paper" contenteditable="true" spellcheck="false" aria-label="आवेदन पत्र पूर्वावलोकन"></article>
+      </div>
+      <div class="mobile-print-cta no-print">
+        <button type="button" class="action-btn primary-btn" id="mobilePrintBtn">🖨️ पत्र प्रिंट / PDF सेव करें</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. महत्वपूर्ण बिंदु एवं विस्तृत गाइड -->
+  <section class="guide-card no-print" aria-label="महत्वपूर्ण बिंदु एवं गाइड">
+    <div class="guide-header">
+      <div>
+        <span class="guide-tag">महत्वपूर्ण बिंदु एवं प्रक्रिया गाइड</span>
+        <h2>बैंक खाते में KYC / Re-KYC जमा करने के महत्वपूर्ण बिंदु</h2>
+      </div>
+    </div>
+    <p class="guide-overview">RBI के दिशा-निर्देशों के तहत प्रत्येक बैंक को समय-समय पर अपने ग्राहकों के पहचान और पते के दस्तावेजों का अद्यतन (Periodic Re-KYC) करना अनिवार्य होता है। समय पर KYC न देने पर खाता डेबिट-फ्रीज हो सकता है।</p>
+    <div class="guide-grid">
+      <div class="guide-box">
+        <h3>📋 1. आवश्यक दस्तावेज (Checklist)</h3>
+        <ul>
+          <li>पहचान एवं पते का प्रमाण: आधार कार्ड, वोटर आईडी, पासपोर्ट या ड्राइविंग लाइसेंस की फोटोकॉपी।</li>
+          <li>पैन कार्ड (PAN Card) या फॉर्म 60 की प्रति।</li>
+          <li>बैंक पासबुक की फोटोकॉपी और 1 नवीनतम पासपोर्ट साइज फोटो।</li>
+        </ul>
+      </div>
+      <div class="guide-box">
+        <h3>🏦 2. आवेदन जमा करने की प्रक्रिया</h3>
+        <ol>
+          <li>सभी फोटोकॉपी दस्तावेजों के नीचे अपने हस्ताक्षर करके 'Self-Attested' (स्व-प्रमाणित) अवश्य लिखें।</li>
+          <li>ऊपर दिए गए जनरेटर से आवेदन पत्र प्रिंट करके दस्तावेजों के ऊपर लगाएं और बैंक काउंटर पर जमा करें।</li>
+          <li>सत्यापन के लिए मूल (Original) आधार और पैन कार्ड साथ अवश्य रखें।</li>
+        </ol>
+      </div>
+      <div class="guide-box">
+        <h3>⚠️ 3. महत्वपूर्ण सावधानियां व नियम</h3>
+        <ul>
+          <li>कभी भी फोन कॉल, WhatsApp या अज्ञात लिंक पर किसी व्यक्ति को अपना OTP बताकर KYC अपडेट न करें—बैंक कभी कॉल पर OTP नहीं मांगता।</li>
+        </ul>
+      </div>
+     </div>
+  </section>
+
+  <!-- 5. अक्सर पूछे जाने वाले प्रश्न (FAQ) -->
+  <section class="guide-card no-print" id="faq" aria-label="अक्सर पूछे जाने वाले प्रश्न">
+    <div class="guide-header">
+      <div>
+        <h2>बैंक खाते की KYC/Re-KYC करने हेतु आवेदन पत्र – 4 महत्वपूर्ण FAQs</h2>
+      </div>
+    </div>
+    <div class="faq-list">
+      <details class="faq-item" name="faq">
+        <summary>बैंक में KYC अपडेट कराने के लिए कौन-कौन से दस्तावेज जरूरी होते हैं?</summary>
+        <div class="faq-a"><p>बैंक में KYC अपडेट कराने के लिए आधार कार्ड, पैन कार्ड, पासपोर्ट, वोटर आईडी या अन्य मान्य पहचान और पते का प्रमाण मांगा जा सकता है। आवश्यक दस्तावेज बैंक के नियमों पर निर्भर करते हैं।</p></div>
+      </details>
+      <details class="faq-item" name="faq">
+        <summary>बैंक खाते की Re-KYC कितने समय बाद करानी पड़ती है?</summary>
+        <div class="faq-a"><p>Re-KYC की जरूरत ग्राहक की जोखिम श्रेणी के अनुसार होती है। सामान्यतः कम जोखिम वाले ग्राहकों के लिए 10 वर्ष, मध्यम जोखिम वाले ग्राहकों के लिए 8 वर्ष और उच्च जोखिम वाले ग्राहकों के लिए 2 वर्ष में अपडेट की आवश्यकता होती है।</p></div>
+      </details>
+      <details class="faq-item" name="faq">
+        <summary>क्या बैंक में KYC अपडेट कराने के लिए आवेदन पत्र देना जरूरी है?</summary>
+        <div class="faq-a"><p>हर बार आवेदन पत्र देना जरूरी नहीं होता। कुछ बैंक निर्धारित KYC फॉर्म के माध्यम से और कुछ ऑनलाइन प्रक्रिया से KYC अपडेट करने की सुविधा देते हैं। यदि बैंक आवेदन पत्र मांगता है, तो उसके साथ आवश्यक दस्तावेज जमा करने चाहिए।</p></div>
+      </details>
+      <details class="faq-item" name="faq">
+        <summary>KYC दस्तावेज जमा करने के बाद बैंक खाते में KYC अपडेट होने में कितना समय लगता है?</summary>
+        <div class="faq-a"><p>KYC अपडेट होने में लगने वाला समय बैंक की प्रक्रिया और दस्तावेजों के सत्यापन पर निर्भर करता है। दस्तावेज जमा करने के बाद बैंक से अपडेट की स्थिति की जानकारी ले सकते हैं।</p></div>
+      </details>
+    </div>
+  </section>
+
+  <!-- 6. क्लीन ऑथर बॉक्स (Author Box for SEO & Trust) -->
+  <aside class="clean-author-box no-print" aria-label="लेखक का परिचय">
+    <div class="clean-author-head">
+      <div class="clean-author-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+          <circle cx="12" cy="7" r="4"></circle>
+        </svg>
+      </div>
+      <div>
+        <h3 class="clean-author-name">विशाल राज</h3>
+        <p class="clean-author-role">Founder &amp; Author – ApplicationHelper.in</p>
+      </div>
+    </div>
+    <p class="clean-author-bio">
+      विशाल राज सरकारी योजनाओं, ऑनलाइन आवेदन, बैंकिंग और जरूरी दस्तावेजों से जुड़ी जानकारी सरल हिंदी में प्रस्तुत करते हैं। उनका उद्देश्य पाठकों तक स्पष्ट और उपयोगी जानकारी पहुंचाना है।
+    </p>
+    <a href="about.html" class="clean-author-link">मेरे बारे में जानें →</a>
+  </aside>
+</main>
+
+<!-- ==================== PRO SITE FOOTER ==================== -->
+<footer class="pro-footer no-print">
+  <div class="footer-inner">
+    <p class="footer-copy">© <span id="yr">2026</span> ApplicationHelper.in — सभी अधिकार सुरक्षित। यह टूल केवल आपकी सुविधा के लिए है।</p>
+    <p class="footer-disc">हम किसी भी बैंक या सरकारी विभाग से आधिकारिक रूप से जुड़े नहीं हैं।</p>
+  </div>
+</footer>
+
+<script>
+(function(){var h=document.querySelector("header.site");if(!h)return;function s(){document.documentElement.style.setProperty("--hdr",h.offsetHeight+"px")}s();addEventListener("resize",s);if(window.ResizeObserver)new ResizeObserver(s).observe(h)})();
+</script>
+<script>
+var F_NAME=0, F_TYPE=1, F_WIDTH=2, F_MAX=3, F_NAME_EN=4, F_SAMPLE_HI=5, F_SAMPLE_EN=6;
+var SIG_LBL=0, SIG_KEY=1;
+var G_MALE=0, G_FEMALE=1;
+
+/* इस पेज (KYC / Re-KYC) के फ़ील्ड्स */
+var F={
+  bank:["बैंक का नाम","b",18,0,"Bank Name","State Bank of India","State Bank of India"],
+  branch:["शाखा का नाम / पता","t",14,0,"Branch Name / Address","मुख्य शाखा, हजरतगंज","Main Branch, Hazratganj"],
+  city:["शहर / जिला","t",12,0,"City / District","लखीमपुर खीरी (उ.प्र.)","Lakhimpur Kheri (U.P.)"],
+  name:["आवेदक का नाम","t",22,0,"Applicant Name","राजेश कुमार शर्मा","Rajesh Kumar Sharma"],
+  acc:["खाता संख्या","n",20,20,"Account Number","32540098765","32540098765"],
+  newmob:["नया मोबाइल नंबर","n",12,10,"New Mobile Number","9876543210","9876543210"],
+  atm_info:["कार्ड विवरण (अंतिम 4 अंक)","t",16,0,"Card Details (Last 4 Digits)","XXXX-XXXX-XXXX-4582","XXXX-XXXX-XXXX-4582"],
+  lostdate:["कार्ड खोने की तारीख","d",11,0,"Date Card Lost","12/11/2026","12/11/2026"],
+  chq:["चेक नंबर","n",10,12,"Cheque Number","458921","458921"],
+  date:["दिनांक","d",11,0,"Date","14/11/2026","14/11/2026"],
+  aadhar:["आधार न०","n",14,12,"Aadhaar No.","458912369874","458912369874"],
+  chq_pages:["चेकबुक के पृष्ठों की संख्या","t",12,0,"Number of Cheque Leaves","20 पृष्ठ (20 Leaves)","20 Leaves"],
+  lost_pb_date:["पासबुक खोने की अनुमानित तारीख","d",11,0,"Estimated Date Passbook Lost","10/11/2026","10/11/2026"],
+  new_branch:["नई शाखा का नाम","t",16,0,"New Branch Name","गोमती नगर शाखा","Gomti Nagar Branch"],
+  new_city:["नई शाखा का शहर / जिला","t",14,0,"New Branch City / District","लखनऊ","Lucknow"],
+  transfer_reason:["स्थानांतरण का कारण","t",20,0,"Reason for Transfer","निवास स्थान बदलने के कारण","Relocation of residence"],
+  email:["ईमेल आईडी","t",22,0,"Email ID","rajesh.sharma@example.com","rajesh.sharma@example.com"],
+  mob:["मोबाइल नंबर","n",12,10,"Mobile Number","9876543210","9876543210"],
+  doc_name:["जमा किया जा रहा दस्तावेज","t",20,0,"Document Submitted","आधार कार्ड एवं पैन कार्ड","Aadhaar Card & PAN Card"],
+  chq_date:["चेक की तारीख","d",11,0,"Date on Cheque","05/11/2026","05/11/2026"],
+  stop_reason:["भुगतान रोकने का कारण","t",20,0,"Reason for Stop Payment","भुगतान पहले ही ऑनलाइन कर दिया गया है","Payment already settled online"],
+  close_reason:["खाता बंद करने का कारण","t",20,0,"Reason for Account Closure","अन्य शहर में स्थानांतरित होने के कारण","Shifting to another city"],
+  balance_mode:["शेष राशि प्राप्त करने का तरीका","t",18,0,"Mode of Balance Payout","नकद / दूसरे खाते में ट्रांसफर","Cash / NEFT Transfer"],
+  nom_name:["नॉमिनी का नाम","t",20,0,"Nominee Name","सुनीता शर्मा","Sunita Sharma"],
+  nom_rel:["खाताधारक से संबंध","t",14,0,"Relationship with Account Holder","पत्नी","Wife"],
+  nom_dob:["नॉमिनी की जन्मतिथि","d",11,0,"Nominee Date of Birth","15/08/1992","15/08/1992"],
+  nom_addr:["नॉमिनी का पूरा पता","t",24,0,"Nominee Full Address","मकान नं. 42, सिविल लाइन्स, लखीमपुर खीरी","H.No. 42, Civil Lines, Lakhimpur Kheri"],
+  nom_mob:["नॉमिनी का मोबाइल नंबर","n",12,10,"Nominee Mobile Number","9876501234","9876501234"],
+  old_nom_name:["पुराने नॉमिनी का नाम","t",20,0,"Existing Nominee Name","रमेश चंद्र शर्मा","Ramesh Chandra Sharma"],
+  notice_date:["जानकारी होने की तारीख / समय","t",16,0,"Date / Time Fraud Noticed","13/11/2026, शाम 4:30 बजे","13/11/2026, 4:30 PM"],
+  tx_date:["लेन-देन की तारीख","d",11,0,"Transaction Date","13/11/2026","13/11/2026"],
+  tx_time:["लेन-देन का समय","t",10,0,"Transaction Time","दोपहर 03:15 बजे","03:15 PM"],
+  tx_amt:["राशि (₹)","n",10,10,"Amount (₹)","15000","15000"],
+  tx_id:["Transaction ID / UTR","t",18,0,"Transaction ID / UTR","331815489621","331815489621"],
+  tx_mode:["लेन-देन का माध्यम (UPI/कार्ड आदि)","t",16,0,"Mode of Transaction (UPI/Card etc.)","UPI / डेबिट कार्ड","UPI / Debit Card"],
+  tx_desc:["अनधिकृत लेन-देन का विवरण","t",24,0,"Incident / Transaction Description","बिना OTP साझा किए अज्ञात खाते में राशि कट गई","Amount debited without sharing OTP"],
+  name1:["खाताधारक 1 का नाम","t",20,0,"Account Holder 1 Name","राजेश कुमार शर्मा","Rajesh Kumar Sharma"],
+  name2:["खाताधारक 2 का नाम","t",20,0,"Account Holder 2 Name","मोहन लाल शर्मा","Mohan Lal Sharma"],
+  single_holder:["एकल खाताधारक के रूप में रखने वाले व्यक्ति का नाम","t",20,0,"Single Account Holder Name","राजेश कुमार शर्मा","Rajesh Kumar Sharma"],
+  loan_acc:["Loan Account Number (ऋण खाता संख्या)","t",20,0,"Loan Account Number","LN4008921547","LN4008921547"],
+  loan_type:["ऋण का प्रकार (होम/पर्सनल/वाहन आदि)","t",18,0,"Loan Type (Home/Personal/Auto etc.)","वाहन ऋण (Vehicle Loan)","Vehicle Loan"],
+  loan_paid_date:["ऋण पूर्ण चुकता करने की तारीख","d",11,0,"Date Loan Fully Repaid","01/11/2026","01/11/2026"],
+  place:["स्थान","t",14,0,"Place","लखीमपुर खीरी","Lakhimpur Kheri"],
+  freeze_reason:["खाता फ्रीज/होल्ड होने का कारण","t",22,0,"Reason for Account Freeze/Hold","KYC अद्यतन न होने या तकनीकी होल्ड के कारण","Pending KYC update or technical hold"]
+};
+var T_HI = {"t": "बैंक खाते की KYC/Re-KYC करने हेतु आवेदन पत्र", "s": "बैंक खाते की KYC / Re-KYC प्रक्रिया हेतु दस्तावेज जमा करने के संबंध में।", "p": ["सविनय निवेदन है कि मेरा नाम {name} है और मेरा आपके बैंक की {branch} शाखा में {acc} खाता संचालित है।", "मेरे बैंक खाते की KYC/Re-KYC प्रक्रिया पूरी करने के लिए आवश्यक दस्तावेज इस आवेदन पत्र के साथ प्रस्तुत कर रहा/रही हूँ।", "अतः आपसे अनुरोध है कि मेरे द्वारा प्रस्तुत दस्तावेजों को स्वीकार कर मेरे बैंक खाते की KYC/Re-KYC प्रक्रिया को नियमानुसार पूरा करने की कृपा करें।"], "sig": [["नाम", "name"], ["खाता संख्या", "acc"], ["मोबाइल नंबर", "mob"], ["दस्तावेज का नाम", "doc_name"], ["दिनांक", "date"], ["आधार न०", "aadhar"]]};
+var T_EN = {"t": "Application for Submitting KYC / Re-KYC Documents", "s": "Application regarding submission of documents for KYC / Re-KYC process.", "p": ["I respectfully state that my name is {name} and I maintain bank account number {acc} with your {branch} branch.", "I am submitting the required self-attested documents along with this application to complete the KYC / Re-KYC verification for my bank account.", "I kindly request you to accept these documents and update my KYC status in the bank records in accordance with regulations."], "sig": [["Name", "name"], ["Account No.", "acc"], ["Mobile No.", "mob"], ["Document Submitted", "doc_name"], ["Date", "date"], ["Aadhaar No.", "aadhar"]]};
+var IS_LONG_DEFAULT = 0;
+var BANKS = "Airtel Payments Bank|Andhra Pradesh Grameena Bank|AU Small Finance Bank|Axis Bank|Bandhan Bank|Bank of Baroda|Bank of India|Bank of Maharashtra|Baroda Gujarat Gramin Bank|Bihar Gramin Bank|Canara Bank|Central Bank of India|City Union Bank|Equitas Small Finance Bank|Federal Bank|Fino Payments Bank|HDFC Bank|ICICI Bank|IDFC FIRST Bank|India Post Payments Bank|Indian Bank|Indian Overseas Bank|IndusInd Bank|Jana Small Finance Bank|Karnataka Grameena Bank|Karur Vysya Bank|Kotak Mahindra Bank|Madhya Pradesh Gramin Bank|Maharashtra Gramin Bank|NSDL Payments Bank|Punjab & Sind Bank|Punjab Gramin Bank|Punjab National Bank|Rajasthan Gramin Bank|RBL Bank|South Indian Bank|State Bank of India|Telangana Grameena Bank|UCO Bank|Ujjivan Small Finance Bank|Union Bank of India|Uttar Pradesh Gramin Bank|West Bengal Gramin Bank|Yes Bank".split("|");
+
+(function(){
+  var $ = function(i){ return document.getElementById(i); };
+  var MOBILE_KEYS = {mob:1};
+
+  if($("yr")) $("yr").textContent = new Date().getFullYear();
+
+  /* मोबाइल नेविगेशन टॉगल */
+  var navToggle = $("navToggle"), mainNav = $("mainNav");
+  if(navToggle && mainNav){
+    navToggle.addEventListener("click", function(){
+      mainNav.classList.toggle("open");
+    });
+  }
+
+  var curLang = "hi";
+  try {
+    var savedLang = localStorage.getItem("app_lang");
+    if(savedLang === "en" || savedLang === "hi") curLang = savedLang;
+  } catch(e){}
+
+  var dark = !!(window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches);
+  try {
+    var savedTheme = localStorage.getItem("app_theme");
+    if(savedTheme === "dark" || savedTheme === "light"){
+      dark = savedTheme === "dark";
+      document.documentElement.setAttribute("data-theme", savedTheme);
+    }
+  } catch(e){}
+
+  var V = {};
+  var GEN = [["चाहता","चाहती"],["रहा","रही"]];
+  var isSampleActive = false;
+  var paperDirty = false;
+  var lastGender = "m";
+  var lastLang = curLang;
+
+  function updateThemeUI(){
+    var icon = $("thIcon"), txt = $("thText");
+    if(!icon || !txt) return;
+    icon.textContent = dark ? "☀️" : "🌙";
+    txt.textContent = dark ? (curLang === "en" ? "Light Mode" : "लाइट मोड") : (curLang === "en" ? "Night Mode" : "नाइट मोड");
+  }
+
+  var thBtn = $("themeToggleBtn");
+  if(thBtn){
+    thBtn.addEventListener("click", function(){
+      dark = !dark;
+      var mode = dark ? "dark" : "light";
+      document.documentElement.setAttribute("data-theme", mode);
+      try { localStorage.setItem("app_theme", mode); } catch(e){}
+      updateThemeUI();
+    });
+  }
+
+  function setTab(mode){
+    var ws = $("workspaceGrid"), bF = $("tabFormBtn"), bP = $("tabPreviewBtn");
+    if(!ws || !bF || !bP) return;
+    if(ws.getBoundingClientRect().top < 0) ws.scrollIntoView({block:"start"});
+    if(mode === "preview"){
+      ws.classList.remove("show-form");
+      ws.classList.add("show-preview");
+      bP.classList.add("active");
+      bF.classList.remove("active");
+      bP.setAttribute("aria-selected", "true");
+      bF.setAttribute("aria-selected", "false");
+      checkFit();
+    } else {
+      ws.classList.remove("show-preview");
+      ws.classList.add("show-form");
+      bF.classList.add("active");
+      bP.classList.remove("active");
+      bF.setAttribute("aria-selected", "true");
+      bP.setAttribute("aria-selected", "false");
+    }
+  }
+  if($("tabFormBtn")) $("tabFormBtn").addEventListener("click", function(){ setTab("form"); });
+  if($("tabPreviewBtn")) $("tabPreviewBtn").addEventListener("click", function(){ setTab("preview"); });
+
+  function getTpl(){ return curLang === "en" ? T_EN : T_HI; }
+  function esc(s){ return String(s).replace(/[&<>"]/g, function(c){ return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]; }); }
+
+  function setDirty(d){
+    paperDirty = d;
+    var n = $("dirtyNote");
+    if(n) n.hidden = !d;
+  }
+  function confirmLoss(){
+    if(!paperDirty) return true;
+    var msg = curLang === "en"
+      ? "You have edited the letter directly. Changing the form will rebuild the letter and remove those edits. Continue?"
+      : "आपने पत्र में सीधे बदलाव किए हैं। फॉर्म में बदलाव करने पर पत्र दोबारा बनेगा और वे बदलाव हट जाएंगे। क्या आप जारी रखना चाहते हैं?";
+    if(window.confirm(msg)){ setDirty(false); return true; }
+    return false;
+  }
+  $("paper").addEventListener("input", function(){ setDirty(true); });
+
+  function val(k){
+    var v = k === "bank" ? (V.bank === "custom" ? (V.bankc || "") : (V.bank || "")) : (V[k] || "");
+    v = v.trim();
+    if(v && F[k][F_TYPE] === "d" && v.indexOf("-") > -1){ v = v.split("-").reverse().join("/"); }
+    return v;
+  }
+
+  function f(k){
+    var v = val(k);
+    return v ? esc(v) : '<span class="blank" style="min-width:' + F[k][F_WIDTH] + 'ch"></span>';
+  }
+
+  function gen(s){
+    var fem = document.querySelector("input[name=g]:checked").value === "f";
+    if(curLang === "hi"){
+      GEN.forEach(function(g){ s = s.split(g[G_MALE] + "/" + g[G_FEMALE]).join(fem ? g[G_FEMALE] : g[G_MALE]); });
+    }
+    return s.replace(/\{(\w+)\}/g, function(_, k){ return f(k); });
+  }
+
+  function keys(t){
+    var k = ["bank","branch","city"], s = t.p.join(" ") + " " + t.sig.map(function(x){ return "{" + x[SIG_KEY] + "}"; }).join(" "), m, re = /\{(\w+)\}/g;
+    while((m = re.exec(s))) if(k.indexOf(m[1]) < 0) k.push(m[1]);
+    var endOrder = ["date","place","aadhar"];
+    var endKeys = endOrder.filter(function(x){ return t.sig.some(function(item){ return item[SIG_KEY] === x; }); });
+    return k.filter(function(x){ return endOrder.indexOf(x) < 0; }).concat(endKeys);
+  }
+
+  function updateWaLink(){
+    var wa = $("waShareBtn");
+    if(!wa) return;
+    var can = document.querySelector('link[rel="canonical"]');
+    var url = can && can.href ? can.href : location.href.split("#")[0];
+    var txt = curLang === "en"
+      ? "Create this application letter online for free: "
+      : "यह आवेदन पत्र ऑनलाइन निःशुल्क तैयार करें: ";
+    wa.href = "https://wa.me/?text=" + encodeURIComponent(txt + url);
+  }
+
+  function updateStaticUI(){
+    var isEn = curLang === "en";
+    $("uiTitle").innerText = isEn ? "Enter Details" : "विवरण दर्ज करें";
+    $("sampleBtn").innerText = isSampleActive
+      ? (isEn ? "✨ Clear Sample" : "✨ सैंपल हटाएं")
+      : (isEn ? "✨ Fill Sample" : "✨ सैंपल भरें");
+    $("lblLang").innerText = isEn ? "Choose Language" : "भाषा चुनें / Choose Language";
+    $("lblGender").innerText = isEn ? "Applicant Gender" : "आवेदक का चयन";
+    $("gMale").innerText = isEn ? "Male" : "पुरुष";
+    $("gFemale").innerText = isEn ? "Female" : "महिला";
+    $("print").innerText = isEn ? "🖨️ Print / Save PDF" : "🖨️ प्रिंट / PDF सेव करें";
+    if($("mobilePrintBtn")) $("mobilePrintBtn").innerText = isEn ? "🖨️ Print / Save PDF" : "🖨️ पत्र प्रिंट / PDF सेव करें";
+    $("clear").innerText = isEn ? "🔄 Clear" : "🔄 साफ़ करें";
+    $("lblPageFit").innerText = isEn ? "Page Coverage / A4 Size" : "पेज भराव / प्रिंट फैलाव (A4 सेटिंग)";
+    $("optFit80").innerText = isEn ? "80% Balanced" : "80% संतुलित";
+    $("optFit90").innerText = isEn ? "90% Large" : "90% बड़ा";
+    $("optFitCompact").innerText = isEn ? "Compact" : "कॉम्पैक्ट";
+    $("prevBarTitle").innerText = isEn ? "Live A4 Letter Preview (Editable)" : "लाइव A4 पत्र प्रीव्यू (Editable)";
+    $("prevBarHint").innerText = isEn ? "💡 You can also click on the letter to edit it" : "💡 पत्र पर सीधे क्लिक करके भी बदलाव कर सकते हैं";
+    $("dirtyNote").innerText = isEn
+      ? "✏️ You have edited the letter directly. If you change the form now, those edits will be removed (you will be asked first)."
+      : "✏️ आपने पत्र में सीधे बदलाव किए हैं। अब फॉर्म में कुछ बदलेंगे तो ये बदलाव हट जाएंगे (पहले आपसे पूछा जाएगा)।";
+    if($("waText")) $("waText").innerText = isEn ? "🟢 Share on WhatsApp" : "🟢 WhatsApp पर शेयर करें";
+    var langRadio = document.querySelector('input[name=lang][value="' + curLang + '"]');
+    if(langRadio) langRadio.checked = true;
+    updateWaLink();
+    updateThemeUI();
+  }
+
+  function applyFit(){
+    var p = $("paper");
+    p.classList.remove("compact", "fit-90");
+    var fitEl = document.querySelector("input[name=page_fit]:checked");
+    var fitVal = fitEl ? fitEl.value : "fit80";
+    if(fitVal === "fit90") p.classList.add("fit-90");
+    else if(fitVal === "compact") p.classList.add("compact");
+    else if(IS_LONG_DEFAULT) p.classList.add("compact");
+  }
+
+  function checkFit(){
+    var p = $("paper"), w = $("fitWarn");
+    if(!p || !w) return;
+    var width = p.offsetWidth, over = false;
+    if(width > 0) over = p.offsetHeight > width * 297 / 210 + 3;
+    if(!over){ w.hidden = true; return; }
+    var en = curLang === "en", compact = p.classList.contains("compact");
+    if(compact){
+      w.textContent = en
+        ? "⚠️ The letter is still longer than one A4 page. Please shorten some text, otherwise it will print on 2 pages."
+        : "⚠️ पत्र कॉम्पैक्ट में भी एक A4 पेज से लंबा है। कृपया कुछ टेक्स्ट छोटा करें, वरना प्रिंट 2 पेज में जाएगा।";
+    } else {
+      w.textContent = en
+        ? "⚠️ The letter is longer than one A4 page. Choose “Compact” under Page Coverage or shorten some text."
+        : "⚠️ पत्र एक A4 पेज से लंबा हो रहा है। “पेज भराव” में “कॉम्पैक्ट” चुनें या कुछ टेक्स्ट छोटा करें।";
+    }
+    w.hidden = false;
+  }
+
+  function render(){
+    var t = getTpl();
+    var fem = document.querySelector("input[name=g]:checked").value === "f";
+    var leftSig = [], rightSig = [];
+    t.sig.forEach(function(x){
+      if(x[SIG_KEY] === "date" || x[SIG_KEY] === "aadhar" || x[SIG_KEY] === "place") leftSig.push(x);
+      else rightSig.push(x);
+    });
+
+    applyFit();
+
+    var isEn = curLang === "en";
+    var toLine1 = isEn ? "To," : "सेवा में,";
+    var toLine2 = t.a ? t.a : (isEn ? "The Branch Manager," : "शाखा प्रबंधक महोदय/महोदया,");
+    var subjLbl = isEn ? "Subject:" : "विषय:";
+    var salutation = isEn ? "Respected Sir/Madam," : "महोदय/महोदया,";
+    var thanks = isEn ? "Thanking you," : "धन्यवाद।";
+    var closing = isEn ? "Yours faithfully," : (fem ? "भवदीया," : "भवदीय,");
+    var sigLbl = isEn ? "Signature:" : "हस्ताक्षर:";
+
+    var encHtml = "";
+    if(t.enc){
+      encHtml = '<p class="enc"><b>' + t.enc[0] + "</b> " +
+        t.enc[1].map(function(x, i){ return (i + 1) + ". " + x; }).join("; ") + "</p>";
+    }
+
+    $("paper").innerHTML =
+      "<h2>" + t.t + "</h2>" +
+      '<div class="to">' + toLine1 + "<br>" + toLine2 + "<br>" + f("bank") + "<br>" + f("branch") + ", " + f("city") + "</div>" +
+      "<p><b>" + subjLbl + "</b> " + t.s + "</p><p>" + salutation + "</p>" +
+      t.p.map(function(x){ return "<p>" + gen(x) + "</p>"; }).join("") +
+      "<p>" + thanks + "</p>" +
+      '<div class="sig">' +
+        '<div class="left">' +
+          leftSig.map(function(x){ return x[SIG_LBL] + ": " + f(x[SIG_KEY]) + "<br>"; }).join("") +
+        "</div>" +
+        '<div class="b">' + closing + "<br>" +
+          rightSig.map(function(x){ return x[SIG_LBL] + ": " + f(x[SIG_KEY]) + "<br>"; }).join("") +
+          sigLbl + ' <span class="blank" style="min-width:16ch"></span>' +
+        "</div>" +
+      "</div>" + encHtml;
+
+    setDirty(false);
+    checkFit();
+  }
+
+  function build(){
+    var h = "";
+    var t = getTpl();
+    var isEn = curLang === "en";
+    keys(t).forEach(function(k){
+      var d = F[k], id = "f_" + k, v = V[k] || "";
+      var lbl = isEn ? (d[F_NAME_EN] || d[F_NAME]) : d[F_NAME];
+      if(k === "bank"){
+        var optDefault = isEn ? "-- Select Bank --" : "-- बैंक चुनें --";
+        var optCustom = isEn ? "Other — Write Bank Name Manually" : "अन्य — बैंक का नाम खुद लिखें";
+        var phCustom = isEn ? "Write Bank Name" : "बैंक का नाम लिखें";
+        h += '<label for="bankSel">' + lbl + '</label><select id="bankSel"><option value="">' + optDefault + '</option>' +
+          BANKS.map(function(b){ return '<option value="' + esc(b) + '"' + (V.bank === b ? " selected" : "") + ">" + esc(b) + "</option>"; }).join("") +
+          '<option value="custom"' + (V.bank === "custom" ? " selected" : "") + '>' + optCustom + '</option></select>' +
+          '<input id="f_bankc" type="text" placeholder="' + phCustom + '" style="margin-top:8px" value="' + esc(V.bankc || "") + '"' + (V.bank === "custom" ? "" : " hidden") + ">";
+        return;
+      }
+      if(d[F_TYPE] === "d"){
+        h += '<label for="' + id + '">' + lbl + '</label><input id="' + id + '" type="text" inputmode="numeric" placeholder="DD/MM/YYYY" maxlength="10" autocomplete="off" value="' + esc(v) + '">';
+      } else {
+        h += '<label for="' + id + '">' + lbl + '</label><input id="' + id + '" type="' + (d[F_TYPE] === "n" ? "tel" : "text") + '"' + (d[F_TYPE] === "n" ? ' inputmode="numeric" maxlength="' + d[F_MAX] + '"' : "") + ' autocomplete="off" value="' + esc(v) + '">';
+      }
+      if(MOBILE_KEYS[k]){
+        h += '<small class="field-err" id="err_' + k + '" role="alert" hidden></small>';
+      }
+    });
+    $("fields").innerHTML = h;
+    Object.keys(MOBILE_KEYS).forEach(function(k){ validateField(k, false); });
+  }
+
+  function validateField(k, final){
+    var el = $("err_" + k);
+    if(!el) return;
+    var v = (V[k] || "").trim(), msg = "", en = curLang === "en";
+    if(v && MOBILE_KEYS[k]){
+      if(v.length >= 1 && !/^[6-9]/.test(v)){
+        msg = en ? "Mobile number should start with 6, 7, 8 or 9." : "मोबाइल नंबर 6, 7, 8 या 9 से शुरू होना चाहिए।";
+      } else if(final && v.length < 10){
+        msg = en ? "Mobile number must be 10 digits." : "मोबाइल नंबर 10 अंकों का होना चाहिए।";
+      }
+    }
+    el.textContent = msg;
+    el.hidden = !msg;
+  }
+
+  $("fields").addEventListener("input", function(e){
+    var id = e.target.id; if(!id || id === "bankSel") return;
+    var k = id.slice(2);
+    if(paperDirty && !confirmLoss()){ e.target.value = V[k] || ""; return; }
+    if(k !== "bankc" && F[k]){
+      if(F[k][F_TYPE] === "n") e.target.value = e.target.value.replace(/\D/g, "");
+      if(F[k][F_TYPE] === "d"){
+        var digits = e.target.value.replace(/\D/g, "").slice(0, 8);
+        if(digits.length > 4) e.target.value = digits.slice(0,2) + "/" + digits.slice(2,4) + "/" + digits.slice(4);
+        else if(digits.length > 2) e.target.value = digits.slice(0,2) + "/" + digits.slice(2);
+        else e.target.value = digits;
+      }
+    }
+    V[k] = e.target.value;
+    validateField(k, false);
+    render();
+  });
+
+  $("fields").addEventListener("focusout", function(e){
+    var id = e.target.id;
+    if(id && id.indexOf("f_") === 0) validateField(id.slice(2), true);
+  });
+
+  $("fields").addEventListener("change", function(e){
+    if(e.target.id !== "bankSel") return;
+    if(paperDirty && !confirmLoss()){ e.target.value = V.bank || ""; return; }
+    V.bank = e.target.value;
+    var c = $("f_bankc");
+    if(c){
+      c.hidden = V.bank !== "custom";
+      if(!c.hidden) c.focus();
+    }
+    render();
+  });
+
+  $("sampleBtn").addEventListener("click", function(){
+    if(!confirmLoss()) return;
+    var t = getTpl();
+    var isEn = curLang === "en";
+    if(!isSampleActive){
+      keys(t).forEach(function(k){
+        if(F[k]) V[k] = isEn ? F[k][F_SAMPLE_EN] : F[k][F_SAMPLE_HI];
+      });
+      isSampleActive = true;
+    } else {
+      V = {};
+      isSampleActive = false;
+    }
+    updateStaticUI();
+    build();
+    render();
+  });
+
+  document.querySelectorAll("input[name=g]").forEach(function(r){
+    r.addEventListener("change", function(){
+      if(!confirmLoss()){
+        var back = document.querySelector('input[name=g][value="' + lastGender + '"]');
+        if(back) back.checked = true;
+        return;
+      }
+      lastGender = this.value;
+      render();
+    });
+  });
+
+  document.querySelectorAll("input[name=page_fit]").forEach(function(r){
+    r.addEventListener("change", function(){ applyFit(); checkFit(); });
+  });
+
+  document.querySelectorAll("input[name=lang]").forEach(function(r){
+    r.addEventListener("change", function(){
+      if(!confirmLoss()){
+        var back = document.querySelector('input[name=lang][value="' + lastLang + '"]');
+        if(back) back.checked = true;
+        return;
+      }
+      curLang = document.querySelector("input[name=lang]:checked").value;
+      lastLang = curLang;
+      try { localStorage.setItem("app_lang", curLang); } catch(e){}
+      updateStaticUI();
+      build();
+      render();
+    });
+  });
+
+  function doPrint(){
+    var h2 = $("paper") ? $("paper").querySelector("h2") : null;
+    if(h2 && h2.innerText && h2.innerText.trim()) document.title = h2.innerText.trim();
+    window.print();
+  }
+  window.addEventListener("beforeprint", function(){
+    var h2 = $("paper") ? $("paper").querySelector("h2") : null;
+    if(h2 && h2.innerText && h2.innerText.trim()) document.title = h2.innerText.trim();
+  });
+  $("print").addEventListener("click", doPrint);
+  if($("mobilePrintBtn")) $("mobilePrintBtn").addEventListener("click", doPrint);
+
+  $("clear").addEventListener("click", function(){
+    if(!confirmLoss()) return;
+    V = {};
+    isSampleActive = false;
+    updateStaticUI();
+    build();
+    render();
+  });
+
+  updateStaticUI();
+  build();
+  render();
+  if(document.fonts && document.fonts.ready) document.fonts.ready.then(checkFit);
+})();
+</script>
+</body>
+</html>
