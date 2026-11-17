@@ -1074,6 +1074,12 @@ footer.pro-footer{
   }
   .paper.compact .enc{margin-top:.8em !important}
 }
+
+/* Related applications */
+.guide-tag{display:inline-block;font-size:.78rem;font-weight:600;color:var(--accent);background:var(--accent-soft);border:1px solid var(--accent-border);border-radius:20px;padding:2px 10px;margin-bottom:6px}
+.rel-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:10px}
+a.clean-link{display:block;padding:12px 14px;background:var(--panel-alt);border:1px solid var(--line);border-radius:10px;color:var(--body-ink);text-decoration:none;font-weight:500;line-height:1.5;transition:border-color .2s,color .2s}
+a.clean-link:hover{border-color:var(--accent);color:var(--accent)}
 </style>
 
 <!-- SEO Structured Data: Article + Breadcrumb + FAQPage -->
@@ -1223,7 +1229,7 @@ footer.pro-footer{
       <span>अपडेट: <time datetime="2026-11-16"><strong>16 नवंबर 2026</strong></time></span>
     </p>
 
-    <p class="intro-desc" id="mainIntro">यदि आपका बैंक के साथ लिंक मोबाइल नंबर खो गया है या बंद हो गया है और अब आप अपना नया मोबाइल नंबर अपने बैंक खाते में लिंक करना चाहते हैं, तो नीचे दिए गए फॉर्म में अपनी बेसिक जानकारी दर्ज करके तुरंत A4 साइज में प्रिंट निकाल सकते हैं।</p>
+    <p class="intro-desc" id="mainIntro">यदि आपके बैंक खाते से लिंक मोबाइल नंबर खो गया है या बंद हो चुका है और अब आप अपना नया मोबाइल नंबर अपने बैंक खाते के साथ लिंक करवाना चाहते हैं तो नीचे दिए गए फॉर्म में अपनी बेसिक जानकारी दर्ज करके प्रिंट निकाल कर इस्तेमाल कर सकते हैं जो आपको अपने बैंक खाते में मोबाइल नंबर लिंक करने में महत्वपूर्ण भूमिका निभायेगा। </p>
     
     <div class="sec-note" id="secBanner">
       <strong>Note:</strong> जो जानकारी आप ऑनलाइन नहीं भरना चाहते, उसे खाली छोड़ दें—प्रिंट में वहाँ हाथ से पेन द्वारा भरने के लिए अपने आप डॉटेड लाइन (......) छूट जाएगी।
@@ -1307,7 +1313,7 @@ footer.pro-footer{
       <div class="guide-box">
         <h3>📋 1. आवश्यक दस्तावेज</h3>
         <ul>
-          <li>पहचान एवं पते के प्रमाण (ID Proof) की स्व-प्रमाणित फोटोकॉपी।</li>
+          <li>पहचान एवं पते के प्रमाण की स्व-प्रमाणित फोटोकॉपी।</li>
           <li>बैंक पासबुक के प्रथम पृष्ठ की फोटोकॉपी (जिस पर खाता संख्या और फोटो स्पष्ट हो)।</li>
           <li>नया चालू मोबाइल नंबर (जिस पर तुरंत वेरिफिकेशन OTP प्राप्त हो सके)।</li>
           <li>बैंक शाखा जाते समय सत्यापन हेतु सभी मूल (Original) दस्तावेज भी साथ रखें।</li>
@@ -1318,41 +1324,15 @@ footer.pro-footer{
         <ol>
           <li>ऊपर दिए गए जनरेटर से अपना आवेदन पत्र प्रिंट करें और नीचे अपने वही हस्ताक्षर करें जो बैंक रिकॉर्ड में दर्ज हैं।</li>
           <li>आवेदन पत्र के साथ अपने पहचान पत्र और पासबुक की फोटोकॉपी संलग्न करें।</li>
-          <li>अपनी बैंक शाखा (Home Branch) में जाकर संबंधित काउंटर पर फॉर्म जमा करें।</li>
-          <li>अधिकतर बैंकों में मोबाइल नंबर 24 से 48 घंटों में अपडेट हो जाता है (यह आपके बैंक की प्रक्रिया पर निर्भर करता है)।</li>
+          <li>अपनी बैंक शाखा में जाकर संबंधित काउंटर पर फॉर्म जमा करें।</li>
+          <li>अधिकतर बैंकों में मोबाइल नंबर 24 से 48 कार्य-घंटों में अपडेट हो जाता है यह आपके बैंक की प्रक्रिया पर निर्भर करता है।</li>
         </ol>
       </div>
     </div>
   </section>
 
-  <!-- 4. बटन एवं टूल गाइड -->
-  <section class="guide-card no-print" id="toolGuide" aria-label="टूल का उपयोग कैसे करें">
-    <div class="guide-header">
-      <div>
-        <h2>इस पेज के बटन और टूल का उपयोग कैसे करें</h2>
-      </div>
-    </div>
-    <div class="guide-grid">
-      <div class="guide-box">
-        <h3>⚙️ यह टूल कैसे काम करता है?</h3>
-        <ol>
-          <li><strong>फॉर्म भरें:</strong> लिस्ट से अपना बैंक चुनें और नाम, खाता संख्या, नया मोबाइल नंबर आदि विवरण दर्ज करें।</li>
-          <li><strong>पत्र अपने आप बनता है:</strong> आप जैसे ही कुछ टाइप करते हैं, A4 पत्र उसी समय तैयार हो जाता है (लैपटॉप पर दाईं ओर, और मोबाइल पर दूसरे टैब में)।</li>
-          <li><strong>प्रिंट या PDF सेव करें:</strong> पत्र की जाँच कर लें और "प्रिंट / PDF सेव करें" बटन दबाकर सीधे कागज पर प्रिंट निकालें या मोबाइल में सेव करें।</li>
-        </ol>
-      </div>
-      <div class="guide-box">
-        <h3>✨ मुख्य सुविधाएं (Key Features)</h3>
-        <ul>
-          <li><strong>हिंदी और English दोनों में:</strong> एक क्लिक में पूरे आवेदन पत्र की भाषा हिंदी या अंग्रेजी में बदलें।</li>
-          <li><strong>सीधे एडिट करने की सुविधा:</strong> प्रिव्यू पेपर पर क्लिक करके आप किसी भी वाक्य को अपने अनुसार बदल या जोड़ सकते हैं।</li>
-          <li><strong>100% गोपनीयता:</strong> आपकी कोई भी व्यक्तिगत जानकारी किसी सर्वर पर सेव नहीं होती, सब कुछ आपके ब्राउज़र में ही सुरक्षित रहता है।</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- 5. अक्सर पूछे जाने वाले प्रश्न (FAQ) -->
+ 
+  <!-- 4. अक्सर पूछे जाने वाले प्रश्न (FAQ) -->
   <section class="guide-card no-print" id="faq" aria-label="अक्सर पूछे जाने वाले प्रश्न">
     <div class="guide-header">
       <div>
@@ -1377,6 +1357,21 @@ footer.pro-footer{
         <div class="faq-a"><p>फॉर्म में नीचे दिए गए <strong>पेज भराव (A4 सेटिंग)</strong> विकल्प में <strong>“कॉम्पैक्ट”</strong> चुनें, इससे अक्षर और लाइन स्पेसिंग स्वतः संतुलित होकर पूरा पत्र एक ही A4 पेज में सेट हो जाता है।</p></div>
       </details>
     </div>
+  </section>
+
+
+
+<section class="guide-card no-print" aria-label="संबंधित आवेदन पत्र">
+    <div class="guide-header">
+      <div>
+        <span class="guide-tag">संबंधित आवेदन पत्र</span>
+        <h2>बैंक विभाग से जुड़े अन्य आवेदन</h2>
+      </div>
+    </div>
+    <div class="rel-grid">
+      <a href="bank-kyc-rekyc-document-submission-application.html" class="clean-link">👉 KYC / Re-KYC दस्तावेज जमा करने हेतु आवेदन पत्र</a>
+      <a href="bank-savings-account-closure-application.html" class="clean-link">👉 बैंक खाता स्थायी रूप से बंद कराने हेतु आवेदन पत्र</a>
+     </div>
   </section>
 
   <!-- 6. क्लीन ऑथर बॉक्स (Author Box for SEO & Trust) -->
@@ -1436,7 +1431,8 @@ var T_HI = {
     "मैं अपने बैंक खाते में पंजीकृत मोबाइल नंबर को बदलकर नया मोबाइल नंबर {newmob} अपडेट कराना चाहता/चाहती हूँ। अतः आपसे अनुरोध है कि मेरे बैंक खाते में यह मोबाइल नंबर पंजीकृत करने की कृपा करें, ताकि मुझे बैंक खाते से संबंधित लेन-देन एवं अन्य आवश्यक सूचनाएं समय पर प्राप्त हो सकें।",
     "आवश्यक दस्तावेज आवेदन के साथ संलग्न हैं। कृपया आवश्यक प्रक्रिया पूरी कर मेरे खाते में नया मोबाइल नंबर अपडेट करने की कृपा करें।"
   ],
-  "sig": [["नाम", "name"], ["खाता संख्या", "acc"], ["नया मोबाइल नंबर", "newmob"], ["दिनांक", "date"], ["पहचान पत्र नं.", "idnum"]]
+  "sig": [["नाम", "name"], ["खाता संख्या", "acc"], ["नया मोबाइल नंबर", "newmob"], ["दिनांक", "date"], ["पहचान पत्र नं.", "idnum"]],
+  "enc": ["संलग्नक:", ["वैध पहचान पत्र की स्व-प्रमाणित फोटोकॉपी", "बैंक पासबुक के प्रथम पृष्ठ की फोटोकॉपी"]]
 };
 var T_EN = {
   "t": "Application for Updating Mobile Number in Bank Account",
