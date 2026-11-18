@@ -7,15 +7,15 @@
   <meta name="p:domain_verify" content="0553254cd5944d8cf5a6c5f9f124f50f">
   <title>Application Helper — औपचारिक पत्र जनरेटर</title>
   <link rel="canonical" href="https://applicationhelper.in/">
-
-  <!-- गूगल एनालिटिक्स टैग -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-W0GLC3GJGZ"></script>
+  <meta name="theme-color" content="#1f4e8c">
+  <script>try{if(localStorage.getItem("app_theme")==="dark")document.documentElement.setAttribute("data-theme","dark")}catch(e){}</script>
+  <!-- Analytics (पेज लोड होने के बाद) -->
   <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-W0GLC3GJGZ');
-    gtag('config', 'G-DHYSQKK072');
+    window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}
+    window.addEventListener("load",function(){
+      var go=function(){var g=document.createElement("script");g.async=true;g.src="https://www.googletagmanager.com/gtag/js?id=G-W0GLC3GJGZ";document.head.appendChild(g);gtag("js",new Date());gtag("config","G-W0GLC3GJGZ");gtag("config","G-DHYSQKK072")};
+      "requestIdleCallback" in window?requestIdleCallback(go,{timeout:3000}):setTimeout(go,1500);
+    });
   </script>
 
   <!-- 1. मेटा विवरण व साइट नेम -->
@@ -64,144 +64,144 @@
   }
   </script>
 
-  <!-- स्पीड के लिए गूगल फॉन्ट्स प्रीकनेक्ट -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap">
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-  <noscript>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap" rel="stylesheet">
-  </noscript>
-
   <style>
-    /* थीम कलर्स */
-    :root, :root[data-theme="light"] {
-      color-scheme: light;
-      --bg: #eef1f5;
-      --card: #ffffff;
-      --inp: #ffffff;
-      --bd: #cfd6df;
-      --tx: #1b2430;
-      --mu: #5a6675;
-      --pr: #1f4e8c;
-      --prh: #173d6e;
-      --br: #1f4e8c;
-      --paper: #ffffff;
-      --sh: 0 4px 18px rgba(0,0,0,.06);
-      --badge-bg: #e6f0fa;
-      --badge-tx: #1f4e8c;
-      --free-bg: #e3f9eb;
-      --free-tx: #0d6832;
-    }
-    :root[data-theme="dark"] {
-      color-scheme: dark;
-      --bg: #12161c;
-      --card: #1c222b;
-      --inp: #242c38;
-      --bd: #333c48;
-      --tx: #e8edf3;
-      --mu: #9aa6b4;
-      --pr: #6ea3e6;
-      --prh: #8cb8f0;
-      --br: #6ea3e6;
-      --paper: #1c222b;
-      --sh: 0 6px 24px rgba(0,0,0,.45);
-      --badge-bg: rgba(59, 130, 246, 0.18);
-      --badge-tx: #93c5fd;
-      --free-bg: rgba(16, 185, 129, 0.18);
-      --free-tx: #6ee7b7;
-    }
+:root,:root[data-theme="light"]{color-scheme:light;--bg:#f5f7fa;--card:#fff;--inp:#fff;--bd:#dde3ea;--tx:#1a2330;--mu:#5b6776;--pr:#1f4e8c;--prh:#173d6e;--br:#1f4e8c;--paper:#fff;--sh:0 1px 3px rgba(16,24,40,.07);--badge-bg:#e8f0fa;--badge-tx:#1f4e8c;--free-bg:#e6f6ec;--free-tx:#0d6832}
+:root[data-theme="dark"]{color-scheme:dark;--bg:#12161c;--card:#1b2129;--inp:#232b36;--bd:#313a47;--tx:#e8edf3;--mu:#9aa6b4;--pr:#6ea3e6;--prh:#8cb8f0;--br:#6ea3e6;--paper:#1b2129;--sh:0 1px 3px rgba(0,0,0,.4);--badge-bg:rgba(59,130,246,.18);--badge-tx:#93c5fd;--free-bg:rgba(16,185,129,.18);--free-tx:#6ee7b7}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+html,body{margin:0;min-height:100%}
+body{background:var(--bg);color:var(--tx);font-family:system-ui,-apple-system,"Segoe UI","Nirmala UI","Kohinoor Devanagari","Noto Sans Devanagari",Mangal,Roboto,Arial,sans-serif;font-size:16px;line-height:1.65;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+h1,h2,h3{color:var(--pr);margin:0 0 .5em;font-weight:700;line-height:1.35}
+h1{font-size:clamp(1.55rem,4.5vw,2.2rem)}
+h2{font-size:clamp(1.25rem,3.5vw,1.6rem)}
+.wrap{max-width:1100px;margin:0 auto;padding:0 20px}
+a{color:var(--pr)}
 
-    *,*::before,*::after{box-sizing:border-box}
-    html,body{margin:0;min-height:100%}
-    body{background:var(--bg);color:var(--tx);font-family:"Noto Sans Devanagari",system-ui,sans-serif;line-height:1.7;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);transition:background-color .25s,color .25s}
-    h1,h2,h3{color:var(--pr);margin:0 0 .5em;font-weight:700}
-    .wrap{max-width:1100px;margin:0 auto;padding:0 20px}
-    
-    /* स्थिर (Blink-Free) और सिंगल-लाइन मोबाइल हेडर */
-    header.site{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:var(--card);border-bottom:1px solid var(--bd);transform:translateZ(0)}
-    .bar{max-width:1100px;margin:0 auto;padding:10px 20px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
-    .brand{display:flex;flex-direction:row;align-items:center;gap:10px;color:var(--pr);text-decoration:none;cursor:pointer;flex-shrink:0}
-    .brand img{width:38px;height:38px;border-radius:8px;object-fit:contain;flex-shrink:0}
-    .brand-text{display:flex;flex-direction:column;min-width:0}
-    .brand strong{font-size:1.15rem;line-height:1.2;font-weight:700}
-    .brand span{font-size:.75rem;color:var(--mu)}
-    .acts{display:flex;gap:8px;align-items:center;flex-shrink:0}
-    .ab{background:var(--bg);border:1px solid var(--bd);color:var(--tx);border-radius:20px;padding:6px 14px;font:600 .84rem inherit;cursor:pointer;display:inline-flex;align-items:center;gap:6px;transition:border-color .2s,color .2s,background-color .2s;white-space:nowrap}
-    .ab:hover{border-color:var(--pr);color:var(--pr)}
-    nav.main{display:flex;gap:4px;flex-wrap:wrap;align-items:center}
-    nav.main button,nav.main a{background:none;border:0;cursor:pointer;font-family:inherit;font-size:.88rem;font-weight:500;color:var(--mu);padding:6px 10px;border-radius:6px;transition:color .2s,background-color .2s;text-decoration:none;display:inline-flex;align-items:center;white-space:nowrap}
-    nav.main button:hover,nav.main button[aria-current],nav.main a:hover{color:var(--pr);background:var(--bg)}
-    .tg{display:none}
-    @media(max-width:980px){
-      .tg{display:inline-flex}
-      nav.main{display:none;width:100%;flex-direction:column;align-items:stretch;padding-top:8px;border-top:1px solid var(--bd);margin-top:4px}
-      nav.main.open{display:flex}
-    }
-    /* मोबाइल पर लोगो और दोनों बटन एक ही लाइन में रखने के लिए */
-    @media(max-width:520px){
-      .bar{padding:8px 12px;gap:6px}
-      .brand{gap:8px;min-width:0;flex:1}
-      .brand img{width:32px;height:32px}
-      .brand strong{font-size:1rem;white-space:nowrap}
-      .brand span{font-size:.68rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-      .acts{gap:6px}
-      .ab{padding:5px 10px;font-size:.78rem}
-    }
+header.site{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:var(--card);border-bottom:1px solid var(--bd)}
+.bar{max-width:1100px;margin:0 auto;padding:10px 20px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:10px;color:var(--pr);text-decoration:none;min-width:0}
+.brand img{width:36px;height:36px;border-radius:8px;object-fit:contain;flex-shrink:0}
+.brand-text{display:flex;flex-direction:column;min-width:0}
+.brand strong{font-size:1.1rem;line-height:1.25}
+.brand span{font-size:.75rem;color:var(--mu);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.acts{display:flex;gap:8px;align-items:center;flex-shrink:0}
+.ab{background:var(--bg);border:1px solid var(--bd);color:var(--tx);border-radius:8px;padding:7px 12px;font-family:inherit;font-weight:600;font-size:.84rem;cursor:pointer;display:inline-flex;align-items:center;gap:6px;white-space:nowrap;min-height:38px}
+.ab:hover{border-color:var(--pr);color:var(--pr)}
+nav.main{display:flex;gap:2px;flex-wrap:wrap;align-items:center}
+nav.main a,nav.main button{background:none;border:0;cursor:pointer;font-family:inherit;font-size:.88rem;font-weight:500;color:var(--mu);padding:8px 10px;border-radius:6px;text-decoration:none;white-space:nowrap}
+nav.main a:hover,nav.main button:hover{color:var(--pr);background:var(--bg)}
+.tg{display:none}
+@media(max-width:980px){
+  .tg{display:inline-flex}
+  nav.main{display:none;width:100%;flex-direction:column;align-items:stretch;gap:0;border-top:1px solid var(--bd);margin-top:4px;padding-top:6px}
+  nav.main.open{display:flex}
+  nav.main a{padding:12px 8px;font-size:.95rem;border-bottom:1px solid var(--bd);border-radius:0}
+}
+@media(max-width:520px){
+  .bar{padding:8px 14px;gap:8px}
+  .brand{flex:1;gap:8px}
+  .brand img{width:32px;height:32px}
+  .brand strong{font-size:1rem}
+  .brand span{font-size:.68rem}
+  .ab{padding:6px 10px;font-size:.78rem}
+  .wrap{padding:0 14px}
+}
 
-    .page{display:none;padding:32px 0}.page.active{display:block}
-    .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font:600 .95rem inherit;padding:10px 18px;border-radius:6px;border:1.5px solid transparent;cursor:pointer;transition:background-color .2s,border-color .2s,color .2s}
-    .bp{background:var(--pr);color:#fff}.bp:hover{background:var(--prh)}
-    :root[data-theme="dark"] .bp{color:#0d1622}
-    .bg{background:transparent;border-color:var(--bd);color:var(--tx)}.bg:hover{border-color:var(--pr);color:var(--pr)}
-    .hero{display:grid;grid-template-columns:1.2fr .8fr;gap:28px;align-items:center}
-    @media(max-width:820px){.hero{grid-template-columns:1fr}}
-    .box{background:var(--card);border:1px solid var(--bd);padding:22px;border-radius:10px;box-shadow:var(--sh)}
-    select,input,textarea{width:100%;font-family:inherit;font-size:.93rem;color:var(--tx);background:var(--inp);border:1px solid var(--bd);border-radius:6px;padding:9px 12px;transition:border-color .2s}
-    select:focus,input:focus,textarea:focus{outline:2px solid var(--pr);outline-offset:1px}
-    textarea{resize:vertical;min-height:100px}
+.page{display:none;padding:28px 0}.page.active{display:block}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-family:inherit;font-weight:600;font-size:.95rem;padding:11px 18px;min-height:44px;border-radius:8px;border:1px solid transparent;cursor:pointer;text-decoration:none}
+.bp{background:var(--pr);color:#fff}.bp:hover{background:var(--prh)}
+:root[data-theme="dark"] .bp{color:#0d1622}
+.bg{background:transparent;border-color:var(--bd);color:var(--tx)}.bg:hover{border-color:var(--pr);color:var(--pr)}
+.hero{display:grid;grid-template-columns:1.2fr .8fr;gap:24px;align-items:center}
+@media(max-width:820px){.hero{grid-template-columns:1fr}}
+.box{background:var(--card);border:1px solid var(--bd);padding:20px;border-radius:10px;box-shadow:var(--sh)}
+select,input,textarea{width:100%;font-family:inherit;font-size:1rem;color:var(--tx);background:var(--inp);border:1px solid var(--bd);border-radius:8px;padding:10px 12px;min-height:44px}
+select:focus,input:focus,textarea:focus{outline:2px solid var(--pr);outline-offset:1px}
+textarea{resize:vertical;min-height:120px}
 
-    /* नए डायरेक्ट फॉर्म लिंक्स (Popular Direct Forms Hub) */
-    .pop-sec{margin-top:34px;padding:22px;background:var(--card);border:1px solid var(--bd);border-radius:12px;box-shadow:var(--sh)}
-    .pop-head{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid var(--bd)}
-    .pop-head h2{margin:0;font-size:1.2rem;display:flex;align-items:center;gap:8px}
-    .pop-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px}
-    .pop-card{display:flex;flex-direction:column;justify-content:space-between;text-decoration:none;color:inherit;background:var(--bg);border:1.5px solid var(--bd);border-radius:10px;padding:16px;transition:border-color .2s,transform .2s,box-shadow .2s;position:relative}
-    .pop-card:hover{border-color:var(--pr);transform:translateY(-2px);box-shadow:var(--sh)}
-    .pop-badges{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px}
-    .b-cat{background:var(--badge-bg);color:var(--badge-tx);font-size:.76rem;font-weight:600;padding:3px 10px;border-radius:6px;display:inline-flex;align-items:center;gap:4px}
-    .b-free{background:var(--free-bg);color:var(--free-tx);font-size:.76rem;font-weight:600;padding:3px 10px;border-radius:6px;display:inline-flex;align-items:center;gap:4px}
-    .pop-card h3{font-size:1.05rem;margin:0 0 6px;color:var(--tx);line-height:1.4}
-    .pop-card p{font-size:.84rem;color:var(--mu);margin:0 0 12px;line-height:1.5}
-    .pop-go{font-size:.85rem;font-weight:600;color:var(--pr);display:inline-flex;align-items:center;gap:4px}
+.pop-sec{margin-top:28px;padding:20px;background:var(--card);border:1px solid var(--bd);border-radius:10px;box-shadow:var(--sh)}
+.pop-head{display:flex;align-items:center;justify-content:space-between;gap:8px 12px;flex-wrap:wrap;margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid var(--bd)}
+.pop-head h2{margin:0;font-size:1.15rem}
+.pop-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px}
+.pop-card{display:flex;flex-direction:column;justify-content:space-between;text-decoration:none;color:inherit;background:var(--bg);border:1px solid var(--bd);border-radius:10px;padding:16px}
+.pop-badges{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px}
+.b-cat,.b-free{font-size:.75rem;font-weight:600;padding:3px 9px;border-radius:6px}
+.b-cat{background:var(--badge-bg);color:var(--badge-tx)}
+.b-free{background:var(--free-bg);color:var(--free-tx)}
+.pop-card h3{font-size:1rem;margin:0 0 6px;color:var(--tx)}
+.pop-card p{font-size:.87rem;color:var(--mu);margin:0 0 12px;line-height:1.55}
+.pop-go{font-size:.88rem;font-weight:600;color:var(--pr)}
 
-    .grid10{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:16px}
-    .cat{display:block;text-decoration:none;color:inherit;background:var(--card);border:1px solid var(--bd);border-radius:10px;padding:18px;cursor:pointer;transition:border-color .2s,transform .2s,box-shadow .2s}
-    .cat:hover{border-color:var(--pr);transform:translateY(-3px);box-shadow:var(--sh)}
-    .cat h3{font-size:1.05rem;margin-bottom:6px}.cat p{font-size:.84rem;color:var(--mu);margin:0 0 8px;line-height:1.5}
-    .gen{display:grid;grid-template-columns:1fr 1fr;gap:26px;align-items:start}
-    @media(max-width:880px){.gen{grid-template-columns:1fr}}
-    .f{margin-bottom:12px}.f label{display:block;font-size:.85rem;font-weight:600;color:var(--mu);margin-bottom:4px}
-    .row{display:grid;grid-template-columns:1fr 1fr;gap:10px}@media(max-width:520px){.row{grid-template-columns:1fr}}
-    fieldset{border:0;padding:0;margin:14px 0}legend{color:var(--pr);font-weight:700;margin-bottom:8px}
-    .pv{position:sticky;top:90px}
-    .paper{background:var(--paper);border:1px solid var(--bd);border-radius:6px;box-shadow:var(--sh);padding:28px;min-height:420px;white-space:pre-wrap;line-height:1.8}
-    .pa{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap}
-    .req{margin-top:24px;background:var(--card);border:1.5px dashed var(--bd);border-radius:8px;padding:18px;text-align:center}
-    .doc{max-width:74ch}.doc h3{margin-top:1.4em;font-size:1.1rem}.doc p{color:var(--mu);margin:0 0 .6em}
-    footer{border-top:1px solid var(--bd);padding:26px 0;color:var(--mu);font-size:.88rem;margin-top:40px;background:var(--card)}
-    .fg{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
-    .fl{display:flex;gap:10px;flex-wrap:wrap}.fl button,.fl a{background:none;border:0;color:var(--mu);cursor:pointer;font-family:inherit;text-decoration:none;font-size:inherit;transition:color .2s}.fl button:hover,.fl a:hover{color:var(--pr)}
-    #toast{display:none;position:fixed;bottom:calc(24px + env(safe-area-inset-bottom,0px));left:50%;transform:translateX(-50%);background:var(--pr);color:#fff;padding:8px 20px;border-radius:30px;font-size:.88rem;z-index:100}
-    :root[data-theme="dark"] #toast{color:#0d1622}
-    @media print{header,footer,.pa,.box,.req,.no-print{display:none!important}.page{display:none!important}#p-generator{display:block!important}.gen{display:block}.paper{border:0;box-shadow:none;background:#fff;color:#000;font-size:13pt}}
-  </style>
+.grid10{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px}
+.cat{display:block;text-decoration:none;color:inherit;background:var(--card);border:1px solid var(--bd);border-radius:10px;padding:16px}
+.cat h3{font-size:1.02rem;margin-bottom:6px}
+.cat p{font-size:.86rem;color:var(--mu);margin:0;line-height:1.55}
+@media(hover:hover){
+  .pop-card,.cat{transition:border-color .15s,box-shadow .15s}
+  .pop-card:hover,.cat:hover{border-color:var(--pr);box-shadow:0 3px 10px rgba(16,24,40,.1)}
+}
+@media(max-width:600px){.cat p{display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}}
+
+.gen{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:start}
+@media(max-width:880px){.gen{grid-template-columns:1fr}}
+.f{margin-bottom:12px}.f label{display:block;font-size:.86rem;font-weight:600;color:var(--mu);margin-bottom:4px}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media(max-width:520px){.row{grid-template-columns:1fr}}
+fieldset{border:0;padding:0;margin:14px 0}legend{color:var(--pr);font-weight:700;margin-bottom:8px;padding:0}
+.pv{position:sticky;top:84px}
+@media(max-width:880px){.pv{position:static}}
+.paper{background:var(--paper);border:1px solid var(--bd);border-radius:8px;box-shadow:var(--sh);padding:24px;min-height:360px;white-space:pre-wrap;overflow-wrap:anywhere;line-height:1.8}
+@media(max-width:520px){.paper{padding:16px;font-size:.95rem}}
+.pa{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap}
+.req{margin-top:20px;background:var(--card);border:1px dashed var(--bd);border-radius:8px;padding:16px;text-align:center}
+footer{border-top:1px solid var(--bd);padding:24px 0;color:var(--mu);font-size:.88rem;margin-top:36px;background:var(--card)}
+.fg{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.fl{display:flex;gap:6px 14px;flex-wrap:wrap}
+.fl a{color:var(--mu);text-decoration:none;padding:4px 0}.fl a:hover{color:var(--pr)}
+#toast{display:none;position:fixed;bottom:calc(24px + env(safe-area-inset-bottom,0px));left:50%;transform:translateX(-50%);background:var(--pr);color:#fff;padding:9px 20px;border-radius:30px;font-size:.88rem;z-index:100;max-width:90%;text-align:center}
+:root[data-theme="dark"] #toast{color:#0d1622}
+.grid10{grid-template-columns:repeat(auto-fill,minmax(220px,1fr))}
+.cat{display:flex;flex-direction:column;justify-content:space-between;gap:10px;padding:16px}
+.cat h3{margin:0;font-size:1rem}
+.cnt{align-self:flex-start;background:var(--badge-bg);color:var(--badge-tx);font-size:.8rem;font-weight:600;padding:3px 10px;border-radius:20px}
+/* हर श्रेणी का अलग रंग (लाइट व नाइट दोनों के लिए) */
+.grid10 .cat:nth-child(1){--h:25}
+.grid10 .cat:nth-child(2){--h:145}
+.grid10 .cat:nth-child(3){--h:215}
+.grid10 .cat:nth-child(4){--h:350}
+.grid10 .cat:nth-child(5){--h:42}
+.grid10 .cat:nth-child(6){--h:172}
+.grid10 .cat:nth-child(7){--h:268}
+.grid10 .cat:nth-child(8){--h:195}
+.grid10 .cat:nth-child(9){--h:322}
+.grid10 .cat:nth-child(10){--h:95}
+.grid10{grid-auto-rows:1fr;padding-top:4px}
+.cat{--h:215;--ac:hsl(var(--h) 62% 44%);--cb:hsl(var(--h) 75% 94%);--ct:hsl(var(--h) 70% 28%);border-top:4px solid var(--ac);border-radius:12px;padding:16px}
+:root[data-theme="dark"] .cat{--ac:hsl(var(--h) 70% 62%);--cb:hsl(var(--h) 45% 24%);--ct:hsl(var(--h) 90% 82%)}
+.cat h3{color:var(--tx)}
+.cnt{background:var(--cb);color:var(--ct)}
+@media(hover:hover){.cat{transition:transform .15s,box-shadow .15s}.cat:hover{transform:translateY(-3px);box-shadow:0 8px 20px rgba(0,0,0,.14);border-color:var(--bd);border-top-color:var(--ac)}}
+.sample-wrap{max-width:460px;width:100%;justify-self:center}
+.sample{position:relative;background:#fff;color:#1a2330;border:1px solid #d5dbe3;border-radius:6px;padding:26px 22px 20px;font-size:.84rem;line-height:1.7;box-shadow:7px 7px 0 -1px rgba(31,78,140,.14),0 10px 28px rgba(0,0,0,.14)}
+.sample::before{content:"";position:absolute;left:0;right:0;top:0;height:5px;background:var(--pr);border-radius:6px 6px 0 0}
+.sample-tag{position:absolute;top:-11px;left:16px;background:var(--pr);color:#fff;font-size:.72rem;font-weight:700;padding:2px 12px;border-radius:20px}
+:root[data-theme="dark"] .sample-tag{color:#0d1622}
+.sl{margin:0 0 9px}.sl.r{text-align:right}
+.sample-note{margin:14px 0 0;text-align:center;font-size:.8rem;color:var(--mu)}
+@media(max-width:520px){.sample{padding:22px 16px 16px;font-size:.8rem}}
+:root[data-theme="dark"] footer{background:var(--bg)}
+/* फुटर: लाइट मोड में भी नाइट मोड जैसा गहरा रंग */
+footer{background:#1b2129;border-top-color:#313a47;color:#9aa6b4}
+footer .fl a{color:#9aa6b4}footer .fl a:hover{color:#6ea3e6}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+@media print{header,footer,.pa,.box,.req,.no-print{display:none!important}.page{display:none!important}#p-generator{display:block!important}.gen{display:block}.paper{border:0;box-shadow:none;background:#fff;color:#000;font-size:13pt}}
+</style>
 </head>
 <body>
 <header class="site">
   <div class="bar">
     <a class="brand" href="/">
-      <img src="favicon.png" alt="Application Helper Logo">
+      <img src="favicon.png" alt="Application Helper Logo" width="36" height="36" decoding="async">
       <div class="brand-text">
         <strong data-i="brand">Application Helper</strong>
         <span data-i="sub">औपचारिक पत्र, तुरंत तैयार करें</span>
@@ -238,16 +238,24 @@
             <button class="btn bp" id="quickBtn" style="width:100%" data-i="writeBtn" type="button">पत्र लिखें →</button>
           </div>
         </div>
-        <div class="box" style="text-align:center">
-          <h3 data-i="fastH">⚡ तुरंत और सुरक्षित</h3>
-          <p data-i="fastP" style="font-size:.9rem;color:var(--mu);margin:0">कोई रजिस्ट्रेशन नहीं। आपका भरा विवरण हमारे सर्वर पर नहीं जाता, सब कुछ आपके मोबाइल/कंप्यूटर में ही रहता है।</p>
+        <div class="sample-wrap">
+          <div class="sample" aria-label="नमूना आवेदन पत्र">
+            <span class="sample-tag">नमूना पत्र</span>
+            <div class="sl r">दिनांक: <span id="sampleDate">18/11/2026</span></div>
+            <div class="sl">सेवा में,<br>श्रीमान शाखा प्रबंधक महोदय,<br>भारतीय स्टेट बैंक, लखनऊ शाखा</div>
+            <div class="sl"><b>विषय: बैंक खाते में मोबाइल नंबर अपडेट कराने हेतु।</b></div>
+            <div class="sl">महोदय,<br>सविनय निवेदन है कि मेरा बचत खाता (खाता संख्या XXXX1234) आपकी शाखा में है। मेरा पुराना मोबाइल नंबर बंद हो चुका है, अतः कृपया मेरा नया मोबाइल नंबर 98XXXXXX10 खाते में अपडेट करने की कृपा करें।</div>
+            <div class="sl">सधन्यवाद।</div>
+            <div class="sl r">भवदीय<br><b>राहुल शर्मा</b><br>मोबाइल: 98XXXXXX10</div>
+          </div>
+          <p class="sample-note"></p>
         </div>
       </div>
 
       <!-- डायरेक्ट फॉर्म पेजों के लिंक लगाने की जगह -->
       <div class="pop-sec" id="popular-forms">
         <div class="pop-head">
-          <h2>🔥 सर्वाधिक उपयोग किए जाने वाले आवेदन पत्र (सीधे प्रिंट करें)</h2>
+          <h2>सर्वाधिक उपयोग किए जाने वाले आवेदन पत्र (सीधे प्रिंट करें)</h2>
           <span style="font-size:.85rem;color:var(--mu)">तैयार फॉर्म में जानकारी भरें और 1 क्लिक में A4 प्रिंट निकालें</span>
         </div>
 
@@ -304,6 +312,18 @@
             <span class="pop-go">फॉर्म भरें और प्रिंट करें →</span>
           </a>
 
+<!-- 5. मकान / संपत्ति पर जबरन कब्जे की शिकायत हेतु आवेदन पत्र -->
+          <a href="https://applicationhelper.in/police-property-grabbing-complaint.html" class="pop-card">
+            <div>
+              <div class="pop-badges">
+                <span class="b-cat">👮‍♂️ पुलिस सेवाएं </span>
+                <span class="b-free">🔒 100% सुरक्षित एवं निःशुल्क</span>
+              </div>
+              <h3>मकान / संपत्ति पर जबरन कब्जे की शिकायत करने का कार्ड  </h3>
+              <p>मकान / संपत्ति पर जबरन कब्जे की शिकायत हेतु आवेदन पत्र तैयार करें। अपनी जानकारी भरें और तैयार आवेदन पत्र को सीधे प्रिंट करें। </p>
+            </div>
+            <span class="pop-go">फॉर्म भरें और प्रिंट करें →</span>
+          </a>
 
 
           <!-- भविष्य में अन्य नए फॉर्म पेज जोड़ने के लिए बस ऊपर वाले <a class="pop-card">...</a> ब्लॉक को कॉपी-पेस्ट करें -->
@@ -319,43 +339,43 @@
       <div class="grid10" id="cats">
         <a href="tehsil.html" class="cat">
           <h3>1. तहसील, राजस्व एवं भूमि</h3>
-          <p>भूमि की पैमाइश, सीमांकन, मेड़ व कब्जे संबंधी विवाद, दाखिल-खारिज, वरासत, खतौनी में नाम सुधार, अधिवास, EWS, हैसियत प्रमाण पत्र एवं फसल क्षति मुआवजे से संबंधी आवेदन।</p>
+          <span class="cnt">10+ प्रकार के आवेदन</span>
         </a>
         <a href="panchayat.html" class="cat">
           <h3>2. ग्राम पंचायत, ब्लॉक व नगर निकाय</h3>
-          <p>जन्म / मृत्यु प्रमाण पत्र, विलंब से जन्म / मृत्यु प्रमाण पत्र, सफाई व्यवस्था व कूड़ा निस्तारण, सड़क, नाली व जलभराव समस्या, पेयजल व हैंडपंप मरम्मत/रिबोर, आवास योजना, मनरेगा संबंधी आवेदन।</p>
+          <span class="cnt">8+ प्रकार के आवेदन</span>
         </a>
         <a href="bank.html" class="cat">
           <h3>3. बैंक एवं वित्तीय सेवाएं</h3>
-          <p>खाता बंद / चालू / सिंगल, मोबाइल व ईमेल अपडेट, KYC / Re-KYC अपडेट, ATM / डेबिट कार्ड, नई चेकबुक / स्टॉप पेमेंट, नई पासबुक जारी कराना, खाता शाखा ट्रांसफर, नॉमिनी जोड़ना / बदलना संबंधी आवेदन।</p>
+          <span class="cnt">8+ प्रकार के आवेदन</span>
         </a>
         <a href="police.html" class="cat">
           <h3>4. पुलिस विभाग एवं कानून व्यवस्था</h3>
-          <p>मोबाइल / दस्तावेज़ गुम, वाहन व अन्य चोरी शिकायत, गुमशुदगी रिपोर्ट, साइबर ठगी शिकायत, विवाद / गाली-गलौज व धमकी शिकायत, मारपीट व हमला शिकायत, भूमि / संपत्ति अवैध कब्जा शिकायत संबंधी आवेदन।</p>
+          <span class="cnt">7+ प्रकार के आवेदन</span>
         </a>
         <a href="bijli.html" class="cat">
           <h3>5. विद्युत विभाग</h3>
-          <p>गलत बिल सुधार, मीटर खराब / बदलना, नया कनेक्शन (घरेलू/व्यावसायिक), लोड बढ़ाना / घटाना, नाम परिवर्तन, कनेक्शन विच्छेदन, ट्रांसफार्मर समस्या, जर्जर तार व झुका खंभा शिकायत संबंधी आवेदन।</p>
+          <span class="cnt">8+ प्रकार के आवेदन</span>
         </a>
         <a href="swasthya.html" class="cat">
           <h3>6. स्वास्थ्य एवं चिकित्सा</h3>
-          <p>दिव्यांगता प्रमाण पत्र (UDID), आयुष्मान कार्ड (नाम जोड़ना / सुधार), मेडिकल सिकनेस व फिटनेस सर्टिफिकेट (कार्यालय / स्कूल), सरकारी अस्पताल शिकायत (डॉक्टर अनुपस्थिति / दवा अनुपलब्धता) संबंधी आवेदन।</p>
+          <span class="cnt">4+ प्रकार के आवेदन</span>
         </a>
         <a href="shiksha.html" class="cat">
           <h3>7. स्कूल, कॉलेज एवं शिक्षा</h3>
-          <p>अवकाश आवेदन (बीमारी / घरेलू कार्य / विवाह), फीस माफी (पूर्ण व आंशिक), स्थानांतरण प्रमाण पत्र (TC), चरित्र प्रमाण पत्र (CC), डुप्लीकेट अंकतालिका, अंकतालिका व प्रमाण पत्र में नाम / जन्मतिथि सुधार संबंधी आवेदन।</p>
+          <span class="cnt">6+ प्रकार के आवेदन</span>
         </a>
         <a href="dak-parivahan.html" class="cat">
           <h3>8. डाकघर एवं परिवहन (RTO)</h3>
-          <p>वाहन स्वामित्व ट्रांसफर, ड्राइविंग लाइसेंस (डुप्लीकेट / नवीनीकरण / सुधार), वाहन RC (डुप्लीकेट / पता सुधार / निरस्तीकरण), वाहन NOC व फिटनेस प्रमाण पत्र, वाहन परमिट व बीमा अपडेट संबंधी आवेदन।</p>
+          <span class="cnt">5+ प्रकार के आवेदन</span>
         </a>
         <a href="rti.html" class="cat">
           <h3>9. सूचना का अधिकार (RTI)</h3>
-          <p>ग्राम पंचायत विकास कार्य व व्यय, भर्ती परीक्षा (OMR शीट / अंक / कट-ऑफ), सड़क व नाली निर्माण (टेंडर / लागत / गुणवत्ता), राशन दुकान आवंटन व लाभार्थी सूची, पुलिस शिकायत कार्रवाई स्थिति संबंधी आवेदन।</p>
+          <span class="cnt">5+ प्रकार के आवेदन</span>
         </a>
         <a href="daftar.html" class="cat">
           <h3>10. दफ्तर, नौकरी एवं कार्यस्थल</h3>
-          <p>आकस्मिक व मेडिकल अवकाश, अर्जित अवकाश, मातृत्व व पितृत्व अवकाश, गृह जनपद / शाखा स्थानांतरण, बकाया वेतन भुगतान, वेतन वृद्धि, वेतन पर्ची, अनुभव प्रमाण पत्र, त्यागपत्र संबंधी आवेदन।</p>
+          <span class="cnt">9+ प्रकार के आवेदन</span>
         </a>
       </div>
     </div>
@@ -680,7 +700,7 @@ function setTheme(d){
   try{localStorage.setItem("app_theme",d?"dark":"light")}catch(e){}
   setThemeLabel();
 }
-try{dark=localStorage.getItem("app_theme")==="dark"}catch(e){}
+try{var sv=localStorage.getItem("app_theme");dark=sv?sv==="dark":(window.matchMedia&&matchMedia("(prefers-color-scheme: dark)").matches)}catch(e){}
 $("themeBtn").addEventListener("click",function(){setTheme(!dark)});
 document.documentElement.setAttribute("data-theme",dark?"dark":"light");
 
@@ -752,6 +772,7 @@ window.validateContactForm = function(e){
 };
 
 initDate();
+(function(){var e=$("sampleDate");if(e){var d=new Date();e.textContent=String(d.getDate()).padStart(2,"0")+"/"+String(d.getMonth()+1).padStart(2,"0")+"/"+d.getFullYear()}})();
 build();
 initCaptcha();
 })();
