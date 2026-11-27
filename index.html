@@ -122,15 +122,38 @@ textarea{resize:vertical;min-height:120px}
 .pop-sec{margin-top:28px;padding:20px;background:var(--card);border:1px solid var(--bd);border-radius:10px;box-shadow:var(--sh)}
 .pop-head{display:flex;align-items:center;justify-content:space-between;gap:8px 12px;flex-wrap:wrap;margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid var(--bd)}
 .pop-head h2{margin:0;font-size:1.15rem}
-.pop-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px}
-.pop-card{display:flex;flex-direction:column;justify-content:space-between;text-decoration:none;color:inherit;background:var(--bg);border:1px solid var(--bd);border-radius:10px;padding:16px}
+/* ---- लोकप्रिय फॉर्म कार्ड: हर स्क्रीन पर साफ़ दिखें, एक बार में केवल 3 कार्ड ---- */
+.pop-tabs{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 16px}
+.pop-tab{font:inherit;font-size:.88rem;font-weight:600;line-height:1.3;color:var(--tx);background:var(--bg);border:1px solid var(--bd);border-radius:999px;padding:8px 14px;min-height:40px;cursor:pointer;display:inline-flex;align-items:center;gap:6px}
+.pop-tab em{font-style:normal;font-size:.76rem;font-weight:700;background:var(--badge-bg);color:var(--badge-tx);border-radius:999px;padding:1px 8px}
+.pop-tab[aria-pressed="true"]{background:var(--pr);border-color:var(--pr);color:#fff}
+:root[data-theme="dark"] .pop-tab[aria-pressed="true"]{color:#0d1622}
+.pop-tab[aria-pressed="true"] em{background:rgba(255,255,255,.22);color:inherit}
+.pop-tab:focus-visible,.pop-nav button:focus-visible,.pop-card:focus-visible{outline:2px solid var(--pr);outline-offset:2px}
+.pop-grid{display:grid;grid-template-columns:1fr;gap:14px;grid-auto-rows:1fr}
+@media(min-width:760px){.pop-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.pop-card{display:flex;flex-direction:column;justify-content:space-between;gap:14px;text-decoration:none;color:inherit;background:var(--bg);border:1px solid var(--bd);border-radius:14px;padding:16px;min-width:0}
+.pop-card[hidden]{display:none!important}
+.pop-card.in{animation:popIn .28s ease both}
+@keyframes popIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+@media(prefers-reduced-motion:reduce){.pop-card.in{animation:none}}
 .pop-badges{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px}
-.b-cat,.b-free{font-size:.75rem;font-weight:600;padding:3px 9px;border-radius:6px}
+.b-cat,.b-free{font-size:.74rem;font-weight:600;line-height:1.4;padding:3px 9px;border-radius:6px}
 .b-cat{background:var(--badge-bg);color:var(--badge-tx)}
 .b-free{background:var(--free-bg);color:var(--free-tx)}
-.pop-card h3{font-size:1rem;margin:0 0 6px;color:var(--tx)}
-.pop-card p{font-size:.87rem;color:var(--mu);margin:0 0 12px;line-height:1.55}
-.pop-go{font-size:.88rem;font-weight:600;color:var(--pr)}
+.pop-card h3{font-size:1.02rem;line-height:1.45;margin:0 0 6px;color:var(--tx);overflow-wrap:anywhere}
+.pop-card p{font-size:.88rem;color:var(--mu);margin:0;line-height:1.6;overflow-wrap:anywhere;display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
+.pop-go{display:flex;align-items:center;justify-content:center;min-height:44px;padding:10px 14px;border-radius:10px;background:var(--pr);color:#fff;font-size:.9rem;font-weight:700;text-align:center}
+:root[data-theme="dark"] .pop-go{color:#0d1622}
+.pop-nav{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:16px}
+.pop-nav[hidden]{display:none}
+.pop-nav button{font:inherit;font-size:.92rem;font-weight:700;color:var(--pr);background:var(--card);border:1px solid var(--pr);border-radius:10px;padding:10px 16px;min-height:44px;min-width:104px;cursor:pointer}
+.pop-nav button:disabled{opacity:.4;cursor:not-allowed;border-color:var(--bd);color:var(--mu)}
+.pop-info{display:flex;flex-direction:column;align-items:center;gap:6px;font-size:.84rem;color:var(--mu)}
+.pop-dots{display:flex;gap:6px}
+.pop-dots i{width:8px;height:8px;border-radius:50%;background:var(--bd)}
+.pop-dots i.on{background:var(--pr);width:20px;border-radius:6px}
+@media(max-width:480px){.pop-sec{padding:14px 12px}.pop-nav button{min-width:0;flex:1}.pop-info{flex:0 0 auto}}
 
 .grid10{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px}
 .cat{display:block;text-decoration:none;color:inherit;background:var(--card);border:1px solid var(--bd);border-radius:10px;padding:16px}
@@ -195,6 +218,80 @@ footer{background:#1b2129;border-top-color:#313a47;color:#9aa6b4}
 footer .fl a{color:#9aa6b4}footer .fl a:hover{color:#6ea3e6}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 @media print{header,footer,.pa,.box,.req,.no-print{display:none!important}.page{display:none!important}#p-generator{display:block!important}.gen{display:block}.paper{border:0;box-shadow:none;background:#fff;color:#000;font-size:13pt}}
+
+/* ================= MOBILE FRIENDLY IMPROVEMENTS ================= */
+html{overflow-x:hidden}
+body{overflow-x:hidden;-webkit-tap-highlight-color:transparent}
+a,button,select,input,textarea{touch-action:manipulation}
+img,svg,video{max-width:100%;height:auto}
+.wrap,.bar{padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+
+/* मेनू: खुलने पर स्क्रीन से बड़ा न हो, स्क्रॉल हो सके, बड़े टैप-एरिया */
+@media(max-width:980px){
+  nav.main.open{max-height:calc(100vh - 120px);max-height:calc(100dvh - 120px);overflow-y:auto;-webkit-overflow-scrolling:touch}
+  nav.main a{display:flex;align-items:center;min-height:48px}
+  nav.main a:last-child{border-bottom:0}
+  .tg{min-width:44px;justify-content:center;font-size:1.1rem}
+}
+
+/* टैबलेट / बड़े फोन */
+@media(max-width:760px){
+  .page{padding:18px 0}
+  h1{font-size:1.5rem}
+  .hero{gap:20px}
+  .box{padding:16px}
+
+  /* लोकप्रिय फॉर्म: श्रेणी-टैब एक लाइन में, साइड-स्वाइप से खिसकें */
+  .pop-sec{margin-top:22px;padding:14px 12px}
+  .pop-head h2{font-size:1.05rem}
+  .pop-head span{font-size:.8rem}
+  .pop-tabs{flex-wrap:nowrap;overflow-x:auto;margin:0 -12px 14px;padding:2px 12px 6px;
+    -webkit-overflow-scrolling:touch;scrollbar-width:none;scroll-snap-type:x proximity}
+  .pop-tabs::-webkit-scrollbar{display:none}
+  .pop-tab{flex:0 0 auto;white-space:nowrap;scroll-snap-align:start}
+  .pop-card{padding:14px;gap:12px;border-radius:12px}
+  .pop-card h3{font-size:1rem}
+  .pop-card p{-webkit-line-clamp:3}
+  .pop-go{min-height:46px}
+
+  /* 10 श्रेणियां: फोन पर 2 कॉलम, स्क्रॉल कम */
+  .grid10{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+  .cat{padding:12px;gap:8px}
+  .cat h3{font-size:.9rem;line-height:1.4}
+  .cnt{font-size:.72rem;padding:2px 8px}
+
+  /* नमूना पत्र */
+  .sample-wrap{max-width:100%}
+  .sample{box-shadow:4px 4px 0 -1px rgba(31,78,140,.14),0 6px 18px rgba(0,0,0,.12)}
+
+  /* जनरेटर: प्रिव्यू छोटा, बटन आसानी से टैप हों */
+  .paper{min-height:240px}
+  .pa{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+  .pa .btn:first-child{grid-column:1/-1}
+  .f label{font-size:.9rem}
+
+  /* फुटर */
+  .fg{flex-direction:column;gap:14px}
+  .fl a{padding:8px 0}
+  footer{padding:20px 0 calc(20px + env(safe-area-inset-bottom,0px))}
+}
+
+/* छोटे फोन */
+@media(max-width:520px){
+  .wrap{padding-left:max(14px,env(safe-area-inset-left,0px));padding-right:max(14px,env(safe-area-inset-right,0px))}
+  .bar{padding-left:max(14px,env(safe-area-inset-left,0px));padding-right:max(14px,env(safe-area-inset-right,0px))}
+  h2{font-size:1.2rem}
+}
+
+/* बहुत छोटी स्क्रीन (320–380px) */
+@media(max-width:380px){
+  #themeBtn #thT{display:none}
+  .brand span{display:none}
+}
+@media(max-width:340px){
+  .grid10{grid-template-columns:1fr}
+}
+/* ================= END MOBILE PATCH ================= */
 </style>
 </head>
 <body>
@@ -319,13 +416,13 @@ footer .fl a{color:#9aa6b4}footer .fl a:hover{color:#6ea3e6}
                 <span class="b-cat">👮‍♂️ पुलिस सेवाएं </span>
                 <span class="b-free">🔒 100% सुरक्षित एवं निःशुल्क</span>
               </div>
-              <h3>मकान / संपत्ति पर जबरन कब्जे की शिकायत करने का कार्ड  </h3>
+              <h3>मकान / संपत्ति पर जबरन कब्जे की शिकायत हेतु आवेदन पत्र</h3>
               <p>मकान / संपत्ति पर जबरन कब्जे की शिकायत हेतु आवेदन पत्र तैयार करें। अपनी जानकारी भरें और तैयार आवेदन पत्र को सीधे प्रिंट करें। </p>
             </div>
             <span class="pop-go">फॉर्म भरें और प्रिंट करें →</span>
           </a>
 
-<!-- 6. मकान / संपत्ति पर जबरन कब्जे की शिकायत हेतु आवेदन पत्र -->
+<!-- 6. बैंक खाते से अनधिकृत निकासी की शिकायत -->
           <a href="https://applicationhelper.in/police-unauthorized-bank-withdrawal.html" class="pop-card">
             <div>
               <div class="pop-badges">
@@ -373,6 +470,19 @@ footer .fl a{color:#9aa6b4}footer .fl a:hover{color:#6ea3e6}
               </div>
               <h3>प्रमाण पत्र में नाम सुधार हेतु आवेदन</h3>
               <p>प्रमाण पत्र में नाम सुधार हेतु आवेदन तैयार करें। अपनी जानकारी भरें और तैयार आवेदन पत्र को सीधे प्रिंट करें। </p>
+            </div>
+            <span class="pop-go">फॉर्म भरें और प्रिंट करें →</span>
+          </a>
+
+<!-- 10. गलत बिजली बिल सुधार आवेदन पत्र -->
+          <a href="https://applicationhelper.in/wrong-electricity-bill-correction-application.html" class="pop-card">
+            <div>
+              <div class="pop-badges">
+                <span class="b-cat">⚡ विद्युत सेवाएं  </span>
+                <span class="b-free">🔒 100% सुरक्षित एवं निःशुल्क</span>
+              </div>
+              <h3>गलत बिजली बिल सुधार आवेदन पत्र हिंदी में </h3>
+              <p>गलत बिजली बिल सुधार के लिए आवेदन पत्र हिंदी में लिखना सीखें। गलत बिल राशि, मीटर रीडिंग या अन्य त्रुटियों को ठीक करवाने के लिए आवेदन और शिकायत के तरीके भी जानें।</p>
             </div>
             <span class="pop-go">फॉर्म भरें और प्रिंट करें →</span>
           </a>
@@ -828,6 +938,94 @@ initDate();
 (function(){var e=$("sampleDate");if(e){var d=new Date();e.textContent=String(d.getDate()).padStart(2,"0")+"/"+String(d.getMonth()+1).padStart(2,"0")+"/"+d.getFullYear()}})();
 build();
 initCaptcha();
+})();
+</script>
+
+<script>
+/* लोकप्रिय फॉर्म: श्रेणी के अनुसार छांटें, एक बार में 3 कार्ड, "अगला" पर अगले 3 */
+(function(){
+  var sec=document.getElementById("popular-forms"); if(!sec) return;
+  var grid=sec.querySelector(".pop-grid"); if(!grid) return;
+  var cards=[].slice.call(grid.querySelectorAll(".pop-card")); if(!cards.length) return;
+  var PER=3, filter="all", page=0, cats=[], counts={};
+  function txt(n){return (n.textContent||"").replace(/\s+/g," ").trim();}
+  cards.forEach(function(c){
+    var b=c.querySelector(".b-cat"), k=b?txt(b):"अन्य";
+    c.setAttribute("data-cat",k);
+    if(!counts[k]){counts[k]=0;cats.push(k);} counts[k]++;
+  });
+  var tabs=document.createElement("div"); tabs.className="pop-tabs"; tabs.setAttribute("role","group"); tabs.setAttribute("aria-label","श्रेणी चुनें");
+  function mkTab(key,label,n){
+    var b=document.createElement("button"); b.type="button"; b.className="pop-tab"; b.setAttribute("data-k",key);
+    b.innerHTML='<span></span><em>'+n+'</em>'; b.firstChild.textContent=label;
+    b.addEventListener("click",function(){filter=key;page=0;render(false);}); tabs.appendChild(b);
+  }
+  mkTab("all","सभी",cards.length); cats.forEach(function(k){mkTab(k,k,counts[k]);});
+  grid.parentNode.insertBefore(tabs,grid);
+  if(cats.length<2) tabs.hidden=true;
+
+  var nav=document.createElement("div"); nav.className="pop-nav"; nav.setAttribute("aria-label","पेज बदलें");
+  nav.innerHTML='<button type="button" class="pv">← पिछला</button><div class="pop-info" aria-live="polite"><span class="pg"></span><span class="pop-dots"></span></div><button type="button" class="nx">अगला →</button>';
+  grid.parentNode.insertBefore(nav,grid.nextSibling);
+  var pv=nav.querySelector(".pv"), nx=nav.querySelector(".nx"), pg=nav.querySelector(".pg"), dots=nav.querySelector(".pop-dots");
+
+  function list(){return cards.filter(function(c){return filter==="all"||c.getAttribute("data-cat")===filter;});}
+  function render(keepScroll){
+    var L=list(), pages=Math.max(1,Math.ceil(L.length/PER));
+    if(page>=pages) page=pages-1; if(page<0) page=0;
+    cards.forEach(function(c){c.hidden=true;c.classList.remove("in");});
+    L.slice(page*PER,page*PER+PER).forEach(function(c){c.hidden=false;void c.offsetWidth;c.classList.add("in");});
+    [].forEach.call(tabs.children,function(b){b.setAttribute("aria-pressed",b.getAttribute("data-k")===filter?"true":"false");});
+    nav.hidden=pages<2;
+    pg.textContent="पेज "+(page+1)+" / "+pages;
+    dots.innerHTML=""; for(var i=0;i<pages;i++){var d=document.createElement("i"); if(i===page)d.className="on"; dots.appendChild(d);}
+    pv.disabled=page===0; nx.disabled=page>=pages-1;
+    if(keepScroll){var r=sec.getBoundingClientRect(); if(r.top<0) sec.scrollIntoView({block:"start",behavior:"smooth"});}
+  }
+  pv.addEventListener("click",function(){page--;render(true);});
+  nx.addEventListener("click",function(){page++;render(true);});
+  /* फोन पर स्वाइप: बाएँ = अगला, दाएँ = पिछला */
+  var sx=null,sy=null;
+  grid.addEventListener("touchstart",function(e){var t=e.touches[0];sx=t.clientX;sy=t.clientY;},{passive:true});
+  grid.addEventListener("touchend",function(e){
+    if(sx===null) return; var t=e.changedTouches[0], dx=t.clientX-sx, dy=t.clientY-sy; sx=null;
+    if(Math.abs(dx)>60&&Math.abs(dx)>Math.abs(dy)*1.5){ if(dx<0&&!nx.disabled){page++;render(true);} else if(dx>0&&!pv.disabled){page--;render(true);} }
+  },{passive:true});
+  render(false);
+})();
+</script>
+
+<script>
+/* मोबाइल मेनू: ☰ ↔ ✕, बाहर टैप / Esc से बंद, aria-expanded */
+(function(){
+  var b=document.getElementById("navToggle"),n=document.getElementById("mainNav");
+  if(!b||!n)return;
+  b.setAttribute("aria-controls","mainNav");
+  function sync(){
+    var o=n.classList.contains("open");
+    b.setAttribute("aria-expanded",o?"true":"false");
+    b.textContent=o?"✕":"☰";
+  }
+  sync();
+  b.addEventListener("click",function(){setTimeout(sync,0)});
+  document.addEventListener("click",function(e){
+    if(n.classList.contains("open")&&!n.contains(e.target)&&!b.contains(e.target)){n.classList.remove("open");sync()}
+  });
+  document.addEventListener("keydown",function(e){
+    if(e.key==="Escape"&&n.classList.contains("open")){n.classList.remove("open");sync();b.focus()}
+  });
+})();
+
+/* लोकप्रिय फॉर्म के टैब: चुना हुआ टैब स्क्रीन के बीच में आ जाए */
+(function(){
+  var tabs=document.querySelector(".pop-tabs");
+  if(!tabs)return;
+  tabs.addEventListener("click",function(){
+    setTimeout(function(){
+      var a=tabs.querySelector('[aria-pressed="true"]');
+      if(a&&a.scrollIntoView)a.scrollIntoView({inline:"center",block:"nearest",behavior:"smooth"});
+    },0);
+  });
 })();
 </script>
 </body>
